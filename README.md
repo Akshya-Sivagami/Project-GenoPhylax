@@ -169,49 +169,6 @@ The final GRI framework will provide a unified quantitative measure of genomic c
 
 ---
 
-## Repository Structure
-
-```
-Project-GenoPhylax/
-
-│
-├── docs/
-│   ├── roadmap/
-│   ├── mentor_deliverables/
-│   ├── literature_reviews/
-│   ├── diagrams/
-│   └── presentations/
-│
-├── research/
-│   ├── genomic_privacy/
-│   ├── dna_attacks/
-│   ├── graph_models/
-│   ├── risk_index/
-│   └── notes/
-│
-├── datasets/
-│   ├── metadata/
-│   └── dataset_comparisons/
-│
-├── experiments/
-│   ├── A1_memory_audit/
-│   ├── A2_adversarial_dna/
-│   ├── A3_clinical_mapping/
-│   ├── B1_graph_amplification/
-│   ├── B2_vault_design/
-│   ├── B3_authentication/
-│   └── GRI_validation/
-│
-├── paper/
-│   ├── drafts/
-│   ├── figures/
-│   └── references/
-│
-└── README.md
-```
-
----
-
 ## Current Status
 
 ### Mentor Roadmap Progress
