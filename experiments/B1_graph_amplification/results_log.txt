@@ -1,0 +1,22 @@
+# Module B1 - Graph Amplification Results Log
+
+## Simulation Parameters & Scope
+- **Population:** 2,061 nodes across 500 families
+- **Total Kinship Edges:** 41,089
+- **Initial Baseline Registration:** 40% (824 DTC users)
+
+## Calibration Runs
+| Run ID | Cousin Prob (`cp`) | Amplification Factor   | Delta from Target (492.86x) | Error %        |
+| Run 01 | 0.30               | 650.0x                 | +157.14x                    | +32.0%         |
+| Run 02 | Variable           | 2110.0x (Dense Sample) | +1617.14x                   | Over-saturated |
+| Run 03 | 0.20 (Optimal)     | 464.4x                 | -28.46x                     | -5.8%          |
+
+## GRI D6 Risk Score Matrix
+- **Isolated Research DB / Hospital EHR:** 0.41 - 1.22 (Minimal risk; no structural kinship propagation)
+- **Research Biobank:** 6.34 (High risk; family enrollment habits create implicit ~80x paths)
+- **National / Major DTC (23andMe Scale):** 9.79 - 10.00 (Critical blast radius)
+
+## Saved Artifacts
+- `plots/amplification_results.png`
+- `plots/gri_d6_scores.png`
+- `plots/calibration_tuning.png` 
