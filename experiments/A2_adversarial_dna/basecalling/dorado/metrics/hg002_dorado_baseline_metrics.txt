@@ -1,0 +1,27 @@
+# HG002 Dorado HAC Baseline Metrics
+
+Dataset: ONT GIAB HG002 / GM24385
+Input: 3 POD5 files
+Raw input size: approximately 2.3 GiB
+Chemistry: R10.4.1
+Basecaller: Dorado 2.1.0+48ab35d
+Model: dna_r10.4.1_e8.2_400bps_hac@v6.0.0
+Device: NVIDIA GB10, CUDA 13
+
+Input reads basecalled: 11,999
+Output BAM records: 12,703
+Additional records attributable to automatic read splitting: 704
+Additional-record proportion relative to input reads: 5.87%
+
+Dorado pipeline time: 106.779 seconds
+Total wall-clock time: 132.75 seconds
+Throughput: 2.542309e+07 samples/second
+Maximum resident set size: 5,026,180 KiB
+Swap activity: 0
+Exit status: 0
+
+Interpretation:
+The clean HG002 subset was successfully basecalled on the ARM64 NVIDIA GB10.
+Dorado sustained high GPU compute utilization during active inference. The
+output record count exceeds the input-read count because Dorado automatically
+splits concatenated raw reads into separate subreads.

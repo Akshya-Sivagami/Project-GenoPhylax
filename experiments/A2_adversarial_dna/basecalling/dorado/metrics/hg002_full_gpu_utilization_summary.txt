@@ -1,0 +1,6 @@
+All monitor samples: 169
+Overall mean SM utilization: 70.78%
+Active samples: 130
+Mean active SM utilization: 92.01%
+Peak SM utilization: 96%
+Active samples at >=90% SM: 122 (93.85%)
