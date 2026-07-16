@@ -29,3 +29,13 @@ cache/
 
 # Secrets
 .env
+# A2 Nanopore large data and generated files
+*.pod5
+*.fast5
+*.bam
+*.bai
+*.sam
+*.fastq
+*.fastq.gz
+*.tar.gz
+models/

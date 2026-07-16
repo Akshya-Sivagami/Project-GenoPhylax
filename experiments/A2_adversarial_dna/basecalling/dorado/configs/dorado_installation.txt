@@ -1,0 +1,19 @@
+Dorado version: 2.1.0
+Build: Linux ARM64 CUDA 13.0
+Platform: NVIDIA GB10 / DGX Spark class
+Installation path:
+~/tools/dorado/dorado-2.1.0-linux-arm64-cuda-13.0/
+
+Official package:
+dorado-2.1.0-linux-arm64-cuda-13.0.tar.gz
+
+Raw dataset location:
+~/datasets/hg002/pod5/
+
+Dataset:
+ONT GIAB HG002 / GM24385
+Chemistry:
+R10.4.1
+
+Actual version output:
+2.1.0+48ab35d
