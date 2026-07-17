@@ -1,0 +1,11 @@
+metric	value
+experiment_id	GN01_100read_seed42
+sigma_fraction	0.01
+seed	42
+input_raw_reads	100
+output_bam_records	100
+unmapped_records	100
+mapped_records	0
+bam_size_bytes	212074
+unaligned_bam_quickcheck	PASS
+dorado_exit_status	0

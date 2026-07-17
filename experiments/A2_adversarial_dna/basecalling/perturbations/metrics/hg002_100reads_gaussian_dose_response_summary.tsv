@@ -1,0 +1,5 @@
+condition	sigma_fraction	paired_reads	changed_sequences	changed_sequence_fraction	mean_edit_distance	median_edit_distance	p95_edit_distance	mean_sequence_identity_percent	median_sequence_identity_percent	mean_alignment_identity_percent	mean_clean_qscore	mean_perturbed_qscore	mean_qscore_change	median_qscore_change	reads_with_qscore_decrease	mean_length_change	median_absolute_length_change	reads_with_length_change
+CLEAN	0.00	100	0	0.0000000000	0.000000	0.000000	0.000000	100.000000	100.000000	100.000000	35.026829	35.026829	0.000000	0.000000	0	0.000000	0.000000	0
+GN01	0.01	100	95	0.9500000000	14.190000	9.000000	45.050000	98.790261	99.517719	98.792314	35.026829	34.962586	-0.064243	-0.081192	59	0.880000	2.000000	80
+GN05	0.05	100	100	1.0000000000	43.400000	28.500000	129.100000	96.903251	98.468792	96.919068	35.026829	32.776901	-2.249928	-2.341281	96	-0.230000	5.000000	92
+GN10	0.10	100	100	1.0000000000	112.670000	82.000000	319.150000	93.886341	95.306909	93.979561	35.026829	24.915960	-10.110869	-10.340903	99	-1.020000	11.000000	99
