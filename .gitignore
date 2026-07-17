@@ -5,14 +5,11 @@ __pycache__/
 
 # Jupyter
 .ipynb_checkpoints/
-
 # VSCode
 .vscode/
-
 # OS
 .DS_Store
 Thumbs.db
-
 # Large genomic files
 *.fastq
 *.fq
@@ -21,28 +18,29 @@ Thumbs.db
 *.vcf
 *.bcf
 *.cram
-
 # Temporary outputs
 outputs/
 tmp/
 cache/
-
 # Secrets
 .env
 # A2 Nanopore large data and generated files
 *.pod5
 *.fast5
-*.bam
 *.bai
-*.sam
-*.fastq
 *.fastq.gz
 *.tar.gz
 models/
-
 # Module A2 POD5 Python environment
 experiments/A2_adversarial_dna/basecalling/environment/pod5_env/
-
 # Python generated files
-__pycache__/
 *.py[cod]
+# Experiment D local runtime artifacts
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/alignments/
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/fastq/
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/input_paths/
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*.pid
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*.log
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*_COMPLETE
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*_FAILED
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/metrics/*_stats.txt
