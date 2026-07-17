@@ -1,0 +1,2 @@
+condition	seed	input_raw_reads	output_bam_records	split_parent_groups	split_child_records	analysis_handling
+GN01	5	100	101	1	2	collapse_children_by_parent_and_sp

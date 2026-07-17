@@ -1,0 +1,7 @@
+metric	value
+experiment_id	GN10_100read_seed1
+sigma_fraction	0.10
+seed	1
+output_bam_records	100
+unaligned_bam_quickcheck	PASS
+dorado_exit_status	0

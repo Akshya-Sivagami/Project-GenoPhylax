@@ -1,0 +1,14 @@
+metric	value
+input_pod5	/home/admin/datasets/hg002/pod5/PAO89685_pass__2264ba8c_afee3a87_0.pod5
+output_pod5	/home/admin/datasets/GenoPhylax/A2_signal_perturbations/gaussian_noise/pod5/hg002_100reads_GN10_seed3.pod5
+sigma_fraction	0.1
+seed	3
+max_reads	100
+processed_reads	100
+total_signal_samples	2570202
+changed_signal_samples	2492585
+changed_sample_fraction	0.9698012063
+clipped_signal_samples	0
+clipped_sample_fraction	0.0000000000
+mean_noise_sigma	13.423090
+mean_absolute_signal_change	10.812806

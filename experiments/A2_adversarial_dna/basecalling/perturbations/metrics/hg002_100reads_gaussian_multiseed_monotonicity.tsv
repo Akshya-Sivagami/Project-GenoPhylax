@@ -1,0 +1,6 @@
+seed	identity_decreases	edit_distance_increases	qscore_change_worsens	all_primary_metrics_monotonic
+1	True	True	True	True
+2	True	True	True	True
+3	True	True	True	True
+4	True	True	True	True
+5	True	True	True	True

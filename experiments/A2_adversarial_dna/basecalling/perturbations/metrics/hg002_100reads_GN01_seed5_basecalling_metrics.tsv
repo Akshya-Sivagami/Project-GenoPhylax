@@ -1,0 +1,17 @@
+metric	value
+experiment_id	GN01_100read_seed5
+sigma_fraction	0.01
+seed	5
+input_raw_reads	100
+output_bam_records	101
+unmapped_records	101
+mapped_records	0
+record_count_delta	1
+read_splitting_observed	YES
+bam_size_bytes	212056
+unaligned_bam_quickcheck	PASS
+dorado_exit_status	0
+split_child_records	2
+split_parent_groups	1
+comparison_bam_records	100
+comparison_split_handling	collapse_children_by_parent_and_sp

@@ -1,0 +1,4 @@
+condition	sigma_fraction	replicate_count	mean_identity_percent	sd_identity_percent	min_identity_percent	max_identity_percent	mean_edit_distance	sd_edit_distance	mean_qscore_change	sd_qscore_change	mean_changed_sequence_fraction
+GN01	0.01	5	98.777168	0.356097	98.293264	99.237884	15.494000	2.028159	-0.120313	0.041900	0.9360000000
+GN05	0.05	5	97.466674	0.202352	97.149281	97.686597	42.778000	1.338682	-2.302972	0.087202	0.9940000000
+GN10	0.10	5	93.699927	0.157475	93.558362	93.945450	113.922000	1.177612	-10.322125	0.064583	1.0000000000
