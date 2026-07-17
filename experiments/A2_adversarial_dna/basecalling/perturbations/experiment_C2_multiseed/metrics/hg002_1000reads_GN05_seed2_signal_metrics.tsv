@@ -1,0 +1,14 @@
+metric	value
+input_pod5	/home/admin/datasets/GenoPhylax/A2_signal_perturbations/gaussian_noise_1000reads/pod5/hg002_1000reads_clean.pod5
+output_pod5	/home/admin/datasets/GenoPhylax/A2_signal_perturbations/gaussian_noise_1000reads/pod5/hg002_1000reads_GN05_seed2.pod5
+sigma_fraction	0.05
+seed	2
+max_reads	1000
+processed_reads	1000
+total_signal_samples	59591073
+changed_signal_samples	56051206
+changed_sample_fraction	0.9405973610
+clipped_signal_samples	0
+clipped_sample_fraction	0.0000000000
+mean_noise_sigma	7.005469
+mean_absolute_signal_change	5.549612

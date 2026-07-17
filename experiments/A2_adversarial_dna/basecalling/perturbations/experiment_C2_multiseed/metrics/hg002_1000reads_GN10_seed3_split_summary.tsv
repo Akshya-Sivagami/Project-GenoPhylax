@@ -1,0 +1,14 @@
+metric	value
+condition	GN10
+seed	3
+input_pod5	/home/admin/datasets/GenoPhylax/A2_signal_perturbations/gaussian_noise_1000reads/pod5/hg002_1000reads_GN10_seed3.pod5
+output_bam	/home/admin/datasets/GenoPhylax/A2_signal_perturbations/gaussian_noise_1000reads/basecalls/hg002_1000reads_GN10_seed3_hac.bam
+dorado_exit_status	0
+total_bam_records	1007
+unmapped_records	1007
+mapped_records	0
+unique_record_ids	1007
+pi_tagged_records	14
+split_parent_groups	7
+extra_bam_records	7
+quickcheck	PASS

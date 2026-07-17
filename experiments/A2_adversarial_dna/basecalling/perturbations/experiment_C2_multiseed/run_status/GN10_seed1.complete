@@ -1,0 +1,8 @@
+condition=GN10
+seed=1
+sigma_fraction=0.10
+operational_bam_records=1007
+split_parent_groups=7
+normalized_bam_records=1000
+paired_reads=1000
+status=PASS
