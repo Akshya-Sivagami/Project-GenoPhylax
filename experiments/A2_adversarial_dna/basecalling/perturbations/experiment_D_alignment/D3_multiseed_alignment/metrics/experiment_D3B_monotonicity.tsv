@@ -1,0 +1,15 @@
+metric	GN01	GN05	GN10	expected_direction	monotonic
+mean_mapped_to_unmapped	0.000000	0.666667	3.000000	increasing	True
+mean_chromosome_changed	3.666667	4.333333	5.333333	increasing	True
+mean_strand_changed	4.333333	5.000000	8.666667	increasing	True
+mean_cigar_changed	882.666667	957.000000	966.333333	increasing	True
+mean_coordinate_shift_ge100	9.000000	21.000000	37.666667	increasing	True
+mean_coordinate_shift_ge1000	6.666667	17.666667	28.000000	increasing	True
+mean_mapq_drop_ge5	2.666667	12.666667	37.333333	increasing	True
+mean_mapq_drop_ge10	1.666667	7.333333	27.333333	increasing	True
+mean_nm_increased_reads	456.666667	848.666667	940.000000	increasing	True
+mean_soft_clip_increased_reads	253.666667	380.000000	600.666667	increasing	True
+mean_secondary_increased_reads	2.000000	7.000000	15.000000	increasing	True
+mean_supplementary_increased_reads	1.000000	0.000000	1.333333	increasing	False
+mean_mean_mapq_change	0.001031	-0.110357	-0.586380	decreasing	True
+mean_mean_aligned_query_length_change	-0.219588	-8.305209	-41.688205	decreasing	True

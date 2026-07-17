@@ -1,0 +1,55 @@
+Experiment D1 — CLEAN alignment validation
+
+Reference assembly:
+GCA_000001405.15_GRCh38_no_alt_analysis_set
+
+Reference FASTA:
+/home/admin/datasets/GenoPhylax/references/GRCh38_GIAB/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta
+
+Aligner:
+minimap2 2.31-r1302
+
+Preset:
+map-ont
+
+Input reads:
+1000
+
+Total alignment records:
+1397
+
+Primary records:
+1000
+
+Mapped primary reads:
+970
+
+Unmapped primary reads:
+30
+
+Mapped primary percentage:
+97.000000
+
+Secondary alignments:
+366
+
+Supplementary alignments:
+31
+
+Mean mapped primary MAPQ:
+55.336082
+
+Mapped primary reads with MAPQ >=20:
+902
+
+Mapped primary reads with MAPQ >=30:
+892
+
+Mapped primary reads with MAPQ >=60:
+866
+
+Unique primary IDs:
+1000
+
+Duplicate primary IDs:
+0

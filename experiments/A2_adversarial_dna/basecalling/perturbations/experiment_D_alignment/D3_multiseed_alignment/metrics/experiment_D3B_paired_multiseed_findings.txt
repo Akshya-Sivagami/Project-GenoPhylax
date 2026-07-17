@@ -1,0 +1,75 @@
+Experiment D3B — Paired multi-seed alignment findings
+
+GN01 aggregate
+------------------------------------------------------------
+mean_mapped_to_unmapped: 0.000000 ± 0.000000
+mean_chromosome_changed: 3.666667 ± 0.577350
+mean_strand_changed: 4.333333 ± 1.527525
+mean_cigar_changed: 882.666667 ± 15.567059
+mean_coordinate_shift_ge100: 9.000000 ± 2.000000
+mean_coordinate_shift_ge1000: 6.666667 ± 2.081666
+mean_mean_mapq_change: 0.001031 ± 0.032158
+mean_mapq_drop_ge5: 2.666667 ± 0.577350
+mean_mapq_drop_ge10: 1.666667 ± 0.577350
+mean_mean_nm_change: 1.469416 ± 1.465106
+mean_nm_increased_reads: 456.666667 ± 7.637626
+mean_mean_soft_clip_change: -3.894845 ± 2.132452
+mean_soft_clip_increased_reads: 253.666667 ± 5.507571
+mean_mean_aligned_query_length_change: -0.219588 ± 0.281258
+mean_secondary_increased_reads: 2.000000 ± 1.000000
+mean_supplementary_increased_reads: 1.000000 ± 1.000000
+
+GN05 aggregate
+------------------------------------------------------------
+mean_mapped_to_unmapped: 0.666667 ± 1.154701
+mean_chromosome_changed: 4.333333 ± 0.577350
+mean_strand_changed: 5.000000 ± 1.732051
+mean_cigar_changed: 957.000000 ± 0.000000
+mean_coordinate_shift_ge100: 21.000000 ± 2.000000
+mean_coordinate_shift_ge1000: 17.666667 ± 2.081666
+mean_mean_mapq_change: -0.110357 ± 0.039263
+mean_mapq_drop_ge5: 12.666667 ± 1.154701
+mean_mapq_drop_ge10: 7.333333 ± 1.154701
+mean_mean_nm_change: 33.836704 ± 2.286717
+mean_nm_increased_reads: 848.666667 ± 6.658328
+mean_mean_soft_clip_change: -9.752413 ± 0.328937
+mean_soft_clip_increased_reads: 380.000000 ± 9.539392
+mean_mean_aligned_query_length_change: -8.305209 ± 0.367158
+mean_secondary_increased_reads: 7.000000 ± 1.000000
+mean_supplementary_increased_reads: 0.000000 ± 0.000000
+
+GN10 aggregate
+------------------------------------------------------------
+mean_mapped_to_unmapped: 3.000000 ± 1.000000
+mean_chromosome_changed: 5.333333 ± 0.577350
+mean_strand_changed: 8.666667 ± 1.154701
+mean_cigar_changed: 966.333333 ± 1.527525
+mean_coordinate_shift_ge100: 37.666667 ± 2.081666
+mean_coordinate_shift_ge1000: 28.000000 ± 1.732051
+mean_mean_mapq_change: -0.586380 ± 0.059351
+mean_mapq_drop_ge5: 37.333333 ± 2.081666
+mean_mapq_drop_ge10: 27.333333 ± 4.725816
+mean_mean_nm_change: 167.661872 ± 1.388846
+mean_nm_increased_reads: 940.000000 ± 1.732051
+mean_mean_soft_clip_change: 1.502606 ± 0.724382
+mean_soft_clip_increased_reads: 600.666667 ± 4.163332
+mean_mean_aligned_query_length_change: -41.688205 ± 0.330630
+mean_secondary_increased_reads: 15.000000 ± 2.645751
+mean_supplementary_increased_reads: 1.333333 ± 0.577350
+
+Monotonicity checks
+------------------------------------------------------------
+mean_mapped_to_unmapped: GN01=0.000000, GN05=0.666667, GN10=3.000000, monotonic=True
+mean_chromosome_changed: GN01=3.666667, GN05=4.333333, GN10=5.333333, monotonic=True
+mean_strand_changed: GN01=4.333333, GN05=5.000000, GN10=8.666667, monotonic=True
+mean_cigar_changed: GN01=882.666667, GN05=957.000000, GN10=966.333333, monotonic=True
+mean_coordinate_shift_ge100: GN01=9.000000, GN05=21.000000, GN10=37.666667, monotonic=True
+mean_coordinate_shift_ge1000: GN01=6.666667, GN05=17.666667, GN10=28.000000, monotonic=True
+mean_mapq_drop_ge5: GN01=2.666667, GN05=12.666667, GN10=37.333333, monotonic=True
+mean_mapq_drop_ge10: GN01=1.666667, GN05=7.333333, GN10=27.333333, monotonic=True
+mean_nm_increased_reads: GN01=456.666667, GN05=848.666667, GN10=940.000000, monotonic=True
+mean_soft_clip_increased_reads: GN01=253.666667, GN05=380.000000, GN10=600.666667, monotonic=True
+mean_secondary_increased_reads: GN01=2.000000, GN05=7.000000, GN10=15.000000, monotonic=True
+mean_supplementary_increased_reads: GN01=1.000000, GN05=0.000000, GN10=1.333333, monotonic=False
+mean_mean_mapq_change: GN01=0.001031, GN05=-0.110357, GN10=-0.586380, monotonic=True
+mean_mean_aligned_query_length_change: GN01=-0.219588, GN05=-8.305209, GN10=-41.688205, monotonic=True

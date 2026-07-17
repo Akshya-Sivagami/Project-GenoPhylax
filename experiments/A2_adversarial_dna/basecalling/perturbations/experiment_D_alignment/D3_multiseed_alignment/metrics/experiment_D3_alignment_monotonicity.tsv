@@ -1,0 +1,9 @@
+metric	GN01	GN05	GN10	expected_direction	monotonic
+mean_unmapped_primary	30.000000	30.666667	32.333333	increasing	True
+mean_secondary	365.666667	365.000000	378.666667	increasing	False
+mean_supplementary	32.333333	29.666667	30.666667	increasing	False
+mean_mapped_percent	97.000000	96.933333	96.766667	decreasing	True
+mean_mean_mapped_mapq	55.337113	55.235943	54.725098	decreasing	True
+mean_mapq_ge20	902.333333	898.666667	892.333333	decreasing	True
+mean_mapq_ge30	892.000000	891.000000	881.666667	decreasing	True
+mean_mapq_ge60	866.666667	864.333333	853.333333	decreasing	True

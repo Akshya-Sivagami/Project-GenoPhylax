@@ -1,0 +1,11 @@
+metric	GN01	GN05	GN10	expected_direction	monotonic
+mapped_to_unmapped	0.0	1.0	3.0	increasing	True
+chromosome_changed	3.0	3.0	7.0	increasing	True
+coordinate_shift_ge100	10.0	20.0	39.0	increasing	True
+coordinate_shift_ge1000	7.0	13.0	29.0	increasing	True
+mapq_drop_ge5	5.0	12.0	34.0	increasing	True
+mapq_drop_ge10	3.0	5.0	27.0	increasing	True
+nm_increased_reads	469.0	842.0	938.0	increasing	True
+soft_clip_increased_reads	264.0	414.0	607.0	increasing	True
+secondary_increased_reads	2.0	9.0	15.0	increasing	True
+supplementary_increased_reads	0.0	1.0	3.0	increasing	True

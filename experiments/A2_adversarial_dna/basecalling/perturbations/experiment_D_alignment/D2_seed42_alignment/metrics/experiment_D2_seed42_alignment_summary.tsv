@@ -1,0 +1,5 @@
+condition	input_reads	total_records	primary_records	mapped_primary	unmapped_primary	mapped_percent	secondary	supplementary	mean_mapped_mapq	mapq_ge20	mapq_ge30	mapq_ge60
+CLEAN	1000	1397	1000	970	30	97.000000	366	31	55.336082	902	892	866
+GN01	1000	1392	1000	970	30	97.000000	361	31	55.295876	900	890	869
+GN05	1000	1398	1000	969	31	96.900000	366	32	55.287926	897	891	863
+GN10	1000	1409	1000	968	32	96.800000	376	33	54.914256	896	888	856

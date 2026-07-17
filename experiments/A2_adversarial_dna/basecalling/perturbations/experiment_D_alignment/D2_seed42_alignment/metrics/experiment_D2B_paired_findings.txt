@@ -1,0 +1,77 @@
+Experiment D2B — Paired alignment consequence analysis
+
+GN01 versus CLEAN
+------------------------------------------------------------
+Mapped to unmapped: 0
+Unmapped to mapped: 0
+Chromosome changes: 3
+Strand changes: 4
+CIGAR changes: 889
+Coordinate shifts >=100 bp: 10
+Coordinate shifts >=1000 bp: 7
+Mean MAPQ change: -0.040206
+MAPQ drops >=5: 5
+MAPQ drops >=10: 3
+Mean NM change: 1.765979
+Reads with increased NM: 469
+Mean soft-clipping change: -3.501031
+Reads with increased soft clipping: 264
+Mean aligned-query-length change: -0.065979
+Mean reference-span change: 1.347423
+Reads with increased secondary alignments: 2
+Reads with increased supplementary alignments: 0
+
+GN05 versus CLEAN
+------------------------------------------------------------
+Mapped to unmapped: 1
+Unmapped to mapped: 0
+Chromosome changes: 3
+Strand changes: 5
+CIGAR changes: 954
+Coordinate shifts >=100 bp: 20
+Coordinate shifts >=1000 bp: 13
+Mean MAPQ change: -0.080495
+MAPQ drops >=5: 12
+MAPQ drops >=10: 5
+Mean NM change: 32.471620
+Reads with increased NM: 842
+Mean soft-clipping change: -7.920537
+Reads with increased soft clipping: 414
+Mean aligned-query-length change: -8.799794
+Mean reference-span change: -3.484004
+Reads with increased secondary alignments: 9
+Reads with increased supplementary alignments: 1
+
+GN10 versus CLEAN
+------------------------------------------------------------
+Mapped to unmapped: 3
+Unmapped to mapped: 1
+Chromosome changes: 7
+Strand changes: 7
+CIGAR changes: 966
+Coordinate shifts >=100 bp: 39
+Coordinate shifts >=1000 bp: 29
+Mean MAPQ change: -0.429162
+MAPQ drops >=5: 34
+MAPQ drops >=10: 27
+Mean NM change: 171.428128
+Reads with increased NM: 938
+Mean soft-clipping change: 2.847983
+Reads with increased soft clipping: 607
+Mean aligned-query-length change: -40.310238
+Mean reference-span change: -5.992761
+Reads with increased secondary alignments: 15
+Reads with increased supplementary alignments: 3
+
+Monotonicity checks
+------------------------------------------------------------
+mapped_to_unmapped: GN01=0.0, GN05=1.0, GN10=3.0, monotonic=True
+chromosome_changed: GN01=3.0, GN05=3.0, GN10=7.0, monotonic=True
+coordinate_shift_ge100: GN01=10.0, GN05=20.0, GN10=39.0, monotonic=True
+coordinate_shift_ge1000: GN01=7.0, GN05=13.0, GN10=29.0, monotonic=True
+mapq_drop_ge5: GN01=5.0, GN05=12.0, GN10=34.0, monotonic=True
+mapq_drop_ge10: GN01=3.0, GN05=5.0, GN10=27.0, monotonic=True
+nm_increased_reads: GN01=469.0, GN05=842.0, GN10=938.0, monotonic=True
+soft_clip_increased_reads: GN01=264.0, GN05=414.0, GN10=607.0, monotonic=True
+secondary_increased_reads: GN01=2.0, GN05=9.0, GN10=15.0, monotonic=True
+supplementary_increased_reads: GN01=0.0, GN05=1.0, GN10=3.0, monotonic=True
