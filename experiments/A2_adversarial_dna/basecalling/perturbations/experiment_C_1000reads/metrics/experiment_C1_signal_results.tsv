@@ -1,0 +1,4 @@
+condition	sigma_fraction	processed_reads	total_signal_samples	changed_signal_samples	changed_sample_fraction	clipped_signal_samples	clipped_sample_fraction	mean_noise_sigma	mean_absolute_signal_change
+GN01	0.01	1000	59591073	42285148	0.7095886325	0	0.0000000000	1.401094	1.085785
+GN05	0.05	1000	59591073	56049090	0.9405618523	0	0.0000000000	7.005469	5.550279
+GN10	0.1	1000	59591073	57819286	0.9702675768	0	0.0000000000	14.010939	11.107970

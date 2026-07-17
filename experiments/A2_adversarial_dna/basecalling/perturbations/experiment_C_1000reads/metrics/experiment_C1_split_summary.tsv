@@ -1,0 +1,5 @@
+condition	physical_reads	operational_bam_records	split_parent_groups	split_child_records	extra_bam_records	split_parent_rate	normalized_bam_records	quickcheck
+CLEAN	1000	1010	10	20	10	0.0100000000	1000	PASS
+GN01	1000	1009	9	18	9	0.0090000000	1000	PASS
+GN05	1000	1013	13	26	13	0.0130000000	1000	PASS
+GN10	1000	1004	4	8	4	0.0040000000	1000	PASS
