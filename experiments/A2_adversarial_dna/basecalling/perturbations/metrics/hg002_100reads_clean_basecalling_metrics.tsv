@@ -1,0 +1,9 @@
+metric	value
+experiment_id	CLEAN_100read_control
+perturbation	NONE
+input_raw_reads	100
+output_bam_records	100
+unmapped_records	100
+mapped_records	0
+bam_size_bytes	212087
+unaligned_bam_quickcheck	PASS
