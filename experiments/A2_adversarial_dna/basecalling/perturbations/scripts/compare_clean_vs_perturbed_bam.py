@@ -101,10 +101,14 @@ def parse_extended_cigar(cigar: str | None) -> tuple[int, int, int, int]:
             matches += length
         elif operation == "X":
             substitutions += length
+        # Edlib CIGAR operations are expressed relative to its target.
+        # For our reported transformation clean -> perturbed:
+        #   Edlib I corresponds to a deletion from the clean sequence.
+        #   Edlib D corresponds to an insertion into the perturbed sequence.
         elif operation == "I":
-            insertions += length
-        elif operation == "D":
             deletions += length
+        elif operation == "D":
+            insertions += length
 
     if consumed != len(cigar):
         raise RuntimeError(f"Unexpected Edlib CIGAR: {cigar}")

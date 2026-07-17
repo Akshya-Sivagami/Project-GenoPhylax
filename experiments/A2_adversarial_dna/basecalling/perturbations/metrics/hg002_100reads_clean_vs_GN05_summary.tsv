@@ -20,8 +20,8 @@ median_sequence_identity_percent	98.468792
 mean_alignment_identity_percent	96.919068
 total_matches	209150
 total_substitutions	1439
-total_insertions	1462
-total_deletions	1439
+total_insertions	1439
+total_deletions	1462
 mean_clean_length	2120.510000
 mean_perturbed_length	2120.280000
 mean_length_change	-0.230000
