@@ -39,3 +39,10 @@ cache/
 *.fastq.gz
 *.tar.gz
 models/
+
+# Module A2 POD5 Python environment
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/
+EOFcat >> .gitignore <<'EOF'
+
+# Module A2 POD5 Python environment
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/
