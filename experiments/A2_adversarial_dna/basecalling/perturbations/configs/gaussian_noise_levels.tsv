@@ -1,0 +1,4 @@
+experiment_id	sigma_fraction	seed	description
+GN01	0.01	42	Gaussian noise with sigma equal to 1 percent of per-read signal standard deviation
+GN05	0.05	42	Gaussian noise with sigma equal to 5 percent of per-read signal standard deviation
+GN10	0.10	42	Gaussian noise with sigma equal to 10 percent of per-read signal standard deviation

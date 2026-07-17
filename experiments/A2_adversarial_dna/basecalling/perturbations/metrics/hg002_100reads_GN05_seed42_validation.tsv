@@ -1,0 +1,12 @@
+metric	value
+clean_reads	100
+perturbed_reads	100
+matching_read_ids	100
+matching_metadata_records	100
+reads_with_changed_signal	100
+changed_signal_samples	2415386
+total_signal_samples	2570202
+changed_sample_fraction	0.9397650457
+maximum_absolute_signal_change	64
+clipped_signal_samples	0
+validation_status	PASS
