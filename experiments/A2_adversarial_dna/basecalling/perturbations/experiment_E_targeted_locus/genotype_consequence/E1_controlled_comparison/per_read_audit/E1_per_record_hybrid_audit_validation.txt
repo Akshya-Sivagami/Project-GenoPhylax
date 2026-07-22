@@ -1,0 +1,25 @@
+Experiment E1 — Per-Record Hybrid Audit Validation
+===================================================
+
+PASS	clean_hybrid_record_count	observed=63 expected=63
+PASS	attacked_hybrid_record_count	observed=63 expected=63
+PASS	clean_background_count	observed=51 expected=51
+PASS	attacked_background_count	observed=51 expected=51
+PASS	clean_swap_count	observed=12 expected=12
+PASS	attacked_swap_count	observed=12 expected=12
+PASS	no_unknown_or_double_membership	error_rows=0
+PASS	background_records_and_target_states_identical	clean=51 attacked=51
+PASS	background_alt_raw_record_count_identical	clean=5 attacked=5
+PASS	target_overlapping_record_count_identical	clean=39 attacked=39 expected=39
+
+Raw per-record background target states:
+clean_background_ALT=5
+attacked_background_ALT=5
+
+Raw clean swap-cohort target states:
+{'ALT': 10, 'DELETION': 1, 'NO_COVERAGE': 1}
+
+Raw attacked swap-cohort target states:
+{'ALT': 5, 'DELETION': 6, 'NO_COVERAGE': 1}
+
+OVERALL: PASS

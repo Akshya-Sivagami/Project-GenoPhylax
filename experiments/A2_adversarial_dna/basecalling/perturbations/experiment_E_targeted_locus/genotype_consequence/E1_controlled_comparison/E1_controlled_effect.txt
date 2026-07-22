@@ -1,0 +1,35 @@
+Experiment E1 — Controlled Dorado-versus-Dorado Result
+=======================================================
+
+Controlled comparison:
+Clean Dorado HAC v6 hybrid versus attacked Dorado HAC v6 hybrid
+
+Original public GT:   0/1
+Clean Dorado GT:      0/1
+Attacked Dorado GT:   0/1
+
+Original public QUAL: 124.233
+Clean Dorado QUAL:    138.247
+Attacked Dorado QUAL: 41.4192
+
+Controlled QUAL change: 138.2470 -> 41.4192
+Controlled QUAL reduction: 70.0397%
+
+Clean REF depth:      18
+Attacked REF depth:   18
+REF-depth change:     18 -> 18
+
+Clean ALT depth:      16
+Attacked ALT depth:   11
+ALT-depth change:     16 -> 11
+ALT-depth reduction:  31.2500%
+
+Clean INFO DP:        34
+Attacked INFO DP:     29
+
+Target-overlap structure:
+Clean hybrid:    39 records; 34 primary; 5 supplementary
+Attacked hybrid: 39 records; 34 primary; 5 supplementary
+
+Interpretation:
+The localized raw-signal attack reduced alternate-allele evidence and variant confidence while preserving reference evidence and the overall alignment-record structure.

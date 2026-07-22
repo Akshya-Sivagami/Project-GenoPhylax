@@ -1,0 +1,24 @@
+Experiment E1 — Untouched Background Audit
+===========================================
+
+Background BAM records: 51
+
+Raw unfiltered target pileup:
+
+chr20  10003468  N  28  AcCc*cCCcG*CCc*gGccgGcCcc*Cc
+
+Raw per-record background target state:
+
+ALT records: 5
+
+The exact same 51 background records and their target states were present
+in both the clean-Dorado and attacked-Dorado hybrids.
+
+The background-only bcftools call emitted no variant record at the target.
+Therefore, no standalone caller-filtered background ALT contribution is
+reported.
+
+This audit provides preliminary localization evidence because the untouched
+background was identical across both controlled conditions. A dedicated
+equal-sized off-target sham perturbation is still required before making a
+strong spatial-specificity claim.
