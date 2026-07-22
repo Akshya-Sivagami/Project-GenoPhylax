@@ -1,0 +1,5 @@
+condition	input_reads	output_records	output_size_bytes	status
+E2_W0	11	13	381886	PASS
+E2_PM2	11	13	381462	PASS
+E2_PM10	11	13	381696	PASS
+E2_PM20	11	13	381817	PASS

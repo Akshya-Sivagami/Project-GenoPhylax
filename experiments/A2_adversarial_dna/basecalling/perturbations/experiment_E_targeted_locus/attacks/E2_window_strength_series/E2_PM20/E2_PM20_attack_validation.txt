@@ -1,0 +1,10 @@
+Experiment E attacked POD5 validation
+=====================================
+Observed read IDs: 11
+Expected attack IDs: 10
+Applied attack IDs: 10
+Untouched IDs: 1
+Missing attack IDs: 0
+Unexpected attack IDs: 0
+Outside attack windows identical: True
+Untouched reads identical: True

@@ -1,0 +1,2 @@
+condition	total_records	primary_records	mapped_records	target_overlapping_records	raw_parent_count	parent_ALT	parent_REF	parent_DELETION	parent_OTHER	parent_NO_COVERAGE	parent_UNMAPPED	record_ALT	record_REF	record_DELETION	record_OTHER	record_NO_COVERAGE	record_UNMAPPED
+E2_PM10	13	13	13	11	11	5	1	4	1	0	0	5	1	4	1	2	0

@@ -1,0 +1,5 @@
+condition	context_bases	interval_rows	mapped_samples	changed_samples	changed_fraction	status
+E2_W0	0	10	282	280	0.0000661730	PASS
+E2_PM2	2	10	780	776	0.0001833939	PASS
+E2_PM10	10	10	3000	2982	0.0007047430	PASS
+E2_PM20	20	10	5880	5862	0.0013853800	PASS

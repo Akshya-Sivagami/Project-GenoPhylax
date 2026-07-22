@@ -1,0 +1,6 @@
+condition	context_bases	changed_samples	changed_fraction	total_records	primary_records	mapped_records	target_overlapping_records	raw_parent_count	parent_ALT	parent_REF	parent_DELETION	parent_OTHER	parent_NO_COVERAGE	parent_UNMAPPED	record_ALT	record_REF	record_DELETION	record_OTHER	record_NO_COVERAGE	record_UNMAPPED	status
+E2_W0	0	280	0.0000661730	13	13	13	11	11	6	2	3	0	0	0	6	2	3	0	2	0	PASS
+E2_PM2	2	776	0.0001833939	13	13	13	11	11	5	2	1	3	0	0	5	2	1	3	2	0	PASS
+E2_PM10	10	2982	0.0007047430	13	13	13	11	11	5	1	4	1	0	0	5	1	4	1	2	0	PASS
+E2_PM20	20	5862	0.0013853800	13	13	13	11	11	5	1	4	1	0	0	5	1	4	1	2	0	PASS
+E1_PM5	5	1599	0.000377895	13	13	13	11	11	5	0	6	0	0	0	5	0	6	0	2	0	PASS
