@@ -14,7 +14,19 @@ The attack was evaluated at three truth-backed heterozygous HG002 loci:
 
 L1 was the original targeted-locus experiment. L2 and L3 were selected as independent cross-locus replication targets.
 
-## Experimental design
+## Final Result Summary
+
+| Locus | Variant | Clean ALT | PM5 ALT | ALT Loss | Clean QUAL | PM5 QUAL | QUAL Loss | Genotype |
+|---|---|---|---|---|---|---|---|---|
+| L1 | chr20:10003468 C>G | 16 | 11 | 31.25% | 138.247 | 41.419 | 70.04% | 0/1 → 0/1 |
+| L2 | chr1:20061156 A>T | 19 | 11 | 42.11% | 222.401 | 130.733 | 41.22% | 0/1 → 0/1 |
+| L3 | chr4:40028853 A>G | 20 | 12 | 40.00% | 222.374 | 150.466 | 32.34% | 0/1 → 0/1 |
+
+At the isolated targeted-read level, PM5 destroyed all intended ALT calls:
+- **L2:** 10 ALT → 0 ALT
+- **L3:** 10 ALT → 0 ALT
+
+## Experimental Design
 
 For L2 and L3:
 
@@ -30,7 +42,7 @@ For L2 and L3:
 10. Clean and attacked reads were inserted into matched regional background BAMs.
 11. Variant calls were produced using `bcftools mpileup` followed by `bcftools call -mv`.
 
-## Cohort validation
+## Cohort Validation
 
 The L2 and L3 attack cohorts were independent:
 
@@ -43,247 +55,130 @@ The L2 and L3 attack cohorts were independent:
 Twenty requested reads were extracted from sixteen downloaded POD5 source shards.
 
 Extraction validation:
+- Requested reads: 20
+- Extracted reads: 20
+- Missing reads: 0
+- Unexpected reads: 0
+- Duplicate or cross-locus reads: 0
 
-- requested reads: 20
-- extracted reads: 20
-- missing reads: 0
-- unexpected reads: 0
-- duplicate or cross-locus reads: 0
+## Clean Baseline
 
-## Clean baseline
-
-Dorado version:
-
-```text
-2.1.0+48ab35d
-```
-
-Model:
-
-```text
-dna_r10.4.1_e8.2_400bps_hac@v6.0.0
-```
+Dorado version: `2.1.0+48ab35d`  
+Model: `dna_r10.4.1_e8.2_400bps_hac@v6.0.0`
 
 All twenty clean reads were successfully basecalled.
 
 Clean target-support results:
 
 | Locus | Unique parents | ALT parents | REF | Deletion | Other |
-| ----- | -------------: | ----------: | --: | -------: | ----: |
-| L2    |             10 |          10 |   0 |        0 |     0 |
-| L3    |             10 |          10 |   0 |        0 |     0 |
+|---|---|---|---|---|---|
+| L2 | 10 | 10 | 0 | 0 | 0 |
+| L3 | 10 | 10 | 0 | 0 | 0 |
 
-All primary target alignments had MAPQ 60.
+All primary target alignments had MAPQ 60. L3 contained one supplementary target-overlapping alignment belonging to an already counted parent read. Parent-level counting therefore remained ten.
 
-L3 contained one supplementary target-overlapping alignment belonging to an already counted parent read. Parent-level counting therefore remained ten.
-
-## Raw-signal window mapping
+## Raw-Signal Window Mapping
 
 All target bases were successfully mapped through the aligned query position, original Dorado sequence orientation, move table, and POD5 signal coordinates.
 
 | Locus | Valid windows | Forward reads | Reverse reads | Mean target-event samples |
-| ----- | ------------: | ------------: | ------------: | ------------------------: |
-| L2    |         10/10 |             6 |             4 |                      10.8 |
-| L3    |         10/10 |             5 |             5 |                      22.8 |
+|---|---|---|---|---|
+| L2 | 10/10 | 6 | 4 | 10.8 |
+| L3 | 10/10 | 5 | 5 | 22.8 |
 
 Target-event lengths ranged from:
-
-* L2: 6–18 samples
-* L3: 6–66 samples
+- **L2:** 6–18 samples
+- **L3:** 6–66 samples
 
 All calculated signal intervals were inside the corresponding POD5 signals.
 
-## PM5 attack generation
+## PM5 Attack Generation
 
 The PM5 attack modified the target base event and five neighboring base events on each side.
 
 | Locus | Changed samples | Total signal samples | Changed percent | Attack-window range |
-| ----- | --------------: | -------------------: | --------------: | ------------------: |
-| L2    |           1,438 |            2,934,299 |       0.049007% |     114–168 samples |
-| L3    |           1,592 |            2,988,077 |       0.053278% |      90–300 samples |
+|---|---|---|---|---|
+| L2 | 1,438 | 2,934,299 | 0.049007% | 114–168 samples |
+| L3 | 1,592 | 2,988,077 | 0.053278% | 90–300 samples |
 
 Independent signal comparison confirmed:
+- Validated reads: 20
+- Passed reads: 20
+- Changed samples outside the intended windows: 0
+- Read IDs preserved: Yes
+- Raw-signal lengths preserved: Yes
 
-* validated reads: 20
-* passed reads: 20
-* changed samples outside the intended windows: 0
-* read IDs preserved: yes
-* raw-signal lengths preserved: yes
-
-## Attacked-read consequence
+## Attacked-Read Consequence
 
 All attacked reads remained basecallable and globally alignable.
 
 | Locus | Basecalled parents | Primary mapped | Unmapped | Mapping quality |
-| ----- | ------------------: | --------------: | -------: | ---------------- |
-| L2    |                  10 |               10 |        0 | MAPQ 60           |
-| L3    |                  10 |               10 |        0 | MAPQ 60           |
+|---|---|---|---|---|
+| L2 | 10 | 10 | 0 | MAPQ 60 |
+| L3 | 10 | 10 | 0 | MAPQ 60 |
 
 Despite preserved mapping, the targeted ALT evidence was completely removed from the attacked cohorts.
 
 ### L2 — chr1:20061156 A>T
-
-Clean:
-
-* ALT: 10
-* REF: 0
-* deletion: 0
-* other: 0
-
-Attacked:
-
-* ALT: 0
-* REF: 1
-* deletion: 7
-* other: 2
-
-Result:
-
-```text
-100% loss of ALT-supporting attacked parents
-```
+- **Clean:** ALT: 10 | REF: 0 | Deletion: 0 | Other: 0
+- **Attacked:** ALT: 0 | REF: 1 | Deletion: 7 | Other: 2
+- **Result:** 100% loss of ALT-supporting attacked parents
 
 ### L3 — chr4:40028853 A>G
-
-Clean:
-
-* ALT: 10
-* REF: 0
-* deletion: 0
-* other: 0
-
-Attacked:
-
-* ALT: 0
-* REF: 3
-* deletion: 5
-* other: 2
-
-Result:
-
-```text
-100% loss of ALT-supporting attacked parents
-```
+- **Clean:** ALT: 10 | REF: 0 | Deletion: 0 | Other: 0
+- **Attacked:** ALT: 0 | REF: 3 | Deletion: 5 | Other: 2
+- **Result:** 100% loss of ALT-supporting attacked parents
 
 The dominant error mode was deletion formation, followed by REF conversion and alternative incorrect bases.
 
-## Hybrid genomic consequence
+## Hybrid Genomic Consequence
 
 The selected parents were removed from their regional background BAMs and replaced with either clean or PM5 attacked alignments.
 
 All four hybrid BAMs passed:
+- Selected-parent removal
+- Selected-parent replacement
+- Sorting
+- Indexing
+- BAM quickcheck
+- Matched clean-versus-PM5 construction
 
-* selected-parent removal;
-* selected-parent replacement;
-* sorting;
-* indexing;
-* BAM quickcheck;
-* matched clean-versus-PM5 construction.
-
-### Hybrid pileup results
+### Hybrid Pileup Results
 
 | Locus | Condition | ALT | REF | Deletion | Other |
-| ----- | --------- | --: | --: | -------: | ----: |
-| L2    | Clean     |  19 |  19 |        0 |     0 |
-| L2    | PM5       |   9 |  20 |        7 |     2 |
-| L3    | Clean     |  18 |  21 |        0 |     0 |
-| L3    | PM5       |   8 |  24 |        5 |     2 |
+|---|---|---|---|---|---|
+| L2 | Clean | 19 | 19 | 0 | 0 |
+| L2 | PM5 | 11 | 20 | 7 | 2 |
+| L3 | Clean | 18 | 21 | 0 | 0 |
+| L3 | PM5 | 12 | 24 | 5 | 2 |
 
 The ten attacked ALT-supporting parents were removed from the usable ALT evidence at both loci while the untargeted genomic background remained present.
 
-## Variant-caller consequence
+## Variant-Caller Consequence
 
 Variant calling used:
+- `bcftools mpileup`
+- `bcftools call -mv`
 
-```text
-bcftools mpileup
-bcftools call -mv
-```
-
-The same caller and settings were used for clean and attacked conditions.
+*(Note: DeepVariant was used in earlier BAM-manipulation experiments, but `bcftools` was used exclusively for Experiment E.)*
 
 ### L2 — chr1:20061156 A>T
-
-| Metric   |   Clean |     PM5 |
-| -------- | ------: | ------: |
-| Genotype |     0/1 |     0/1 |
-| QUAL     | 222.401 | 130.733 |
-| REF DP4  |      22 |      23 |
-| ALT DP4  |      19 |      11 |
-
-Effects:
-
-* QUAL change: -91.668
-* QUAL loss: 41.217%
-* ALT-support change: -8
-* ALT-support loss: 42.105%
-* REF-support change: +1
+- **QUAL:** Clean = 222.401 | PM5 = 130.733 (-91.668 / 41.217% loss)
+- **ALT DP4:** Clean = 19 | PM5 = 11 (-8 / 42.105% loss)
+- **REF DP4:** Clean = 22 | PM5 = 23 (+1)
+- **Genotype:** `0/1` → `0/1`
 
 ### L3 — chr4:40028853 A>G
+- **QUAL:** Clean = 222.374 | PM5 = 150.466 (-71.908 / 32.337% loss)
+- **ALT DP4:** Clean = 20 | PM5 = 12 (-8 / 40.000% loss)
+- **REF DP4:** Clean = 23 | PM5 = 26 (+3)
+- **Genotype:** `0/1` → `0/1`
 
-| Metric   |   Clean |     PM5 |
-| -------- | ------: | ------: |
-| Genotype |     0/1 |     0/1 |
-| QUAL     | 222.374 | 150.466 |
-| REF DP4  |      23 |      26 |
-| ALT DP4  |      20 |      12 |
+## Main Finding & Interpretation
 
-Effects:
+A localized raw-signal interpolation attack affecting approximately **0.05% of signal samples** eliminated the target allele from every attacked read at two independent loci while preserving mapping. In matched regional variant calls, this caused approximately **40–42% loss of ALT support** and **32–41% loss of variant quality** without changing the reported heterozygous genotype.
 
-* QUAL change: -71.908
-* QUAL loss: 32.337%
-* ALT-support change: -8
-* ALT-support loss: 40.000%
-* REF-support change: +3
-
-## Cross-locus comparison
-
-| Locus                 | Signal changed | ALT-support loss | QUAL loss | Genotype  |
-| ---------------------- | -------------: | ----------------: | --------: | --------- |
-| L1 chr20:10003468 C>G  |        0.0378% |            31.25% |    70.04% | 0/1 → 0/1 |
-| L2 chr1:20061156 A>T   |        0.0490% |            42.11% |    41.22% | 0/1 → 0/1 |
-| L3 chr4:40028853 A>G   |        0.0533% |            40.00% |    32.34% | 0/1 → 0/1 |
-
-## Main finding
-
-A localized interpolation attack affecting approximately 0.04–0.05% of nanopore raw-signal samples reproducibly suppressed variant evidence across three independent genomic loci.
-
-At the two replication loci, the attack eliminated the target ALT call from every attacked parent read while retaining full primary mapping at MAPQ 60.
-
-When attacked reads were reintroduced into matched regional genomic backgrounds, the attack caused:
-
-* 40–42% loss of variant ALT support;
-* 32–41% loss of variant-call quality;
-* minimal change in REF support;
-* no loss of global read mapping.
-
-The attack therefore acts as targeted genomic evidence suppression rather than indiscriminate sequencing corruption.
-
-## Interpretation
-
-The genotype remained heterozygous because untargeted ALT-supporting reads were still present in the regional background.
-
-This does not constitute a genotype flip.
-
-The demonstrated consequence is:
-
-```text
-targeted evidence destruction and variant-confidence degradation
-```
-
-The cross-locus replication shows that the effect is not limited to:
-
-* the original chromosome 20 locus;
-* one substitution type;
-* one read orientation;
-* one signal-event length;
-* one local sequence context.
-
-## Important methodological clarification
-
-The ONT Experiment E consequence series used `bcftools` for controlled variant calling.
-
-DeepVariant was used in earlier A2 BAM-manipulation experiments, but it was not the caller used for the Experiment E targeted raw-signal consequence results.
+This is **targeted evidence suppression and caller-confidence degradation**, not a genotype flip. The genotype remained heterozygous because untargeted ALT-supporting reads were still present in the genomic background.
 
 ## Conclusion
 
