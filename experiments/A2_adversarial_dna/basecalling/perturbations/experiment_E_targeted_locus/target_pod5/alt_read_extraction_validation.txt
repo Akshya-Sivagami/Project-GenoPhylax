@@ -1,0 +1,25 @@
+Experiment E ALT raw-read extraction
+====================================
+Requested IDs: 11
+Found unique IDs: 11
+Written reads: 11
+Missing IDs: 0
+Duplicated source IDs: 0
+Unexpected IDs: 0
+
+Missing:
+
+Duplicates:
+
+Extracted reads:
+  00533577-803b-48cd-814e-adfa3e058d91 <- PAO89685_pass__2264ba8c_afee3a87_1204.pod5
+  199fcf4a-a100-4779-b89e-c80f4793cdfc <- PAO89685_pass__2264ba8c_afee3a87_214.pod5
+  1de25dab-c1cd-4c85-9b97-0104f8f411a5 <- PAO89685_pass__2264ba8c_afee3a87_90.pod5
+  26efcc36-d025-471e-933a-e57a2447c465 <- PAO89685_pass__2264ba8c_afee3a87_1388.pod5
+  72209365-d223-4c87-9ba5-63376a9170fd <- PAO89685_pass__2264ba8c_afee3a87_258.pod5
+  7c1164dc-2545-441b-ab5d-11227989dfe6 <- PAO89685_pass__2264ba8c_afee3a87_38.pod5
+  9a90548e-31da-4b38-aba0-8b9f7a75e936 <- PAO89685_pass__2264ba8c_afee3a87_261.pod5
+  9d796ae7-6945-4d1e-abb4-7bdce517a96d <- PAO89685_pass__2264ba8c_afee3a87_238.pod5
+  a634b28d-7579-4d22-b746-c799d1222281 <- PAO89685_pass__2264ba8c_afee3a87_990.pod5
+  cb0e7285-3c4a-461b-8540-7f0a3fda312c <- PAO89685_pass__2264ba8c_afee3a87_1155.pod5
+  e7f01a96-5fbc-463c-9f12-f4e323ea44f3 <- PAO89685_pass__2264ba8c_afee3a87_589.pod5
