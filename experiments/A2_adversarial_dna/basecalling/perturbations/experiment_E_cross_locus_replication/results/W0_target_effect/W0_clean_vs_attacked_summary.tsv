@@ -1,0 +1,3 @@
+locus	chrom	position	ref	alt	clean_parent_count	attacked_parent_count	clean_alt_parent_count	attacked_alt	attacked_ref	attacked_deletion	attacked_other	attacked_no_coverage	attacked_unmapped	attacked_missing	alt_changed_parents	alt_changed_percent	alt_retained_parents	status
+L2_chr1_20061156_A_T	chr1	20061156	A	T	10	10	10	10	0	0	0	0	0	0	0	0.0	10	NO_EFFECT
+L3_chr4_40028853_A_G	chr4	40028853	A	G	10	10	10	10	0	0	0	0	0	0	0	0.0	10	NO_EFFECT
