@@ -1,0 +1,9 @@
+condition	condition_label	placement	locus	candidate	variant	context_bases	base_events_per_read	reads_processed	reads_passed	target_overlap_reads	total_changed_samples	total_signal_samples	changed_percent	outside_changed_samples	clean_alt_parents	alt_retained_parents	alt_changed_parents	alt_changed_percent	target_effect_status
+W0	W0 target-only	Centred on target	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	0	1	10	10	10	107	2934299	0.003646526819523164	0	10	10	0	0.0	NO_EFFECT
+W0	W0 target-only	Centred on target	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	0	1	10	10	10	227	2988077	0.007596859117084332	0	10	10	0	0.0	NO_EFFECT
+SHAM20	Near sham +20	20 bases downstream	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	5	11	10	10	0	1350	2934299	0.04600758136781562	0	10	9	1	10.0	EFFECT_OBSERVED
+SHAM20	Near sham +20	20 bases downstream	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	5	11	10	10	0	1172	2988077	0.03922255015516669	0	10	10	0	0.0	NO_EFFECT
+SHAM100	Distant sham +100	100 bases downstream	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	5	11	10	10	0	1246	2934299	0.042463293617998714	0	10	10	0	0.0	NO_EFFECT
+SHAM100	Distant sham +100	100 bases downstream	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	5	11	10	10	0	1387	2988077	0.04641781319557695	0	10	10	0	0.0	NO_EFFECT
+PM5	PM5 target-centred	Centred on target	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	5	11	10	10	10	1438	2934299	0.049006594079199155	0	10	0	10	100.0	EFFECT_OBSERVED
+PM5	PM5 target-centred	Centred on target	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	5	11	10	10	10	1592	2988077	0.05327841283875884	0	10	0	10	100.0	EFFECT_OBSERVED

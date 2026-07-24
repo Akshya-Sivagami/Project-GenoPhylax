@@ -1,0 +1,5 @@
+condition	condition_label	placement	context_bases	base_events_per_read	loci_tested	reads_processed	reads_passed	total_changed_samples	total_signal_samples	combined_changed_percent	outside_changed_samples	clean_alt_parents	alt_retained_parents	alt_changed_parents	alt_changed_percent	L2_alt_changed	L3_alt_changed	interpretation
+W0	W0 target-only	Centred on target	0	1	2	20	20	334	5922376	0.0056396284194046445	0	20	20	0	0.0	0	0	Target-only signal edit was insufficient.
+SHAM20	Near sham +20	20 bases downstream	5	11	2	20	20	2522	5922376	0.04258426010101351	0	20	19	1	5.0	1	0	Mostly negative, with one L2 short-range spillover deletion.
+SHAM100	Distant sham +100	100 bases downstream	5	11	2	20	20	2633	5922376	0.044458507869139005	0	20	20	0	0.0	0	0	Clean distant off-target negative control.
+PM5	PM5 target-centred	Centred on target	5	11	2	20	20	3030	5922376	0.05116189853531758	0	20	0	20	100.0	10	10	Complete target-state disruption at both loci.
