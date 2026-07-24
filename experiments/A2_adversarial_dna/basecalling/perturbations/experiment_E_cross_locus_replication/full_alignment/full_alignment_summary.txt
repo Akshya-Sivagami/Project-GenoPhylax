@@ -1,0 +1,8 @@
+input_bam=experiments/A2_adversarial_dna/basecalling/dorado/results/baseline/hg002_three_pod5_hac.bam
+fastq_records=12703
+total_alignment_records=17088
+primary_records=12703
+mapped_primary=12641
+unmapped_primary=62
+mapped_primary_percent=99.5119
+sorted_bam=experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/full_alignment/hg002_three_pod5_GRCh38.sorted.bam

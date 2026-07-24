@@ -1,0 +1,2 @@
+candidate	background_total_records	background_retained_records	background_removed_records	removed_unique_parent_ids	replacement_total_records	replacement_written_records	replacement_unique_parent_ids	missing_removed_parent_ids	missing_replacement_parent_ids	status
+L2	369	359	10	10	10	10	10	0	0	PASS

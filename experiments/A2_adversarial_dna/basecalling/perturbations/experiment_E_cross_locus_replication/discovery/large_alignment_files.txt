@@ -1,0 +1,1 @@
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/dorado/results/baseline/hg002_three_pod5_hac.bam	197764 KB

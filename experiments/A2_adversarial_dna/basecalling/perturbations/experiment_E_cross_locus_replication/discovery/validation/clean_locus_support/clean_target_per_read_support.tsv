@@ -1,0 +1,3 @@
+candidate	parent_id	query_name	flag	mapping_quality	reference_start_1based	reference_end_1based	query_position_0based	observed_base	base_quality	classification
+L2_chr1_20061156_A_T	0dd9e8fe-acad-4dda-b4fc-a51d45a2d374	0dd9e8fe-acad-4dda-b4fc-a51d45a2d374	16	60	20036658	20065271	24483	T	39	ALT
+L3_chr4_40028853_A_G	27d05f86-624f-416c-9b28-f8a7948c0c7f	27d05f86-624f-416c-9b28-f8a7948c0c7f	0	60	40010986	40035016	39147	G	41	ALT

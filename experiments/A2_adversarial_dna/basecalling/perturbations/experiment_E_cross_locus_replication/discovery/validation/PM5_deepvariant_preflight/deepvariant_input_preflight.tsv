@@ -1,0 +1,5 @@
+candidate	condition	bam	total_records	mapped_primary	index_present	quickcheck	region_records	status
+L2	CLEAN	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/hybrid_bams/PM5/L2.clean.hybrid.sorted.bam	369	353	YES	PASS	50	PASS
+L2	PM5	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/hybrid_bams/PM5/L2.PM5.hybrid.sorted.bam	369	353	YES	PASS	50	PASS
+L3	CLEAN	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/hybrid_bams/PM5/L3.clean.hybrid.sorted.bam	334	311	YES	PASS	48	PASS
+L3	PM5	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/hybrid_bams/PM5/L3.PM5.hybrid.sorted.bam	334	311	YES	PASS	48	PASS

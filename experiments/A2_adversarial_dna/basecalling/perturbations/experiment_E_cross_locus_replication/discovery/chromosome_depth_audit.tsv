@@ -1,0 +1,6 @@
+chrom	covered_positions	mean_nonzero_depth	max_depth	positions_ge5	positions_ge10	positions_ge20
+chr1	13544376	1.27588	16	34541	20519	0
+chr4	10622182	1.2224	11	2886	1046	0
+chr2	12871994	1.17099	4	0	0	0
+chr5	10716364	1.24563	6	743	0	0
+chr6	10485779	1.23525	4	0	0	0

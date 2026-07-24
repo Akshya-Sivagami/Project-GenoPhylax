@@ -1,0 +1,3 @@
+candidate	clean_GT	attacked_GT	clean_QUAL	attacked_QUAL	QUAL_change	QUAL_loss_percent	clean_REF_DP4	attacked_REF_DP4	REF_support_change	clean_ALT_DP4	attacked_ALT_DP4	ALT_support_change	ALT_support_loss_percent	consequence
+L2	0/1	0/1	222.401	130.733	-91.668	41.21744056906219	22	23	1	19	11	-8	42.10526315789474	CONFIDENCE_REDUCED
+L3	0/1	0/1	222.374	150.466	-71.90799999999999	32.336514160828145	23	26	3	20	12	-8	40.0	CONFIDENCE_REDUCED

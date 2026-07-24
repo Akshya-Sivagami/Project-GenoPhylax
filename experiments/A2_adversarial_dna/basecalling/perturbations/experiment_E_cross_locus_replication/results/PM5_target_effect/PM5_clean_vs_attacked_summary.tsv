@@ -1,0 +1,3 @@
+candidate	chrom	position	ref	alt	clean_unique_target_parents	attacked_unique_target_parents	clean_ALT	clean_REF	clean_DELETION	clean_OTHER	attacked_ALT	attacked_REF	attacked_DELETION	attacked_OTHER	attacked_NO_TARGET_COVERAGE	ALT_support_loss	ALT_support_loss_percent	ALT_to_ALT	ALT_to_REF	ALT_to_DELETION	ALT_to_OTHER	ALT_to_NO_TARGET_COVERAGE	status
+L2_chr1_20061156_A_T	chr1	20061156	A	T	10	10	10	0	0	0	0	1	7	2	0	10	100.0	0	1	7	2	0	EFFECT_OBSERVED
+L3_chr4_40028853_A_G	chr4	40028853	A	G	10	10	10	0	0	0	0	3	5	2	0	10	100.0	0	3	5	2	0	EFFECT_OBSERVED

@@ -1,0 +1,3 @@
+candidate	expected_reads	observed_reads	missing_reads	unexpected_reads	total_signal_samples	minimum_signal_samples	maximum_signal_samples	pod5_bytes	status
+L2_chr1_20061156_A_T	10	10	0	0	2934299	125188	390224	2517216	PASS
+L3_chr4_40028853_A_G	10	10	0	0	2988077	187578	554483	2607680	PASS

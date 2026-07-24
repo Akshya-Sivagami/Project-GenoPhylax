@@ -1,0 +1,15 @@
+requested_alt_ids=58
+matched_alt_ids=56
+missing_alt_ids=2
+L2_chr1_20061156_requested=18
+L2_chr1_20061156_matched=17
+L2_chr1_20061156_missing=1
+L2_chr1_20061156_unique_pod5_files=15
+L3_chr4_40030737_requested=20
+L3_chr4_40030737_matched=20
+L3_chr4_40030737_missing=0
+L3_chr4_40030737_unique_pod5_files=17
+BACKUP_chr2_30028664_requested=20
+BACKUP_chr2_30028664_matched=19
+BACKUP_chr2_30028664_missing=1
+BACKUP_chr2_30028664_unique_pod5_files=18

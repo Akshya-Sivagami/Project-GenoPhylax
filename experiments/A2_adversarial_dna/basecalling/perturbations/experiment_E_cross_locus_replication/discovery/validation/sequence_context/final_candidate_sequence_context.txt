@@ -1,0 +1,26 @@
+========================================================================
+L2: chr1:20061156 A>T
+========================================================================
+Status: CAUTION_DINUCLEOTIDE_REPEAT
+Reference match: True
+Observed reference: A
+Longest homopolymer in ±25 bp: 3
+Dinucleotide repeats: CTx3
+GC fraction ±25 bp: 0.4706
+
+±100 bp context:
+TGGCCCTTCATGGACCAGGCAGCCTGGTGATTCCGGACCTCCTCCCAGATTGGCCTCATCTCTCCATTGCTCTCACCTCTCTGTGGGATCTGACCCAGGG[A>T]TACAAATGAATCTACCTCTTCATCTTTTCCAGAGAGCATACTTCATGCTGTTTTCTACTTTAAGAATTGTTGCCCCAGAATAGCCATCTCACATCCACAC
+
+========================================================================
+L3: chr4:40030737 T>A
+========================================================================
+Status: CAUTION_HOMOPOLYMER
+Reference match: True
+Observed reference: T
+Longest homopolymer in ±25 bp: 7
+Dinucleotide repeats: AAx3
+GC fraction ±25 bp: 0.0392
+
+±100 bp context:
+TGTCTATCAAAAATACAACAAAATTAGCCAGGTATGATCCCAGCTACTAGGGAGGAAGAGGTGGACTCTGTCTCAAAAAAATAAAGATAAAAAAATAAAT[T>A]AATTAATTAAATTAAGTAAAAATTTAAAAACACATATTAAGACTGTCAAGCAAAAAAGAAAAAGAAAAAGCAAACAAAAACAAAACAAAACAAAACAAAA
+

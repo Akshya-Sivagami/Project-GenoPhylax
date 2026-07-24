@@ -1,0 +1,75 @@
+========================================================================
+L3A: chr4:40030374 T>C
+========================================================================
+Status: PASS
+REF/ALT support: 20/21
+Minimum cohort: 6 POD5 files, 2.935 GiB
+Reference match: True
+Target homopolymer length: 1
+Longest homopolymer in ±25 bp: 4
+Dinucleotide repeats: NONE
+GC fraction in ±25 bp: 0.5686
+
+±100 bp context:
+TAGTCCCAGCTACTCGGGAGGCTGAGGCAGGAGAATCGCTTGAACCCGGGAGGCAGAGGTTGCAGTGAGCCGAGATCACGCCACTGCACTCCAGCCTAGG[T>C]GACAGAGCGAGACGCCATCTCAAAAAAGAAAAAAGAAAAAAAAAAAAAAAAAAAAAAAAAATATATATATATATATAAAACCTGCTTGCCATGCAAACTT
+
+========================================================================
+L3B: chr4:40029111 A>G
+========================================================================
+Status: CAUTION_HOMOPOLYMER
+REF/ALT support: 20/18
+Minimum cohort: 7 POD5 files, 3.042 GiB
+Reference match: True
+Target homopolymer length: 1
+Longest homopolymer in ±25 bp: 5
+Dinucleotide repeats: NONE
+GC fraction in ±25 bp: 0.5294
+
+±100 bp context:
+GAGTGGATCACCTGAGGTCAGGAGTTGAAGACCAGCCTGGCCAACGTGGTGAAACCCTGCCTTCATTAAAAGTACAAAAATGTGGGAGGCTGAGGTGGGC[A>G]GATCACGAGGTCAGGAGATCAAGACCATCTTGGCTAACATGGTGAAACCCCGTTTCTACTAAAAATACAAAAAATTAGCCAGGCGTGGTGGCGGGCGCCT
+
+========================================================================
+L3C: chr4:40028853 A>G
+========================================================================
+Status: PASS
+REF/ALT support: 21/18
+Minimum cohort: 7 POD5 files, 3.042 GiB
+Reference match: True
+Target homopolymer length: 1
+Longest homopolymer in ±25 bp: 3
+Dinucleotide repeats: NONE
+GC fraction in ±25 bp: 0.5098
+
+±100 bp context:
+CTACTAAAAATACAAAAAATTAGCTGGGCGTGGGGGCACATGCATGTAATCCCAGCTACTTGGGAGGCTGAGGCAGGATAATTGCTTGAACCTGGGAGGC[A>G]GAGGTTGCGGTGAGCTGAAATCATGCCATTGCACTCCAGCCTGGGCAACAACAGCAAAATTCTGTCTCAAAAAAAAAAAAAAAAGCATTAAAATACTATT
+
+========================================================================
+L3D: chr4:40026575 C>T
+========================================================================
+Status: PASS
+REF/ALT support: 22/19
+Minimum cohort: 8 POD5 files, 3.497 GiB
+Reference match: True
+Target homopolymer length: 1
+Longest homopolymer in ±25 bp: 3
+Dinucleotide repeats: NONE
+GC fraction in ±25 bp: 0.6078
+
+±100 bp context:
+GGATGTACCACAGTCTATTTAACCATTCACCATTTTTTTAAAAACTATTTATTTATTTTATTTTGAGATGGAGTCTCGCTCTGTCACCCAGGCTGGAATG[C>T]AGTGGCACGATCTCGGCTCACTGCAACTTCTGCCTCCCAGGTTCAAGCGACTCTCCCACCTTAGCCTTCTGAGTAGCTGGGATTACAGGCGTGCGCCACC
+
+========================================================================
+L3E: chr4:40027863 G>T
+========================================================================
+Status: PASS
+REF/ALT support: 22/17
+Minimum cohort: 8 POD5 files, 3.624 GiB
+Reference match: True
+Target homopolymer length: 1
+Longest homopolymer in ±25 bp: 3
+Dinucleotide repeats: NONE
+GC fraction in ±25 bp: 0.6078
+
+±100 bp context:
+ATTTTTTGTATTTTTAGTAGAGACAAGGTTTTACTATGTTGCCCTGGCTGGTCTCGAGCTCCTGACCTCAAGTGATCTGCCTGCCTTGGCCTCCCAAACT[G>T]CTGGGATTACAGCCGTGAGCCACCATACCCGGCCTGTAGACTTTCACGGAATTCTCACCCGATCTCTCTTCCTTCCTGCTGCTCCCTAAGCTTCTCAGAT
+

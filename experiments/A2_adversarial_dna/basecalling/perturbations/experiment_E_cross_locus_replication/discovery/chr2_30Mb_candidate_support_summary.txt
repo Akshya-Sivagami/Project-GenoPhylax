@@ -1,0 +1,9 @@
+region=chr2:30000000-30100000
+truth_het_snvs=52
+evaluated_candidates=52
+passing_candidates=50
+best_candidate=chr2:30028664 A>G
+best_depth=41
+best_ref_count=21
+best_alt_count=20
+best_score=218.682927

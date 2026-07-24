@@ -1,0 +1,18 @@
+# Cross-Locus Replication Candidate Shortlist
+
+Original locus excluded:
+chr20:10003468 C>G
+
+Selection requirements:
+- GIAB truth genotype 0/1
+- at least 20 usable REF/ALT observations
+- at least 8 REF and 8 ALT observations
+- mean base quality at least 25
+- mean mapping quality at least 50
+- both strands represented
+- zero OTHER-base observations
+- target-base homopolymer run no greater than 2
+- maximum 21-bp context run no greater than 4
+
+Top candidates:
+

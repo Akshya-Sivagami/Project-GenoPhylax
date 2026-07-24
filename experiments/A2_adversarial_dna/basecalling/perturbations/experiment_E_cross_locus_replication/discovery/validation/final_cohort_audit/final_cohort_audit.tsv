@@ -1,0 +1,9 @@
+check	result	status
+L2_unique_read_ids	10	PASS
+L3_unique_read_ids	10	PASS
+L2_vs_L3_read_overlap	0	PASS
+L1_vs_L2_read_overlap	0	PASS
+L1_vs_L3_read_overlap	0	PASS
+L2_manifest_unique_files	9	PASS
+L3_manifest_unique_files	7	PASS
+combined_manifest_unique_files	16	PASS

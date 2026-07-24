@@ -1,0 +1,3 @@
+candidate	chrom	position	ref	alt	unique_parent_ids	target_overlapping_records	primary_target_records	supplementary_target_records	parent_ALT	parent_REF	parent_DELETION	parent_OTHER	parent_NO_PRIMARY_CALL	parent_CONFLICTING	status
+L2_chr1_20061156_A_T	chr1	20061156	A	T	10	10	10	0	10	0	0	0	0	0	PASS
+L3_chr4_40028853_A_G	chr4	40028853	A	G	10	11	10	1	10	0	0	0	0	0	PASS

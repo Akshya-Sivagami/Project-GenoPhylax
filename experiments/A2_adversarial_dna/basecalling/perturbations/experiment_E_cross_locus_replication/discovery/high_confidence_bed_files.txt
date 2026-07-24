@@ -1,0 +1,1 @@
+/home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed	11228 KB

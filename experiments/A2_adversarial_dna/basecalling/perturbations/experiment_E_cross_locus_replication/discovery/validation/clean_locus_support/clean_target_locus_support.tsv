@@ -1,0 +1,3 @@
+candidate	chrom	position	ref	alt	overlapping_records	unique_parent_ids	ALT	REF	DELETION	OTHER	REF_SKIP	NO_COVERAGE	status
+L2_chr1_20061156_A_T	chr1	20061156	A	T	1	1	1	0	0	0	0	0	REVIEW
+L3_chr4_40028853_A_G	chr4	40028853	A	G	1	1	1	0	0	0	0	0	REVIEW

@@ -1,0 +1,25 @@
+Cross-locus candidate rejection decision
+
+Original locus:
+chr20:10003468 C>G
+
+Rejected candidates:
+L2 chr20:10002468 G>A
+L3 chr20:10006496 T>C
+
+Reason:
+The candidates are too close to the original locus and reuse much of the same physical nanopore read population.
+
+Observed physical-read overlap:
+- Original full 24-read set vs L2 ALT set: 12 shared reads
+- Original full 24-read set vs L3 ALT set: 11 shared reads
+- L2 ALT set vs L3 ALT set: 13 shared reads
+
+Interpretation:
+These loci are not statistically independent cross-locus replicates. They may be retained only as local multi-position robustness candidates within one shared read population.
+
+Decision:
+Do not use L2 or L3 for cross-locus generalization claims.
+
+Next requirement:
+Select distant loci, preferably on different chromosomes, with negligible or zero physical-read overlap.

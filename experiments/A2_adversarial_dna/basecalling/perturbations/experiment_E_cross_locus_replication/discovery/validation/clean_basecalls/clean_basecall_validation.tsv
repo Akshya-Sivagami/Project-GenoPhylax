@@ -1,0 +1,3 @@
+candidate	expected_parent_ids	observed_parent_ids	total_bam_records	split_or_duplicate_records	missing_parent_ids	unexpected_parent_ids	records_with_mv	records_with_ts	records_with_ns	records_with_sequence	secondary_records	supplementary_records	unmapped_records	status
+L2_chr1_20061156_A_T	10	10	10	0	0	0	10	10	10	10	0	0	10	PASS
+L3_chr4_40028853_A_G	10	10	10	0	0	0	10	10	10	10	0	0	10	PASS
