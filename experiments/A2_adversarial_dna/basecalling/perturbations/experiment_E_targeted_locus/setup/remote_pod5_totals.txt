@@ -1,0 +1,4 @@
+Remote POD5 files: 2333
+Remote POD5 bytes: 1738406843216
+Remote POD5 GiB: 1619.02
+Remote POD5 TiB: 1.581

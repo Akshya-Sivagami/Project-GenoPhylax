@@ -1,0 +1,14 @@
+                           PRE other_reports/
+                           PRE pod5_fail/
+                           PRE pod5_pass/
+2023-05-15 23:56:06        248 barcode_alignment_PAO89685_2264ba8c_afee3a87.tsv
+2023-05-15 23:56:06        656 final_summary_PAO89685_2264ba8c_afee3a87.txt
+2023-05-15 23:56:06  224724629 full_ss_every_17.txt
+2023-05-16 04:53:54    2269523 pore_activity_PAO89685_2264ba8c_afee3a87.csv
+2023-05-16 04:53:54   22500344 read_list.txt
+2023-05-16 04:53:56    1496823 report_PAO89685_20230424_1308_2264ba8c.html
+2023-05-16 04:53:57     946254 report_PAO89685_20230424_1308_2264ba8c.json
+2023-05-16 04:53:57    2817707 report_PAO89685_20230424_1308_2264ba8c.md
+2023-05-16 04:53:58        180 sample_sheet_PAO89685_20230424_1308_2264ba8c.csv
+2023-05-16 04:53:58 3602275623 sequencing_summary_PAO89685_2264ba8c_afee3a87.txt
+2023-05-16 04:54:16     546602 throughput_PAO89685_2264ba8c_afee3a87.csv

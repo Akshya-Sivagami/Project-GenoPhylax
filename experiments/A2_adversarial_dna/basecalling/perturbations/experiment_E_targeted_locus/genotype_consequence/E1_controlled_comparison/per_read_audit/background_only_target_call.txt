@@ -1,0 +1,15 @@
+Experiment E1 — Untouched Background Audit
+===========================================
+
+Background BAM records: 51
+
+Raw unfiltered target pileup:
+
+Background-only bcftools target record:
+NO_VARIANT_RECORD
+
+This is allowed: the background alone may not pass variant-calling thresholds.
+
+Per-record audit result:
+Raw background ALT records: 5
+Raw background records and states identical in both hybrids: PASS

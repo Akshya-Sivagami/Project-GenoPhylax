@@ -1,0 +1,18 @@
+Experiment E local interpolation attack
+=======================================
+Attack: linear interpolation across mapped +/-5-base windows
+Input raw reads: 11
+Attacked raw reads: 10
+Untouched raw reads: 1
+Attack windows: 10
+Total signal samples in POD5: 4231330
+Total samples in attacked reads: 3967569
+Total mapped window samples: 1608
+Actually changed samples: 1599
+Changed fraction of all POD5 signal: 0.0003778954
+Changed fraction of attacked-read signal: 0.0004030176
+Outside-window identity checks: PASS
+Untouched-read identity checks: PASS
+
+Untouched reads:
+  9a90548e-31da-4b38-aba0-8b9f7a75e936: IDENTICAL

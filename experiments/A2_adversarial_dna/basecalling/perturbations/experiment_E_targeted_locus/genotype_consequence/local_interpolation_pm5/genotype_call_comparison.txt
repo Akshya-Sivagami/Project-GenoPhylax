@@ -1,0 +1,32 @@
+Experiment E genotype consequence
+=================================
+Target: chr20:10003468 C>G
+
+Read-swap validation:
+  original records: 63
+  background records: 51
+  attacked replacement records: 12
+  hybrid records: 63
+  count validation: PASS
+
+Original clean call:
+  status: VARIANT_RECORD
+  genotype: 0/1
+  QUAL: 124.233
+  DP: 35
+  AD: 18,16
+
+Attacked hybrid call:
+  status: VARIANT_RECORD
+  genotype: 0/1
+  QUAL: 41.4192
+  DP: 29
+  AD: 18,10
+
+Genotype transition: 0/1 -> 0/1
+
+Original mpileup:
+chr20	10003468	C	18	g.,GGg,.Gg.,,Gg,..	4IS<2<C4D?;SFEHB7S
+
+Attacked hybrid mpileup:
+chr20	10003468	C	14	g.,g,..g,,g,..	DIS7C4;BSF=B7S

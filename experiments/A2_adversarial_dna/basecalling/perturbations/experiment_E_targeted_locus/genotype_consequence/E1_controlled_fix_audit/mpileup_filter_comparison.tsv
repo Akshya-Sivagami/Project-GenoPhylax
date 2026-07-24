@@ -1,0 +1,11 @@
+file	mode	chrom	pos	ref	depth	bases	qualities
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/local_interpolation_pm5/dorado_results/attacked.aligned.sorted.bam	default	chr20	10003468	N	6	ggg*gg	D7F7B=
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/local_interpolation_pm5/dorado_results/attacked.aligned.sorted.bam	unfiltered	chr20	10003468	N	11	g**g*g*g*g*	D'*7%F7B*=*
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/clean_dorado/hg002_chr20_10003468_alt_clean.aligned.sorted.bam	default	chr20	10003468	N	11	gGGgGg*gGgG	DF<7IH7B==6
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/clean_dorado/hg002_chr20_10003468_alt_clean.aligned.sorted.bam	unfiltered	chr20	10003468	N	11	gGGgGg*gGgG	DF<7IH7B==6
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/attacked_hybrid.sorted.bam	default	chr20	10003468	N	21	gcCcgcCcg*CC*gccgcCcC	DJIS7C4EF3B;7BSF=B7.S
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/attacked_hybrid.sorted.bam	unfiltered	chr20	10003468	N	39	gAcCc***gcC*CcGg*CCc*gG*gcc*gGgcCcc**Cc	D(JIS'%*7C4%(E)F3B;+)(*7BSF*(*=B7$.&*S,
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/original_region.bam	default	chr20	10003468	N	26	gcCcGGgcCGcg*CCgGccGgcCcGC	4JIS<9<C4DE?3B;86SFEHB7.8S
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/original_region.bam	unfiltered	chr20	10003468	N	39	gAcCcG*GgcCGCcGg*CCc*gGgGccGgGgcCcc*GCc	4(JIS<%9<C4D(E)?3B;+)(*86SFE(*HB7$.&8S,
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/locus_selection/PAO89685_chr20_10Mb.sorted.bam	default	chr20	10003468	N	26	gcCcGGgcCGcg*CCgGccGgcCcGC	4JIS<9<C4DE?3B;86SFEHB7.8S
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/locus_selection/PAO89685_chr20_10Mb.sorted.bam	unfiltered	chr20	10003468	N	39	gAcCcG*GgcCGCcGg*CCc*gGgGccGgGgcCcc*GCc	4(JIS<%9<C4D(E)?3B;+)(*86SFE(*HB7$.&8S,

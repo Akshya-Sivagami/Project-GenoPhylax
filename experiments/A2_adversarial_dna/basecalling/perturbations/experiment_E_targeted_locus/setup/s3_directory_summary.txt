@@ -1,0 +1,2 @@
+DIRECTORY                                  FILES              BYTES
+giab_2023.05                                2346      1742416222861

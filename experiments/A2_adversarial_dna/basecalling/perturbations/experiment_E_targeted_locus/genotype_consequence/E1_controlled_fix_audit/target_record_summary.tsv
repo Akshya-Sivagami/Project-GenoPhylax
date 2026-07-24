@@ -1,0 +1,6 @@
+file	total_records_at_target	primary	secondary	supplementary	duplicate	qcfail	mapped	unmapped	base_C	base_G	base_A	base_T	deletion_or_refskip	other
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/local_interpolation_pm5/dorado_results/attacked.aligned.sorted.bam	11	11	0	0	0	0	11	0	0	5	0	0	6	0
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/clean_dorado/hg002_chr20_10003468_alt_clean.aligned.sorted.bam	11	11	0	0	0	0	11	0	0	10	0	0	1	0
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/attacked_hybrid.sorted.bam	39	34	0	5	0	0	39	0	18	10	1	0	10	0
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/local_interpolation_pm5/original_region.bam	39	34	0	5	0	0	39	0	18	16	1	0	4	0
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/locus_selection/PAO89685_chr20_10Mb.sorted.bam	39	34	0	5	0	0	39	0	18	16	1	0	4	0

@@ -1,0 +1,16 @@
+Experiment E clean Dorado target support
+========================================
+Target: chr20:10003468 C>G
+Expected raw ALT parents: 11
+Primary locus-covering records: 11
+Unique covered raw parents: 11
+ALT-supporting raw parents: 10
+REF-supporting raw parents: 0
+Other/deletion raw parents: 1
+Missing raw parents at locus: 0
+
+Primary base counts:
+  -: 1
+  G: 10
+
+Missing raw parent IDs:

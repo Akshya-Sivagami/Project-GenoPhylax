@@ -1,0 +1,12 @@
+9432359388	giab_2023.05/analysis/hg002/hac/PAO83395.fail.cram
+110409153743	giab_2023.05/analysis/hg002/hac/PAO83395.pass.cram
+21557845303	giab_2023.05/analysis/hg002/hac/PAO89685.fail.cram
+81761558471	giab_2023.05/analysis/hg002/hac/PAO89685.pass.cram
+7420279092	giab_2023.05/analysis/hg002/sup/PAO83395.fail.cram
+103693962633	giab_2023.05/analysis/hg002/sup/PAO83395.pass.cram
+18037577995	giab_2023.05/analysis/hg002/sup/PAO89685.fail.cram
+77463417103	giab_2023.05/analysis/hg002/sup/PAO89685.pass.cram
+215203926436	giab_2023.05/analysis/variant_calling/hg002_hac_60x/hg002.haplotagged.bam
+325907386135	giab_2023.05/analysis/variant_calling/hg002_hac_all/hg002.haplotagged.bam
+205484249144	giab_2023.05/analysis/variant_calling/hg002_sup_60x/hg002.haplotagged.bam
+311143990628	giab_2023.05/analysis/variant_calling/hg002_sup_all/hg002.haplotagged.bam

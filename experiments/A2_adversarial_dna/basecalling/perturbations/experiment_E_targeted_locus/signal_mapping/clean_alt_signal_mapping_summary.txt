@@ -1,0 +1,20 @@
+Experiment E clean ALT signal mapping
+=====================================
+Target locus: chr20:10003468
+Required clean ALT base: G
+Mapped attack candidates: 10
+Excluded clean records: 1
+Context radius: +/-5 bases
+
+Target-base signal interval:
+  minimum samples: 6
+  maximum samples: 60
+  mean samples: 28.20
+
+Context signal interval:
+  minimum samples: 108
+  maximum samples: 246
+  mean samples: 160.80
+
+Excluded records:
+  9a90548e-31da-4b38-aba0-8b9f7a75e936: clean_base_is_-_not_G

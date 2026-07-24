@@ -1,0 +1,4 @@
+                           PRE hg002_hac_60x/
+                           PRE hg002_hac_all/
+                           PRE hg002_sup_60x/
+                           PRE hg002_sup_all/

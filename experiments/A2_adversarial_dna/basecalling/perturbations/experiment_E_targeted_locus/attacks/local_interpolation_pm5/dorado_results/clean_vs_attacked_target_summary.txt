@@ -1,0 +1,26 @@
+Experiment E localized attack outcome
+=====================================
+Target: chr20:10003468 C>G
+Raw parents compared: 11
+Clean ALT-supporting parents: 10
+Attacked ALT-supporting parents: 5
+ALT-supporting parents lost: 5
+ALT retention: 0.5000
+
+Clean target states:
+  -: 1
+  G: 10
+
+Attacked target states:
+  -: 6
+  G: 5
+
+Transitions:
+  ->-: 1
+  G>-: 5
+  G>G: 5
+
+Base-quality change among comparable bases:
+  mean delta: -0.40
+  minimum delta: -2
+  maximum delta: 0
