@@ -44,3 +44,7 @@ experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/
 experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*_COMPLETE
 experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/*_FAILED
 experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/**/metrics/*_stats.txt
+*.crai
+*.pid
+*.COMPLETE
+*.done
