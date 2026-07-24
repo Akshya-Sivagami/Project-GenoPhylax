@@ -1,0 +1,1 @@
+4.6G	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env

@@ -1,0 +1,18 @@
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:283: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+architecture: aarch64
+torch 2.10.0+cu130
+ont-bonito NOT_INSTALLED PackageNotFoundError('ont-bonito')
+ont-koi NOT_INSTALLED PackageNotFoundError('ont-koi')
+torch_version: 2.10.0+cu130
+torch_cuda_build: 13.0
+cuda_available: True
+cuda_device_count: 1
+gpu_name: NVIDIA GB10
+gpu_capability: (12, 1)

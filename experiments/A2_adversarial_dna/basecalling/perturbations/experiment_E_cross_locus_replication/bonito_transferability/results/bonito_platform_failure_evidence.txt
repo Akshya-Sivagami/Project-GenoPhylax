@@ -1,0 +1,180 @@
+Generated: 2026-07-24T17:02:31+05:30
+
+Machine architecture:
+aarch64
+
+Kernel:
+6.14.0-1015-nvidia
+
+GPU:
+NVIDIA GB10, 580.126.09, 12.1
+
+System Python:
+Python 3.12.3
+
+Existing markers:
+total 0
+-rw-rw-r-- 1 admin admin 0 Jul 24 16:45 BONITO_FEASIBILITY_AUDIT.COMPLETE
+-rw-rw-r-- 1 admin admin 0 Jul 24 16:53 BONITO_REPAIR_INSTALL.FAILED
+
+Final repair-installation log:
+Collecting filelock (from torch==2.10.0)
+  Downloading filelock-3.29.0-py3-none-any.whl.metadata (2.0 kB)
+Collecting typing-extensions>=4.10.0 (from torch==2.10.0)
+  Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+Requirement already satisfied: setuptools in ./experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages (from torch==2.10.0) (83.0.0)
+Collecting sympy>=1.13.3 (from torch==2.10.0)
+  Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+Collecting networkx>=2.5.1 (from torch==2.10.0)
+  Using cached networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+Collecting jinja2 (from torch==2.10.0)
+  Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+Collecting fsspec>=0.8.5 (from torch==2.10.0)
+  Downloading fsspec-2026.4.0-py3-none-any.whl.metadata (10 kB)
+Collecting cuda-bindings==13.0.3 (from torch==2.10.0)
+  Downloading cuda_bindings-13.0.3-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (2.3 kB)
+Collecting nvidia-cuda-nvrtc==13.0.88 (from torch==2.10.0)
+  Downloading nvidia_cuda_nvrtc-13.0.88-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (43.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 43.0/43.0 MB 44.0 MB/s  0:00:01
+Collecting nvidia-cuda-runtime==13.0.96 (from torch==2.10.0)
+  Downloading nvidia_cuda_runtime-13.0.96-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (2.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 116.3 MB/s  0:00:00
+Collecting nvidia-cuda-cupti==13.0.85 (from torch==2.10.0)
+  Downloading nvidia_cuda_cupti-13.0.85-py3-none-manylinux_2_25_aarch64.whl (10.3 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 10.3/10.3 MB 44.0 MB/s  0:00:00
+Collecting nvidia-cudnn-cu13==9.15.1.9 (from torch==2.10.0)
+  Downloading nvidia_cudnn_cu13-9.15.1.9-py3-none-manylinux_2_27_aarch64.whl (415.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 415.6/415.6 MB 44.1 MB/s  0:00:08
+Collecting nvidia-cublas==13.1.0.3 (from torch==2.10.0)
+  Downloading nvidia_cublas-13.1.0.3-py3-none-manylinux_2_27_aarch64.whl (542.9 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 542.9/542.9 MB 55.0 MB/s  0:00:10
+Collecting nvidia-cufft==12.0.0.61 (from torch==2.10.0)
+  Downloading nvidia_cufft-12.0.0.61-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (214.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 214.1/214.1 MB 52.1 MB/s  0:00:04
+Collecting nvidia-curand==10.4.0.35 (from torch==2.10.0)
+  Downloading nvidia_curand-10.4.0.35-py3-none-manylinux_2_27_aarch64.whl (62.0 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 62.0/62.0 MB 52.1 MB/s  0:00:01
+Collecting nvidia-cusolver==12.0.4.66 (from torch==2.10.0)
+  Downloading nvidia_cusolver-12.0.4.66-py3-none-manylinux_2_27_aarch64.whl (223.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 223.5/223.5 MB 48.7 MB/s  0:00:04
+Collecting nvidia-cusparse==12.6.3.3 (from torch==2.10.0)
+  Downloading nvidia_cusparse-12.6.3.3-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (162.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 162.2/162.2 MB 46.9 MB/s  0:00:03
+Collecting nvidia-cusparselt-cu13==0.8.0 (from torch==2.10.0)
+  Downloading nvidia_cusparselt_cu13-0.8.0-py3-none-manylinux2014_aarch64.whl (220.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 220.8/220.8 MB 50.6 MB/s  0:00:04
+Collecting nvidia-nccl-cu13==2.28.9 (from torch==2.10.0)
+  Downloading nvidia_nccl_cu13-2.28.9-py3-none-manylinux_2_18_aarch64.whl (196.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 196.6/196.6 MB 49.2 MB/s  0:00:03
+Collecting nvidia-nvshmem-cu13==3.4.5 (from torch==2.10.0)
+  Downloading nvidia_nvshmem_cu13-3.4.5-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (60.2 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 60.2/60.2 MB 51.1 MB/s  0:00:01
+Collecting nvidia-nvtx==13.0.85 (from torch==2.10.0)
+  Downloading nvidia_nvtx-13.0.85-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (148 kB)
+Collecting nvidia-nvjitlink==13.0.88 (from torch==2.10.0)
+  Downloading nvidia_nvjitlink-13.0.88-py3-none-manylinux2014_aarch64.manylinux_2_17_aarch64.whl (38.8 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 38.8/38.8 MB 57.1 MB/s  0:00:00
+Collecting nvidia-cufile==1.15.1.6 (from torch==2.10.0)
+  Downloading nvidia_cufile-1.15.1.6-py3-none-manylinux_2_27_aarch64.whl (1.1 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.1/1.1 MB 74.3 MB/s  0:00:00
+Collecting triton==3.6.0 (from torch==2.10.0)
+  Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (1.7 kB)
+Collecting cuda-pathfinder~=1.1 (from cuda-bindings==13.0.3->torch==2.10.0)
+  Downloading cuda_pathfinder-1.2.2-py3-none-any.whl.metadata (3.2 kB)
+Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.10.0)
+  Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+Collecting MarkupSafe>=2.0 (from jinja2->torch==2.10.0)
+  Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl.metadata (2.7 kB)
+Downloading torch-2.10.0%2Bcu130-cp312-cp312-manylinux_2_28_aarch64.whl (529.4 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 529.4/529.4 MB 88.8 MB/s  0:00:05
+Downloading cuda_bindings-13.0.3-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl (11.7 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 11.7/11.7 MB 82.6 MB/s  0:00:00
+Downloading triton-3.6.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl (176.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 176.1/176.1 MB 94.9 MB/s  0:00:01
+Downloading cuda_pathfinder-1.2.2-py3-none-any.whl (23 kB)
+Downloading fsspec-2026.4.0-py3-none-any.whl (203 kB)
+Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 47.8 MB/s  0:00:00
+Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 90.6 MB/s  0:00:00
+Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 58.0 MB/s  0:00:00
+Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+Downloading filelock-3.29.0-py3-none-any.whl (39 kB)
+Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+Downloading markupsafe-3.0.3-cp312-cp312-manylinux2014_aarch64.manylinux_2_17_aarch64.manylinux_2_28_aarch64.whl (24 kB)
+Installing collected packages: nvidia-cusparselt-cu13, mpmath, typing-extensions, triton, sympy, nvidia-nvtx, nvidia-nvshmem-cu13, nvidia-nvjitlink, nvidia-nccl-cu13, nvidia-curand, nvidia-cufile, nvidia-cuda-runtime, nvidia-cuda-nvrtc, nvidia-cuda-cupti, nvidia-cublas, networkx, MarkupSafe, fsspec, filelock, cuda-pathfinder, nvidia-cusparse, nvidia-cufft, nvidia-cudnn-cu13, jinja2, cuda-bindings, nvidia-cusolver, torch
+
+Successfully installed MarkupSafe-3.0.3 cuda-bindings-13.0.3 cuda-pathfinder-1.2.2 filelock-3.29.0 fsspec-2026.4.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 nvidia-cublas-13.1.0.3 nvidia-cuda-cupti-13.0.85 nvidia-cuda-nvrtc-13.0.88 nvidia-cuda-runtime-13.0.96 nvidia-cudnn-cu13-9.15.1.9 nvidia-cufft-12.0.0.61 nvidia-cufile-1.15.1.6 nvidia-curand-10.4.0.35 nvidia-cusolver-12.0.4.66 nvidia-cusparse-12.6.3.3 nvidia-cusparselt-cu13-0.8.0 nvidia-nccl-cu13-2.28.9 nvidia-nvjitlink-13.0.88 nvidia-nvshmem-cu13-3.4.5 nvidia-nvtx-13.0.85 sympy-1.14.0 torch-2.10.0+cu130 triton-3.6.0 typing-extensions-4.15.0
+
+[6/9] Validate PyTorch before Bonito
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages/torch/_subclasses/functional_tensor.py:283: UserWarning: Failed to initialize NumPy: No module named 'numpy' (Triggered internally at /pytorch/torch/csrc/utils/tensor_numpy.cpp:84.)
+  cpu = _conversion_method_template(device=torch.device("cpu"))
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages/torch/cuda/__init__.py:435: UserWarning: 
+    Found GPU0 NVIDIA GB10 which is of cuda capability 12.1.
+    Minimum and Maximum cuda capability supported by this version of PyTorch is
+    (8.0) - (12.0)
+    
+  queued_call()
+architecture: aarch64
+torch_version: 2.10.0+cu130
+torch_cuda_build: 13.0
+cuda_available: True
+cuda_device_count: 1
+cuda_device 0 NVIDIA GB10
+cuda_capability 0 (12, 1)
+cuda_tensor_test: 90.0
+PYTORCH CUDA VALIDATION: PASS
+
+[7/9] Install exact Bonito release
+Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cu130
+Collecting ont-bonito==1.1.0
+  Using cached ont_bonito-1.1.0-py3-none-any.whl.metadata (5.6 kB)
+Collecting edlib (from ont-bonito==1.1.0)
+  Using cached edlib-1.3.9.post1-cp312-cp312-linux_aarch64.whl
+Collecting fast-ctc-decode (from ont-bonito==1.1.0)
+  Using cached fast_ctc_decode-0.3.7-cp312-cp312-manylinux_2_28_aarch64.whl.metadata (4.6 kB)
+Collecting mappy (from ont-bonito==1.1.0)
+  Using cached mappy-2.31.tar.gz (143 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting numpy (from ont-bonito==1.1.0)
+  Using cached numpy-2.5.1-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (6.6 kB)
+Collecting pandas (from ont-bonito==1.1.0)
+  Using cached pandas-3.0.5-cp312-cp312-manylinux_2_24_aarch64.manylinux_2_28_aarch64.whl.metadata (79 kB)
+Collecting parasail (from ont-bonito==1.1.0)
+  Using cached parasail-1.3.4.tar.gz (83 kB)
+  Installing build dependencies: started
+  Installing build dependencies: finished with status 'done'
+  Getting requirements to build wheel: started
+  Getting requirements to build wheel: finished with status 'done'
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Collecting pod5 (from ont-bonito==1.1.0)
+  Using cached pod5-0.3.44-py3-none-any.whl.metadata (21 kB)
+Collecting pysam (from ont-bonito==1.1.0)
+  Using cached pysam-0.24.0-cp312-cp312-manylinux_2_27_aarch64.manylinux_2_28_aarch64.whl.metadata (1.6 kB)
+Collecting python-dateutil (from ont-bonito==1.1.0)
+  Using cached python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+Collecting requests (from ont-bonito==1.1.0)
+  Using cached requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+Collecting toml (from ont-bonito==1.1.0)
+  Using cached toml-0.10.2-py2.py3-none-any.whl.metadata (7.1 kB)
+Collecting tqdm (from ont-bonito==1.1.0)
+  Using cached tqdm-4.69.0-py3-none-any.whl.metadata (57 kB)
+Requirement already satisfied: wheel in ./experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages (from ont-bonito==1.1.0) (0.47.0)
+Requirement already satisfied: torch~=2.9 in ./experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/environment/bonito_env/lib/python3.12/site-packages (from ont-bonito==1.1.0) (2.10.0+cu130)
+INFO: pip is looking at multiple versions of ont-bonito to determine which version is compatible with other requirements. This could take a while.
+ERROR: Ignored the following versions that require a different python version: 1.21.2 Requires-Python >=3.7,<3.11; 1.21.3 Requires-Python >=3.7,<3.11; 1.21.4 Requires-Python >=3.7,<3.11; 1.21.5 Requires-Python >=3.7,<3.11; 1.21.6 Requires-Python >=3.7,<3.11
+ERROR: Could not find a version that satisfies the requirement ont-koi==0.6.5 (from ont-bonito) (from versions: none)
+ERROR: No matching distribution found for ont-koi==0.6.5
+
+============================================================
+BONITO REPAIR INSTALLATION FAILED
+Exit status: 1
+Finished: 2026-07-24T16:53:12+05:30
+============================================================

@@ -1,0 +1,138 @@
+============================================================
+EXPERIMENT E — BONITO FEASIBILITY AUDIT
+Generated: 2026-07-24T16:45:10+05:30
+============================================================
+
+[1] SYSTEM
+Hostname: promaxgb10-ca47
+Architecture: aarch64
+Kernel: 6.14.0-1015-nvidia
+Working directory: /home/admin/Project-GenoPhylax
+
+[2] ACTIVE PYTHON ENVIRONMENT
+VIRTUAL_ENV=/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env
+Python executable:
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env/bin/python
+
+Python 3.12.3
+
+Pip executable:
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env/bin/pip
+pip 26.1.2 from /home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pip (python 3.12)
+
+[3] BONITO COMMAND STATUS
+BONITO_COMMAND_FOUND=FALSE
+
+[4] PYTHON PACKAGE STATUS
+python_version: 3.12.3 (main, Jun 19 2026, 12:46:00) [GCC 13.3.0]
+python_executable: /home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env/bin/python
+platform: Linux-6.14.0-1015-nvidia-aarch64-with-glibc2.39
+machine: aarch64
+bonito: NOT_AVAILABLE error=ModuleNotFoundError: No module named 'bonito'
+torch: NOT_AVAILABLE error=ModuleNotFoundError: No module named 'torch'
+pod5: INSTALLED version=0.3.44
+numpy: INSTALLED version=2.5.1
+pysam: INSTALLED version=0.24.0
+
+[5] PYTORCH / CUDA STATUS
+TORCH_CUDA_CHECK_FAILED: ModuleNotFoundError("No module named 'torch'")
+
+[6] NVIDIA STATUS
+Fri Jul 24 16:45:10 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.126.09             Driver Version: 580.126.09     CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GB10                    On  |   0000000F:01:00.0 Off |                  N/A |
+| N/A   44C    P8              5W /  N/A  | Not Supported          |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A          201308      G   /usr/lib/xorg/Xorg                      101MiB |
+|    0   N/A  N/A          201454      G   /usr/bin/gnome-shell                     69MiB |
+|    0   N/A  N/A          202363      G   /usr/bin/gnome-control-center            33MiB |
++-----------------------------------------------------------------------------------------+
+
+[7] INSTALLED BONITO FILES AND MODELS
+/home/admin/genophylax_gpu/bonito
+/home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/bonito
+/home/admin/tools/dorado/models/dna_r10.4.1_e8.2_400bps_hac@v6.0.0
+
+[8] EXISTING L2/L3 CLEAN AND PM5 POD5 INPUTS
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM100/L2_chr1_20061156_A_T.SHAM.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM100/L3_chr4_40028853_A_G.SHAM.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM/L2_chr1_20061156_A_T.SHAM.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM/L3_chr4_40028853_A_G.SHAM.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/PM5/L2_chr1_20061156_A_T.PM5.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/PM5/L3_chr4_40028853_A_G.PM5.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/W0/L2_chr1_20061156_A_T.W0.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/W0/L3_chr4_40028853_A_G.W0.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1056.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1060.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1456.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1563.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1608.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1630.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1659.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1673.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1731.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1778.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1839.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1889.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_1905.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_708.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_887.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/source_pod5/downloaded_shards/PAO89685_pass__2264ba8c_afee3a87_953.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/target_pod5/L2_chr1_20061156_A_T.pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/target_pod5/L3_chr4_40028853_A_G.pod5
+
+[9] POD5 INPUT SUMMARY
+pod5_file_count: 26
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/PM5/L2_chr1_20061156_A_T.PM5.pod5	2516808
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/PM5/L3_chr4_40028853_A_G.PM5.pod5	2607176
+
+[10] RELATED RESULT DIRECTORIES
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_basecalls
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_basecalls/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/clean_alignments
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/clean_basecalls
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/deepvariant/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/clean_basecalls
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/clean_locus_support
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/PM5_attack_generation
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/PM5_deepvariant_preflight
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/PM5_hybrid_bams
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/hybrid_bams/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_hybrid_effect
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_target_effect
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_variant_consequence
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/variant_consequence/PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/variant_consequence/PM5/L2_CLEAN
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/variant_consequence/PM5/L2_PM5
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/variant_consequence/PM5/L3_CLEAN
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/variant_consequence/PM5/L3_PM5
+
+[11] DISK SPACE
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p3  3.6T   96G  3.3T   3% /
+
+[12] GIT STATUS
+## main...origin/main
+?? experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/bonito_transferability/
+
+============================================================
+AUDIT FINISHED
+============================================================
