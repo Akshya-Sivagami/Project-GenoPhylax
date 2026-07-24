@@ -1,0 +1,3 @@
+candidate	context_bases	offset_bases	reads_processed	reads_passed	sham_base_events_per_read	target_overlap_reads	total_changed_samples	total_signal_samples	changed_fraction	changed_percent	outside_changed_samples	minimum_attack_window_samples	maximum_attack_window_samples	status
+L2_chr1_20061156_A_T	5	100	10	10	11	0	1246	2934299	0.0004246329361799871	0.042463293617998714	0	102	156	PASS
+L3_chr4_40028853_A_G	5	100	10	10	11	0	1387	2988077	0.00046417813195576954	0.04641781319557695	0	96	216	PASS

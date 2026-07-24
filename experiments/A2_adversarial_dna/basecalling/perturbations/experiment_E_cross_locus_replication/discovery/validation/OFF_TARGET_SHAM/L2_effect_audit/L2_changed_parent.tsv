@@ -1,0 +1,2 @@
+locus	chrom	position	ref	alt	parent_read_id	clean_state	attacked_state	transition	clean_base	attacked_base	clean_base_quality	attacked_base_quality	clean_mapq	attacked_mapq	clean_flag	attacked_flag	clean_query_position	attacked_query_position	clean_record_count	attacked_record_count	clean_primary_record_count	attacked_primary_record_count
+L2_chr1_20061156_A_T	chr1	20061156	A	T	0dc565bd-d774-4920-a88a-a4c2ca842d02	ALT	DELETION	ALT_TO_DELETION	T		21		60	60	0	0	9040		1	1	1	1

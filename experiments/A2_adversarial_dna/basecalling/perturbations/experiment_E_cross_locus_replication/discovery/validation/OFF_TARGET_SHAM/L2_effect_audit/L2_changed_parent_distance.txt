@@ -1,0 +1,12 @@
+parent_read_id=0dc565bd-d774-4920-a88a-a4c2ca842d02
+target_base_index=9040
+target_PM5_base_window=9035-9045
+sham_center_base_index=9060
+sham_base_window=9055-9065
+center_distance_bases=20
+nearest_window_gap_bases=9
+base_window_overlap=0
+attack_signal_window=107284-107458
+attack_window_samples=174
+total_changed_samples=172
+status=PASS
