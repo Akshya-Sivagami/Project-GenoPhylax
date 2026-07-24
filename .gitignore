@@ -48,3 +48,4 @@ experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/
 *.pid
 *.COMPLETE
 *.done
+*.stderr
