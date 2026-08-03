@@ -1,0 +1,3 @@
+locus	candidate	clean_ALT	attacked_ALT	ALT_to_REF	ALT_to_DELETION	ALT_to_OTHER	ALT_to_ALT	ALT_support_loss	ALT_support_loss_percent
+L2	L2_chr1_20061156_A_T	10	0	1	7	2	0	10	100.0
+L3	L3_chr4_40028853_A_G	10	0	3	5	2	0	10	100.0

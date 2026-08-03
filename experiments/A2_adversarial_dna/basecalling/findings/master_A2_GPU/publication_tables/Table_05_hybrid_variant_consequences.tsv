@@ -1,0 +1,3 @@
+candidate	clean_parent_ALT	PM5_parent_ALT	PM5_parent_REF	PM5_parent_DELETION	PM5_parent_OTHER	clean_GT	clean_QUAL	clean_ALT_DP4	PM5_GT	PM5_QUAL	PM5_ALT_DP4	ALT_parent_reduction	QUAL_reduction_percent
+L2	19	9	20	7	2	0/1	222.401	19	0/1	130.733	11	10	41.21744056906219
+L3	18	8	24	5	2	0/1	222.374	20	0/1	150.466	12	10	32.33651416082815

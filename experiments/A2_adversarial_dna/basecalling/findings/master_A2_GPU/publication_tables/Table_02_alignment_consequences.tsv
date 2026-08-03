@@ -1,0 +1,4 @@
+condition	seeds	mean_mapped_to_unmapped	mean_chromosome_changed	mean_strand_changed	mean_cigar_changed	mean_coordinate_shift_ge100	mean_coordinate_shift_ge1000	mean_mean_mapq_change	mean_mapq_drop_ge5	mean_mapq_drop_ge10	mean_mean_nm_change
+GN01	3	0.0	3.666667	4.333333	882.666667	9.0	6.666667	0.001031	2.666667	1.666667	1.469416
+GN05	3	0.666667	4.333333	5.0	957.0	21.0	17.666667	-0.110357	12.666667	7.333333	33.836704
+GN10	3	3.0	5.333333	8.666667	966.333333	37.666667	28.0	-0.58638	37.333333	27.333333	167.661872

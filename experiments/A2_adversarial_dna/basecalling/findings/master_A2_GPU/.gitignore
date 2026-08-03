@@ -1,0 +1,6 @@
+environment/
+logs/
+markers/
+scripts/__pycache__/
+A2_publication_output_generation.pid
+publication_figures/_plotting_environment_test.png

@@ -1,0 +1,314 @@
+================================================================================
+TABLE: C1
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/metrics/experiment_C1_results.tsv
+SHAPE: (3, 25)
+COLUMNS:
+ - condition
+ - sigma_fraction
+ - paired_reads
+ - exact_sequence_matches
+ - changed_sequences
+ - changed_sequence_fraction
+ - mean_sequence_identity_percent
+ - median_sequence_identity_percent
+ - mean_edit_distance
+ - median_edit_distance
+ - p95_edit_distance
+ - mean_normalized_edit_distance
+ - total_substitutions
+ - total_insertions
+ - total_deletions
+ - mean_clean_length
+ - mean_perturbed_length
+ - mean_length_change
+ - reads_with_length_change
+ - mean_clean_qscore
+ - mean_perturbed_qscore
+ - mean_qscore_change
+ - median_qscore_change
+ - reads_with_qscore_decrease
+ - reads_with_qscore_increase
+REQUIRED_COLUMNS: PASS
+ROWS:
+condition  sigma_fraction  paired_reads  exact_sequence_matches  changed_sequences  changed_sequence_fraction  mean_sequence_identity_percent  median_sequence_identity_percent  mean_edit_distance  median_edit_distance  p95_edit_distance  mean_normalized_edit_distance  total_substitutions  total_insertions  total_deletions  mean_clean_length  mean_perturbed_length  mean_length_change  reads_with_length_change  mean_clean_qscore  mean_perturbed_qscore  mean_qscore_change  median_qscore_change  reads_with_qscore_decrease  reads_with_qscore_increase
+     GN01            0.01          1000                      64                936                      0.936                       98.523429                         99.497500              39.343                  13.0             133.15                       0.014766                13226             11349            14768           4939.174               4935.755              -3.419                       827          34.204719              34.086836           -0.117883             -0.115714                         719                         281
+     GN05            0.05          1000                      11                989                      0.989                       96.091928                         98.216426             113.241                  43.0             424.30                       0.039081                34963             30115            48163           4939.174               4921.126             -18.048                       933          34.204719              31.658133           -2.546585             -2.508566                         960                          40
+     GN10            0.10          1000                       1                999                      0.999                       92.771583                         95.110907             274.567                 119.0            1116.25                       0.072284                92612             73854           108101           4939.174               4904.927             -34.247                       981          34.204719              23.530722          -10.673997            -10.681849                         981                          19
+
+================================================================================
+TABLE: C2
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/experiment_C2_level_aggregates.tsv
+SHAPE: (3, 35)
+COLUMNS:
+ - condition
+ - sigma_fraction
+ - seeds
+ - changed_sequence_fraction_mean
+ - changed_sequence_fraction_sd
+ - changed_sequence_fraction_min
+ - changed_sequence_fraction_max
+ - mean_sequence_identity_percent_mean
+ - mean_sequence_identity_percent_sd
+ - mean_sequence_identity_percent_min
+ - mean_sequence_identity_percent_max
+ - mean_edit_distance_mean
+ - mean_edit_distance_sd
+ - mean_edit_distance_min
+ - mean_edit_distance_max
+ - mean_normalized_edit_distance_mean
+ - mean_normalized_edit_distance_sd
+ - mean_normalized_edit_distance_min
+ - mean_normalized_edit_distance_max
+ - mean_qscore_change_mean
+ - mean_qscore_change_sd
+ - mean_qscore_change_min
+ - mean_qscore_change_max
+ - mean_length_change_mean
+ - mean_length_change_sd
+ - mean_length_change_min
+ - mean_length_change_max
+ - changed_sample_fraction_mean
+ - changed_sample_fraction_sd
+ - changed_sample_fraction_min
+ - changed_sample_fraction_max
+ - split_parent_groups_mean
+ - split_parent_groups_sd
+ - split_parent_groups_min
+ - split_parent_groups_max
+REQUIRED_COLUMNS: PASS
+ROWS:
+condition  sigma_fraction  seeds  changed_sequence_fraction_mean  changed_sequence_fraction_sd  changed_sequence_fraction_min  changed_sequence_fraction_max  mean_sequence_identity_percent_mean  mean_sequence_identity_percent_sd  mean_sequence_identity_percent_min  mean_sequence_identity_percent_max  mean_edit_distance_mean  mean_edit_distance_sd  mean_edit_distance_min  mean_edit_distance_max  mean_normalized_edit_distance_mean  mean_normalized_edit_distance_sd  mean_normalized_edit_distance_min  mean_normalized_edit_distance_max  mean_qscore_change_mean  mean_qscore_change_sd  mean_qscore_change_min  mean_qscore_change_max  mean_length_change_mean  mean_length_change_sd  mean_length_change_min  mean_length_change_max  changed_sample_fraction_mean  changed_sample_fraction_sd  changed_sample_fraction_min  changed_sample_fraction_max  split_parent_groups_mean  split_parent_groups_sd  split_parent_groups_min  split_parent_groups_max
+     GN01            0.01      3                        0.936000                      0.011269                          0.923                          0.943                            98.504629                           0.095930                           98.403965                           98.594994                   40.322               0.855686                  39.625                  41.277                            0.014954                          0.000959                           0.014050                           0.015960                -0.113612               0.009313               -0.124200               -0.106692                -3.990333               2.220669                  -6.530                  -2.414                      0.709563                    0.000016                     0.709553                     0.709582                 11.000000                1.732051                      9.0                     12.0
+     GN05            0.05      3                        0.992333                      0.001155                          0.991                          0.993                            96.206220                           0.032047                           96.169877                           96.230425                  112.791               0.064900                 112.719                 112.845                            0.037938                          0.000320                           0.037696                           0.038301                -2.533147               0.037235               -2.573565               -2.500241               -19.251667               0.184809                 -19.430                 -19.061                      0.940579                    0.000016                     0.940566                     0.940597                  9.666667                2.081666                      8.0                     12.0
+     GN10            0.10      3                        0.999333                      0.000577                          0.999                          1.000                            92.747527                           0.078489                           92.671354                           92.828144                  274.640               1.582261                 272.995                 276.151                            0.072525                          0.000785                           0.071719                           0.073286               -10.728330               0.012571              -10.738176              -10.714170               -37.268333               0.907141                 -37.999                 -36.253                      0.970255                    0.000022                     0.970237                     0.970280                  6.000000                1.732051                      4.0                      7.0
+
+================================================================================
+TABLE: D3
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_level_aggregates.tsv
+SHAPE: (3, 56)
+COLUMNS:
+ - condition
+ - seeds
+ - mean_mapped_to_mapped
+ - sd_mapped_to_mapped
+ - mean_mapped_to_unmapped
+ - sd_mapped_to_unmapped
+ - mean_unmapped_to_mapped
+ - sd_unmapped_to_mapped
+ - mean_unmapped_to_unmapped
+ - sd_unmapped_to_unmapped
+ - mean_chromosome_changed
+ - sd_chromosome_changed
+ - mean_strand_changed
+ - sd_strand_changed
+ - mean_cigar_changed
+ - sd_cigar_changed
+ - mean_coordinate_shift_ge100
+ - sd_coordinate_shift_ge100
+ - mean_coordinate_shift_ge1000
+ - sd_coordinate_shift_ge1000
+ - mean_mean_coordinate_shift_bp
+ - sd_mean_coordinate_shift_bp
+ - mean_median_coordinate_shift_bp
+ - sd_median_coordinate_shift_bp
+ - mean_mean_mapq_change
+ - sd_mean_mapq_change
+ - mean_mapq_drop_ge5
+ - sd_mapq_drop_ge5
+ - mean_mapq_drop_ge10
+ - sd_mapq_drop_ge10
+ - mean_mean_nm_change
+ - sd_mean_nm_change
+ - mean_nm_increased_reads
+ - sd_nm_increased_reads
+ - mean_mean_soft_clip_change
+ - sd_mean_soft_clip_change
+ - mean_soft_clip_increased_reads
+ - sd_soft_clip_increased_reads
+ - mean_mean_hard_clip_change
+ - sd_mean_hard_clip_change
+ - mean_mean_insertion_change
+ - sd_mean_insertion_change
+ - mean_mean_deletion_change
+ - sd_mean_deletion_change
+ - mean_mean_aligned_query_length_change
+ - sd_mean_aligned_query_length_change
+ - mean_mean_reference_span_change
+ - sd_mean_reference_span_change
+ - mean_mean_secondary_count_change
+ - sd_mean_secondary_count_change
+ - mean_secondary_increased_reads
+ - sd_secondary_increased_reads
+ - mean_mean_supplementary_count_change
+ - sd_mean_supplementary_count_change
+ - mean_supplementary_increased_reads
+ - sd_supplementary_increased_reads
+REQUIRED_COLUMNS: PASS
+ROWS:
+condition  seeds  mean_mapped_to_mapped  sd_mapped_to_mapped  mean_mapped_to_unmapped  sd_mapped_to_unmapped  mean_unmapped_to_mapped  sd_unmapped_to_mapped  mean_unmapped_to_unmapped  sd_unmapped_to_unmapped  mean_chromosome_changed  sd_chromosome_changed  mean_strand_changed  sd_strand_changed  mean_cigar_changed  sd_cigar_changed  mean_coordinate_shift_ge100  sd_coordinate_shift_ge100  mean_coordinate_shift_ge1000  sd_coordinate_shift_ge1000  mean_mean_coordinate_shift_bp  sd_mean_coordinate_shift_bp  mean_median_coordinate_shift_bp  sd_median_coordinate_shift_bp  mean_mean_mapq_change  sd_mean_mapq_change  mean_mapq_drop_ge5  sd_mapq_drop_ge5  mean_mapq_drop_ge10  sd_mapq_drop_ge10  mean_mean_nm_change  sd_mean_nm_change  mean_nm_increased_reads  sd_nm_increased_reads  mean_mean_soft_clip_change  sd_mean_soft_clip_change  mean_soft_clip_increased_reads  sd_soft_clip_increased_reads  mean_mean_hard_clip_change  sd_mean_hard_clip_change  mean_mean_insertion_change  sd_mean_insertion_change  mean_mean_deletion_change  sd_mean_deletion_change  mean_mean_aligned_query_length_change  sd_mean_aligned_query_length_change  mean_mean_reference_span_change  sd_mean_reference_span_change  mean_mean_secondary_count_change  sd_mean_secondary_count_change  mean_secondary_increased_reads  sd_secondary_increased_reads  mean_mean_supplementary_count_change  sd_mean_supplementary_count_change  mean_supplementary_increased_reads  sd_supplementary_increased_reads
+     GN01      3             970.000000             0.000000                 0.000000               0.000000                 0.000000                0.00000                  30.000000                  0.00000                 3.666667                0.57735             4.333333           1.527525          882.666667         15.567059                     9.000000                   2.000000                      6.666667                    2.081666                     847.631749                   806.969011                              0.0                            0.0               0.001031             0.032158            2.666667          0.577350             1.666667           0.577350             1.469416           1.465106               456.666667               7.637626                   -3.894845                  2.132452                      253.666667                      5.507571                         0.0                       0.0                    0.037457                  0.569159                   0.981100                 1.861293                              -0.219588                             0.281258                         0.724055                       2.270846                         -0.000333                        0.004619                             2.0                      1.000000                              0.001333                            0.001528                            1.000000                           1.00000
+     GN05      3             969.333333             1.154701                 0.666667               1.154701                 0.000000                0.00000                  30.000000                  0.00000                 4.333333                0.57735             5.000000           1.732051          957.000000          0.000000                    21.000000                   2.000000                     17.666667                    2.081666                    3314.030034                  1141.327882                              0.0                            0.0              -0.110357             0.039263           12.666667          1.154701             7.333333           1.154701            33.836704           2.286717               848.666667               6.658328                   -9.752413                  0.328937                      380.000000                      9.539392                         0.0                       0.0                    7.026360                  0.623598                  14.273158                 2.567132                              -8.305209                             0.367158                        -1.058411                       2.679179                         -0.001000                        0.003606                             7.0                      1.000000                             -0.001333                            0.000577                            0.000000                           0.00000
+     GN10      3             967.000000             1.000000                 3.000000               1.000000                 0.666667                0.57735                  29.333333                  0.57735                 5.333333                0.57735             8.666667           1.154701          966.333333          1.527525                    37.666667                   2.081666                     28.000000                    1.732051                   13116.656261                  2020.155456                              1.0                            0.0              -0.586380             0.059351           37.333333          2.081666            27.333333           4.725816           167.661872           1.388846               940.000000               1.732051                    1.502606                  0.724382                      600.666667                      4.163332                         0.0                       0.0                   32.069227                  1.152639                  64.213371                 1.047230                             -41.688205                             0.330630                        -9.544061                       2.033570                          0.012667                        0.011015                            15.0                      2.645751                             -0.000333                            0.000577                            1.333333                           0.57735
+
+================================================================================
+TABLE: E_CONDITION
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_condition_comparison.tsv
+SHAPE: (4, 19)
+COLUMNS:
+ - condition
+ - condition_label
+ - placement
+ - context_bases
+ - base_events_per_read
+ - loci_tested
+ - reads_processed
+ - reads_passed
+ - total_changed_samples
+ - total_signal_samples
+ - combined_changed_percent
+ - outside_changed_samples
+ - clean_alt_parents
+ - alt_retained_parents
+ - alt_changed_parents
+ - alt_changed_percent
+ - L2_alt_changed
+ - L3_alt_changed
+ - interpretation
+REQUIRED_COLUMNS: PASS
+ROWS:
+condition    condition_label            placement  context_bases  base_events_per_read  loci_tested  reads_processed  reads_passed  total_changed_samples  total_signal_samples  combined_changed_percent  outside_changed_samples  clean_alt_parents  alt_retained_parents  alt_changed_parents  alt_changed_percent  L2_alt_changed  L3_alt_changed                                               interpretation
+       W0     W0 target-only    Centred on target              0                     1            2               20            20                    334               5922376                  0.005640                        0                 20                    20                    0                  0.0               0               0                    Target-only signal edit was insufficient.
+   SHAM20      Near sham +20  20 bases downstream              5                    11            2               20            20                   2522               5922376                  0.042584                        0                 20                    19                    1                  5.0               1               0 Mostly negative, with one L2 short-range spillover deletion.
+  SHAM100  Distant sham +100 100 bases downstream              5                    11            2               20            20                   2633               5922376                  0.044459                        0                 20                    20                    0                  0.0               0               0                   Clean distant off-target negative control.
+      PM5 PM5 target-centred    Centred on target              5                    11            2               20            20                   3030               5922376                  0.051162                        0                 20                     0                   20                100.0              10              10               Complete target-state disruption at both loci.
+
+================================================================================
+TABLE: E_LOCUS
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_locus_comparison.tsv
+SHAPE: (8, 20)
+COLUMNS:
+ - condition
+ - condition_label
+ - placement
+ - locus
+ - candidate
+ - variant
+ - context_bases
+ - base_events_per_read
+ - reads_processed
+ - reads_passed
+ - target_overlap_reads
+ - total_changed_samples
+ - total_signal_samples
+ - changed_percent
+ - outside_changed_samples
+ - clean_alt_parents
+ - alt_retained_parents
+ - alt_changed_parents
+ - alt_changed_percent
+ - target_effect_status
+REQUIRED_COLUMNS: PASS
+ROWS:
+condition    condition_label            placement locus            candidate           variant  context_bases  base_events_per_read  reads_processed  reads_passed  target_overlap_reads  total_changed_samples  total_signal_samples  changed_percent  outside_changed_samples  clean_alt_parents  alt_retained_parents  alt_changed_parents  alt_changed_percent target_effect_status
+       W0     W0 target-only    Centred on target    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              0                     1               10            10                    10                    107               2934299         0.003647                        0                 10                    10                    0                  0.0            NO_EFFECT
+       W0     W0 target-only    Centred on target    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              0                     1               10            10                    10                    227               2988077         0.007597                        0                 10                    10                    0                  0.0            NO_EFFECT
+   SHAM20      Near sham +20  20 bases downstream    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                     0                   1350               2934299         0.046008                        0                 10                     9                    1                 10.0      EFFECT_OBSERVED
+   SHAM20      Near sham +20  20 bases downstream    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              5                    11               10            10                     0                   1172               2988077         0.039223                        0                 10                    10                    0                  0.0            NO_EFFECT
+  SHAM100  Distant sham +100 100 bases downstream    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                     0                   1246               2934299         0.042463                        0                 10                    10                    0                  0.0            NO_EFFECT
+  SHAM100  Distant sham +100 100 bases downstream    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              5                    11               10            10                     0                   1387               2988077         0.046418                        0                 10                    10                    0                  0.0            NO_EFFECT
+      PM5 PM5 target-centred    Centred on target    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                    10                   1438               2934299         0.049007                        0                 10                     0                   10                100.0      EFFECT_OBSERVED
+      PM5 PM5 target-centred    Centred on target    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              5                    11               10            10                    10                   1592               2988077         0.053278                        0                 10                     0                   10                100.0      EFFECT_OBSERVED
+
+================================================================================
+TABLE: E_PM5
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_target_effect/PM5_clean_vs_attacked_summary.tsv
+SHAPE: (2, 24)
+COLUMNS:
+ - candidate
+ - chrom
+ - position
+ - ref
+ - alt
+ - clean_unique_target_parents
+ - attacked_unique_target_parents
+ - clean_ALT
+ - clean_REF
+ - clean_DELETION
+ - clean_OTHER
+ - attacked_ALT
+ - attacked_REF
+ - attacked_DELETION
+ - attacked_OTHER
+ - attacked_NO_TARGET_COVERAGE
+ - ALT_support_loss
+ - ALT_support_loss_percent
+ - ALT_to_ALT
+ - ALT_to_REF
+ - ALT_to_DELETION
+ - ALT_to_OTHER
+ - ALT_to_NO_TARGET_COVERAGE
+ - status
+REQUIRED_COLUMNS: PASS
+ROWS:
+           candidate chrom  position ref alt  clean_unique_target_parents  attacked_unique_target_parents  clean_ALT  clean_REF  clean_DELETION  clean_OTHER  attacked_ALT  attacked_REF  attacked_DELETION  attacked_OTHER  attacked_NO_TARGET_COVERAGE  ALT_support_loss  ALT_support_loss_percent  ALT_to_ALT  ALT_to_REF  ALT_to_DELETION  ALT_to_OTHER  ALT_to_NO_TARGET_COVERAGE          status
+L2_chr1_20061156_A_T  chr1  20061156   A   T                           10                              10         10          0               0            0             0             1                  7               2                            0                10                     100.0           0           1                7             2                          0 EFFECT_OBSERVED
+L3_chr4_40028853_A_G  chr4  40028853   A   G                           10                              10         10          0               0            0             0             3                  5               2                            0                10                     100.0           0           3                5             2                          0 EFFECT_OBSERVED
+
+================================================================================
+TABLE: E_HYBRID
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_hybrid_effect/PM5_hybrid_target_summary.tsv
+SHAPE: (4, 13)
+COLUMNS:
+ - candidate
+ - condition
+ - chrom
+ - position
+ - ref
+ - alt
+ - target_overlapping_records
+ - unique_target_parents
+ - parent_ALT
+ - parent_REF
+ - parent_DELETION
+ - parent_OTHER
+ - parent_REF_SKIP
+REQUIRED_COLUMNS: PASS
+ROWS:
+candidate condition chrom  position ref alt  target_overlapping_records  unique_target_parents  parent_ALT  parent_REF  parent_DELETION  parent_OTHER  parent_REF_SKIP
+       L2     CLEAN  chr1  20061156   A   T                          41                     38          19          19                0             0                0
+       L2       PM5  chr1  20061156   A   T                          41                     38           9          20                7             2                0
+       L3     CLEAN  chr4  40028853   A   G                          43                     39          18          21                0             0                0
+       L3       PM5  chr4  40028853   A   G                          43                     39           8          24                5             2                0
+
+================================================================================
+TABLE: E_VARIANT
+PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_variant_consequence/PM5_cross_locus_variant_summary.tsv
+SHAPE: (4, 17)
+COLUMNS:
+ - candidate
+ - condition
+ - context_bases
+ - changed_samples
+ - changed_fraction
+ - hybrid_records
+ - target_overlapping_records
+ - GT
+ - QUAL
+ - INFO_DP
+ - REF_DP4
+ - ALT_DP4
+ - DP4
+ - REF
+ - ALT
+ - FILTER
+ - status
+REQUIRED_COLUMNS: PASS
+ROWS:
+candidate condition  context_bases  changed_samples  changed_fraction  hybrid_records  target_overlapping_records  GT    QUAL  INFO_DP  REF_DP4  ALT_DP4        DP4 REF ALT FILTER status
+       L2     CLEAN             -1                0          0.000000             369                          41 0/1 222.401       41       22       19 12,10,10,9   A   T      .   PASS
+       L2       PM5              5             1438          0.000490             369                          41 0/1 130.733       34       23       11  12,11,6,5   A   T      .   PASS
+       L3     CLEAN             -1                0          0.000000             334                          43 0/1 222.374       43       23       20 12,11,7,13   A   G      .   PASS
+       L3       PM5              5             1592          0.000533             334                          43 0/1 150.466       38       26       12  12,14,3,9   A   G      .   PASS
+
+================================================================================
+ALL TABLES PARSED SUCCESSFULLY
