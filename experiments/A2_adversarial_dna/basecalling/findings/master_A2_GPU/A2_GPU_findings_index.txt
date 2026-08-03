@@ -1,0 +1,332 @@
+# A2 GPU Findings Index
+
+Generated: 2026-07-24T17:12:16+05:30
+
+This index includes only experiment findings documents.
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+============================================================
+# Experiment A — Clean Nanopore Basecalling Baseline
+## Objective
+## Research Question
+## Hardware Environment
+## Dataset
+## Planned Basecaller
+## Planned Metrics
+### Basecalling Performance
+### Basecalling and Alignment Quality
+- Mean read identity
+## Experimental Status
+- Dorado installation: Not started
+## Observations
+## Clean Baseline Results
+### Execution Results
+- Dorado pipeline time: 106.779 seconds
+## Clean Baseline Results
+### Execution Results
+- Dorado pipeline time: 106.779 seconds
+### Baseline Conclusion
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+============================================================
+# Experiment C1 — 1,000-Read Gaussian Perturbation Scale Validation
+## Objective
+## Experimental setup
+### Dataset
+### Basecaller
+### Conditions
+## Clean-control validation
+## Signal-level perturbation results
+## Dorado execution results
+## Split-read behavior
+## Paired basecall comparison
+### Primary results
+## Sequence-edit composition
+### GN01
+### GN05
+### GN10
+## Read-length effects
+## Confidence degradation
+## Severe-outlier analysis
+* 488 reads fell below 95% sequence identity.
+## Bootstrap confidence intervals
+## Paired statistical comparisons
+### GN01 versus GN05
+### GN05 versus GN10
+### GN01 versus GN10
+## Software correction discovered during Experiment C1
+## Main finding
+* lower sequence identity;
+* higher raw and normalized edit distance;
+* every Dorado run exited successfully;
+## Experiment C1 conclusion
+## GenoPhylax relevance
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md
+============================================================
+# Experiment C2 — 1,000-Read Multi-Seed Gaussian Perturbation Replication
+## Objective
+## Experimental design
+### Basecalling environment
+## Validation
+## Per-run results
+## Per-level aggregate results
+### GN01
+### GN05
+### GN10
+## Cross-seed reproducibility
+## Between-seed variability
+### Mean sequence identity
+### Mean edit distance
+### Mean Q-score change
+## Signal-level reproducibility
+### GN01
+### GN05
+### GN10
+## Split-read behavior
+## Main finding
+* lower basecalled sequence identity;
+* higher edit distance;
+* higher normalized edit distance;
+* a higher fraction of changed reads.
+* Dorado successfully processed every physical read;
+## Experiment C conclusion
+### Experiment C1
+### Experiment C2
+## GenoPhylax relevance
+## Next stage
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/experiment_D_alignment_findings.md
+============================================================
+# Experiment D — Alignment-Level Consequences of Adversarial Nanopore Signal Perturbation
+## Objective
+## Experimental Design
+### D1 — CLEAN alignment validation
+- Primary-read identity preservation was required.
+### D2 — Seed-42 dose-response
+### D3 — Multi-seed replication
+## Validation
+## D1 — CLEAN Baseline
+## D2 — Seed-42 Aggregate Alignment Results
+## D2 — Seed-42 Paired Read-Level Consequences
+- 27 reads lost at least 10 MAPQ points;
+## D3 — Multi-Seed Aggregate Replication
+- mean mapped-primary MAPQ decreased: Yes;
+- MAPQ ≥20 counts decreased: Yes;
+- MAPQ ≥30 counts decreased: Yes;
+- MAPQ ≥60 counts decreased: Yes.
+## D3 — Multi-Seed Paired Replication
+- mean MAPQ change: 0.001, -0.110, -0.586;
+## Main Finding
+- edit distance to the reference;
+## Security Interpretation
+- Dorado completed basecalling;
+## Limitations
+## Conclusion
+## Evidence Files
+### D1
+### D2
+### D3
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md
+============================================================
+# Experiment E — Bonito Cross-Model Transferability Feasibility
+## Objective
+## Available machine
+## Initial installation attempt
+## Pinned PyTorch installation
+## PyTorch compatibility warning
+## Bonito installation result
+## Network assessment
+* Bonito package metadata downloaded successfully;
+* multiple Bonito dependencies were located successfully.
+## Decision
+## Scientific interpretation
+* failure of the PM5 attack against Bonito;
+* evidence that the attack is Dorado-specific;
+* evidence that Bonito is resistant to the perturbation.
+## Inputs preserved for future testing
+## Effect on the Dorado findings
+## Limitation for publication
+* Dorado was the only basecaller experimentally evaluated;
+* Bonito transferability was planned but could not be executed on the available AArch64 system;
+* Bonito’s required KOI backend was unavailable for Linux AArch64;
+## Final status
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md
+============================================================
+# Experiment E — Cross-Locus Specificity Controls
+## Objective
+## Control 1 — W0 target-only perturbation
+### Signal changes
+### Target effect
+### Interpretation
+## Control 2 — Near off-target sham at +20 bases
+### Signal changes
+### Target effect
+### L2 audit
+- mapping remained MAPQ 60;
+### Interpretation
+## Control 3 — Distant off-target sham at +100 bases
+### Signal changes
+### Alignment preservation
+### Target effect
+### Interpretation
+## Combined interpretation
+## Final conclusion
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_replication_findings.md
+============================================================
+# Experiment E — Cross-Locus Replication of a Targeted Nanopore Signal Attack
+## Objective
+## Final Result Summary
+## Experimental Design
+## Cohort Validation
+## Clean Baseline
+## Raw-Signal Window Mapping
+## PM5 Attack Generation
+## Attacked-Read Consequence
+### L2 — chr1:20061156 A>T
+### L3 — chr4:40028853 A>G
+## Hybrid Genomic Consequence
+### Hybrid Pileup Results
+## Variant-Caller Consequence
+### L2 — chr1:20061156 A>T
+- **QUAL:** Clean = 222.401 | PM5 = 130.733 (-91.668 / 41.217% loss)
+- **Genotype:** `0/1` → `0/1`
+### L3 — chr4:40028853 A>G
+- **QUAL:** Clean = 222.374 | PM5 = 150.466 (-71.908 / 32.337% loss)
+- **Genotype:** `0/1` → `0/1`
+## Main Finding & Interpretation
+## Conclusion
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+============================================================
+# Experiment E — Final Cross-Locus Targeted Signal Attack Findings
+## Objective
+## Final condition comparison
+## Main result
+- W0 changed 0/20 target states;
+- the +20-base near sham changed 1/20;
+- the +100-base distant sham changed 0/20.
+## Context dependence
+## Spatial specificity
+## Cross-locus reproducibility
+## Security interpretation
+## Final conclusion
+## Machine-readable outputs
+## PM5 source artifacts used
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md
+============================================================
+# Experiment E — Cross-Locus W0 Target-Only Signal Attack
+## Objective
+## Signal-level validation
+## Dorado basecalling
+## Alignment preservation
+## Target-base effect
+## Comparison with PM5
+## Interpretation
+## Conclusion
+- 20/20 target reads remained mapped;
+- 20/20 retained MAPQ 60 primary alignments;
+- 20/20 retained the intended ALT base;
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md
+============================================================
+# Experiment B — Multi-Seed Gaussian Perturbation Replication
+## Objective
+## Validation
+## Reproducibility result
+- decreasing mean sequence identity;
+- increasing mean edit distance;
+## Observed ranges
+### GN01
+- Mean sequence identity: approximately 98.29% to 99.24%
+- Mean edit distance: approximately 12.48 to 17.36
+### GN05
+- Mean sequence identity: approximately 97.15% to 97.69%
+- Mean edit distance: approximately 40.71 to 44.12
+### GN10
+- Mean sequence identity: approximately 93.56% to 93.95%
+- Mean edit distance: approximately 112.38 to 115.20
+## Read-splitting event
+## Conclusion
+- lower sequence identity;
+- higher edit distance;
+## Status
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_E1_targeted_signal_attack_findings.md
+============================================================
+# Experiment E1 — Targeted Local Nanopore Signal Attack
+## Objective
+## Target
+## Environment
+## Depth Reconciliation
+## Raw-Read Extraction
+## Clean Dorado Baseline
+## Signal Mapping
+* raw parent identity.
+## Attack
+## Direct Read-Level Effect
+## Controlled Hybrid Construction
+## Controlled Variant-Calling Result
+### Original public regional BAM
+### Controlled clean-Dorado hybrid
+### Controlled attacked-Dorado hybrid
+### Controlled effect
+## Per-Record Audit
+## Preliminary Localization Evidence
+## Main Finding
+## Interpretation
+* target-cohort MAPQ remained 60;
+## Limitations
+## Next Steps
+### E2 — Attack-strength series
+* changed samples;
+* mapping and MAPQ;
+* QUAL;
+### Further controls
+## Status
+## Conclusion
+
+============================================================
+experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_E2_window_strength_series_findings.md
+============================================================
+# Experiment E2 — Local Signal-Window Strength Series
+## Objective
+* Dorado version and HAC v6 model;
+## Experimental Conditions
+## Signal Modification Scale
+* outside-window identity;
+* untouched-read identity;
+## Dorado Basecalling
+## Target-State Results
+## Matched Hybrid Construction
+## Controlled Variant-Calling Results
+## Main Supported Finding
+## Preliminary Window-Response Observation
+* the differences among QUAL values are statistically meaningful;
+## Determinism and Replication
+### Cross-locus replication
+### Boundary-jitter robustness
+### Stochastic operators
+### Read-cohort dose experiments
+## Scientific Completion Status
+### Operationally complete
+### Scientifically pending
+## Recommended Replication Plan
+## Next Steps
+## Conclusion
+
