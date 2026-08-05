@@ -1,0 +1,11 @@
+##fileformat=VCFv4.2
+##reference=GCA_000001405.15_GRCh38_no_alt_analysis_set
+##source=Project_GenoPhylax_A3
+##INFO=<ID=SOURCE,Number=1,Type=String,Description="Source GenoPhylax experiment">
+##contig=<ID=chr1,length=248956422>
+##contig=<ID=chr4,length=190214555>
+##contig=<ID=chr20,length=64444167>
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr20	10003468	L1	C	G	.	PASS	SOURCE=A2
+chr1	20061156	L2	A	T	.	PASS	SOURCE=A2
+chr4	40028853	L3	A	G	.	PASS	SOURCE=A2

@@ -1,0 +1,4 @@
+locus_id	chrom	position	ref	alt	source_experiment	role
+L1	chr20	10003468	UNKNOWN	UNKNOWN	A2 Experiment E original target	original_target
+L2	chr1	20061156	A	T	A2 Experiment E cross-locus replication	replication_locus
+L3	chr4	40028853	A	G	A2 Experiment E cross-locus replication	replication_locus

@@ -1,0 +1,54 @@
+[
+  {
+    "allele_string": "A/G",
+    "assembly_name": "GRCh38",
+    "colocated_variants": [
+      {
+        "allele_string": "A/G/T",
+        "end": 40028853,
+        "frequencies": {
+          "G": {
+            "af": 0.4219,
+            "afr": 0.1422,
+            "amr": 0.5432,
+            "eas": 0.5248,
+            "eur": 0.5755,
+            "gnomadg": 0.4466,
+            "gnomadg_afr": 0.2042,
+            "gnomadg_ami": 0.558,
+            "gnomadg_amr": 0.5271,
+            "gnomadg_asj": 0.5725,
+            "gnomadg_eas": 0.5245,
+            "gnomadg_fin": 0.5128,
+            "gnomadg_mid": 0.5729,
+            "gnomadg_nfe": 0.5469,
+            "gnomadg_remaining": 0.5078,
+            "gnomadg_sas": 0.4816,
+            "sas": 0.4499
+          }
+        },
+        "id": "rs2732061",
+        "seq_region_name": "4",
+        "start": 40028853,
+        "strand": 1
+      }
+    ],
+    "end": 40028853,
+    "id": "4_40028853_A/G",
+    "input": "4 40028853 40028853 A/G 1",
+    "intergenic_consequences": [
+      {
+        "consequence_terms": [
+          "intergenic_variant"
+        ],
+        "impact": "MODIFIER",
+        "variant_allele": "G"
+      }
+    ],
+    "most_severe_consequence": "intergenic_variant",
+    "seq_region_name": "4",
+    "start": 40028853,
+    "strand": 1,
+    "variant_class": "SNV"
+  }
+]

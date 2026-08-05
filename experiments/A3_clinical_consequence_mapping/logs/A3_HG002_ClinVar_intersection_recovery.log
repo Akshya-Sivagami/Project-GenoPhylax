@@ -1,0 +1,48 @@
+Started: 2026-08-03T14:53:17+05:30
+
+[1/7] Validate completed intermediate files
+Intermediate-file validation: PASS
+
+[2/7] Inspect raw intersection
+Raw exact-match records: 1
+
+[3/7] Compress intersection with bcftools
+Compressed exact-match records: 1
+
+[4/7] Export detailed candidate table
+Candidate table created.
+
+[5/7] Recover normalized input counts
+HG002 normalized SNVs: 3440867
+ClinVar pathogenic-class SNVs: 112432
+
+[6/7] Build scientific summary
+A3 HG002 × CLINVAR PATHOGENIC SNV INTERSECTION
+Generated: 2026-08-03T14:53:17+05:30
+
+Assembly: GRCh38
+HG002 truth set: GIAB v4.2.1 benchmark
+Variant restriction: biallelic SNVs
+ClinVar filter: CLNSIG containing Pathogenic
+Matching rule: exact chromosome, position, REF and ALT after normalization
+
+Normalized HG002 truth SNVs: 3440867
+Normalized ClinVar pathogenic-class SNVs: 112432
+Exact HG002–ClinVar matches: 1
+
+Interpretation caution:
+An exact ClinVar pathogenic-class match does not establish that HG002
+is clinically affected. Candidate interpretation must consider genotype,
+inheritance pattern, zygosity, penetrance, review status and conflicting
+clinical assertions.
+
+[7/7] Validate outputs and set marker
+
+Candidate preview:
+chrom  position   ref  alt  clinvar_id  clinical_significance  review_status                                         condition                                                                                                                                                         gene_info  molecular_consequence
+chr4   186274193  G    T    11891       Pathogenic             criteria_provided,_multiple_submitters,_no_conflicts  F11-related_disorder|Plasma_factor_XI_deficiency|Inborn_genetic_diseases|not_provided|Hereditary_factor_XI_deficiency_disease|Thrombocytopenia|Abnormal_bleeding  F11:2160   SO:0001587|nonsense
+
+============================================================
+A3 HG002 × CLINVAR INTERSECTION RECOVERY: COMPLETE
+============================================================
+Finished: 2026-08-03T14:53:17+05:30

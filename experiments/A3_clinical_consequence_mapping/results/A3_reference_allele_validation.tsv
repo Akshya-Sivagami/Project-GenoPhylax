@@ -1,0 +1,4 @@
+locus_id	region	expected_ref	reference_base
+L1	chr20:10003468	UNKNOWN	C
+L2	chr1:20061156	A	A
+L3	chr4:40028853	A	A

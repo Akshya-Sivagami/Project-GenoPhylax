@@ -1,0 +1,53 @@
+A3 F11 Remote ONT CRAM Extraction Summary
+==========================================
+
+Completed: 2026-08-03T15:02:21+05:30
+
+Remote CRAM:
+https://ont-open-data.s3.amazonaws.com/giab_2023.05/analysis/hg002/hac/PAO89685.pass.cram
+
+Reference:
+/home/admin/datasets/GenoPhylax/references/GRCh38_GIAB/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta
+
+Clinical candidate:
+chr4:186274193 G>T
+
+Extraction region:
+chr4:186264193-186284193
+
+Reference validation:
+Observed reference base: G
+Expected reference base: G
+Status: PASS
+
+Alignment counts:
+Regional alignment records: 82
+Target-overlapping records: 29
+Unique target parent reads: 27
+
+Per-record target states:
+ALT: 18
+REF: 11
+DEL: 0
+OTHER: 0
+
+Unambiguous per-parent target states:
+ALT: 17
+REF: 10
+DEL: 0
+OTHER: 0
+MIXED: 0
+
+Overall status: ALT_SUPPORT_CONFIRMED
+
+The PAO89685 flowcell contains target reads supporting the F11 ALT allele.
+These parent read IDs can now be mapped to source POD5 shards.
+
+Generated files:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_PAO89685_region.sorted.bam
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_PAO89685_region.sorted.bam.bai
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_overlapping_records.sam
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_overlapping_record_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_parent_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_per_record_states.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_per_parent_states.tsv

@@ -1,0 +1,4 @@
+locus_id	chrom	position	ref	alt	assembly	canonical_spdi	ensembl_most_severe_consequence	gene_symbol	gene_id	transcript_id	transcript_biotype	selected_consequence_terms	impact	mane_select	canonical_transcript	hgvsc	hgvsp	variant_class	clinvar_record_count	clinvar_variation_ids	clinvar_titles	clinvar_significance	clinvar_review_status
+L1	chr20	10003468	C	G	GRCh38	NC_000020.11:10003467:C:G	intron_variant	PARAL1	ENSG00000243961	ENST00000449270	lncRNA	intron_variant;non_coding_transcript_variant	MODIFIER		1	ENST00000449270.1:n.433-3045C>G		SNV	0				
+L2	chr1	20061156	A	T	GRCh38	NC_000001.11:20061155:A:T	intron_variant	PLA2G5	ENSG00000127472	ENST00000894073	protein_coding	intron_variant	MODIFIER			ENST00000894073.2:c.-171+1464A>T		SNV	0				
+L3	chr4	40028853	A	G	GRCh38	NC_000004.12:40028852:A:G	intergenic_variant											SNV	0				

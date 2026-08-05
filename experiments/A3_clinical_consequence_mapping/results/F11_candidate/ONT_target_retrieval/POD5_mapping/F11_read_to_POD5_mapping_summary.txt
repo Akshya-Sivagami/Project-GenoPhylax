@@ -1,0 +1,38 @@
+A3 F11 Read-to-POD5 Mapping Summary
+====================================
+
+Completed: 2026-08-03T15:08:45+05:30
+
+F11 target:
+chr4:186274193 G>T
+
+Target parents:
+All target parents: 27
+ALT parents: 17
+REF parents: 10
+
+ALT POD5 mapping:
+Mapped ALT parents: 0
+Unmapped ALT parents: 17
+Required unique POD5 shards: 0
+
+Remote download estimate:
+Known total bytes: 0
+Known total GiB: 0.0000
+
+Overall status: NO_ALT_READS_MAPPED
+
+The currently available local manifests do not contain the F11
+read-to-POD5 mapping. A remote sequencing-summary lookup is required.
+
+Generated files:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_ALT_parent_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_REF_parent_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_files.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_file_schemas.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_raw_manifest_matches.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_read_to_pod5_mapping.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_ALT_read_to_pod5_mapping.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_unmapped_ALT_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_required_POD5_manifest.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_required_POD5_remote_sizes.tsv

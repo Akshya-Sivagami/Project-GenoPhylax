@@ -1,0 +1,21 @@
+nohup: ignoring input
+Started: 2026-08-03T14:50:51+05:30
+
+[1/8] Validate inputs
+Input validation: PASS
+
+[2/8] Inspect HG002 sample
+HG002
+
+[3/8] Normalize HG002 benchmark SNVs
+Lines   total/split/joined/realigned/skipped:	4048342/47781/0/29915/0
+Normalized HG002 SNVs: 3440867
+
+[4/8] Filter and normalize ClinVar pathogenic SNVs
+Lines   total/split/joined/realigned/skipped:	112432/0/0/0/0
+Normalized ClinVar pathogenic-class SNVs: 112432
+
+[5/8] Compute exact CHROM/POS/REF/ALT intersection
+bash: line 112: bgzip: command not found
+
+A3 HG002 × CLINVAR INTERSECTION: FAILED

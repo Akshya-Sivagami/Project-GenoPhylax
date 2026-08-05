@@ -1,0 +1,141 @@
+============================================================
+A3 F11 — READ-TO-POD5 MAPPING
+============================================================
+Started: 2026-08-03T15:08:39+05:30
+
+Python: /home/admin/Project-GenoPhylax/experiments/A2_adversarial_dna/basecalling/environment/pod5_env/bin/python
+Input:  experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_target_per_parent_states.tsv
+
+[1/9] Validating required input
+Input rows:
+27
+
+[2/9] Exporting ALT, REF and all target parent read IDs
+ALT parents: 17
+REF parents: 10
+All parents: 27
+
+[3/9] Discovering reusable A2 scripts and manifests
+Candidate files discovered:
+1905 experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_files.txt
+
+experiments/A2_adversarial_dna/basecalling/dorado/logs/hg002_three_pod5_hac.txt
+experiments/A2_adversarial_dna/basecalling/dorado/metrics/hg002_full_gpu_utilization_summary.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/deprecated-1.3.1.dist-info/top_level.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/deprecated/classic.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/deprecated/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/deprecated/params.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/deprecated/sphinx.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/_distutils_hack/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/_distutils_hack/override.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/edlib-1.3.9.post1.dist-info/top_level.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/licenses/hdf5.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/licenses/license.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/licenses/pytables.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/licenses/python.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/licenses/stdint.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/licenses/lzf/LICENSE.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py-3.16.0.dist-info/top_level.txt
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/h5py_warnings.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/attrs.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/base.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/compat.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/dataset.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/datatype.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/dims.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/files.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/filters.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/group.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/selections2.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/selections.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/_hl/vds.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/ipy_completer.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/common.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/conftest.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/data_files/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/__init__.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_attribute_create.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_attrs_data.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_attrs.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_base.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_big_endian_file.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_completions.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dataset_getitem.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dataset.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dataset_swmr.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_datatype.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dimension_scales.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dims_dimensionproxy.py
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/h5py/tests/test_dtype.py
+
+[4/9] Recording candidate file schemas
+Schema audit written to:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_file_schemas.txt
+
+[5/9] Searching discovered manifests for all F11 read IDs
+Target read IDs: 27
+Candidate files scanned: 1905
+Raw matching rows: 0
+Unique matched reads: 0
+
+[6/9] Normalizing read-to-POD5 mappings
+All parent reads: 27
+ALT parent reads: 17
+Mapped ALT reads: 0
+Unmapped ALT reads: 17
+Required POD5 shards: 0
+
+[7/9] Checking remote POD5 shard sizes without downloading
+Remote-size check:
+pod5_name  pod5_url  remote_size_bytes  remote_size_gib  http_status
+
+[8/9] Creating mapping summary
+A3 F11 Read-to-POD5 Mapping Summary
+====================================
+
+Completed: 2026-08-03T15:08:45+05:30
+
+F11 target:
+chr4:186274193 G>T
+
+Target parents:
+All target parents: 27
+ALT parents: 17
+REF parents: 10
+
+ALT POD5 mapping:
+Mapped ALT parents: 0
+Unmapped ALT parents: 17
+Required unique POD5 shards: 0
+
+Remote download estimate:
+Known total bytes: 0
+Known total GiB: 0.0000
+
+Overall status: NO_ALT_READS_MAPPED
+
+The currently available local manifests do not contain the F11
+read-to-POD5 mapping. A remote sequencing-summary lookup is required.
+
+Generated files:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_ALT_parent_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_REF_parent_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_files.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_candidate_mapping_file_schemas.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_raw_manifest_matches.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_read_to_pod5_mapping.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_ALT_read_to_pod5_mapping.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_unmapped_ALT_read_ids.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_required_POD5_manifest.tsv
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_required_POD5_remote_sizes.tsv
+
+[9/9] Final validation and marker creation
+
+============================================================
+A3 F11 READ-TO-POD5 MAPPING COMPLETE
+============================================================
+Completed: 2026-08-03T15:08:45+05:30
+Marker: experiments/A3_clinical_consequence_mapping/markers/A3_F11_READ_TO_POD5_MAPPING.COMPLETE
+Summary: experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/F11_read_to_POD5_mapping_summary.txt

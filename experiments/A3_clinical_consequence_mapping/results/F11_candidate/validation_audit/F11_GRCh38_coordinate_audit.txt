@@ -1,0 +1,50 @@
+F11 GRCh38 Coordinate and Allele Audit
+=======================================
+
+Completed: 2026-08-05T13:17:10+05:30
+
+Expected target:
+Chromosome: chr4
+Position: 186274193
+REF: G
+ALT: T
+
+Reference assembly:
+/home/admin/datasets/GenoPhylax/references/GRCh38_GIAB/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta
+
+Reference sequence name:
+>chr4:186274193-186274193
+
+Reference-base validation:
+Observed base: G
+Expected base: G
+Status: PASS
+
+HG002 GIAB truth source:
+/home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz
+
+Exact truth record:
+chr4	186274193	.	G	T	50	PASS	platforms=6;platformnames=Illumina,PacBio,10X,CG,Ion,Solid;datasets=7;datasetnames=HiSeqPE300x,CCS15kb_20kb,10XChromiumLR,CGnormal,HiSeq250x250,IonExome,SolidSE75bp;callsets=10;callsetnames=HiSeqPE300xSentieon,CCS15kb_20kbDV,10XLRGATK,CCS15kb_20kbGATK4,CGnormal,HiSeqPE300xfreebayes,HiSeq250x250Sentieon,HiSeq250x250freebayes,IonExomeTVC,SolidSE75GATKHC;datasetsmissingcall=HiSeqMatePair;callable=CS_HiSeqPE300xSentieon_callable,CS_CCS15kb_20kbDV_callable,CS_10XLRGATK_callable,CS_CCS15kb_20kbGATK4_callable,CS_CGnormal_callable,CS_HiSeqPE300xfreebayes_callable,CS_HiSeq250x250Sentieon_callable,CS_HiSeq250x250freebayes_callable	GT:PS:DP:ADALL:AD:GQ	0/1:.:5173:185,142:327,269:657
+
+Truth FILTER: PASS
+Truth GT: NOT_PARSED
+
+ClinVar GRCh38 source:
+experiments/A3_clinical_consequence_mapping/references/clinvar/clinvar_GRCh38.vcf.gz
+
+Exact ClinVar record:
+4	186274193	11891	G	T	.	.	AF_EXAC=0.00078;ALLELEID=26930;CLNDISDB=.|.|MeSH:D030342,MedGen:C0950123|MedGen:C3661900|MONDO:MONDO:0012897,MeSH:D005173,MedGen:C0015523,OMIM:612416,Orphanet:329|Human_Phenotype_Ontology:HP:0001873,Human_Phenotype_Ontology:HP:0001906,Human_Phenotype_Ontology:HP:0004838,Human_Phenotype_Ontology:HP:0008175,Human_Phenotype_Ontology:HP:0008268,Human_Phenotype_Ontology:HP:0008302,MONDO:MONDO:0002049,MeSH:D013921,MedGen:C0040034|Human_Phenotype_Ontology:HP:0001892,Human_Phenotype_Ontology:HP:0004830,Human_Phenotype_Ontology:HP:0004834,Human_Phenotype_Ontology:HP:0004849,Human_Phenotype_Ontology:HP:0004862,Human_Phenotype_Ontology:HP:0004865,Human_Phenotype_Ontology:HP:0008183,MedGen:C1458140;CLNDN=F11-related_disorder|Plasma_factor_XI_deficiency|Inborn_genetic_diseases|not_provided|Hereditary_factor_XI_deficiency_disease|Thrombocytopenia|Abnormal_bleeding;CLNHGVS=NC_000004.12:g.186274193G>T;CLNREVSTAT=criteria_provided,_multiple_submitters,_no_conflicts;CLNSIG=Pathogenic;CLNSIGSCV=SCV000330013|SCV000448983|SCV000700670|SCV000839954|SCV000893671|SCV000899337|SCV000947700|SCV001365779|SCV001444495|SCV001457099|SCV001500791|SCV002022262|SCV002500851|SCV002519640|SCV002570361|SCV004227501|SCV004243179|SCV004807525|SCV005397306|SCV005398116|SCV005917878|SCV006584290|SCV007338480|SCV007519836|SCV007591930|SCV007597767;CLNVC=single_nucleotide_variant;CLNVCSO=SO:0001483;CLNVI=ClinGen:CA121745|OMIM:264900.0002;GENEINFO=F11:2160;MC=SO:0001587|nonsense;ORIGIN=1;RS=121965063
+
+ClinVar CLNSIG: Pathogenic
+ClinVar review status: criteria_provided,_multiple_submitters,_no_conflicts
+ClinVar molecular consequence: SO:0001587|nonsense
+ClinVar dbSNP RS: 121965063
+
+Saved local truth-record validation: PASS
+Saved local ClinVar-record validation: PASS
+
+Assembly/coordinate conclusion:
+The reference, GIAB truth VCF, ClinVar GRCh38 VCF and ONT query
+all use the same GRCh38 coordinate chr4:186274193 G>T.
+
+Overall status: PASS

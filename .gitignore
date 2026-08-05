@@ -49,3 +49,21 @@ experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/
 *.COMPLETE
 *.done
 *.stderr
+# BEGIN GENOPHYLAX A3 LARGE DATA
+experiments/A3_clinical_consequence_mapping/references/clinvar/*.vcf.gz
+experiments/A3_clinical_consequence_mapping/references/clinvar/*.vcf.gz.tbi
+experiments/A3_clinical_consequence_mapping/**/*.bam
+experiments/A3_clinical_consequence_mapping/**/*.bam.bai
+experiments/A3_clinical_consequence_mapping/**/*.cram
+experiments/A3_clinical_consequence_mapping/**/*.crai
+experiments/A3_clinical_consequence_mapping/**/*.pod5
+experiments/A3_clinical_consequence_mapping/**/*normalized*.vcf.gz
+experiments/A3_clinical_consequence_mapping/**/*normalized*.vcf.gz.tbi
+experiments/A3_clinical_consequence_mapping/**/isec_exact/
+experiments/A3_clinical_consequence_mapping/**/*.pid
+# END GENOPHYLAX A3 LARGE DATA
+# A3 generated repository-search dumps may contain copied credentials or tokens
+experiments/A3_clinical_consequence_mapping/results/*_repository_search.txt
+# A3 temporary checkpoint inventories
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_staged_files.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_staged_file_sizes.tsv

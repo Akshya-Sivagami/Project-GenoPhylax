@@ -1,0 +1,7 @@
+https://download.pytorch.org/whl/cu130
+https://ont-open-data.s3.amazonaws.com
+https://ont-open-data.s3.amazonaws.com/giab_2023.05/analysis/hg002/hac/PAO89685.pass.cram
+https://ont-open-data.s3.amazonaws.com/giab_2023.05/flowcells/hg002/20230424_1302_3H_PAO89685_2264ba8c/pod5_pass
+https://pypi.org/simple
+s3://ont-open-data/giab_2023.05/flowcells/hg002/20230424_1302_3H_PAO89685_2264ba8c
+s3://ont-open-data/giab_2023.05/flowcells/hg002/20230424_1302_3H_PAO89685_2264ba8c/`

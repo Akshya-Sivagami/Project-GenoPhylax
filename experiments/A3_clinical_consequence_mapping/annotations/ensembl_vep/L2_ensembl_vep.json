@@ -1,0 +1,1049 @@
+[
+  {
+    "allele_string": "A/T",
+    "assembly_name": "GRCh38",
+    "colocated_variants": [
+      {
+        "allele_string": "A/T",
+        "end": 20061156,
+        "frequencies": {
+          "T": {
+            "af": 0.0052,
+            "afr": 0.0008,
+            "amr": 0.0058,
+            "eas": 0,
+            "eur": 0.0129,
+            "gnomadg": 0.005975,
+            "gnomadg_afr": 0.001997,
+            "gnomadg_ami": 0.004396,
+            "gnomadg_amr": 0.008431,
+            "gnomadg_asj": 0.007205,
+            "gnomadg_eas": 0,
+            "gnomadg_fin": 0.0004711,
+            "gnomadg_mid": 0.006803,
+            "gnomadg_nfe": 0.009069,
+            "gnomadg_remaining": 0.01137,
+            "gnomadg_sas": 0.004348,
+            "sas": 0.0082
+          }
+        },
+        "id": "rs74450041",
+        "seq_region_name": "1",
+        "start": 20061156,
+        "strand": 1
+      }
+    ],
+    "end": 20061156,
+    "id": "1_20061156_A/T",
+    "input": "1 20061156 20061156 A/T 1",
+    "most_severe_consequence": "intron_variant",
+    "seq_region_name": "1",
+    "start": 20061156,
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000460175.5:n.337+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "strand": 1,
+        "transcript_id": "ENST00000460175",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000465698.5:n.341+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "strand": 1,
+        "transcript_id": "ENST00000465698",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000469069.5:n.245+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "strand": 1,
+        "transcript_id": "ENST00000469069",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000486277.5:n.680+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "4/9",
+        "strand": 1,
+        "transcript_id": "ENST00000486277",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000489871.5:n.245+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "strand": 1,
+        "transcript_id": "ENST00000489871",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000498348.1:n.200+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/3",
+        "strand": 1,
+        "transcript_id": "ENST00000498348",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894073.2:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000564132",
+        "strand": 1,
+        "transcript_id": "ENST00000894073",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894074.2:c.-462+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000564133",
+        "strand": 1,
+        "transcript_id": "ENST00000894074",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894075.2:c.-490+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000564134",
+        "strand": 1,
+        "transcript_id": "ENST00000894075",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894076.2:c.-397+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000564135",
+        "strand": 1,
+        "transcript_id": "ENST00000894076",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894077.2:c.-597+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000564136",
+        "strand": 1,
+        "transcript_id": "ENST00000894077",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894078.2:c.-11+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/5",
+        "protein_id": "ENSP00000564137",
+        "strand": 1,
+        "transcript_id": "ENST00000894078",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894079.2:c.-10-23665A>T",
+        "impact": "MODIFIER",
+        "intron": "1/4",
+        "protein_id": "ENSP00000564138",
+        "strand": 1,
+        "transcript_id": "ENST00000894079",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894080.2:c.-225+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000564139",
+        "strand": 1,
+        "transcript_id": "ENST00000894080",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894081.2:c.-344+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000564140",
+        "strand": 1,
+        "transcript_id": "ENST00000894081",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894082.2:c.-663+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/10",
+        "protein_id": "ENSP00000564141",
+        "strand": 1,
+        "transcript_id": "ENST00000894082",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894083.2:c.-65+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000564142",
+        "strand": 1,
+        "transcript_id": "ENST00000894083",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894084.2:c.-609+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000564143",
+        "strand": 1,
+        "transcript_id": "ENST00000894084",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894085.2:c.-628+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000564144",
+        "strand": 1,
+        "transcript_id": "ENST00000894085",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894086.2:c.-233+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000564145",
+        "strand": 1,
+        "transcript_id": "ENST00000894086",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894087.2:c.-487+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000564146",
+        "strand": 1,
+        "transcript_id": "ENST00000894087",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894088.2:c.-606+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/10",
+        "protein_id": "ENSP00000564147",
+        "strand": 1,
+        "transcript_id": "ENST00000894088",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894089.2:c.-571+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000564148",
+        "strand": 1,
+        "transcript_id": "ENST00000894089",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000894090.2:c.-292+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000564149",
+        "strand": 1,
+        "transcript_id": "ENST00000894090",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962155.2:c.-302+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632214",
+        "strand": 1,
+        "transcript_id": "ENST00000962155",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962156.2:c.-419+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000632215",
+        "strand": 1,
+        "transcript_id": "ENST00000962156",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962157.2:c.-461+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000632216",
+        "strand": 1,
+        "transcript_id": "ENST00000962157",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962158.2:c.-402+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000632217",
+        "strand": 1,
+        "transcript_id": "ENST00000962158",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962159.2:c.-247+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632218",
+        "strand": 1,
+        "transcript_id": "ENST00000962159",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962160.2:c.-227+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632219",
+        "strand": 1,
+        "transcript_id": "ENST00000962160",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962161.2:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000632220",
+        "strand": 1,
+        "transcript_id": "ENST00000962161",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962162.2:c.-562+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000632221",
+        "strand": 1,
+        "transcript_id": "ENST00000962162",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962163.2:c.-271+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632222",
+        "strand": 1,
+        "transcript_id": "ENST00000962163",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962164.2:c.-277+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632223",
+        "strand": 1,
+        "transcript_id": "ENST00000962164",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962165.2:c.-435+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000632224",
+        "strand": 1,
+        "transcript_id": "ENST00000962165",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962166.2:c.-516+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000632225",
+        "strand": 1,
+        "transcript_id": "ENST00000962166",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962167.2:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "4/8",
+        "protein_id": "ENSP00000632226",
+        "strand": 1,
+        "transcript_id": "ENST00000962167",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962168.2:c.-781+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/11",
+        "protein_id": "ENSP00000632227",
+        "strand": 1,
+        "transcript_id": "ENST00000962168",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962169.2:c.-309+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000632228",
+        "strand": 1,
+        "transcript_id": "ENST00000962169",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962170.2:c.-173+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000632229",
+        "strand": 1,
+        "transcript_id": "ENST00000962170",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000962171.2:c.-457+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000632230",
+        "strand": 1,
+        "transcript_id": "ENST00000962171",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "upstream_gene_variant"
+        ],
+        "distance": 392,
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "impact": "MODIFIER",
+        "protein_id": "ENSP00000632231",
+        "strand": 1,
+        "transcript_id": "ENST00000962172",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000983228.1:c.-462+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000653045",
+        "strand": 1,
+        "transcript_id": "ENST00000983228",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00000983229.1:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000653046",
+        "strand": 1,
+        "transcript_id": "ENST00000983229",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001054986.1:c.-225+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000724803",
+        "strand": 1,
+        "transcript_id": "ENST00001054986",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001054987.1:c.-344+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/9",
+        "protein_id": "ENSP00000724804",
+        "strand": 1,
+        "transcript_id": "ENST00001054987",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001054988.1:c.-290+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000724805",
+        "strand": 1,
+        "transcript_id": "ENST00001054988",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001054989.1:c.-343+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/8",
+        "protein_id": "ENSP00000724806",
+        "strand": 1,
+        "transcript_id": "ENST00001054989",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "nonsense_mediated_decay",
+        "consequence_terms": [
+          "intron_variant",
+          "NMD_transcript_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001054990.1:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000724807",
+        "strand": 1,
+        "transcript_id": "ENST00001054990",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001095527.1:c.-10-23665A>T",
+        "impact": "MODIFIER",
+        "intron": "1/3",
+        "protein_id": "ENSP00000765333",
+        "strand": 1,
+        "transcript_id": "ENST00001095527",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001120221.1:c.-171+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/5",
+        "protein_id": "ENSP00000790026",
+        "strand": 1,
+        "transcript_id": "ENST00001120221",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "upstream_gene_variant"
+        ],
+        "distance": 392,
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "impact": "MODIFIER",
+        "protein_id": "ENSP00000790027",
+        "strand": 1,
+        "transcript_id": "ENST00001120222",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123836.1:c.-11+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/4",
+        "protein_id": "ENSP00000793641",
+        "strand": 1,
+        "transcript_id": "ENST00001123836",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123837.1:c.-343+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000793642",
+        "strand": 1,
+        "transcript_id": "ENST00001123837",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123838.1:c.-490+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000793643",
+        "strand": 1,
+        "transcript_id": "ENST00001123838",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123839.1:c.-173+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/5",
+        "protein_id": "ENSP00000793644",
+        "strand": 1,
+        "transcript_id": "ENST00001123839",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123840.1:c.-461+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/7",
+        "protein_id": "ENSP00000793645",
+        "strand": 1,
+        "transcript_id": "ENST00001123840",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123841.1:c.-225+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/6",
+        "protein_id": "ENSP00000793646",
+        "strand": 1,
+        "transcript_id": "ENST00001123841",
+        "variant_allele": "T"
+      },
+      {
+        "biotype": "protein_coding",
+        "consequence_terms": [
+          "intron_variant"
+        ],
+        "gene_id": "ENSG00000127472",
+        "gene_symbol": "PLA2G5",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:9038",
+        "hgvsc": "ENST00001123842.1:c.-65+1464A>T",
+        "impact": "MODIFIER",
+        "intron": "2/5",
+        "protein_id": "ENSP00000793647",
+        "strand": 1,
+        "transcript_id": "ENST00001123842",
+        "variant_allele": "T"
+      }
+    ],
+    "variant_class": "SNV"
+  }
+]

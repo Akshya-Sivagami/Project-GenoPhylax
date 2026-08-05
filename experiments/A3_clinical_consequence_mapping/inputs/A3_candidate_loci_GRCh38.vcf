@@ -1,0 +1,7 @@
+##fileformat=VCFv4.2
+##reference=GCA_000001405.15_GRCh38_no_alt_analysis_set
+##source=Project_GenoPhylax_A3
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+chr20	10003468	L1	C	G	.	PASS	SOURCE=A2
+chr1	20061156	L2	A	T	.	PASS	SOURCE=A2
+chr4	40028853	L3	A	G	.	PASS	SOURCE=A2

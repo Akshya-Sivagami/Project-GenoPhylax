@@ -1,0 +1,6 @@
+item	status	details
+directory_structure	COMPLETE	experiments/A3_clinical_consequence_mapping
+candidate_loci	COMPLETE	L1,L2,L3
+L1_alleles	COMPLETE	REF and ALT resolved
+bcftools	AVAILABLE	Required for local VCF querying
+local_clinvar	POSSIBLY_AVAILABLE	See environment audit

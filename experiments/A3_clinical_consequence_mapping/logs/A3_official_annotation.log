@@ -1,0 +1,11 @@
+nohup: ignoring input
+Annotating L1: chr20:10003468 C>G
+Annotating L2: chr1:20061156 A>T
+Annotating L3: chr4:40028853 A>G
+
+================================================================================
+A3 OFFICIAL ANNOTATION: COMPLETE
+================================================================================
+Fixed VCF: experiments/A3_clinical_consequence_mapping/inputs/A3_candidate_loci_GRCh38_header_fixed.vcf
+Output table: experiments/A3_clinical_consequence_mapping/results/A3_preliminary_official_annotation.tsv
+Summary: experiments/A3_clinical_consequence_mapping/results/A3_official_annotation_summary.txt

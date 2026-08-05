@@ -1,0 +1,27 @@
+{
+  "esearchresult": {
+    "count": "0",
+    "errorlist": {
+      "fieldsnotfound": [],
+      "phrasesnotfound": [
+        "NC_000020.11:10003467:C:G[cspdi]"
+      ]
+    },
+    "idlist": [],
+    "querytranslation": "(\"NC_000020.11:10003467:C:G\"[cspdi])",
+    "retmax": "0",
+    "retstart": "0",
+    "translationset": [],
+    "warninglist": {
+      "outputmessages": [
+        "No items found."
+      ],
+      "phrasesignored": [],
+      "quotedphrasesnotfound": []
+    }
+  },
+  "header": {
+    "type": "esearch",
+    "version": "0.3"
+  }
+}

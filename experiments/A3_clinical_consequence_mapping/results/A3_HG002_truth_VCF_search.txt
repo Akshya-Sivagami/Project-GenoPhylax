@@ -1,0 +1,20 @@
+A3 HG002 TRUTH VCF SEARCH
+Generated: 2026-08-03T14:48:28+05:30
+
+Candidate HG002/GIAB VCF files:
+
+/home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/truth_vcf_files.txt:1:/home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz	152592 KB
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/scan_regional_candidates.py:17:    parser.add_argument("--truth-vcf", required=True)
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/scan_regional_candidates.py:34:def get_truth_variants(vcf_path, region):
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/scan_regional_candidates.py:270:    variants = get_truth_variants(args.truth_vcf, args.region)
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:3:Source: https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:4:--2026-08-03 14:36:27--  https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:9:Saving to: ‘experiments/A3_clinical_consequence_mapping/references/clinvar/clinvar_GRCh38.vcf.gz’
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:3782:2026-08-03 14:37:11 (4.29 MB/s) - ‘experiments/A3_clinical_consequence_mapping/references/clinvar/clinvar_GRCh38.vcf.gz’ saved [193012905/193012905]
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:3784:--2026-08-03 14:37:11--  https://ftp.ncbi.nlm.nih.gov/pub/clinvar/vcf_GRCh38/clinvar.vcf.gz.tbi
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:3789:Saving to: ‘experiments/A3_clinical_consequence_mapping/references/clinvar/clinvar_GRCh38.vcf.gz.tbi’
+experiments/A3_clinical_consequence_mapping/logs/A3_clinvar_download.log:3804:2026-08-03 14:37:14 (397 KB/s) - ‘experiments/A3_clinical_consequence_mapping/references/clinvar/clinvar_GRCh38.vcf.gz.tbi’ saved [609782/609782]
+experiments/A3_clinical_consequence_mapping/logs/A3_official_annotation.log:9:Fixed VCF: experiments/A3_clinical_consequence_mapping/inputs/A3_candidate_loci_GRCh38_header_fixed.vcf
+experiments/A3_clinical_consequence_mapping/results/A3_HG002_truth_VCF_search.txt:6:/home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark.vcf.gz
+experiments/A3_clinical_consequence_mapping/scripts/run_A3_official_annotation.py:25:FIXED_VCF = INPUT_DIR / "A3_candidate_loci_GRCh38_header_fixed.vcf"

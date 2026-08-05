@@ -1,0 +1,34 @@
+A3 F11 HG002 GENOTYPE AUDIT
+Generated: 2026-08-03T14:54:28+05:30
+
+Candidate:
+chr4:186274193 G>T
+Gene: F11
+ClinVar Variation ID: 11891
+
+HG002 truth record:
+CHROM=chr4
+POS=186274193
+ID=.
+REF=G
+ALT=T
+QUAL=50
+FILTER=PASS
+GT=0/1
+GQ=657
+DP=5173
+AD=327,269
+PS=.
+
+Raw HG002 FORMAT fields:
+chr4	186274193	G	T	HG002	0/1	657	5173	327,269
+
+ClinVar annotation:
+CLNVID=11891
+CLNSIG=Pathogenic
+CLNREVSTAT=criteria_provided,_multiple_submitters,_no_conflicts
+CLNDN=F11-related_disorder|Plasma_factor_XI_deficiency|Inborn_genetic_diseases|not_provided|Hereditary_factor_XI_deficiency_disease|Thrombocytopenia|Abnormal_bleeding
+GENEINFO=F11:2160
+MC=SO:0001587|nonsense
+RS=121965063
+CLNHGVS=NC_000004.12:g.186274193G>T

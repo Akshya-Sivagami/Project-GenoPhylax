@@ -1,0 +1,41 @@
+F11 Local Sequence Context Audit
+================================
+
+Context length: 201 bp
+Context region: chr4:186274093-186274293
+Target genomic position: 186274193
+Target context index: 100
+Observed REF base: G
+Expected REF base: G
+ALT base: T
+
+GC percentage: 47.76%
+Longest homopolymer in 201-bp context: T x 5
+Target-base homopolymer length: 1
+21-bp target-window dominant-base fraction: 0.381
+Number of tandem-repeat candidates: 14
+Number of tandem-repeat candidates overlapping target: 0
+
+Target-centered 41-bp sequence:
+CAGTTGCCAAGAGTGCTCAAGAATGCCAAGAAAGATGCACG
+
+Longest detected tandem-repeat candidates:
+186274232-186274236	motif=T	copies=5	span=5	overlaps_target=0
+186274104-186274107	motif=T	copies=4	span=4	overlaps_target=0
+186274233-186274236	motif=T	copies=4	span=4	overlaps_target=0
+186274105-186274107	motif=T	copies=3	span=3	overlaps_target=0
+186274109-186274111	motif=T	copies=3	span=3	overlaps_target=0
+186274124-186274126	motif=A	copies=3	span=3	overlaps_target=0
+186274131-186274133	motif=T	copies=3	span=3	overlaps_target=0
+186274153-186274155	motif=G	copies=3	span=3	overlaps_target=0
+186274159-186274161	motif=A	copies=3	span=3	overlaps_target=0
+186274203-186274205	motif=A	copies=3	span=3	overlaps_target=0
+186274234-186274236	motif=T	copies=3	span=3	overlaps_target=0
+186274256-186274258	motif=T	copies=3	span=3	overlaps_target=0
+186274259-186274261	motif=C	copies=3	span=3	overlaps_target=0
+186274286-186274288	motif=C	copies=3	span=3	overlaps_target=0
+
+Interpretation flags:
+- NO_SIMPLE_LOCAL_COMPLEXITY_FLAG
+
+Note: This is a deterministic local-sequence screen, not a full genome-wide mappability model.

@@ -1,0 +1,2 @@
+chrom	position	ref	alt	clinvar_id	clinical_significance	review_status	condition	gene_info	molecular_consequence
+chr4	186274193	G	T	11891	Pathogenic	criteria_provided,_multiple_submitters,_no_conflicts	F11-related_disorder|Plasma_factor_XI_deficiency|Inborn_genetic_diseases|not_provided|Hereditary_factor_XI_deficiency_disease|Thrombocytopenia|Abnormal_bleeding	F11:2160	SO:0001587|nonsense

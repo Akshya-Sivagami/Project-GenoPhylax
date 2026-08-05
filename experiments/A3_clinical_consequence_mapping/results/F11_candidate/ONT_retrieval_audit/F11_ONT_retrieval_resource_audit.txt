@@ -1,0 +1,28 @@
+A3 F11 ONT RETRIEVAL RESOURCE AUDIT
+Generated: 2026-08-03T14:56:45+05:30
+
+Target:
+chr4:186274193 G>T
+
+Purpose:
+Identify reusable A2 resources for retrieving HG002 ONT reads
+and their corresponding raw POD5 files at the F11 locus.
+
+Reusable scripts:
+31
+
+Potential manifests:
+53
+
+Unique remote references:
+7
+
+Existing exact-coordinate matches:
+12
+
+Files:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_retrieval_audit/reusable_scripts.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_retrieval_audit/reusable_manifests.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_retrieval_audit/remote_data_references.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_retrieval_audit/previous_retrieval_commands.txt
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_retrieval_audit/F11_existing_read_id_matches.txt

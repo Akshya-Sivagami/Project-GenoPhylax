@@ -1,0 +1,112 @@
+[
+  {
+    "allele_string": "C/G",
+    "assembly_name": "GRCh38",
+    "colocated_variants": [
+      {
+        "allele_string": "C/G/T",
+        "end": 10003468,
+        "frequencies": {
+          "G": {
+            "af": 0.0321,
+            "afr": 0.0477,
+            "amr": 0.0303,
+            "eas": 0,
+            "eur": 0.0358,
+            "gnomadg": 0.0327,
+            "gnomadg_afr": 0.04837,
+            "gnomadg_ami": 0.02522,
+            "gnomadg_amr": 0.03027,
+            "gnomadg_asj": 0.07061,
+            "gnomadg_eas": 0.0009709,
+            "gnomadg_fin": 0.01518,
+            "gnomadg_mid": 0.1531,
+            "gnomadg_nfe": 0.02537,
+            "gnomadg_remaining": 0.04135,
+            "gnomadg_sas": 0.04432,
+            "sas": 0.0419
+          }
+        },
+        "id": "rs79731531",
+        "seq_region_name": "20",
+        "start": 10003468,
+        "strand": 1
+      }
+    ],
+    "end": 10003468,
+    "id": "20_10003468_C/G",
+    "input": "20 10003468 10003468 C/G 1",
+    "most_severe_consequence": "intron_variant",
+    "seq_region_name": "20",
+    "start": 10003468,
+    "strand": 1,
+    "transcript_consequences": [
+      {
+        "biotype": "protein_coding_CDS_not_defined",
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000132623",
+        "gene_symbol": "ANKEF1",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:15803",
+        "hgvsc": "ENST00000437504.1:n.394+16949C>G",
+        "impact": "MODIFIER",
+        "intron": "1/1",
+        "strand": 1,
+        "transcript_id": "ENST00000437504",
+        "variant_allele": "G"
+      },
+      {
+        "biotype": "lncRNA",
+        "canonical": 1,
+        "consequence_terms": [
+          "intron_variant",
+          "non_coding_transcript_variant"
+        ],
+        "gene_id": "ENSG00000243961",
+        "gene_symbol": "PARAL1",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:53772",
+        "hgvsc": "ENST00000449270.1:n.433-3045C>G",
+        "impact": "MODIFIER",
+        "intron": "1/1",
+        "strand": 1,
+        "transcript_id": "ENST00000449270",
+        "variant_allele": "G"
+      },
+      {
+        "biotype": "lncRNA",
+        "consequence_terms": [
+          "downstream_gene_variant"
+        ],
+        "distance": 2913,
+        "gene_id": "ENSG00000227906",
+        "gene_symbol": "SNAP25-AS1",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:44312",
+        "impact": "MODIFIER",
+        "strand": -1,
+        "transcript_id": "ENST00000655841",
+        "variant_allele": "G"
+      },
+      {
+        "biotype": "lncRNA",
+        "consequence_terms": [
+          "downstream_gene_variant"
+        ],
+        "distance": 3108,
+        "gene_id": "ENSG00000227906",
+        "gene_symbol": "SNAP25-AS1",
+        "gene_symbol_source": "HGNC",
+        "hgnc_id": "HGNC:44312",
+        "impact": "MODIFIER",
+        "strand": -1,
+        "transcript_id": "ENST00000658520",
+        "variant_allele": "G"
+      }
+    ],
+    "variant_class": "SNV"
+  }
+]

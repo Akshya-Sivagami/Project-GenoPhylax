@@ -1,0 +1,11 @@
+F11 GIAB High-Confidence Region Audit
+======================================
+
+Completed: 2026-08-05T13:17:10+05:30
+Target: chr4:186274193-186274193
+
+Candidate BED: /home/admin/datasets/GenoPhylax/truth/HG002_GRCh38_v4.2.1/HG002_GRCh38_1_22_v4.2.1_benchmark_noinconsistent.bed
+Containment: PASS
+Matching interval: chr4	186265456	186276531
+
+Overall status: PASS

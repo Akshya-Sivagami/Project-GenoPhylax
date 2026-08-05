@@ -1,0 +1,28 @@
+F11 ONT Alignment Quality Audit
+================================
+
+Target: chr4:186274193 G>T
+Alignment records: 29
+Unique parent reads: 27
+Primary records: 27
+Secondary records: 0
+Supplementary records: 2
+
+Allele-state counts:
+ALT: 18
+REF: 11
+
+Strand support:
+ALT: forward=8, reverse=10
+REF: forward=6, reverse=5
+
+Mapping-quality summary:
+ALT: n=18, min=60, median=60.00, mean=60.00, max=60
+REF: n=11, min=60, median=60.00, mean=60.00, max=60
+
+Target relative-position summary:
+ALT: n=18, min=0.0307, median=0.5224, max=0.8694
+REF: n=11, min=0.0253, median=0.1396, max=0.9295
+
+Interpretation flags:
+- SUPPLEMENTARY_RECORDS_PRESENT

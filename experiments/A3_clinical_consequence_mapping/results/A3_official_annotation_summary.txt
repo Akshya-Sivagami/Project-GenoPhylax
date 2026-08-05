@@ -1,0 +1,23 @@
+A3 OFFICIAL ANNOTATION SUMMARY
+Input loci: 3
+
+L1: chr20:10003468 C>G
+  Most severe consequence: intron_variant
+  Selected gene: PARAL1
+  Selected transcript: ENST00000449270
+  ClinVar exact-SPDI records: 0
+  ClinVar significance: NONE
+
+L2: chr1:20061156 A>T
+  Most severe consequence: intron_variant
+  Selected gene: PLA2G5
+  Selected transcript: ENST00000894073
+  ClinVar exact-SPDI records: 0
+  ClinVar significance: NONE
+
+L3: chr4:40028853 A>G
+  Most severe consequence: intergenic_variant
+  Selected gene: NONE
+  Selected transcript: NONE
+  ClinVar exact-SPDI records: 0
+  ClinVar significance: NONE
