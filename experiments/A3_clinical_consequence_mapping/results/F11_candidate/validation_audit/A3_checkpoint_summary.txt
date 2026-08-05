@@ -1,0 +1,37 @@
+A3 F11 Validation and Checkpoint Summary
+=========================================
+
+Completed: 2026-08-05T13:37:03+05:30
+
+Clinical target:
+chr4:186274193 G>T
+
+Validation results:
+GRCh38 coordinate and exact allele chain: PASS
+ClinVar pathogenic nonsense annotation: PASS
+GIAB high-confidence BED containment: PASS
+Local sequence-complexity screen: PASS
+ONT bidirectional REF/ALT support: PASS
+ONT target MAPQ: 60
+
+Git cleanup:
+Blocked unpushed history replaced: YES
+Unsafe repository-search output committed: NO
+Large genomic files committed: NO
+Secret-pattern scan: PASS
+
+Clean checkpoint commit:
+713e31d00a4b54429deb004fb6d22a67cd693937
+
+Backup branch retained locally:
+backup/a3-before-secret-cleanup-20260805_133643
+
+Next stage:
+Resolve the 17 F11 ALT UUIDs using remote PAO89685
+sequencing-summary/read-to-POD5 metadata.
+
+Repository status:
+## main...origin/main
+?? experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_summary.txt
+?? experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/HG002_ClinVar_pathogenic_exact_matches.vcf.gz
+?? experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/HG002_ClinVar_pathogenic_exact_matches.vcf.gz.tbi
