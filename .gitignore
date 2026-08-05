@@ -67,3 +67,6 @@ experiments/A3_clinical_consequence_mapping/results/*_repository_search.txt
 # A3 temporary checkpoint inventories
 experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_staged_files.txt
 experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_staged_file_sizes.tsv
+# A3 compressed truth × ClinVar intersection products
+experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/*.vcf.gz
+experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/*.vcf.gz.tbi

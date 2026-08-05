@@ -1,0 +1,9 @@
+Completed: 2026-08-05T13:37:18+05:30
+Target: chr4:186274193 G>T
+Coordinate validation: PASS
+GIAB high-confidence containment: PASS
+Locus-quality screen: PASS
+ONT quality audit: PASS
+Secret-history cleanup: PASS
+Final commit: 96f1876ca4e2139dd103daef38873b35704b9e82
+Summary: experiments/A3_clinical_consequence_mapping/results/F11_candidate/validation_audit/A3_checkpoint_summary.txt
