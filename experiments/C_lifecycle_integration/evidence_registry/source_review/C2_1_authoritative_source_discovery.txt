@@ -1,0 +1,1182 @@
+MODULE C2.1 — AUTHORITATIVE SOURCE DISCOVERY
+============================================================
+
+Repository files inspected: 6182
+
+============================================================
+A1_E01 — Approximately 2.5 million fuzz executions
+============================================================
+[1] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+Reasons: content:execution
+Matching excerpts:
+  L75: To be completed during execution.
+  L82: ### Execution Results
+  L101: ### Execution Results
+
+[2] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt
+Reasons: content:execution
+Matching excerpts:
+  L24: ### Execution Results
+  L27: ### Execution Results
+  L42: ## Dorado execution results
+
+[3] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md
+Reasons: content:execution
+Matching excerpts:
+  L444: * remains undetected by structural file validation and successful basecaller execution.
+  L466: Successful basecaller execution
+
+[4] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+Reasons: content:execution
+Matching excerpts:
+  L16: The primary objective was to determine whether increasing Gaussian raw-signal perturbation caused reproducible degradation in basecalled sequence identity and confidence while preserving structurally valid POD5 and BAM files and apparently successful Dorado execution.
+  L146: ## Dorado execution results
+  L157: Therefore, successful Dorado execution and valid BAM structure did not imply that the genomic sequence content remained unchanged.
+  L494: The result supports the core GenoPhylax claim that successful pipeline execution alone is not a sufficient genomic-integrity guarantee.
+
+[5] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/generate_experiment_D_findings.py
+Reasons: content:execution
+Matching excerpts:
+  L594: "> Structural validity, successful execution, and high "
+  L622: "errors despite successful execution and structurally valid "
+
+[6] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/experiment_D_alignment_findings.md
+Reasons: content:execution
+Matching excerpts:
+  L192: > Structural validity, successful execution, and high aggregate mapping rates do not guarantee genomic-data integrity.
+  L206: Experiment D provides replicated evidence that raw nanopore signal perturbations can propagate into alignment-level errors despite successful execution and structurally valid outputs at every stage.
+
+[7] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md
+Reasons: content:execution
+Matching excerpts:
+  L82: This established that basic PyTorch CUDA execution was possible on the system.
+  L97: This meant that successful execution of all Bonito-specific GPU kernels could not be assumed.
+
+[8] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md
+Reasons: content:execution
+Matching excerpts:
+  L80: Successful pipeline execution and valid file structure therefore do not guarantee genomic data integrity.
+
+[9] score=30 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv
+Reasons: content:2500000 | structured_file
+Matching excerpts:
+  L101: 1beaf986-297b-4a97-8154-abca3d9d740e	336	322	-14	1.886905	1.968944	0.082039	0	84	0.2500000000	75.000000	75.000000	252	70	0	14
+  L883: e29b7c7f-4093-4d0a-a26a-65ee4333e410	320	320	0	27.737500	28.081250	0.343750	0	4	0.0125000000	98.750000	98.757764	318	0	2	2
+
+[10] score=30 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv
+Reasons: content:2500000 | structured_file
+Matching excerpts:
+  L883: e29b7c7f-4093-4d0a-a26a-65ee4333e410	320	316	-4	27.737500	24.781646	-2.955854	0	20	0.0625000000	93.750000	93.827160	304	8	4	8
+
+[11] score=30 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed2_per_read.tsv
+Reasons: content:2500000 | structured_file
+Matching excerpts:
+  L268: 47d124e2-c257-42cf-9e5f-386a4d653d96	315	344	29	24.396825	16.520349	-7.876477	0	43	0.1250000000	87.500000	87.679083	306	4	34	5
+  L487: 7c2bdd3c-0c83-45cc-bb9b-f4feff5f36dc	357	360	3	40.011204	34.191667	-5.819538	0	9	0.0250000000	97.500000	97.513812	353	2	5	2
+
+[12] score=30 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed1_per_read.tsv
+Reasons: content:2500000 | structured_file
+Matching excerpts:
+  L835: d3c75ad2-58bd-491f-b6f2-412349f6deda	361	400	39	2.941828	3.202500	0.260672	0	113	0.2825000000	71.750000	71.750000	287	74	39	0
+  L971: f9857bf0-af55-48c2-8e91-4371ac52ea3f	336	328	-8	38.232143	25.289634	-12.942509	0	21	0.0625000000	93.750000	93.786982	317	9	2	10
+
+============================================================
+A1_E02 — 54 crashes, 33 unique crashes, two root causes
+============================================================
+[1] score=115 groups=3/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pyarrow/tests/test_pandas.py
+Reasons: content:54 | content:33 | content:root cause | all_required_groups
+Matching excerpts:
+  L264: # ARROW-5427: preserve_index=True will force the RangeIndex to
+  L1977: decimal.Decimal('-129934.123331'),
+  L2132: # Root cause of ARROW-6435
+  L3076: # ARROW-3374
+  L3274: #               ARROW-4258 and https://github.com/apache/arrow/pull/3395
+  L3338: # ARROW-1454
+  L4282: # gh-33727: categories should be converted to pa.Array
+  L4942: # ARROW-16547 to_pandas with timestamp_as_object=True and FixedOffset
+
+[2] score=69 groups=2/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L2: L2_chr1_20061156_A_T	chr1	20061156	A	T	10	9	4035476352	3.758330225944519
+
+[3] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L5: np.float32,0x3f25d906,0x3f5db544,3
+  L13: np.float32,0x3f0e1154,0x3f7b848b,3
+  L19: np.float32,0x3f2c9eee,0x3f54adfd,3
+  L23: np.float32,0xbf65820f,0x402bb054,3
+  L50: np.float32,0xbf754406,0x4036767f,3
+  L59: np.float32,0x3f67d154,0x3ee05547,3
+  L95: np.float32,0xbf56b3f2,0x402433bb,3
+  L118: np.float32,0xbebc8764,0x3ff9547b,3
+
+[4] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L6: np.float32,0x3fc95a13,0x3f833650,2
+  L15: np.float32,0x3fa0edbd,0x3f33e706,2
+  L17: np.float32,0x3fa0c49e,0x3f337af3,2
+  L39: np.float32,0x3fde6684,0x3f93353f,2
+  L68: np.float32,0x3f81f752,0x3e333fdd,2
+  L88: np.float32,0x3f99335e,0x3f1e1d96,2
+  L93: np.float32,0x3fef54ce,0x3f9e7fe5,2
+  L113: np.float32,0x3fafd540,0x3f56f25a,2
+
+[5] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L13: np.float32,0x3eecd2c0,0x3ef633cf,4
+  L20: np.float32,0x3f487ba2,0x3f665254,4
+  L55: np.float32,0x3f5462ba,0x3f7a7b85,4
+  L75: np.float32,0x3ee2a934,0x3eeace33,4
+  L94: np.float32,0xbf325853,0xbf454ea9,4
+  L103: np.float32,0x3f54c5f2,0x3f7b2d97,4
+  L107: np.float32,0x3eb541c0,0x3eb9461e,4
+  L119: np.float32,0x3f33c4d2,0x3f474cac,4
+
+[6] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L11: np.float32,0xbf090d94,0xbf033ad0,2
+  L26: np.float32,0x505438,0x505438,2
+  L38: np.float32,0x3ee06540,0x3ed9c514,2
+  L82: np.float32,0xff335cc1,0xc2b21ed5,2
+  L87: np.float32,0x7f2bd542,0x42b208e0,2
+  L88: np.float32,0x53bf33,0x53bf33,2
+  L110: np.float32,0x8010a331,0x8010a331,2
+  L114: np.float32,0x7f54fa94,0x42b276c9,2
+
+[7] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L2: np.float32,0x3f338252,0x3f1c8d9c,3
+  L5: np.float32,0xbf0a654e,0xbefdbfd2,3
+  L37: np.float32,0x25331,0x25331,3
+  L45: np.float32,0x3bd2c412,0x3bd2c354,3
+  L53: np.float32,0x80722554,0x80722554,3
+  L54: np.float32,0x693f33,0x693f33,3
+  L65: np.float32,0x7d530336,0x3fc90fdb,3
+  L119: np.float32,0x7f4a354f,0x3fc90fdb,3
+
+[8] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L12: np.float32,0x3f7b6c54,0x4016aab0,2
+  L40: np.float32,0x3e8a265c,0x3e8da833,2
+  L46: np.float32,0xbe515910,0xbe545707,2
+  L47: np.float32,0xbf2e64ac,0xbf54d637,2
+  L65: np.float32,0x3d549100,0x3d54c1ee,2
+  L108: np.float32,0x3f58516e,0x3f9e8330,2
+  L110: np.float32,0xbf6e0c6c,0xbfd42854,2
+  L133: np.float32,0xbf7f566c,0xc054c3bd,2
+
+[9] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L2: np.float32,0x3ee7054c,0x3f4459ea,2
+  L3: np.float32,0x7d1e2489,0x54095925,2
+  L4: np.float32,0x7ee5edf5,0x549b992b,2
+  L10: np.float32,0x7f2517b4,0x54af8bf0,2
+  L17: np.float32,0x3f00bbed,0x3f4b9335,2
+  L18: np.float32,0x3f135f4e,0x3f54f5d4,2
+  L21: np.float32,0x7ec35cfb,0x54935fbf,2
+  L22: np.float32,0x7d41c589,0x5412f904,2
+
+[10] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L27: np.float32,0xc090a8b0,0xbe4332ce,2
+  L31: np.float32,0x42b4e454,0xbf4a338b,2
+  L39: np.float32,0x3fc90fdb,0xb33bbd2e,2
+  L40: np.float32,0xbfc90fdb,0xb33bbd2e,2
+  L43: np.float32,0x3fc90fdb,0xb33bbd2e,2
+  L44: np.float32,0xbfc90fdb,0xb33bbd2e,2
+  L123: np.float32,0x41bc7edd,0x33800add,2
+  L124: np.float32,0xc1bc7edd,0x33800add,2
+
+[11] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L15: np.float32,0x3d936fa0,0x3f8054f3,3
+  L82: np.float32,0x4e3375,0x3f800000,3
+  L102: np.float32,0xbf6b454e,0x3fb9f7e6,3
+  L120: np.float32,0xbf754394,0x3fbf60b1,3
+  L145: np.float32,0xbe64671c,0x3f833282,3
+  L162: np.float32,0x7f33ef0d,0x7f800000,3
+  L190: np.float32,0xff105a54,0x7f800000,3
+  L205: np.float32,0x3f54e374,0x3faede94,3
+
+[12] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
+Reasons: content:54 | content:33 | structured_file
+Matching excerpts:
+  L184: np.float64,0xc087438540000000,0x0000000000000001,1
+  L185: ## between -745.13321910 and 709.78271289 ##
+  L200: np.float64,0xc086233920000000,0x000fe590e3b45eb0,1
+  L201: np.float64,0xc086233938000000,0x000fe56133493c57,1
+  L202: np.float64,0xc086233940000000,0x000fe5514deffbbc,1
+  L210: np.float64,0xc086234f00000000,0x000fba54632dddc0,1
+  L249: np.float64,0x402b12e8d4f33589,0x412718f68c71a6fe,1
+  L250: np.float64,0x402b12e8d4f3358a,0x412718f68c71a70a,1
+
+============================================================
+A1_E03 — Heap buffer overflow in ksw_extend2 at ksw.c:428
+============================================================
+[1] score=50 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_findings.txt
+Reasons: filename:finding | content:428
+Matching excerpts:
+  L57: Mean NM change: 171.428128
+
+[2] score=50 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_E2_window_strength_series_findings.md
+Reasons: filename:finding | content:428
+Matching excerpts:
+  L163: E2_PM20    40.4288   31       19         12         0/1
+
+[3] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L57: np.float32,0x3f4d25ba,0x3f24280e,3
+  L152: np.float32,0xbec428c8,0x3ffb636f,3
+  L780: np.float64,0xbfea145f397428be,0x4004302237a35871,1
+  L809: np.float64,0x3fa453e6d428a7c0,0x3ff87f512bb9b0c6,1
+  L1054: np.float64,0x3fdf2a137dbe5428,0x3ff0fecfbecbbf86,1
+  L1396: np.float64,0x3fe9dba94a73b752,0x3fe428736b94885e,1
+  L1411: np.float64,0x3fd6874285ad0e84,0x3ff36098ebff763f,1
+
+[4] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L132: np.float32,0x3ff42898,0x3fa18347,2
+  L434: np.float32,0x7eaa1428,0x42b0a0bb,2
+  L564: np.float32,0x7da7d6a5,0x42add428,2
+  L765: np.float64,0x3ff3d5ae2d67ab5c,0x3fe5bc16447428db,1
+  L889: np.float64,0x3ffa1401f1742804,0x3ff120eb319e9faa,1
+  L968: np.float64,0x7fed71f7d17ae3ef,0x4086332428207101,1
+  L1057: np.float64,0x3ffe77c6c2dcef8e,0x3ff4283698835ecb,1
+  L1172: np.float64,0x7fe72799392e4f31,0x40863137f428ee71,1
+
+[5] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L26: np.float32,0xbeb29428,0xbeb669d1,4
+  L61: np.float32,0x3f629428,0x3f8b1763,4
+  L218: np.float32,0x3e712428,0x3e736d72,4
+  L602: np.float32,0xbf305928,0xbf4289d8,4
+  L664: np.float32,0x3c274280,0x3c27433e,4
+  L955: np.float64,0x3fe34281d7e68504,0x3fe4aab63e6de816,1
+  L1200: np.float64,0xbfe12eec81e25dd9,0xbfe223a4285bba9a,1
+  L1374: np.float64,0x3fd7d69b21afad38,0x3fd86d54284d05ad,1
+
+[6] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L65: np.float32,0x7db44283,0x42adf8b6,2
+  L832: np.float64,0x3fd6c213fead8428,0x3fd64dcc1eff5f1b,1
+  L1007: np.float64,0x3fe44deac4289bd6,0x3fe32463a74a69e7,1
+  L1062: np.float64,0xbfe3dc428467b885,0xbfe2c41ea93fab07,1
+  L1255: np.float64,0x8002269428044d29,0x8002269428044d29,1
+  L1421: np.float64,0x3fd54c4280aa9884,0x3fd4ec55a946c5d7,1
+
+[7] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L242: np.float32,0xbf42843c,0xbf2656db,3
+  L706: np.float32,0x3e255428,0x3e23ea0b,3
+  L1120: np.float64,0x3fca8428af350850,0x3fca257b466b8970,1
+  L1262: np.float64,0x3fe5e98428abd308,0x3fe336a6a085eb55,1
+
+[8] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L60: np.float32,0xbca44280,0xbca44823,2
+  L110: np.float32,0xbf6e0c6c,0xbfd42854,2
+  L311: np.float32,0x3e449428,0x3e470c65,2
+  L450: np.float32,0x3e914288,0x3e955b69,2
+  L728: np.float64,0x3fede12abf7bc256,0x3ffafd0ff4142807,1
+  L842: np.float64,0xbfd830b428b06168,0xbfd973ca3c484d8d,1
+  L1013: np.float64,0xbfe01213e5e02428,0xbfe1ac0e1e7418f1,1
+  L1229: np.float64,0x3fe52213a06a4428,0x3fe964adeff5c14e,1
+
+[9] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L545: np.float32,0xfd9182e8,0xd4284fed,2
+  L558: np.float32,0x3e93fbac,0x3f294287,2
+  L597: np.float32,0x18cfe1,0x2a14285b,2
+  L740: np.float64,0xbfc96a14b232d428,0xbfe2ab1a8962606c,2
+  L747: np.float64,0xf5862717eb0c5,0x2aa3e1428780382d,2
+  L752: np.float64,0x8010000000000000,0xaaa428a2f98d728b,2
+  L946: np.float64,0x7fefffffffffffff,0x554428a2f98d728b,2
+  L957: np.float64,0xd933dd53b267c,0x2aa3158784e428c9,2
+
+[10] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L161: np.float32,0x4283f268,0xbf800000,2
+  L167: np.float32,0x428a3ae7,0x3f800000,2
+  L279: np.float32,0x4280ce28,0x34fdd672,2
+  L285: np.float32,0x4283f268,0xbf800000,2
+  L291: np.float32,0x428716a7,0x35588c6d,2
+  L297: np.float32,0x428a3ae7,0x3f800000,2
+  L303: np.float32,0x428d5f26,0xb60c0105,2
+  L523: np.float32,0x4280ce28,0x34fdd672,2
+
+[11] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L31: np.float32,0x3e142892,0x3f815795,3
+  L635: np.float32,0xbe5428ec,0x3f82c1d4,3
+  L740: np.float64,0x3fd8e44b08b1c898,0x3ff139b9a1f8428e,1
+  L1183: np.float64,0xbfd442b428288568,0x3ff0cef70aa73ae6,1
+  L1259: np.float64,0x7fa47d116428fa22,0x7ff0000000000000,1
+
+[12] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv
+Reasons: path:finding | content:428 | structured_file
+Matching excerpts:
+  L80: np.float32,0x4287db5a,0x707fffd3,3
+  L92: np.float32,0x42893e41,0x7100009e,3
+  L98: np.float32,0x428729e8,0x703504dc,3
+  L259: np.float64,0xC072428C44B6537C,0x2596ade838b96f3e,1
+  L329: np.float64,0x406956428B7DAD09,0x52358682c271237f,1
+
+============================================================
+A1_E04 — Global overflow in mem_aln2sam at bwamem.c:906
+============================================================
+[1] score=50 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md
+Reasons: filename:finding | content:906
+Matching excerpts:
+  L77: - sham centre: 9060;
+  L78: - sham base window: 9055–9065;
+
+[2] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L5: np.float32,0x3f25d906,0x3f5db544,3
+  L838: np.float64,0x3fed0ed79bfa1db0,0x3fdba89060aa96fb,1
+  L960: np.float64,0xbfecde510579bca2,0x400590606e244591,1
+  L1225: np.float64,0xbfe9686c91f2d0d9,0x4003e7bc6ee77906,1
+  L1402: np.float64,0xbfd7ce9061af9d20,0x3fff3b25d531aa2b,1
+
+[3] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L1165: np.float64,0x7fe40b069068160c,0x4086301066468124,1
+  L1173: np.float64,0x7f9f2190603e4320,0x408617dc5b3b3c3c,1
+  L1183: np.float64,0x7fe9719ac532e335,0x408631f906cd79c3,1
+  L1229: np.float64,0x3ff625ba5eec4b75,0x3feb39060e55fb79,1
+  L1287: np.float64,0x3fff906079df20c1,0x3ff4d13869d16bc7,1
+
+[4] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L307: np.float32,0xbd904b10,0xbd9069b1,4
+  L937: np.float64,0x3fe8ec82a271d906,0x3fec92567d7a6675,1
+  L1063: np.float64,0xbfeeb2dc8afd65b9,0xbff48dda6a906cd6,1
+  L1357: np.float64,0x3fb8fcb4ae31f970,0x3fb906e809e7899f,1
+
+[5] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L47: np.float32,0xbf4c906a,0xbf3b60fc,2
+  L155: np.float32,0x7e190658,0x42af07bd,2
+  L979: np.float64,0x7fe0e3906321c720,0x40862eb1bacc5c43,1
+
+[6] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L82: np.float32,0x803906bd,0x803906bd,3
+  L1332: np.float64,0x800906e3d0520dc8,0x800906e3d0520dc8,1
+
+[7] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L572: np.float32,0x3e0e1cb8,0x3e0f0906,2
+  L789: np.float64,0x3fe89064eff120ca,0x3ff03b7c5b3339a8,1
+  L841: np.float64,0xbfb9065586320ca8,0xbfb91adb7e31f322,1
+  L858: np.float64,0xbfda483161b49062,0xbfdbedfbf2e850ba,1
+  L1080: np.float64,0xbfeb2c8308765906,0xbff40d2e6469249e,1
+  L1110: np.float64,0xbfd795906faf2b20,0xbfd8bf89b370655c,1
+  L1251: np.float64,0x3fb681864a2d0310,0x3fb6906fe64b4cd7,1
+  L1354: np.float64,0x3fdd5b28bbbab650,0x3fdfb8b906d77df4,1
+
+[8] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L325: np.float32,0x7eb7b070,0x549060c8,2
+  L360: np.float32,0xfd9a9060,0xd42bbb8b,2
+  L679: np.float32,0x3f4b906e,0x3f6d2b9d,2
+
+[9] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L963: np.float64,0x800830bc7b906179,0x3ff0000000000000,1
+
+[10] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L624: np.float32,0xbf659067,0x3fb701ca,3
+  L668: np.float32,0xbf005ba3,0x3f906df6,3
+  L821: np.float64,0xbfe9068f90720d1f,0x3ff525b82491a1a5,1
+  L854: np.float64,0x3fe849c1df709384,0x3ff4d59063ff98c4,1
+  L1017: np.float64,0x3fe0906d04a120da,0x3ff2311b04b7bfef,1
+  L1032: np.float64,0xbfe906d902320db2,0x3ff525d7e16acfe0,1
+
+[11] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L887: np.float64,0x8004832eb109065e,0x3ff0000000000000,1
+  L1185: np.float64,0x3f906d610820dac0,0x3ff02dccda8e1a75,1
+  L1352: np.float64,0x3fb38ac166271580,0x3ff0de906947c0f0,1
+
+[12] score=46 groups=1/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv
+Reasons: path:finding | content:906 | structured_file
+Matching excerpts:
+  L206: np.float32,0x804ae906,0x804ae906,3
+  L578: np.float32,0xbe8532d0,0xbe6a906f,3
+  L719: np.float64,0x3fd6a0f2492d41e5,0x3fdb253b906057b3,1
+  L985: np.float64,0xbfe027a24de04f44,0xbfd95e9064101e7c,1
+  L1017: np.float64,0xbfd4c9067329920c,0xbfd1bf6255ed91a4,1
+  L1024: np.float64,0xffe6a1b7906d436e,0xbff0000000000000,1
+
+============================================================
+B2_E01 — Pathogenic-variant layer reduced unrecoverability to 0.044
+============================================================
+[1] score=77 groups=2/3
+experiments/B2_vault_design/genomic_vault.py
+Reasons: path:b2 | filename:vault | content:pathogenic | content:unrecoverability
+Matching excerpts:
+  L12: #   3. Unrecoverability scoring (D5 linkage)
+  L24: # Recoverability: how much raw sequence can be reconstructed
+  L30: "recoverability": 1.0,
+  L34: "Pathogenic Variants": {
+  L36: "recoverability": 0.85,
+  L42: "recoverability": 0.40,
+  L48: "recoverability": 0.30,
+  L54: "recoverability": 0.20,
+
+[2] score=57 groups=2/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+Reasons: content:0.044 | content:pathogenic
+Matching excerpts:
+  L658: | Distant sham | 11 base-events | +100 bases     |              0.0444585% |       0/10 |       0/10 |  0/20 |
+  L915: 8. The two selected cross-locus variants are clinically pathogenic.
+
+[3] score=57 groups=2/3
+research/notes/Findings.txt
+Reasons: content:pathogenic | content:unrecoverability
+Matching excerpts:
+  L18: - **The Layered Defenses:** The vault architecture partitions genetic assets into five distinct layers. Raw sequences remain permanently locked, while downstream tiers (Ancestry, Pharmacogenomics, Pathogenic Variants, and Polygenic Risk Scores) are gated dynamically based on requester role and crypt
+  L20: • **Information-Theoretic Unrecoverability (The Emergent Threshold):** The vault’s safety threshold (0.5) is no longer an arbitrary heuristic; it is now mathematically emergent, derived from Shannon entropy leakage penalized for overlapping data attributes. The cumulative leakage across tiers scales
+  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+  L79: The current logic is clinically unrealistic. The new framing — clinicians retain pathogenic variant access when clinically justified, but graph-aware controls suppress relative-linked inference pathways — is both more defensible and more novel. This requires a code change in the vault decision engin
+  L81: **B2 Problem 2 — Unrecoverability threshold:**
+  L100: - B2: three code changes (vault logic, unrecoverability model, lifetime risk drivers) + one new experiment (relatives enrollment graph)
+
+[4] score=52 groups=1/3
+experiments/B2_vault_design/vault_design.py
+Reasons: path:b2 | filename:vault | content:unrecoverability
+Matching excerpts:
+  L6: Deliverable: Vault design with tiered disclosure, unrecoverability
+  L26: "unrecoverability": 1.0,   # perfect — never exposed
+  L33: "unrecoverability": 0.30,  # partial — VCF can leak raw context
+  L40: "unrecoverability": 0.70,
+  L47: "unrecoverability": 0.60,
+  L54: "unrecoverability": 0.80,
+  L84: # 3. UNRECOVERABILITY SCORE
+  L87: def compute_unrecoverability(tier: str, graph_proximity: int, n_relatives_exposed: int) -> dict:
+
+[5] score=50 groups=2/3
+docs/roadmap/Roadmap.md
+Reasons: content:pathogenic | content:unrecoverability
+Matching excerpts:
+  L61: - pathogenic variants
+  L136: | **3. Clinical Interpretation** | The corrupted variant call leads to a misdiagnosis: pathogenic SNV called benign, cancer mutation suppressed, wrong pharmacogenomic dosage. | Patient-level harm is realised here — but the record itself now persists, poisoned, in downstream databases. |
+  L152: | **Selective disclosure vault** | No vault design proves raw sequence unrecoverability while only exposing derived markers | First vault design that must also account for upstream record integrity — disclosure guarantees mean nothing if the underlying call was already corrupted at generation |
+  L163: | **A3** | Clinical Consequence Mapping | Map induced variant errors to ClinVar/ACMG pathogenicity classes; demonstrate concrete misdiagnosis scenarios | Clinical risk assessment; worked misdiagnosis case studies |
+  L165: | **B2** | Lifetime Risk + Selective Disclosure Vault | Time-dependent privacy risk function; vault design exposing only derived markers, never raw sequence, with formal unrecoverability proof | Lifetime risk projections; open-source GenomicVault with privacy proof |
+
+[6] score=48 groups=1/3
+experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/HG002_ClinVar_pathogenic_exact_matches.tsv
+Reasons: filename:pathogenic | content:pathogenic | structured_file
+Matching excerpts:
+  L2: chr4	186274193	G	T	11891	Pathogenic	criteria_provided,_multiple_submitters,_no_conflicts	F11-related_disorder|Plasma_factor_XI_deficiency|Inborn_genetic_diseases|not_provided|Hereditary_factor_XI_deficiency_disease|Thrombocytopenia|Abnormal_bleeding	F11:2160	SO:0001587|nonsense
+
+[7] score=44 groups=1/3
+experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+Reasons: content:pathogenic | structured_file
+Matching excerpts:
+  L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+  L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+  L4: W0	on_target_target_base_only	10	14	10	11	0	3	25	11	11	0	3	0.500000	1	0/1	141.391	PATHOGENIC_ALT_CALL_RETAINED
+  L5: PM2	on_target_plus_minus_2_bases	10	14	15	0	5	4	25	16	0	5	4	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L6: PM5	on_target_plus_minus_5_bases	10	14	11	0	10	3	25	12	0	10	3	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L7: PM10	on_target_plus_minus_10_bases	10	14	11	0	13	0	25	12	0	13	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L8: PM20	on_target_plus_minus_20_bases	10	14	10	0	14	0	25	11	0	14	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+
+[8] score=39 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+Reasons: content:0.044
+Matching excerpts:
+  L27: | Distant sham +100 | 11 base-events | 100 bases downstream | 0.044459% | 0/10 | 0/10 | 0/20 |
+
+[9] score=39 groups=1/3
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt
+Reasons: content:pathogenic
+Matching excerpts:
+  L12: Clean pathogenic call present: True
+  L14: Attacked conditions losing pathogenic call: PM2,PM5,PM10,PM20
+
+[10] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_condition_comparison.tsv
+Reasons: content:0.044 | structured_file
+Matching excerpts:
+  L4: SHAM100	Distant sham +100	100 bases downstream	5	11	2	20	20	2633	5922376	0.044458507869139005	0	20	20	0	0.0	0	0	Clean distant off-target negative control.
+
+[11] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv
+Reasons: content:0.044 | structured_file
+Matching excerpts:
+  L16: median_normalized_edit_distance	0.0443956348
+
+[12] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed2_summary.tsv
+Reasons: content:0.044 | structured_file
+Matching excerpts:
+  L16: median_normalized_edit_distance	0.0447313644
+
+============================================================
+B2_E02 — Re-identification 50 percent by year 11 and 100 percent by year 20
+============================================================
+[1] score=115 groups=3/3
+docs/roadmap/Roadmap.md
+Reasons: content:11 | content:20 | content:re-identification | all_required_groups
+Matching excerpts:
+  L11: Genomic data is vulnerable at two very different moments, and existing research tends to treat them as unrelated problems. At the moment a sample is generated, the same kinds of weaknesses found in ordinary software exist inside the bioinformatics tools that turn raw sequencer signal into usable gen
+  L29: Existing genomic privacy metrics typically focus on isolated dimensions such as re-identification risk or data leakage. GRI instead evaluates genomic cyber-biosecurity risk across the complete lifecycle of a genomic record, incorporating both generation-time compromise and storage-time exposure.
+  L75: - family-based re-identification
+  L183: | **3** | Literature survey: genomic privacy (10-15 papers) | Partially done | Already have: Harmanci & Gerstein 2018, Gymrek et al. 2013, Ayoz et al. 2021, NIST IR 8432. Need ~8-10 more for full coverage |
+  L191: | **11** | DNA attack papers survey (5-10 papers) | Done | UW 2017, Islam et al. 2022, FIMBA 2024, GenoArmory 2025 already identified and gap-analysed |
+
+[2] score=115 groups=3/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/polars/expr/expr.py
+Reasons: content:11 | content:20 | content:re_id | all_required_groups
+Matching excerpts:
+  L113: if sys.version_info >= (3, 11):
+  L130: # (ref: https://github.com/davidhalter/jedi/issues/2057)
+  L880: │ 0.60206 │
+  L941: │ 11  ┆ x   ┆ X   │
+  L1096: │ d: 4 ┆ -20  │
+  L1460: ...         "a": [8, 9, 10, 11],
+  L1992: │ 1234.0  ┆ 1200.0         │
+  L2611: ...         "a": [20, 10, 30],
+
+[3] score=115 groups=3/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/PIL/PngImagePlugin.py
+Reasons: content:11 | content:20 | content:re_id | all_required_groups
+Matching excerpts:
+  L17: # 2001-02-08 fl   Added transparency support (from Zircon) (0.5)
+  L18: # 2001-04-16 fl   Don't close data source in "open" method (0.6)
+  L19: # 2004-02-24 fl   Don't even pretend to support interlaced files (0.7)
+  L20: # 2004-08-31 fl   Do basic sanity check on chunk identifiers (0.8)
+  L21: # 2004-09-20 fl   Added PngInfo chunk container
+  L22: # 2004-12-18 fl   Added DPI read support (based on code by Niki Spahiev)
+  L23: # 2008-08-13 fl   Added tRNS support for RGB images
+  L24: # 2009-03-06 fl   Support for preserving ICC profiles (by Florian Hoech)
+
+[4] score=95 groups=2/3
+experiments/B2_vault_design/lifetime_risk.py
+Reasons: path:b2 | filename:lifetime | filename:risk | content:20 | content:re-identification
+Matching excerpts:
+  L21: CURRENT_YEAR      = 2025
+  L22: BIRTH_YEAR        = 2025   # person whose risk we're modeling
+  L28: BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+  L36: # More reference genomes = higher re-identification probability.
+  L75: def inference_expansion_factor(years, midpoint=20, steepness=0.2, max_factor=8.0):
+  L97: # Re-identification risk: driven by database growth + inference
+  L166: ax.plot(years, risks["reid"],     color=C["reid"],     lw=2.5, label="Re-identification Risk")
+  L221: dims       = ["Re-identification", "Disease Inference", "Familial Cascade"]
+
+[5] score=69 groups=2/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv
+Reasons: content:11 | content:20 | structured_file
+Matching excerpts:
+  L2: L2_chr1_20061156_A_T	chr1	20061156	A	T	10	9	4035476352	3.758330225944519
+  L3: L3_chr4_40028853_A_G	chr4	40028853	A	G	10	7	3265922040	3.041626922786236
+  L4: COMBINED_DEDUPLICATED	-	-	-	-	20	16	7301398392	6.799957148730755
+
+[6] score=69 groups=2/3
+experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+Reasons: content:11 | content:20 | structured_file
+Matching excerpts:
+  L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+  L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+  L4: W0	on_target_target_base_only	10	14	10	11	0	3	25	11	11	0	3	0.500000	1	0/1	141.391	PATHOGENIC_ALT_CALL_RETAINED
+  L6: PM5	on_target_plus_minus_5_bases	10	14	11	0	10	3	25	12	0	10	3	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L7: PM10	on_target_plus_minus_10_bases	10	14	11	0	13	0	25	12	0	13	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L8: PM20	on_target_plus_minus_20_bases	10	14	10	0	14	0	25	11	0	14	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+
+[7] score=68 groups=2/3
+experiments/B2_vault_design/B2_upgrades.py
+Reasons: filename:b2 | content:20 | content:re-identification
+Matching excerpts:
+  L15: CURRENT_YEAR = 2025
+  L29: def inference_expansion_factor(years, midpoint=20,
+  L72: lw=2.5, label="Re-identification Risk")
+  L103: (20, risks["disease"][20], "Inference\nmidpoint",   "#D97706"),
+  L206: # D1 re-identification risk — more relatives = easier kinship match
+  L226: n_families=600, avg_children=2, cousin_prob=0.20
+  L300: label="D1 Re-identification Risk", marker="s",
+
+[8] score=64 groups=2/3
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+Reasons: content:11 | content:20
+Matching excerpts:
+  L11: | L2 | chr1:20061156 A>T | 10 |
+  L17: 2. **Near sham:** PM5-sized window shifted 20 bases from the target;
+  L25: | W0 target-only | 1 base-events | Centred on target | 0.005640% | 0/10 | 0/10 | 0/20 |
+  L26: | Near sham +20 | 11 base-events | 20 bases downstream | 0.042584% | 1/10 | 0/10 | 1/20 |
+  L27: | Distant sham +100 | 11 base-events | 100 bases downstream | 0.044459% | 0/10 | 0/10 | 0/20 |
+  L28: | PM5 target-centred | 11 base-events | Centred on target | 0.051162% | 10/10 | 10/10 | 20/20 |
+  L32: The target-centred PM5 perturbation changed **20/20 ALT-supporting parent reads**, with 10/10 target-state changes at each independent locus.
+  L36: - W0 changed 0/20 target states;
+
+[9] score=64 groups=2/3
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt
+Reasons: content:11 | content:20
+Matching excerpts:
+  L1: A3 F11 Controlled Hybrid Final Validation
+  L14: Attacked conditions losing pathogenic call: PM2,PM5,PM10,PM20
+
+[10] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: content:11 | content:20 | structured_file
+Matching excerpts:
+  L3: np.float32,0xbe32a20c,0x3fdf8182,3
+  L13: np.float32,0x3f0e1154,0x3f7b848b,3
+  L23: np.float32,0xbf65820f,0x402bb054,3
+  L28: np.float32,0x3ed55f14,0x3f920a4b,3
+  L29: np.float32,0x3dd11a80,0x3fbbf85c,3
+  L30: np.float32,0xbf4f5c4b,0x4020f4f9,3
+  L75: np.float32,0x3ef8f22c,0x3f881184,3
+  L89: np.float32,0xbe4205dc,0x3fe1765a,3
+
+[11] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: content:11 | content:20 | structured_file
+Matching excerpts:
+  L2: np.float32,0x3f83203f,0x3e61d9d6,2
+  L8: np.float32,0x3fc1bd96,0x3f797811,2
+  L20: np.float32,0x3fc75720,0x3f818aa4,2
+  L24: np.float32,0x7f52115c,0x42b26fbd,2
+  L49: np.float32,0x3f809c7b,0x3dc81161,2
+  L71: np.float32,0x3fbc87bb,0x3f7011dc,2
+  L89: np.float32,0x7e690a11,0x42afdf17,2
+  L98: np.float32,0x3fbe7d82,0x3f73a911,2
+
+[12] score=62 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: content:11 | content:20 | structured_file
+Matching excerpts:
+  L4: np.float32,0xbe119c28,0xbe121aef,4
+  L12: np.float32,0xbe35df20,0xbe36d773,4
+  L15: np.float32,0x3e211ea8,0x3e21cac5,4
+  L30: np.float32,0x3f2080e2,0x3f2d7ab0,4
+  L59: np.float32,0x3f208c00,0x3f2d88f6,4
+  L66: np.float32,0xbd6a20b0,0xbd6a4160,4
+  L77: np.float32,0xbea915e2,0xbeac5203,4
+  L81: np.float32,0x3e9205f8,0x3e94143f,4
+
+============================================================
+B2_E03 — Familial risk reached 100 percent by year 15
+============================================================
+[1] score=135 groups=2/2
+experiments/B2_vault_design/lifetime_risk.py
+Reasons: path:b2 | filename:lifetime | filename:risk | content:15 | content:familial | all_required_groups
+Matching excerpts:
+  L30: BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+  L109: # Familial cascade risk: driven by database growth (more relatives enrolled)
+  L110: familial_risk = np.minimum(
+  L111: BASELINE_FAMILIAL_RISK * db_factor * 0.4,
+  L116: composite = (reid_risk + disease_risk + familial_risk) / 3.0
+  L122: "familial" : familial_risk,
+  L138: for dim in ["reid", "disease", "familial"]:
+  L160: "familial": "#6D28D9", "composite": "#0D1B2A",
+
+[2] score=108 groups=2/2
+experiments/B2_vault_design/B2_upgrades.py
+Reasons: filename:b2 | content:15 | content:familial | all_required_groups
+Matching excerpts:
+  L20: BASELINE_FAMILIAL_RISK = 0.15
+  L43: familial_risk = np.minimum(
+  L44: BASELINE_FAMILIAL_RISK * db_factor * 0.4, 1.0)
+  L45: composite     = (reid_risk + disease_risk + familial_risk) / 3.0
+  L50: "familial": familial_risk, "composite": composite,
+  L57: fig, axes = plt.subplots(1, 2, figsize=(15, 6))
+  L66: "familial": "#6D28D9", "d5": "#0D9488"}
+  L75: ax.plot(years, risks["familial"], color=C["familial"],
+
+[3] score=99 groups=2/2
+experiments/B2_vault_design/genomic_vault.py
+Reasons: path:b2 | content:15 | content:familial | all_required_groups
+Matching excerpts:
+  L18: # creating a familial cascade even from "safe" disclosures.
+  L92: "d6_weight"       : 0.15,
+  L98: "d6_weight"       : 0.85,  # high D6 risk — familial cascade
+  L196: # familial cascade risk even from "safe" disclosures.
+  L309: # but cannot trigger familial cascade disclosures
+  L402: fig, axes = plt.subplots(2, 2, figsize=(15, 11))
+  L409: colors     = {"APPROVED": "#15803D", "DENIED": "#C0392B"}
+  L512: plt.savefig("B2_genomic_vault.png", dpi=150, bbox_inches="tight",
+
+[4] score=97 groups=2/2
+research/notes/Findings.txt
+Reasons: content:year 15 | content:familial | all_required_groups
+Matching excerpts:
+  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+  L34: Meanwhile, requests from a *Relative* bypass conditional escalation and remain strictly blocked due to immediate familial cascade hazards.
+  L39: ◦ **Years 25+ (Saturation & Kinship Persistence):** The composite score plateaus as re-identification and phenotypic inference maximize, while the familial cascade index reaches saturation (100% of modeled kinship pathways reachable) by Year 15 — proving that kinship exposure outlives platform-side 
+  L46: ◦ **50 Relatives Enrolled:** *Critical Risk* threshold breached; D3 familial cascade saturates fully.
+  L87: Add explicit driver annotations to the curve showing which factor dominates at each time period. Years 0-10: database growth dominates. Years 10-25: inference expansion dominates. Years 25+: saturation with familial cascade persisting. This turns the curve from "risk increases" into a mechanisticall
+
+[5] score=90 groups=2/2
+docs/roadmap/Roadmap.md
+Reasons: content:15 | content:familial | all_required_groups
+Matching excerpts:
+  L67: ### D3 — Familial Cascade Risk
+  L183: | **3** | Literature survey: genomic privacy (10-15 papers) | Partially done | Already have: Harmanci & Gerstein 2018, Gymrek et al. 2013, Ayoz et al. 2021, NIST IR 8432. Need ~8-10 more for full coverage |
+  L187: | **7** | Leakage classification taxonomy (identity, disease, familial, metadata, AI) | To do — synthesis | Can be derived directly from existing novelty tables in both proposals; needs reformatting into her 5-category schema |
+  L195: | **15** | Final problem definition | Ready now | The Executive Summary + Problem Statement sections of this merged proposal directly satisfy this deliverable |
+
+[6] score=44 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv
+Reasons: content:15 | structured_file
+Matching excerpts:
+  L2: L2_chr1_20061156_A_T	chr1	20061156	A	T	10	9	4035476352	3.758330225944519
+
+[7] score=44 groups=1/2
+experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+Reasons: content:15 | structured_file
+Matching excerpts:
+  L5: PM2	on_target_plus_minus_2_bases	10	14	15	0	5	4	25	16	0	5	4	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+
+[8] score=39 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+Reasons: content:15
+Matching excerpts:
+  L11: | L2 | chr1:20061156 A>T | 10 |
+
+[9] score=39 groups=1/2
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/remote_lookup/PAO89685_sequencing_summary_HTTP_audit.txt
+Reasons: content:15
+Matching excerpts:
+  L5: Last-Modified: Mon, 15 May 2023 23:23:58 GMT
+
+[10] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: content:15 | structured_file
+Matching excerpts:
+  L13: np.float32,0x3f0e1154,0x3f7b848b,3
+  L25: np.float32,0x3cb15140,0x3fc64a87,3
+  L47: np.float32,0xbf152cd8,0x400c57dc,3
+  L53: np.float32,0xbf156bf9,0x400c6b49,3
+  L59: np.float32,0x3f67d154,0x3ee05547,3
+  L62: np.float32,0xbf3186fe,0x401592cd,3
+  L169: np.float32,0xbe8e151e,0x3fed0e16,3
+  L184: np.float32,0xbed32d4e,0x3fff7b15,3
+
+[11] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: content:15 | structured_file
+Matching excerpts:
+  L10: np.float32,0x7d4e8f15,0x42acdb8c,2
+  L24: np.float32,0x7f52115c,0x42b26fbd,2
+  L105: np.float32,0x3f927515,0x3f07e0bb,2
+  L138: np.float32,0x7ef53b68,0x42b15c17,2
+  L166: np.float32,0x7f7157e4,0x42b2b6cd,2
+  L214: np.float32,0x3fea156b,0x3f9b2038,2
+  L241: np.float32,0x7ef2b1c7,0x42b156c4,2
+  L258: np.float32,0x7d06e103,0x42ac0155,2
+
+[12] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: content:15 | structured_file
+Matching excerpts:
+  L64: np.float32,0xbef7cada,0xbf0153d1,4
+  L77: np.float32,0xbea915e2,0xbeac5203,4
+  L178: np.float32,0x3f15d7be,0x3f201243,4
+  L224: np.float32,0xbd911500,0xbd913423,4
+  L237: np.float32,0xbf3ffc84,0xbf591554,4
+  L276: np.float32,0xbe155a74,0xbe15e354,4
+  L331: np.float32,0x3f0d3d20,0x3f159c69,4
+  L335: np.float32,0xbf4150ac,0xbf5b19dd,4
+
+============================================================
+B3_E01 — Containment k=5 gives 560, k=10 gives 6, hub requires k=20
+============================================================
+[1] score=77 groups=2/3
+experiments/B3_authentication/containment_algorithm.py
+Reasons: path:b3 | filename:containment | content:k=10 | content:k=20
+Matching excerpts:
+  L23: compromised_nodes, top_k=20):
+  L535: f"{'k=10 Reduction':>16}")
+
+[2] score=57 groups=2/3
+research/notes/Findings.txt
+Reasons: content:k=10 | content:k=20
+Matching excerpts:
+  L58: ◦ **Low-Degree Peripheral Breaches (Easy to Contain):** From a baseline of 780 exposed users, locking just k=10 boundary nodes achieves a **99.2% breach reduction**. Because peripheral accounts possess very few neighbors, boundary isolation cuts off lateral movement almost instantly.
+  L59: ◦ **Mid-Degree Average-User Breaches (Moderately Hard):** From a baseline of 943 exposed users, k=10 provides a weak **20.5% reduction**. The containment curve requires scaling to k=20 boundary nodes before achieving a stable 99% mitigation rate, reflecting the denser connectivity of typical network
+  L60: ◦ **High-Degree Hub Breaches (Uncontainable):** From a baseline of 1,077 exposed users, locking k=10 boundary nodes yields a negligible **2% reduction**. Even at maximum structural intervention (k=50), containment never recovers. Hub nodes are fundamentally uncontainable via boundary isolation alone
+
+[3] score=50 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py
+Reasons: content:560 | content:k=10
+Matching excerpts:
+  L394: assert_raises(OverflowError, np.may_share_memory, x, x, max_work=10**100)
+  L395: assert_raises(OverflowError, np.shares_memory, x, x, max_work=10**100)
+  L543: # Regression check for gh-5604
+  L843: k = 10
+  L899: k = 10
+
+[4] score=50 groups=2/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pyarrow/tests/test_pandas.py
+Reasons: content:560 | content:k = 10
+Matching excerpts:
+  L278: # ARROW-5606: pandas 0.25 deprecated private _start/stop/step
+  L3129: N, K = 100, 3
+
+[5] score=50 groups=2/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py
+Reasons: content:560 | content:k=10
+Matching excerpts:
+  L394: assert_raises(OverflowError, np.may_share_memory, x, x, max_work=10**100)
+  L395: assert_raises(OverflowError, np.shares_memory, x, x, max_work=10**100)
+  L543: # Regression check for gh-5604
+  L843: k = 10
+  L899: k = 10
+
+[6] score=50 groups=2/3
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pandas/tests/resample/test_datetime_index.py
+Reasons: content:560 | content:k = 10
+Matching excerpts:
+  L1461: k = 10
+  L1524: df2 = DataFrame([1477785600, 1477789200], columns=["ts"])
+
+[7] score=44 groups=1/3
+experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+Reasons: content:560 | structured_file
+Matching excerpts:
+  L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+  L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+
+[8] score=39 groups=1/3
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt
+Reasons: content:560
+Matching excerpts:
+  L11: Clean ALT fraction: 0.560000
+
+[9] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+Reasons: content:560 | structured_file
+Matching excerpts:
+  L266: np.float32,0xbd26b560,0x3fce45e4,3
+  L370: np.float32,0xbf356051,0x4016ec3a,3
+  L482: np.float32,0x3dd19560,0x3fbbf0a3,3
+  L845: np.float64,0xbfc52b8c212a5718,0x3ffbca8d6560a2da,1
+  L869: np.float64,0x3fe3ab0557e7560a,0x3fed1593959ef8e8,1
+  L956: np.float64,0x3fbefab0723df560,0x3ff731188ac716ec,1
+  L1182: np.float64,0x3fed0ba42cfa1748,0x3fdbb7d55609175f,1
+  L1311: np.float64,0xbfdb181bdeb63038,0x4000103ecf405602,1
+
+[10] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+Reasons: content:560 | structured_file
+Matching excerpts:
+  L67: np.float32,0x3fba8804,0x3f6c5600,2
+  L735: np.float64,0x3ff2441d3664883a,0x3fe0d61145608f0c,1
+  L900: np.float64,0x3ff560737d8ac0e7,0x3fe98cc9c9ba2f61,1
+
+[11] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+Reasons: content:560 | structured_file
+Matching excerpts:
+  L686: np.float32,0xbf56045b,0xbf7d6e03,4
+  L929: np.float64,0xbfe0a03560e1406b,0xbfe17b8d5a1ca662,1
+  L976: np.float64,0x3fd56a560daad4ac,0x3fd5d62b8dfcc058,1
+  L1242: np.float64,0xbfe9204314f24086,0xbfece5605780e346,1
+  L1286: np.float64,0x3fed5605147aac0a,0x3ff28ed1f612814a,1
+  L1337: np.float64,0xbfdf97e246bf2fc4,0xbfe0855601ea9db3,1
+
+[12] score=37 groups=1/3
+experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+Reasons: content:560 | structured_file
+Matching excerpts:
+  L748: np.float64,0xbfc7faaff32ff560,0xbfc7d7560b8c4a52,1
+  L860: np.float64,0x3fc317515d262ea0,0x3fc3056072b719f0,1
+
+============================================================
+B3_E02 — Authentication threshold 3.8 metrics
+============================================================
+[1] score=75 groups=3/4
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm_listed.py
+Reasons: content:0.7400 | content:0.8409 | content:0.9440
+Matching excerpts:
+  L135: [0.742004, 0.224025, 0.467018],
+  L136: [0.748378, 0.226377, 0.464794],
+  L173: [0.944006, 0.377643, 0.365136],
+  L223: [0.997285, 0.740772, 0.510983],
+  L224: [0.997228, 0.747981, 0.516859],
+  L257: [0.987387, 0.984288, 0.742002],
+  L258: [0.987053, 0.991438, 0.749504]]
+  L389: [0.741423, 0.219112, 0.326576],
+
+[2] score=64 groups=2/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed2_per_read.tsv
+Reasons: path:metrics | content:0.74 | content:0.8409 | structured_file
+Matching excerpts:
+  L239: 41ca5466-a52c-4c98-8a84-8774f157bc12	352	216	-136	4.812500	1.300926	-3.511574	0	296	0.8409090909	15.909091	15.909091	56	160	0	136
+  L325: 577a9a6a-ae85-4fbb-adb8-8ed88fc610fd	354	245	-109	2.477401	1.730612	-0.746789	0	117	0.3305084746	66.949153	66.949153	237	8	0	109
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35397	-8	40.746928	39.024861	-1.722068	0	191	0.0053947183	99.460528	99.461577	35283	45	69	77
+  L773: c419f3f2-2e8d-46c8-bf97-d3a223e3ae0f	35695	35705	10	41.277322	40.527713	-0.749609	0	132	0.0036969612	99.630304	99.630780	35619	30	56	46
+
+[3] score=64 groups=2/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed1_per_read.tsv
+Reasons: path:metrics | content:0.74 | content:0.944 | structured_file
+Matching excerpts:
+  L24: 0694058d-2a5d-44b4-aa89-fdedbc4a0914	34734	34618	-116	40.476824	30.741695	-9.735129	0	828	0.0238383140	97.616169	97.632798	34150	224	244	360
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35252	-153	40.746928	32.810507	-7.936421	0	738	0.0208445135	97.915549	97.926326	34851	217	184	337
+  L540: 871a53d7-8226-4338-9d2a-83b9e99db887	519	519	0	28.190751	21.369942	-6.820809	0	47	0.0905587669	90.944123	91.198502	487	17	15	15
+  L693: af9adc1d-1a66-4e7c-ac3f-27ee0c676f25	4803	4765	-38	36.690610	25.942288	-10.748323	0	198	0.0412242349	95.877577	95.918367	4653	64	48	86
+  L762: bffb7f8a-f50c-4f08-9c81-12c09f1b9a7e	3719	3694	-25	40.762302	30.021927	-10.740374	0	101	0.0271578381	97.284216	97.298020	3637	38	19	44
+
+[4] score=64 groups=2/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed2_per_read.tsv
+Reasons: path:metrics | content:0.7400 | content:0.944 | structured_file
+Matching excerpts:
+  L81: 16ec8438-61d1-40e6-b7bd-db85bb3c4202	376	370	-6	26.422872	15.675676	-10.747197	0	41	0.1090425532	89.095745	89.322917	343	19	8	14
+  L104: 1d859db0-ecfb-4139-8460-2c2986ce952b	3069	3067	-2	34.757902	24.012390	-10.745512	0	159	0.0518084066	94.819159	94.910371	2965	47	55	57
+  L118: 21011321-94a2-44f4-a67f-e6c18245f7c3	30932	30475	-457	32.483868	20.944906	-11.538962	0	1964	0.0634941161	93.650588	93.739042	29405	633	437	894
+  L129: 233b448c-d3ed-48f1-b078-c589ca308bb2	2405	2405	0	39.697713	28.951351	-10.746362	0	71	0.0295218295	97.047817	97.076986	2358	23	24	24
+  L407: 6a5a4c01-b3a4-4f6a-8693-1aa123a141d6	2169	2159	-10	30.509912	19.841593	-10.668319	0	206	0.0949746427	90.502536	90.749888	2021	80	58	68
+  L498: 7ebb198a-3fe6-457a-ad84-d7686cf275b0	10184	10139	-45	32.924391	20.944570	-11.979821	0	678	0.0665750196	93.342498	93.466320	9699	247	193	238
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35333	-72	40.746928	32.669035	-8.077894	0	706	0.0199406863	98.005931	98.018134	34917	198	218	290
+  L646: a264fb92-9a35-434b-b36e-44ba4d3ffeef	402	404	2	35.577114	30.740099	-4.837015	0	9	0.0222772277	97.772277	97.783251	397	3	4	2
+
+[5] score=64 groups=2/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/metrics/hg002_1000reads_clean_vs_GN10_seed42_per_read.tsv
+Reasons: path:metrics | content:0.74 | content:0.944 | structured_file
+Matching excerpts:
+  L23: 0687c6bb-6432-4c63-ba47-a6068b66462f	1233	1261	28	38.921330	30.744647	-8.176683	0	57	0.0452022205	95.479778	95.515342	1214	9	38	10
+  L24: 0694058d-2a5d-44b4-aa89-fdedbc4a0914	34734	34659	-75	40.476824	30.743703	-9.733121	0	809	0.0232912996	97.670870	97.687184	34170	244	245	320
+  L213: 3ae929c7-14de-4cb7-aedf-cee2441294c4	297	294	-3	33.363636	22.615646	-10.747990	0	7	0.0235690236	97.643098	97.643098	290	4	0	3
+  L399: 67ad3203-d13d-48d5-8245-c366555b44be	323	398	75	1.572755	2.321608	0.748853	0	185	0.4648241206	53.517588	53.517588	213	110	75	0
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35323	-82	40.746928	32.925771	-7.821158	0	727	0.0205338229	97.946618	97.959470	34901	199	223	305
+  L642: a186abe7-816e-405a-95e9-c782b52b0b58	5953	5916	-37	37.703175	26.956728	-10.746447	0	236	0.0396438770	96.035612	96.078431	5782	69	65	102
+  L701: b092270a-7aa1-490a-8263-01517a94ee61	4351	4287	-64	28.365663	17.858176	-10.507487	0	394	0.0905538957	90.944610	91.132118	4049	146	92	156
+
+[6] score=55 groups=2/4
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/mpl-data/sample_data/Stocks.csv
+Reasons: content:0.74 | content:0.944 | structured_file
+Matching excerpts:
+  L162: 1999-11-01,58.239349365234375,0.747186541557312,28.613975524902344,45.75767135620117,4.253125190734863,,,17.044021606445312,1388.9100341796875,3336.159912109375
+  L206: 2002-08-01,43.203697204589844,0.22520573437213898,15.424735069274902,12.329721450805664,0.746999979019165,,,10.01123046875,916.0700073242188,1314.8499755859375
+  L212: 2002-12-01,44.5990104675293,0.2187930941581726,16.248149871826172,14.15894889831543,0.9445000290870667,,,12.360349655151367,879.8200073242188,1335.510009765625
+  L401: 2014-10-01,113.0242691040039,24.27278709411621,40.92185974121094,26.89417266845703,15.27299976348877,,567.8699951171875,70.12000274658203,2018.050048828125,4630.740234375
+  L404: 2014-12-01,111.05672454833984,24.915250778198242,40.74142074584961,28.068769454956055,15.517499923706055,,530.6599731445312,72.69999694824219,2058.89990234375,4736.0498046875
+
+[7] score=50 groups=2/4
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm.py
+Reasons: content:0.74 | content:0.944
+Matching excerpts:
+  L24: (0.746032, 0.652778, 0.652778),
+  L28: (0.746032, 0.777778, 0.777778),
+  L212: (0.746032, 1.000000, 1.000000),
+  L215: (0.746032, 0.000000, 0.000000),
+  L281: (0.349206, 0.743134, 0.743134),
+  L306: (0.746032, 0.911421, 0.911421),
+  L357: (0.571429, 0.749338, 0.749338),
+  L368: (0.746032, 0.911421, 0.911421),
+
+[8] score=50 groups=2/4
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm_bivar.py
+Reasons: content:0.74 | content:0.944
+Matching excerpts:
+  L11: 0.737, 0.831, 0.000, 0.741, 0.824, 0.000, 0.745, 0.816, 0.000, 0.749,
+  L14: 0.770, 0.755, 0.000, 0.772, 0.747, 0.000, 0.774, 0.739, 0.000, 0.776,
+  L22: 0.200, 0.749, 0.425, 0.203, 0.745, 0.408, 0.206, 0.741, 0.391, 0.210,
+  L30: 0.850, 0.000, 0.736, 0.843, 0.000, 0.740, 0.836, 0.000, 0.744, 0.829,
+  L31: 0.000, 0.748, 0.822, 0.000, 0.752, 0.815, 0.000, 0.755, 0.808, 0.000,
+  L34: 0.087, 0.778, 0.746, 0.111, 0.780, 0.737, 0.131, 0.782, 0.728, 0.146,
+  L41: 0.760, 0.465, 0.246, 0.756, 0.448, 0.248, 0.752, 0.432, 0.250, 0.748,
+  L42: 0.415, 0.252, 0.744, 0.397, 0.254, 0.739, 0.379, 0.256, 0.735, 0.361,
+
+[9] score=39 groups=1/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed1_per_read.tsv
+Reasons: path:metrics | content:0.74 | structured_file
+Matching excerpts:
+  L195: 34f98559-c31d-4072-8747-16ad7da9fcfd	458	458	0	34.163755	34.903930	0.740175	0	3	0.0065502183	99.344978	99.344978	455	3	0	0
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35370	-35	40.746928	40.729997	-0.016931	0	82	0.0023160571	99.768394	99.768512	35341	11	18	53
+  L532: 84f59917-742f-48e6-a4ab-f36789c8f97d	263	256	-7	29.790875	30.531250	0.740375	0	8	0.0304182510	96.958175	96.958175	255	1	0	7
+  L587: 98b7e10e-da3b-4ed9-a91b-a6ad83903a8d	1179	1180	1	40.732824	40.743220	0.010396	0	2	0.0016949153	99.830508	99.830508	1178	1	1	0
+  L955: f677e898-b23d-48d0-a874-d3b68ef67972	518	517	-1	35.619691	34.878143	-0.741548	0	1	0.0019305019	99.806950	99.806950	517	0	0	1
+
+[10] score=39 groups=1/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed2_per_read.tsv
+Reasons: path:metrics | content:0.74 | structured_file
+Matching excerpts:
+  L138: 24998522-2ea8-4b70-83f9-aecd33135b44	529	532	3	39.981096	39.240602	-0.740495	0	3	0.0056390977	99.436090	99.436090	529	0	3	0
+  L458: 76935edc-f3c2-411b-94cf-9d65f68f01e7	3943	3948	5	30.930763	30.748734	-0.182030	0	37	0.0093718338	99.062817	99.064948	3920	14	14	9
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35378	-27	40.746928	40.679179	-0.067749	0	69	0.0019488773	99.805112	99.805200	35352	10	16	43
+  L950: f501e94a-3028-4031-83ed-7cbed53e125d	1301	1304	3	36.015373	36.756902	0.741529	0	7	0.0053680982	99.463190	99.463602	1298	2	4	1
+
+[11] score=39 groups=1/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv
+Reasons: path:metrics | content:0.74 | structured_file
+Matching excerpts:
+  L53: 0fc815ae-af2d-41cf-9d82-4d358a48d97e	395	345	-50	2.220253	1.478261	-0.741992	0	180	0.4556962025	54.430380	56.834532	237	86	22	72
+  L177: 2eeb527b-818b-49f1-86c5-3b91416665da	446	444	-2	27.264574	26.522523	-0.742051	0	12	0.0269058296	97.309417	97.333333	438	2	4	6
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35374	-31	40.746928	40.683496	-0.063432	0	69	0.0019488773	99.805112	99.805195	35351	8	15	46
+  L535: 859c50fd-fee6-4444-b1d3-f6ec84705bb6	379	376	-3	27.625330	28.372340	0.747011	0	3	0.0079155673	99.208443	99.208443	376	0	0	3
+  L987: fd55eaca-e3c3-4e2f-b2b5-0ae28929f2c9	955	950	-5	36.946597	37.692632	0.746035	0	5	0.0052356021	99.476440	99.476440	950	0	0	5
+
+[12] score=39 groups=1/4
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv
+Reasons: path:metrics | content:0.74 | structured_file
+Matching excerpts:
+  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35364	-41	40.746928	38.857539	-1.889390	0	234	0.0066092360	99.339076	99.340455	35245	45	74	115
+  L626: 9f18d3c5-2bfe-492b-8c2f-c548684e7813	1162	1160	-2	39.715146	38.965517	-0.749629	0	2	0.0017211704	99.827883	99.827883	1160	0	0	2
+
+============================================================
+B3_E03 — Operational threshold 3.6 selected for recall
+============================================================
+[1] score=43 groups=1/2
+experiments/B3_authentication/containment_algorithm.py
+Reasons: path:b3 | path:authentication | content:recall
+Matching excerpts:
+  L344: recall    = tp / (tp + fn) if (tp + fn) > 0 else 0
+  L345: f1        = (2 * precision * recall / (precision + recall)
+  L346: if (precision + recall) > 0 else 0)
+  L352: "recall"   : round(recall, 4),
+  L447: metric_names = ["Precision", "Recall", "F1 Score", "Accuracy"]
+  L448: metric_vals  = [metrics["precision"], metrics["recall"],
+  L516: print(f"      Recall    : {metrics['recall']:.4f}")
+
+[2] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation/W0_attack_summary.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L2: L2_chr1_20061156_A_T	0	10	10	107	2934299	3.646526819523164e-05	0.003646526819523164	0	6	18	PASS
+
+[3] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/E2_window_strength_series/E2_PM20/E2_PM20_attack_metrics.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L10: cb0e7285-3c4a-461b-8540-7f0a3fda312c	local_linear_interpolation	262468	263188	720	717	0.9958333333333333	0.001367115253345333	733.6180555555555	667.5	106.85150628895755	57.941924947887834	768	567	1	524462
+
+[4] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN05_seed2_summary.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L12: mean_edit_distance	43.670000
+
+[5] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L20: mean_alignment_identity_percent	93.652081
+
+[6] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed3_summary.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L18: mean_sequence_identity_percent	93.671805
+
+[7] score=37 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed4_summary.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L20: mean_alignment_identity_percent	93.664747
+
+[8] score=37 groups=1/2
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/resumable_remote_lookup/F11_summary_raw_matches.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L3: d0c2bbf8-cea0-4398-88ac-14438023fa10	read_id	d0c2bbf8-cea0-4398-88ac-14438023fa10	d0c2bbf8-cea0-4398-88ac-14438023fa10	PAO89685_pass__2264ba8c_afee3a87_216.pod5	1079	33723.650800	29991	TRUE
+
+[9] score=37 groups=1/2
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/PM2/F11_PM2_attack_audit.tsv
+Reasons: content:3.6 | structured_file
+Matching excerpts:
+  L5: PM2	2	588b9eb8-3e0b-498f-b1ba-3245083734ec	259570	259636	66	66	0	66	316750	316752	2	316752	1.0	0.00020836490377329898	673.6515151515151	820.0	130.86732726769185	21.631206413630537	1	PASS
+  L15: PM2	2	fce9df2a-4acd-440c-8447-917556361309	279574	279616	42	42	0	42	427981	427981	0	427981	1.0	9.813519759054724e-05	853.7142857142857	877.0	94.13675101232495	23.614967005411348	1	PASS
+
+[10] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+Reasons: content:3.6
+Matching excerpts:
+  L19: - Storage: 3.6 TiB NVMe
+
+[11] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_pandas_table_validation.txt
+Reasons: content:3.6
+Matching excerpts:
+  L149: GN01      3             970.000000             0.000000                 0.000000               0.000000                 0.000000                0.00000                  30.000000                  0.00000                 3.666667                0.57735             4.333333           1.527525         
+
+[12] score=32 groups=1/2
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt
+Reasons: content:3.6
+Matching excerpts:
+  L6: mean_chromosome_changed: 3.666667 ± 0.577350
+  L17: mean_soft_clip_increased_reads: 253.666667 ± 5.507571
+  L63: mean_chromosome_changed: GN01=3.666667, GN05=4.333333, GN10=5.333333, monotonic=True
+  L71: mean_soft_clip_increased_reads: GN01=253.666667, GN05=380.000000, GN10=600.666667, monotonic=True
+

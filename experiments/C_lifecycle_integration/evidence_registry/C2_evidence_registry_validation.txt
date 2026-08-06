@@ -1,0 +1,15 @@
+MODULE C2 — EVIDENCE REGISTRY VALIDATION
+==========================================
+Generated UTC: 2026-08-06T09:37:23.925521+00:00
+Evidence records: 20
+Unique evidence IDs: 20
+Modules represented: A1,A2,A3,B1,B2,B3
+Strong source candidates: 15
+Review-required candidates: 0
+Weak source candidates: 5
+Unresolved sources: 0
+Schema validation errors: 0
+Schema validation status: PASS
+Registry status: DRAFT_SOURCE_REVIEW_REQUIRED
+
+Interpretation: PASS confirms structural validity and module coverage. It does not mean every automatically selected source file has been manually verified.

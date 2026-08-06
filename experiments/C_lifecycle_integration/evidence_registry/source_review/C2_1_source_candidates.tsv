@@ -1,0 +1,121 @@
+review_id	module	rank	score	matched_required_groups	candidate_file	size_bytes	match_reasons
+A1_E01	A1	1	32	1	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	3772	content:execution
+A1_E01	A1	2	32	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt	11128	content:execution
+A1_E01	A1	3	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md	10519	content:execution
+A1_E01	A1	4	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md	14477	content:execution
+A1_E01	A1	5	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/generate_experiment_D_findings.py	23746	content:execution
+A1_E01	A1	6	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/experiment_D_alignment_findings.md	10219	content:execution
+A1_E01	A1	7	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md	6955	content:execution
+A1_E01	A1	8	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md	2777	content:execution
+A1_E01	A1	9	30	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv	129707	content:2500000 | structured_file
+A1_E01	A1	10	30	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv	131821	content:2500000 | structured_file
+A1_E01	A1	11	30	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed2_per_read.tsv	131790	content:2500000 | structured_file
+A1_E01	A1	12	30	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed1_per_read.tsv	134581	content:2500000 | structured_file
+A1_E02	A1	1	115	3	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pyarrow/tests/test_pandas.py	193111	content:54 | content:33 | content:root cause | all_required_groups
+A1_E02	A1	2	69	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv	300	content:54 | content:33 | structured_file
+A1_E02	A1	3	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	content:54 | content:33 | structured_file
+A1_E02	A1	4	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	content:54 | content:33 | structured_file
+A1_E02	A1	5	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	content:54 | content:33 | structured_file
+A1_E02	A1	6	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv	60289	content:54 | content:33 | structured_file
+A1_E02	A1	7	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv	60305	content:54 | content:33 | structured_file
+A1_E02	A1	8	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv	61339	content:54 | content:33 | structured_file
+A1_E02	A1	9	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv	60846	content:54 | content:33 | structured_file
+A1_E02	A1	10	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv	59122	content:54 | content:33 | structured_file
+A1_E02	A1	11	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv	60869	content:54 | content:33 | structured_file
+A1_E02	A1	12	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv	17491	content:54 | content:33 | structured_file
+A1_E03	A1	1	50	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_findings.txt	2694	filename:finding | content:428
+A1_E03	A1	2	50	1	experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_E2_window_strength_series_findings.md	8918	filename:finding | content:428
+A1_E03	A1	3	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	path:finding | content:428 | structured_file
+A1_E03	A1	4	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	path:finding | content:428 | structured_file
+A1_E03	A1	5	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	path:finding | content:428 | structured_file
+A1_E03	A1	6	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv	60289	path:finding | content:428 | structured_file
+A1_E03	A1	7	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv	60305	path:finding | content:428 | structured_file
+A1_E03	A1	8	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv	61339	path:finding | content:428 | structured_file
+A1_E03	A1	9	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv	60846	path:finding | content:428 | structured_file
+A1_E03	A1	10	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv	59122	path:finding | content:428 | structured_file
+A1_E03	A1	11	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv	60869	path:finding | content:428 | structured_file
+A1_E03	A1	12	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp.csv	17491	path:finding | content:428 | structured_file
+A1_E04	A1	1	50	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md	5455	filename:finding | content:906
+A1_E04	A1	2	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	path:finding | content:906 | structured_file
+A1_E04	A1	3	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	path:finding | content:906 | structured_file
+A1_E04	A1	4	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	path:finding | content:906 | structured_file
+A1_E04	A1	5	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv	60289	path:finding | content:906 | structured_file
+A1_E04	A1	6	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv	60305	path:finding | content:906 | structured_file
+A1_E04	A1	7	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctanh.csv	61339	path:finding | content:906 | structured_file
+A1_E04	A1	8	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cbrt.csv	60846	path:finding | content:906 | structured_file
+A1_E04	A1	9	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cos.csv	59122	path:finding | content:906 | structured_file
+A1_E04	A1	10	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-cosh.csv	60869	path:finding | content:906 | structured_file
+A1_E04	A1	11	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-exp2.csv	58624	path:finding | content:906 | structured_file
+A1_E04	A1	12	46	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-expm1.csv	60299	path:finding | content:906 | structured_file
+B2_E01	B2	1	77	2	experiments/B2_vault_design/genomic_vault.py	24229	path:b2 | filename:vault | content:pathogenic | content:unrecoverability
+B2_E01	B2	2	57	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	28914	content:0.044 | content:pathogenic
+B2_E01	B2	3	57	2	research/notes/Findings.txt	13977	content:pathogenic | content:unrecoverability
+B2_E01	B2	4	52	1	experiments/B2_vault_design/vault_design.py	19778	path:b2 | filename:vault | content:unrecoverability
+B2_E01	B2	5	50	2	docs/roadmap/Roadmap.md	16251	content:pathogenic | content:unrecoverability
+B2_E01	B2	6	48	1	experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/HG002_ClinVar_pathogenic_exact_matches.tsv	391	filename:pathogenic | content:pathogenic | structured_file
+B2_E01	B2	7	44	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	1014	content:pathogenic | structured_file
+B2_E01	B2	8	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md	4819	content:0.044
+B2_E01	B2	9	39	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt	442	content:pathogenic
+B2_E01	B2	10	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_condition_comparison.tsv	952	content:0.044 | structured_file
+B2_E01	B2	11	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv	1118	content:0.044 | structured_file
+B2_E01	B2	12	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed2_summary.tsv	1119	content:0.044 | structured_file
+B2_E02	B2	1	115	3	docs/roadmap/Roadmap.md	16251	content:11 | content:20 | content:re-identification | all_required_groups
+B2_E02	B2	2	115	3	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/polars/expr/expr.py	448544	content:11 | content:20 | content:re_id | all_required_groups
+B2_E02	B2	3	115	3	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/PIL/PngImagePlugin.py	52399	content:11 | content:20 | content:re_id | all_required_groups
+B2_E02	B2	4	95	2	experiments/B2_vault_design/lifetime_risk.py	14103	path:b2 | filename:lifetime | filename:risk | content:20 | content:re-identification
+B2_E02	B2	5	69	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv	300	content:11 | content:20 | structured_file
+B2_E02	B2	6	69	2	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	1014	content:11 | content:20 | structured_file
+B2_E02	B2	7	68	2	experiments/B2_vault_design/B2_upgrades.py	14367	filename:b2 | content:20 | content:re-identification
+B2_E02	B2	8	64	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md	4819	content:11 | content:20
+B2_E02	B2	9	64	2	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt	442	content:11 | content:20
+B2_E02	B2	10	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	content:11 | content:20 | structured_file
+B2_E02	B2	11	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	content:11 | content:20 | structured_file
+B2_E02	B2	12	62	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	content:11 | content:20 | structured_file
+B2_E03	B2	1	135	2	experiments/B2_vault_design/lifetime_risk.py	14103	path:b2 | filename:lifetime | filename:risk | content:15 | content:familial | all_required_groups
+B2_E03	B2	2	108	2	experiments/B2_vault_design/B2_upgrades.py	14367	filename:b2 | content:15 | content:familial | all_required_groups
+B2_E03	B2	3	99	2	experiments/B2_vault_design/genomic_vault.py	24229	path:b2 | content:15 | content:familial | all_required_groups
+B2_E03	B2	4	97	2	research/notes/Findings.txt	13977	content:year 15 | content:familial | all_required_groups
+B2_E03	B2	5	90	2	docs/roadmap/Roadmap.md	16251	content:15 | content:familial | all_required_groups
+B2_E03	B2	6	44	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/final_cohort_download_summary.tsv	300	content:15 | structured_file
+B2_E03	B2	7	44	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	1014	content:15 | structured_file
+B2_E03	B2	8	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md	4819	content:15
+B2_E03	B2	9	39	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/remote_lookup/PAO89685_sequencing_summary_HTTP_audit.txt	520	content:15
+B2_E03	B2	10	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	content:15 | structured_file
+B2_E03	B2	11	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	content:15 | structured_file
+B2_E03	B2	12	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	content:15 | structured_file
+B3_E01	B3	1	77	2	experiments/B3_authentication/containment_algorithm.py	21484	path:b3 | filename:containment | content:k=10 | content:k=20
+B3_E01	B3	2	57	2	research/notes/Findings.txt	13977	content:k=10 | content:k=20
+B3_E01	B3	3	50	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py	29317	content:560 | content:k=10
+B3_E01	B3	4	50	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pyarrow/tests/test_pandas.py	193111	content:560 | content:k = 10
+B3_E01	B3	5	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py	29317	content:560 | content:k=10
+B3_E01	B3	6	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pandas/tests/resample/test_datetime_index.py	73695	content:560 | content:k = 10
+B3_E01	B3	7	44	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	1014	content:560 | structured_file
+B3_E01	B3	8	39	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt	442	content:560
+B3_E01	B3	9	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	content:560 | structured_file
+B3_E01	B3	10	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	content:560 | structured_file
+B3_E01	B3	11	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	content:560 | structured_file
+B3_E01	B3	12	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv	60289	content:560 | structured_file
+B3_E02	B3	1	75	3	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm_listed.py	135004	content:0.7400 | content:0.8409 | content:0.9440
+B3_E02	B3	2	64	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed2_per_read.tsv	131790	path:metrics | content:0.74 | content:0.8409 | structured_file
+B3_E02	B3	3	64	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed1_per_read.tsv	134581	path:metrics | content:0.74 | content:0.944 | structured_file
+B3_E02	B3	4	64	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN10_seed2_per_read.tsv	134542	path:metrics | content:0.7400 | content:0.944 | structured_file
+B3_E02	B3	5	64	2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/metrics/hg002_1000reads_clean_vs_GN10_seed42_per_read.tsv	134539	path:metrics | content:0.74 | content:0.944 | structured_file
+B3_E02	B3	6	55	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/mpl-data/sample_data/Stocks.csv	67924	content:0.74 | content:0.944 | structured_file
+B3_E02	B3	7	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm.py	70285	content:0.74 | content:0.944
+B3_E02	B3	8	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/matplotlib/_cm_bivar.py	95704	content:0.74 | content:0.944
+B3_E02	B3	9	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed1_per_read.tsv	129697	path:metrics | content:0.74 | structured_file
+B3_E02	B3	10	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed2_per_read.tsv	129635	path:metrics | content:0.74 | structured_file
+B3_E02	B3	11	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv	129707	path:metrics | content:0.74 | structured_file
+B3_E02	B3	12	39	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv	131821	path:metrics | content:0.74 | structured_file
+B3_E03	B3	1	43	1	experiments/B3_authentication/containment_algorithm.py	21484	path:b3 | path:authentication | content:recall
+B3_E03	B3	2	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation/W0_attack_summary.tsv	415	content:3.6 | structured_file
+B3_E03	B3	3	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/E2_window_strength_series/E2_PM20/E2_PM20_attack_metrics.tsv	2343	content:3.6 | structured_file
+B3_E03	B3	4	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN05_seed2_summary.tsv	1113	content:3.6 | structured_file
+B3_E03	B3	5	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv	1118	content:3.6 | structured_file
+B3_E03	B3	6	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed3_summary.tsv	1118	content:3.6 | structured_file
+B3_E03	B3	7	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed4_summary.tsv	1118	content:3.6 | structured_file
+B3_E03	B3	8	37	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/resumable_remote_lookup/F11_summary_raw_matches.tsv	3608	content:3.6 | structured_file
+B3_E03	B3	9	37	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/PM2/F11_PM2_attack_audit.tsv	3113	content:3.6 | structured_file
+B3_E03	B3	10	32	1	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	3772	content:3.6
+B3_E03	B3	11	32	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_pandas_table_validation.txt	27548	content:3.6
+B3_E03	B3	12	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt	3947	content:3.6

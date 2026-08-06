@@ -1,0 +1,606 @@
+{
+  "schema_name": "GenoPhylax Cross-Module Evidence Registry",
+  "schema_version": "1.0.0-draft",
+  "generated_utc": "2026-08-06T09:37:23.925142+00:00",
+  "status": "DRAFT_SOURCE_REVIEW_REQUIRED",
+  "record_count": 20,
+  "module_counts": {
+    "A1": 4,
+    "A2": 4,
+    "A3": 4,
+    "B1": 2,
+    "B2": 3,
+    "B3": 3
+  },
+  "source_resolution_summary": {
+    "STRONG_CANDIDATE": 15,
+    "UNRESOLVED": 0,
+    "REVIEW_REQUIRED": 0,
+    "WEAK_CANDIDATE": 5
+  },
+  "important_qualification": "The source resolver identifies candidate repository evidence. Candidate files must be reviewed before C2 is declared locked for final GRI construction.",
+  "records": [
+    {
+      "evidence_id": "A1_E01",
+      "module": "A1",
+      "stage_ids": [
+        "S3",
+        "S10"
+      ],
+      "asset": "BWA alignment software",
+      "threat": "Malformed genomic input triggering memory corruption",
+      "mechanism": "Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19",
+      "evidence_type": "experimental",
+      "measured_result": "Approximately 2.5 million fuzz executions",
+      "numeric_value": 2500000,
+      "unit": "executions",
+      "direction": "observed",
+      "confidence": "high",
+      "limitations": "Single principal target version and incomplete program coverage",
+      "claim_scope": "software-test campaign",
+      "primary_source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed1_split_summary.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed2_split_summary.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed3_split_summary.tsv"
+      ],
+      "source_resolution_status": "WEAK_CANDIDATE",
+      "source_confidence": "low",
+      "source_match_score": 45
+    },
+    {
+      "evidence_id": "A1_E02",
+      "module": "A1",
+      "stage_ids": [
+        "S3",
+        "S10"
+      ],
+      "asset": "BWA alignment software",
+      "threat": "Memory-safety vulnerability",
+      "mechanism": "ASAN-confirmed crash triage",
+      "evidence_type": "experimental",
+      "measured_result": "54 total crashes, 33 unique crashes and two root causes",
+      "numeric_value": 2,
+      "unit": "root causes",
+      "direction": "observed",
+      "confidence": "high",
+      "limitations": "Root causes were established within the project audit; external CVE assignment was not claimed",
+      "claim_scope": "software-test campaign",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log"
+      ],
+      "source_resolution_status": "WEAK_CANDIDATE",
+      "source_confidence": "low",
+      "source_match_score": 58
+    },
+    {
+      "evidence_id": "A1_E03",
+      "module": "A1",
+      "stage_ids": [
+        "S3"
+      ],
+      "asset": "BWA ksw alignment routine",
+      "threat": "Heap buffer overflow",
+      "mechanism": "Malformed-input execution reaching ksw_extend2",
+      "evidence_type": "experimental",
+      "measured_result": "Heap buffer overflow in ksw_extend2 at ksw.c:428",
+      "numeric_value": "",
+      "unit": "vulnerability",
+      "direction": "observed",
+      "confidence": "high",
+      "limitations": "Exploitability beyond the demonstrated crash was not established",
+      "claim_scope": "function-level finding",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/dorado/findings.md",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt",
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md"
+      ],
+      "source_resolution_status": "WEAK_CANDIDATE",
+      "source_confidence": "low",
+      "source_match_score": 30
+    },
+    {
+      "evidence_id": "A1_E04",
+      "module": "A1",
+      "stage_ids": [
+        "S3"
+      ],
+      "asset": "BWA SAM-output routine",
+      "threat": "Global buffer overflow",
+      "mechanism": "Malformed-input execution reaching mem_aln2sam",
+      "evidence_type": "experimental",
+      "measured_result": "Global overflow in mem_aln2sam at bwamem.c:906",
+      "numeric_value": "",
+      "unit": "vulnerability",
+      "direction": "observed",
+      "confidence": "high",
+      "limitations": "Exploitability beyond the demonstrated crash was not established",
+      "claim_scope": "function-level finding",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/dorado/findings.md",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt",
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md"
+      ],
+      "source_resolution_status": "WEAK_CANDIDATE",
+      "source_confidence": "low",
+      "source_match_score": 30
+    },
+    {
+      "evidence_id": "A2_E01",
+      "module": "A2",
+      "stage_ids": [
+        "S1",
+        "S2"
+      ],
+      "asset": "Nanopore raw signal and basecalled reads",
+      "threat": "Whole-read Gaussian raw-signal perturbation",
+      "mechanism": "Controlled Gaussian-noise dose series",
+      "evidence_type": "experimental",
+      "measured_result": "Seed-42 mean identity declined from 98.79% at GN01 to 93.89% at GN10",
+      "numeric_value": 93.89,
+      "unit": "percent mean identity at GN10",
+      "direction": "decrease",
+      "confidence": "high",
+      "limitations": "One sequencing dataset, one production basecaller and a limited perturbation family",
+      "claim_scope": "100-read controlled experiment",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed3_per_read.tsv"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 141
+    },
+    {
+      "evidence_id": "A2_E02",
+      "module": "A2",
+      "stage_ids": [
+        "S1",
+        "S2"
+      ],
+      "asset": "Nanopore raw signal and basecalled reads",
+      "threat": "Stochastic raw-signal perturbation",
+      "mechanism": "Five-seed replication across GN01, GN05 and GN10",
+      "evidence_type": "experimental",
+      "measured_result": "GN10 mean identity replicated within approximately 93.56% to 93.95%",
+      "numeric_value": 5,
+      "unit": "random seeds",
+      "direction": "replicated",
+      "confidence": "high",
+      "limitations": "Replication varied noise realization, not biological sample",
+      "claim_scope": "multi-seed technical replication",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 258
+    },
+    {
+      "evidence_id": "A2_E03",
+      "module": "A2",
+      "stage_ids": [
+        "S2",
+        "S3"
+      ],
+      "asset": "Perturbed nanopore reads",
+      "threat": "Basecall degradation while preserving downstream usability",
+      "mechanism": "Minimap2 map-ont alignment of the 1,000-read series",
+      "evidence_type": "experimental",
+      "measured_result": "Approximately 97% remained mapped with mean MAPQ approximately 55.3 to 55.4",
+      "numeric_value": 97,
+      "unit": "percent mapped",
+      "direction": "retained",
+      "confidence": "high",
+      "limitations": "Mapping retention does not establish preservation of all downstream biological information",
+      "claim_scope": "1,000-read alignment series",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D1_clean_validation/metrics/experiment_D1_clean_alignment_summary.txt",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_alignment_summary.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_9run_paired_summary.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3_9run_alignment_results.tsv"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 263
+    },
+    {
+      "evidence_id": "A2_E04",
+      "module": "A2",
+      "stage_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "asset": "Truth-backed nanopore locus evidence",
+      "threat": "Target-local signal perturbation",
+      "mechanism": "W0 targeted-locus perturbation replicated at L2 and L3",
+      "evidence_type": "experimental",
+      "measured_result": "L2 and L3 each retained ALT state in 10 of 10 parents; zero target-state changes",
+      "numeric_value": 0,
+      "unit": "changed parents across 20",
+      "direction": "no effect",
+      "confidence": "high",
+      "limitations": "The tested W0 effect did not generalize across these two additional loci",
+      "claim_scope": "cross-locus replication",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs/cross_locus_W0_target_effect.log",
+      "supporting_source_files": [
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_replication_findings.md",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/W0_target_effect/W0_clean_vs_attacked_summary.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/analyze_cross_locus_W0_target_effect.py",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 198
+    },
+    {
+      "evidence_id": "A3_E01",
+      "module": "A3",
+      "stage_ids": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "asset": "F11 ALT-supporting nanopore reads",
+      "threat": "Target-mapped local raw-signal interpolation",
+      "mechanism": "Interpolation over W0, PM2, PM5, PM10 and PM20 signal windows",
+      "evidence_type": "experimental",
+      "measured_result": "59 of 70 parent-condition observations changed target state",
+      "numeric_value": 84.2857,
+      "unit": "percent changed",
+      "direction": "increase",
+      "confidence": "high",
+      "limitations": "Single individual, pathogenic locus, sequencing run, basecaller and model",
+      "claim_scope": "single-locus controlled case study",
+      "primary_source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "supporting_source_files": [
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_final_validation.txt"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 219
+    },
+    {
+      "evidence_id": "A3_E02",
+      "module": "A3",
+      "stage_ids": [
+        "S3",
+        "S4"
+      ],
+      "asset": "F11 pathogenic variant evidence",
+      "threat": "Target-overlapping local signal attack",
+      "mechanism": "PM2 interpolation over target base and two flanking bases",
+      "evidence_type": "experimental",
+      "measured_result": "All 14 clean-confirmed ALT parents lost ALT state under PM2",
+      "numeric_value": 14,
+      "unit": "ALT parents changed out of 14",
+      "direction": "suppressed",
+      "confidence": "high",
+      "limitations": "Controlled single-locus experiment",
+      "claim_scope": "parent-level target-state analysis",
+      "primary_source_file": "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt",
+      "supporting_source_files": [
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 192
+    },
+    {
+      "evidence_id": "A3_E03",
+      "module": "A3",
+      "stage_ids": [
+        "S4",
+        "S5"
+      ],
+      "asset": "Pathogenic F11 heterozygous variant call",
+      "threat": "False-negative or missed-variant event",
+      "mechanism": "Controlled hybrid pileup and bcftools variant calling after targeted signal attack",
+      "evidence_type": "experimental",
+      "measured_result": "Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20",
+      "numeric_value": 4,
+      "unit": "attack conditions with call loss",
+      "direction": "suppressed",
+      "confidence": "high",
+      "limitations": "Potential clinical interpretation risk only; no real clinical diagnosis or patient outcome was tested",
+      "claim_scope": "controlled variant-calling workflow",
+      "primary_source_file": "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv",
+      "supporting_source_files": [
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_report.txt",
+        "experiments/A3_clinical_consequence_mapping/logs/A3_F11_controlled_hybrid_variant_calling.log",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 207
+    },
+    {
+      "evidence_id": "A3_E04",
+      "module": "A3",
+      "stage_ids": [
+        "S1",
+        "S2",
+        "S3",
+        "S4"
+      ],
+      "asset": "F11 pathogenic variant evidence",
+      "threat": "Non-target interpolation as confounding mechanism",
+      "mechanism": "PM2-sized off-target sham interpolation at least 5,000 signal samples from the F11 target",
+      "evidence_type": "experimental control",
+      "measured_result": "Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202",
+      "numeric_value": 14,
+      "unit": "ALT parents retained out of 14",
+      "direction": "retained",
+      "confidence": "high",
+      "limitations": "One off-target sham design within the same read cohort",
+      "claim_scope": "target-specific causality control",
+      "primary_source_file": "experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt",
+      "supporting_source_files": [
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_summary.tsv",
+        "experiments/A3_clinical_consequence_mapping/logs/A3_F11_PM2_off_target_sham.log",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_generation_audit.tsv",
+        "experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_target_parent_audit.tsv"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 242
+    },
+    {
+      "evidence_id": "B1_E01",
+      "module": "B1",
+      "stage_ids": [
+        "S7",
+        "S8"
+      ],
+      "asset": "Genomic-sharing population graph",
+      "threat": "Familial graph-amplified exposure",
+      "mechanism": "Population graph simulation and breach propagation",
+      "evidence_type": "simulation",
+      "measured_result": "Population graph contained 3,303 nodes, with 1,321 registered individuals and 786 baseline exposed",
+      "numeric_value": 3303,
+      "unit": "graph nodes",
+      "direction": "model input",
+      "confidence": "medium",
+      "limitations": "Synthetic or modelled graph rather than direct platform data",
+      "claim_scope": "graph simulation",
+      "primary_source_file": "experiments/B1_graph_amplification/results_log.txt",
+      "supporting_source_files": [
+        "paper/figures/B1_amplification_results.png",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed1_per_read.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed2_per_read.tsv",
+        "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 184
+    },
+    {
+      "evidence_id": "B1_E02",
+      "module": "B1",
+      "stage_ids": [
+        "S7",
+        "S8"
+      ],
+      "asset": "Genomic-sharing population graph",
+      "threat": "Graph-amplified breach exposure",
+      "mechanism": "Calibration to a 493-fold target amplification scenario",
+      "evidence_type": "calibrated simulation",
+      "measured_result": "Model amplification reached 464.4-fold with 5.8% calibration error",
+      "numeric_value": 464.4,
+      "unit": "fold amplification",
+      "direction": "amplified",
+      "confidence": "medium",
+      "limitations": "Calibration target does not independently validate every graph assumption",
+      "claim_scope": "calibrated graph model",
+      "primary_source_file": "experiments/B1_graph_amplification/results_log.txt",
+      "supporting_source_files": [
+        "paper/figures/B1_amplification_results.png",
+        "experiments/B1_graph_amplification/calibration_tuning.py",
+        "paper/figures/B1_calibration_tuning.png",
+        "research/notes/Findings.txt"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 232
+    },
+    {
+      "evidence_id": "B2_E01",
+      "module": "B2",
+      "stage_ids": [
+        "S6",
+        "S7"
+      ],
+      "asset": "Layered genomic vault",
+      "threat": "Reconstruction from disclosed semantic layers",
+      "mechanism": "Layered vault and unrecoverability model",
+      "evidence_type": "model-derived",
+      "measured_result": "Adding the pathogenic-variant layer reduced unrecoverability to 0.044",
+      "numeric_value": 0.044,
+      "unit": "unrecoverability score",
+      "direction": "decrease",
+      "confidence": "medium",
+      "limitations": "Unrecoverability is produced by the project model and is not a formal cryptographic proof",
+      "claim_scope": "vault-model scenario",
+      "primary_source_file": "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md",
+      "supporting_source_files": [
+        "experiments/B2_vault_design/genomic_vault.py",
+        "experiments/B2_vault_design/B2_upgrades.py",
+        "experiments/B2_vault_design/vault_design.py",
+        "paper/figures/B2_genomic_vault.png"
+      ],
+      "source_resolution_status": "WEAK_CANDIDATE",
+      "source_confidence": "low",
+      "source_match_score": 58
+    },
+    {
+      "evidence_id": "B2_E02",
+      "module": "B2",
+      "stage_ids": [
+        "S7",
+        "S9"
+      ],
+      "asset": "Persistently disclosed genomic information",
+      "threat": "Time-dependent re-identification",
+      "mechanism": "Lifetime genomic-risk simulation",
+      "evidence_type": "simulation",
+      "measured_result": "Re-identification reached 50% by year 11 and 100% by year 20",
+      "numeric_value": 11,
+      "unit": "years to 50 percent re-identification",
+      "direction": "increase over time",
+      "confidence": "medium",
+      "limitations": "Long-term projections depend on model assumptions",
+      "claim_scope": "lifetime-risk simulation",
+      "primary_source_file": "paper/figures/B2_lifetime_risk.png",
+      "supporting_source_files": [
+        "paper/figures/B2_lifetime_risk_drivers.png",
+        "experiments/B2_vault_design/lifetime_risk.py",
+        "experiments/B2_vault_design/B2_upgrades.py",
+        "paper/figures/B2_genomic_vault.png"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 136
+    },
+    {
+      "evidence_id": "B2_E03",
+      "module": "B2",
+      "stage_ids": [
+        "S8",
+        "S9"
+      ],
+      "asset": "Familial genomic information",
+      "threat": "Persistent familial exposure",
+      "mechanism": "Lifetime familial-risk simulation",
+      "evidence_type": "simulation",
+      "measured_result": "Familial risk reached 100% by year 15",
+      "numeric_value": 15,
+      "unit": "years to 100 percent familial risk",
+      "direction": "increase over time",
+      "confidence": "medium",
+      "limitations": "Projection depends on the selected model parameters",
+      "claim_scope": "lifetime-risk simulation",
+      "primary_source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "supporting_source_files": [
+        "paper/figures/B2_lifetime_risk.png",
+        "paper/figures/B2_lifetime_risk_drivers.png",
+        "research/notes/Findings.txt",
+        "experiments/B2_vault_design/B2_upgrades.py"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 128
+    },
+    {
+      "evidence_id": "B3_E01",
+      "module": "B3",
+      "stage_ids": [
+        "S8",
+        "S10"
+      ],
+      "asset": "Kinship graph exposure boundary",
+      "threat": "Graph-originating breach propagation",
+      "mechanism": "Graph-aware boundary-isolation simulation",
+      "evidence_type": "simulation",
+      "measured_result": "Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20",
+      "numeric_value": 6,
+      "unit": "exposed nodes at k=10",
+      "direction": "decrease",
+      "confidence": "medium",
+      "limitations": "Containment performance depends on graph construction",
+      "claim_scope": "containment simulation",
+      "primary_source_file": "experiments/B3_authentication/containment_algorithm.py",
+      "supporting_source_files": [
+        "paper/figures/B3_containment_auth.png",
+        "experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py",
+        "experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py",
+        "paper/figures/B3_attack_origin_comparison.png"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 128
+    },
+    {
+      "evidence_id": "B3_E02",
+      "module": "B3",
+      "stage_ids": [
+        "S6",
+        "S10"
+      ],
+      "asset": "Genomic-platform authentication layer",
+      "threat": "Unauthorized platform access",
+      "mechanism": "Behavioural authentication classifier",
+      "evidence_type": "simulation or benchmark",
+      "measured_result": "At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440",
+      "numeric_value": 0.8409,
+      "unit": "F1 score",
+      "direction": "performance",
+      "confidence": "medium",
+      "limitations": "Classifier results require interpretation within the project's generated benchmark setting",
+      "claim_scope": "authentication benchmark",
+      "primary_source_file": "paper/figures/B3_containment_auth.png",
+      "supporting_source_files": [
+        "experiments/B3_authentication/containment_algorithm.py",
+        "experiments/B3_authentication/.gitkeep",
+        "experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6",
+        "experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 116
+    },
+    {
+      "evidence_id": "B3_E03",
+      "module": "B3",
+      "stage_ids": [
+        "S6",
+        "S10"
+      ],
+      "asset": "Genomic-platform authentication layer",
+      "threat": "Missed malicious access",
+      "mechanism": "Operational classifier-threshold selection",
+      "evidence_type": "design decision",
+      "measured_result": "Threshold 3.6 was selected operationally to favour recall",
+      "numeric_value": 3.6,
+      "unit": "classifier threshold",
+      "direction": "selected",
+      "confidence": "medium",
+      "limitations": "Operational preference is a design choice rather than a universally optimal threshold",
+      "claim_scope": "project design decision",
+      "primary_source_file": "experiments/B3_authentication/containment_algorithm.py",
+      "supporting_source_files": [
+        "experiments/B3_authentication/.gitkeep",
+        "paper/figures/B3_containment_auth.png",
+        "experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6",
+        "experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1"
+      ],
+      "source_resolution_status": "STRONG_CANDIDATE",
+      "source_confidence": "high",
+      "source_match_score": 118
+    }
+  ]
+}
