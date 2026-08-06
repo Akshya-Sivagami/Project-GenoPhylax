@@ -1,0 +1,31 @@
+A3 F11 Authoritative Source Audit
+=================================
+
+Source BAM: experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_PAO89685_region.sorted.bam
+Resolved target: chr4:186274193
+
+Target-overlapping records: 29
+Unique target parents: 27
+
+Record-level states:
+  REF: 11
+  ALT: 18
+  DEL: 0
+  OTHER: 0
+  NO_ALIGNED_PAIR: 0
+
+Parent-level states:
+  REF: 10
+  ALT: 17
+  DEL: 0
+  OTHER: 0
+  NO_ALIGNED_PAIR: 0
+
+Known attack parents recovered: 14/14
+Known attack parents missing: 0
+Known attack parents not ALT: 0
+
+Selected REF background parents: 10
+Validation errors: 0
+
+Audit status: PASS

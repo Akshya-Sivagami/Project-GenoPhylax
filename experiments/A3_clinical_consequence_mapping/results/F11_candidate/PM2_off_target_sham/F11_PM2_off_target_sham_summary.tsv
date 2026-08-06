@@ -1,0 +1,2 @@
+condition	sham_ALT_parents	sham_REF_parents	sham_DEL_parents	sham_OTHER_parents	pileup_depth	pileup_REF	pileup_ALT	pileup_DEL	pileup_OTHER	ALT_fraction	vcf_record	GT	QUAL	FORMAT_DP	FORMAT_AD	validation_errors	status
+PM2_OFF_TARGET_SHAM	14	0	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	25	11,14	0	PASS

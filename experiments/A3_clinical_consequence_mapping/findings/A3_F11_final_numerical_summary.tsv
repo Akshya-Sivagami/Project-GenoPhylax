@@ -1,0 +1,8 @@
+condition	control_type	fixed_REF_background_parents	replacement_parents	parent_REF	parent_ALT	parent_DEL	parent_OTHER	pileup_depth	pileup_REF	pileup_ALT	pileup_DEL	pileup_OTHER	ALT_fraction	vcf_record	GT	QUAL	clinical_outcome
+CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+W0	on_target_target_base_only	10	14	10	11	0	3	25	11	11	0	3	0.500000	1	0/1	141.391	PATHOGENIC_ALT_CALL_RETAINED
+PM2	on_target_plus_minus_2_bases	10	14	15	0	5	4	25	16	0	5	4	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+PM5	on_target_plus_minus_5_bases	10	14	11	0	10	3	25	12	0	10	3	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+PM10	on_target_plus_minus_10_bases	10	14	11	0	13	0	25	12	0	13	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+PM20	on_target_plus_minus_20_bases	10	14	10	0	14	0	25	11	0	14	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST

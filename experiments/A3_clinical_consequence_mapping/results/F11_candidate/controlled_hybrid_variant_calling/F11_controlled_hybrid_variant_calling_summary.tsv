@@ -1,0 +1,7 @@
+condition	hybrid_records	target_records	parent_REF	parent_ALT	parent_DEL	parent_OTHER	parent_NO_COVERAGE	pileup_depth	pileup_REF	pileup_ALT	pileup_DEL	pileup_OTHER	ALT_fraction	vcf_record	GT	QUAL	FORMAT_DP	FORMAT_AD_REF	FORMAT_AD_ALT	status
+CLEAN	25	24	10	14	0	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	25	11	14	PASS
+W0	25	24	10	11	0	3	0	25	11	11	0	3	0.500000	1	0/1	141.391	25	11	11	PASS
+PM2	25	24	15	0	5	4	0	25	16	0	5	4	0.000000	0	NO_CALL	.	.	.	.	PASS
+PM5	25	24	11	0	10	3	0	25	12	0	10	3	0.000000	0	NO_CALL	.	.	.	.	PASS
+PM10	25	24	11	0	13	0	0	25	12	0	13	0	0.000000	0	NO_CALL	.	.	.	.	PASS
+PM20	25	24	10	0	14	0	0	25	11	0	14	0	0.000000	0	NO_CALL	.	.	.	.	PASS

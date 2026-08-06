@@ -1,0 +1,2 @@
+source_bam	target_contig	target_position	target_records	unique_target_parents	parent_REF	parent_ALT	parent_DEL	parent_OTHER	known_attack_parents_recovered	known_attack_parents_missing	known_attack_parents_not_ALT	selected_REF_background_parents	validation_errors	status
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_PAO89685_region.sorted.bam	chr4	186274193	29	27	10	17	0	0	14	0	0	10	0	SAME_SAMPLE_REF_BACKGROUND_AVAILABLE

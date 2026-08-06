@@ -1,0 +1,18 @@
+A3 F11 Controlled Hybrid Final Validation
+==========================================
+
+Conditions validated: 6
+Parent-state observations: 144
+Fixed REF background parents per condition: 10
+Replacement parents per condition: 14
+
+Clean VCF record: 1
+Clean genotype: 0/1
+Clean ALT fraction: 0.560000
+Clean pathogenic call present: True
+
+Attacked conditions losing pathogenic call: PM2,PM5,PM10,PM20
+
+Validation errors: 0
+
+Validation status: PASS

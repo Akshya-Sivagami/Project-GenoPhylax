@@ -1,0 +1,75 @@
+A3 F11 Controlled Hybrid Clinical Consequence
+==============================================
+
+Clinical target: chr4:186274193 G>T
+Condition: pathogenic F11 variant associated with Factor XI deficiency
+
+Controlled cohort design:
+  Same-sample REF background parents: 10
+  Clean or attacked replacement parents: 14
+  Target-covering observations per condition: 25 records / 24 parents
+
+CLEAN:
+  Parent states: REF=10, ALT=14, DEL=0, OTHER=0
+  Pileup: REF=11, ALT=14, DEL=0, OTHER=0
+  ALT fraction: 0.560000
+  VCF target record: 1
+  Genotype: 0/1
+  QUAL: 222.201
+  Clinical outcome: PATHOGENIC_ALT_CALL_RETAINED
+
+W0:
+  Parent states: REF=10, ALT=11, DEL=0, OTHER=3
+  Pileup: REF=11, ALT=11, DEL=0, OTHER=3
+  ALT fraction: 0.500000
+  VCF target record: 1
+  Genotype: 0/1
+  QUAL: 141.391
+  Clinical outcome: PATHOGENIC_ALT_CALL_RETAINED
+
+PM2:
+  Parent states: REF=15, ALT=0, DEL=5, OTHER=4
+  Pileup: REF=16, ALT=0, DEL=5, OTHER=4
+  ALT fraction: 0.000000
+  VCF target record: 0
+  Genotype: NO_CALL
+  QUAL: .
+  Clinical outcome: PATHOGENIC_ALT_CALL_LOST
+
+PM5:
+  Parent states: REF=11, ALT=0, DEL=10, OTHER=3
+  Pileup: REF=12, ALT=0, DEL=10, OTHER=3
+  ALT fraction: 0.000000
+  VCF target record: 0
+  Genotype: NO_CALL
+  QUAL: .
+  Clinical outcome: PATHOGENIC_ALT_CALL_LOST
+
+PM10:
+  Parent states: REF=11, ALT=0, DEL=13, OTHER=0
+  Pileup: REF=12, ALT=0, DEL=13, OTHER=0
+  ALT fraction: 0.000000
+  VCF target record: 0
+  Genotype: NO_CALL
+  QUAL: .
+  Clinical outcome: PATHOGENIC_ALT_CALL_LOST
+
+PM20:
+  Parent states: REF=10, ALT=0, DEL=14, OTHER=0
+  Pileup: REF=11, ALT=0, DEL=14, OTHER=0
+  ALT fraction: 0.000000
+  VCF target record: 0
+  Genotype: NO_CALL
+  QUAL: .
+  Clinical outcome: PATHOGENIC_ALT_CALL_LOST
+
+Principal result:
+  The clean matched hybrid produced a heterozygous F11 G>T call (GT 0/1) with ALT fraction 0.56 and QUAL 222.201.
+
+  W0 retained the heterozygous call, but reduced ALT support from 14 to 11 reads and reduced QUAL from 222.201 to 141.391.
+
+  PM2, PM5, PM10 and PM20 eliminated all ALT-supporting reads and removed the target pathogenic variant record from the called VCF.
+
+Conditions losing the pathogenic call: PM2,PM5,PM10,PM20
+
+Overall status: PATHOGENIC_VARIANT_CALL_SUPPRESSION_CONFIRMED

@@ -1,0 +1,19 @@
+A3 F11 PM2 Off-Target Sham Control
+==================================
+
+Control design:
+  Same 14 F11 ALT-confirmed parents
+  Same PM2 signal-window length per parent
+  Interpolation shifted at least 5,000 signal samples away
+  F11 target signal samples unchanged
+
+Sham ALT parents: 14/14
+Pileup REF: 11
+Pileup ALT: 14
+ALT fraction: 0.560000
+VCF target record: 1
+Genotype: 0/1
+QUAL: 222.202
+Validation errors: 0
+
+Overall status: OFF_TARGET_SHAM_RETAINED_PATHOGENIC_CALL
