@@ -25,3 +25,6 @@ __pycache__/
 
 # Runtime process files
 *.pid
+
+# Large downloaded source sequencing summary
+ONT_target_retrieval/POD5_mapping/resumable_remote_lookup/sequencing_summary_PAO89685.txt
