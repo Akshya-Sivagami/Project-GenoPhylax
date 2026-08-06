@@ -1,0 +1,13 @@
+A3 F11 POD5 Extraction Validation
+==================================
+
+Validated: 2026-08-06T09:27:43+05:30
+Canonical source shards: 14
+Expected ALT reads: 15
+Extracted ALT reads: 15
+Missing reads: 0
+Unexpected reads: 0
+Target POD5 bytes: 4300840
+Target POD5 MiB: 4.1016
+
+Validation status: PASS

@@ -1,0 +1,51 @@
+A3 F11 Clean Dorado Rebasecalling Summary
+==========================================
+
+Corrected: 2026-08-06T09:36:37+05:30
+Target: chr4:186274193 G>T
+
+Input raw-signal reads: 15
+Dorado BAM records: 16
+FASTQ reads: 16
+Total alignment records: 16
+Mapped alignment records: 16
+Primary mapped records: 16
+
+Parent-level clean target states:
+ALT: 14
+REF: 0
+DEL: 0
+OTHER: 0
+NO_COVERAGE: 0
+UNMAPPED: 0
+NO_DORADO_RECORD: 1
+
+Record-level clean target states:
+ALT: 14
+REF: 0
+DEL: 0
+OTHER: 0
+NO_COVERAGE: 0
+UNMAPPED: 0
+
+Clean ALT retention:
+14 / 15 (93.33%)
+
+Dorado parent-output rate:
+14 / 15 (93.33%)
+
+Validated clean baseline:
+All 14 reads that produced a Dorado basecall retained
+the pathogenic ALT allele at chr4:186274193.
+
+Raw-signal availability limitation:
+15 of the original 17 alignment-derived ALT parents
+were recovered from public POD5 data.
+
+Basecaller-output limitation:
+One recovered POD5 read produced no Dorado BAM record.
+
+Final controlled attack cohort:
+14 clean ALT-confirmed reads.
+
+Overall status: CLEAN_BASELINE_VALIDATED_WITH_ONE_DORADO_DROPOUT

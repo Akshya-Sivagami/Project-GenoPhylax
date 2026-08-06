@@ -1,0 +1,71 @@
+A3 F11 Attacked Rebasecalling and Clinical-Locus Consequence
+============================================================
+
+Clinical target: chr4:186274193 G>T
+Clean attack cohort: 14 ALT-confirmed parents
+Attack conditions: W0, PM2, PM5, PM10, PM20
+Parent aggregation: conservative ALT retention
+
+W0:
+  ALT retained: 11/14 (78.5714%)
+  ALT changed: 3/14 (21.4286%)
+  Parent ALT: 11
+  Parent REF: 0
+  Parent DEL: 0
+  Parent OTHER: 3
+  Parent NO_COVERAGE: 0
+  Parent UNMAPPED: 0
+  Parent NO_DORADO_RECORD: 0
+  Transitions: ALT->ALT:11,ALT->OTHER:3
+
+PM2:
+  ALT retained: 0/14 (0.0%)
+  ALT changed: 14/14 (100.0%)
+  Parent ALT: 0
+  Parent REF: 5
+  Parent DEL: 5
+  Parent OTHER: 4
+  Parent NO_COVERAGE: 0
+  Parent UNMAPPED: 0
+  Parent NO_DORADO_RECORD: 0
+  Transitions: ALT->DEL:5,ALT->OTHER:4,ALT->REF:5
+
+PM5:
+  ALT retained: 0/14 (0.0%)
+  ALT changed: 14/14 (100.0%)
+  Parent ALT: 0
+  Parent REF: 1
+  Parent DEL: 10
+  Parent OTHER: 3
+  Parent NO_COVERAGE: 0
+  Parent UNMAPPED: 0
+  Parent NO_DORADO_RECORD: 0
+  Transitions: ALT->DEL:10,ALT->OTHER:3,ALT->REF:1
+
+PM10:
+  ALT retained: 0/14 (0.0%)
+  ALT changed: 14/14 (100.0%)
+  Parent ALT: 0
+  Parent REF: 1
+  Parent DEL: 13
+  Parent OTHER: 0
+  Parent NO_COVERAGE: 0
+  Parent UNMAPPED: 0
+  Parent NO_DORADO_RECORD: 0
+  Transitions: ALT->DEL:13,ALT->REF:1
+
+PM20:
+  ALT retained: 0/14 (0.0%)
+  ALT changed: 14/14 (100.0%)
+  Parent ALT: 0
+  Parent REF: 0
+  Parent DEL: 14
+  Parent OTHER: 0
+  Parent NO_COVERAGE: 0
+  Parent UNMAPPED: 0
+  Parent NO_DORADO_RECORD: 0
+  Transitions: ALT->DEL:14
+
+Total changed parent-condition observations: 59/70
+
+Overall status: ATTACKED_REBASECALLING_COMPLETE

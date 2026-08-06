@@ -1,0 +1,22 @@
+A3 F11 Controlled Hybrid Inventory
+===================================
+
+Completed: 2026-08-06T13:32:42+05:30
+Clinical target: chr4:186274193 G>T
+Clean ALT cohort: 14 parents
+Attack conditions: W0 PM2 PM5 PM10 PM20
+
+Candidate reusable scripts: 8
+Existing E1 directories: 1
+Candidate backgrounds with target coverage: 0
+
+Background audit:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_candidate_background_target_audit.tsv
+
+Hybrid scripts:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_candidate_hybrid_scripts.txt
+
+Existing E1 directories:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_existing_E1_directories.txt
+
+Overall status: BACKGROUND_DATA_REQUIRES_SELECTION_OR_CONSTRUCTION

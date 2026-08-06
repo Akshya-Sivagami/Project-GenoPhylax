@@ -1,0 +1,1 @@
+filename_fastq	filename_fast5	filename_pod5	parent_read_id	read_id	run_id	channel	mux	minknow_events	start_time	duration	passes_filtering	template_start	num_events_template	template_duration	sequence_length_template	mean_qscore_template	strand_score_template	median_template	mad_template	pore_type	experiment_id	sample_id	end_reason

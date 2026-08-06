@@ -1,0 +1,7 @@
+Started: 2026-08-06T09:31:40+05:30
+Dorado: /home/admin/tools/dorado/dorado-2.1.0-linux-arm64-cuda-13.0/bin/dorado
+Model: /home/admin/tools/dorado/models/dna_r10.4.1_e8.2_400bps_hac@v6.0.0
+Input POD5: experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_extracted_signal/F11_ALT_reads.pod5
+Reference: /home/admin/datasets/GenoPhylax/references/GRCh38_GIAB/GCA_000001405.15_GRCh38_no_alt_analysis_set.fasta
+Target: chr4:186274193 G>T
+Device: cuda:all

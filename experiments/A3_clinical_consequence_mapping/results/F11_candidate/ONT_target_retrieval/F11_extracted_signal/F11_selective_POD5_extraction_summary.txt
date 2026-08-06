@@ -1,0 +1,18 @@
+A3 F11 Selective POD5 Extraction Summary
+=========================================
+
+Completed: 2026-08-06T09:27:43+05:30
+Clinical target: chr4:186274193 G>T
+Original ALT parent UUIDs: 17
+Recoverable ALT UUIDs: 15
+Extracted ALT reads: 15
+Unavailable ALT UUIDs: 2
+Canonical source POD5 shards: 14
+Target POD5 MiB: 4.1016
+
+Dataset limitation:
+One aligned ALT parent could not be traced to an available
+published PAO89685 POD5 shard.
+
+Overall status: READY_FOR_CLEAN_REBASECALLING
+Target POD5: experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/F11_extracted_signal/F11_ALT_reads.pod5

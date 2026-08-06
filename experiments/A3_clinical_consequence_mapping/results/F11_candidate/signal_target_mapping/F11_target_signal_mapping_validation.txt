@@ -1,0 +1,10 @@
+A3 F11 Target Signal Mapping Validation
+=======================================
+
+Attack parents: 14
+Mapped target parents: 14
+Signal windows: 70
+Raw-sequence target bases: A=8, T=6
+Validation errors: 0
+
+Validation status: PASS

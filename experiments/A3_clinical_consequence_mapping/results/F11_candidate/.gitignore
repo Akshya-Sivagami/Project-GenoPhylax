@@ -1,0 +1,27 @@
+# Large local sequencing and alignment intermediates
+*.pod5
+*.bam
+*.bai
+*.cram
+*.crai
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+*.bcf
+*.bcf.csi
+*.csi
+
+# Large downloaded lookup fragments and temporary files
+*.bin
+*.part
+*.tmp
+*.download
+*.bak
+
+# Python-generated caches
+__pycache__/
+*.pyc
+
+# Runtime process files
+*.pid

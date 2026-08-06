@@ -1,0 +1,16 @@
+A3 F11 Resumable Metadata Lookup Summary
+=========================================
+
+Completed: 2026-08-05T14:48:30+05:30
+
+ALT parent UUIDs: 17
+Resolved ALT UUIDs: 16
+Unresolved ALT UUIDs: 1
+Required POD5 shards: 15
+Reachable POD5 shards: 14
+
+Estimated POD5 download:
+Bytes: 11160486208
+GiB: 10.3940
+
+Overall status: PARTIAL_ALT_RESOLUTION

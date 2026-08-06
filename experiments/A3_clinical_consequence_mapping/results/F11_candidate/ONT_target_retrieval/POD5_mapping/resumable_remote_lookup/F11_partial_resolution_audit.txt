@@ -1,0 +1,14 @@
+A3 F11 Partial POD5 Resolution Audit
+=====================================
+
+Completed: 2026-08-05T15:02:29+05:30
+
+ALT UUIDs: 17
+Resolved ALT UUIDs after audit: 16
+Required POD5 shards: 15
+Reachable POD5 shards: 14
+Known download bytes: 11160486208
+Known download GiB: 10.3940
+
+Overall status: ORIGINAL_PARTIAL_STATE_CONFIRMED
+The unresolved read/shard requires a separate fallback decision.

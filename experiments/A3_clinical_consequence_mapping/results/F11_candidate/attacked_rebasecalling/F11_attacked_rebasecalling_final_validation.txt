@@ -1,0 +1,10 @@
+A3 F11 Attacked Rebasecalling Final Validation
+=============================================
+
+Conditions: 5
+Parent-condition observations: 70
+Changed observations: 59/70
+Overall change rate: 84.2857%
+Validation errors: 0
+
+Validation status: PASS

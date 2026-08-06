@@ -1,0 +1,6 @@
+condition	context_bases_each_side	minimum_signal_window_samples	maximum_signal_window_samples	changed_signal_samples	parent_ALT	parent_REF	parent_DEL	parent_OTHER	alt_retained	alt_changed	alt_change_percent	mapped_alignment_records	status
+W0	0	6	42	221	11	0	0	3	11	3	21.4286	16	PASS
+PM2	2	42	192	1006	0	5	5	4	0	14	100.0	16	PASS
+PM5	5	96	294	2178	0	1	10	3	0	14	100.0	16	PASS
+PM10	10	180	480	4018	0	1	13	0	0	14	100.0	16	PASS
+PM20	20	366	846	7528	0	0	14	0	0	14	100.0	16	PASS

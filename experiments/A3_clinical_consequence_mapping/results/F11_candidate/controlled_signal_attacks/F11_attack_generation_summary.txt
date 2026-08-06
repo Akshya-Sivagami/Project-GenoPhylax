@@ -1,0 +1,55 @@
+A3 F11 Controlled Signal Attack Generation
+==========================================
+
+Attack method: local linear interpolation
+Source raw-signal reads: 15
+Attacked clean ALT parents per condition: 14
+Untouched excluded parent per condition: 1
+Conditions: W0, PM2, PM5, PM10, PM20
+
+W0:
+  Context bases each side: 0
+  Reads passed: 14/14
+  Window samples: 6–42
+  Changed samples: 221
+  Outside changed samples: 0
+  Untouched read identity: PASS
+  Status: PASS
+
+PM2:
+  Context bases each side: 2
+  Reads passed: 14/14
+  Window samples: 42–192
+  Changed samples: 1006
+  Outside changed samples: 0
+  Untouched read identity: PASS
+  Status: PASS
+
+PM5:
+  Context bases each side: 5
+  Reads passed: 14/14
+  Window samples: 96–294
+  Changed samples: 2178
+  Outside changed samples: 0
+  Untouched read identity: PASS
+  Status: PASS
+
+PM10:
+  Context bases each side: 10
+  Reads passed: 14/14
+  Window samples: 180–480
+  Changed samples: 4018
+  Outside changed samples: 0
+  Untouched read identity: PASS
+  Status: PASS
+
+PM20:
+  Context bases each side: 20
+  Reads passed: 14/14
+  Window samples: 366–846
+  Changed samples: 7528
+  Outside changed samples: 0
+  Untouched read identity: PASS
+  Status: PASS
+
+Overall status: READY_FOR_ATTACKED_REBASECALLING

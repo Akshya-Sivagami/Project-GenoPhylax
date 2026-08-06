@@ -1,0 +1,2 @@
+condition	attack_parents	raw_dorado_records	fastq_records	total_alignment_records	mapped_alignment_records	primary_mapped_records	parent_ALT	parent_REF	parent_DEL	parent_OTHER	parent_NO_COVERAGE	parent_UNMAPPED	parent_NO_DORADO_RECORD	alt_retained	alt_changed	alt_retention_percent	alt_change_percent	transition_counts	status
+PM5	14	16	16	16	16	16	0	1	10	3	0	0	0	0	14	0.0	100.0	ALT->DEL:10,ALT->OTHER:3,ALT->REF:1	PASS

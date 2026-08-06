@@ -1,0 +1,20 @@
+A3 F11 Target Signal Mapping Summary
+=====================================
+
+Completed: 2026-08-06T09:43:54+05:30
+Clinical target: chr4:186274193 G>T
+Clean ALT attack parents: 14
+Mapped parent targets: 14
+Reverse-strand alignments: 8
+Generated signal windows: 70
+Contexts: W0, PM2, PM5, PM10, PM20
+Minimum target signal span: 6 samples
+Maximum target signal span: 42 samples
+
+Overall status: READY_FOR_CONTROLLED_SIGNAL_PERTURBATION
+
+Target map:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/signal_target_mapping/F11_target_signal_mapping.tsv
+
+Window map:
+experiments/A3_clinical_consequence_mapping/results/F11_candidate/signal_target_mapping/F11_target_signal_windows.tsv
