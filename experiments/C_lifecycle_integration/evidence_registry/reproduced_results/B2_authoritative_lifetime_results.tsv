@@ -1,0 +1,29 @@
+dimension	threshold	first_year_reached
+reid	0.25	8
+reid	0.5	11
+reid	0.75	12
+reid	0.8	13
+reid	0.9	13
+reid	0.99	13
+reid	1.0	13
+disease	0.25	14
+disease	0.5	22
+disease	0.75	33
+disease	0.8	
+disease	0.9	
+disease	0.99	
+disease	1.0	
+familial	0.25	8
+familial	0.5	11
+familial	0.75	13
+familial	0.8	14
+familial	0.9	14
+familial	0.99	15
+familial	1.0	15
+composite	0.25	8
+composite	0.5	12
+composite	0.75	15
+composite	0.8	19
+composite	0.9	29
+composite	0.99	
+composite	1.0	

@@ -1,0 +1,145 @@
+============================================================
+B2 REPRODUCTION
+============================================================
+
+Unrecoverability scenarios:
+['Ancestry']: ERROR: 'Ancestry'
+['Ancestry', 'Pharmacogenomics']: ERROR: 'Ancestry'
+['Ancestry', 'Pharmacogenomics', 'Pathogenic Variants']: ERROR: 'Ancestry'
+['Ancestry', 'Pharmacogenomics', 'Pathogenic Variants', 'Polygenic Risk Scores']: ERROR: 'Ancestry'
+
+Lifetime risk object type:
+dict
+Risk keys:
+['composite', 'd5_score', 'db_factor', 'disease', 'familial', 'inf_factor', 'reid', 'tech_factor']
+
+reid:
+  year=0: 0.0530542993
+  year=5: 0.1553323414
+  year=10: 0.4906876736
+  year=11: 0.6234667400
+  year=15: 1.0000000000
+  year=20: 1.0000000000
+  year=25: 1.0000000000
+  year=50: 1.0000000000
+  year=80: 1.0000000000
+  first_year_ge_0.5: 11
+  first_year_ge_0.8: 13
+  first_year_ge_0.9: 13
+  first_year_ge_0.99: 13
+  first_year_ge_1.0: 13
+
+disease:
+  year=0: 0.1125903470
+  year=5: 0.1331981112
+  year=10: 0.1834420454
+  year=11: 0.1992957454
+  year=15: 0.2882589950
+  year=20: 0.4500000000
+  year=25: 0.6117410050
+  year=50: 0.7982691638
+  year=80: 0.7999956991
+  first_year_ge_0.5: 22
+  first_year_ge_0.8: None
+  first_year_ge_0.9: None
+  first_year_ge_0.99: None
+  first_year_ge_1.0: None
+
+familial:
+  year=0: 0.0600000000
+  year=5: 0.1615080231
+  year=10: 0.4347473588
+  year=11: 0.5299629666
+  year=15: 1.0000000000
+  year=20: 1.0000000000
+  year=25: 1.0000000000
+  year=50: 1.0000000000
+  year=80: 1.0000000000
+  first_year_ge_0.5: 11
+  first_year_ge_0.8: 14
+  first_year_ge_0.9: 14
+  first_year_ge_0.99: 15
+  first_year_ge_1.0: 15
+
+composite:
+  year=0: 0.0752148821
+  year=5: 0.1500128252
+  year=10: 0.3696256926
+  year=11: 0.4509084840
+  year=15: 0.7627529983
+  year=20: 0.8166666667
+  year=25: 0.8705803350
+  year=50: 0.9327563879
+  year=80: 0.9333318997
+  first_year_ge_0.5: 12
+  first_year_ge_0.8: 19
+  first_year_ge_0.9: 29
+  first_year_ge_0.99: None
+  first_year_ge_1.0: None
+
+d5_score:
+  year=0: 0.7521488209
+  year=5: 1.5001282524
+  year=10: 3.6962569262
+  year=11: 4.5090848399
+  year=15: 7.6275299832
+  year=20: 8.1666666667
+  year=25: 8.7058033501
+  year=50: 9.3275638793
+  year=80: 9.3333189969
+  first_year_ge_0.5: 0
+  first_year_ge_0.8: 1
+  first_year_ge_0.9: 2
+  first_year_ge_0.99: 3
+  first_year_ge_1.0: 3
+
+db_factor:
+  year=0: 1.0000000000
+  year=5: 2.6918003853
+  year=10: 7.2457893141
+  year=11: 8.8327161094
+  year=15: 19.5042184673
+  year=20: 50.0000000000
+  year=25: 50.0000000000
+  year=50: 50.0000000000
+  year=80: 50.0000000000
+  first_year_ge_0.5: 0
+  first_year_ge_0.8: 0
+  first_year_ge_0.9: 0
+  first_year_ge_0.99: 0
+  first_year_ge_1.0: 0
+
+tech_factor:
+  year=0: 1.0000000000
+  year=5: 5.6568542495
+  year=10: 32.0000000000
+  year=11: 45.2548339959
+  year=15: 181.0193359838
+  year=20: 1000.0000000000
+  year=25: 1000.0000000000
+  year=50: 1000.0000000000
+  year=80: 1000.0000000000
+  first_year_ge_0.5: 0
+  first_year_ge_0.8: 0
+  first_year_ge_0.9: 0
+  first_year_ge_0.99: 0
+  first_year_ge_1.0: 0
+
+inf_factor:
+  year=0: 1.1259034697
+  year=5: 1.3319811122
+  year=10: 1.8344204542
+  year=11: 1.9929574543
+  year=15: 2.8825899496
+  year=20: 4.5000000000
+  year=25: 6.1174100504
+  year=50: 7.9826916379
+  year=80: 7.9999569908
+  first_year_ge_0.5: 0
+  first_year_ge_0.8: 0
+  first_year_ge_0.9: 0
+  first_year_ge_0.99: 0
+  first_year_ge_1.0: 0
+
+Saved:
+/home/akshya/Project-GenoPhylax/experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_reproduced_results.json

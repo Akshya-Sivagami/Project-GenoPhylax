@@ -1,0 +1,5 @@
+check	observed	criterion	result
+synthetic_population_present	4144	population_nodes > 0	PASS
+registered_population_present	1657	registered_individuals > 0	PASS
+amplification_above_isolated_disclosure	464.4x	calibrated amplification > 1x	PASS
+external_calibration_error_recorded	5.8%	calibration error documented	PASS

@@ -1,0 +1,73 @@
+evidence_id	field	old_value	new_value
+A1_E01	tier_rationale		Authoritative A1 fuzzing campaign provenance is not present in the current Git clone. Tier assignment is deferred rather than inferred from an unsourced claim.
+A1_E01	tier_status		SOURCE_PENDING
+A1_E02	tier_rationale		Authoritative A1 crash-triage provenance is not present in the current Git clone. Tier assignment is deferred.
+A1_E02	tier_status		SOURCE_PENDING
+A1_E03	tier_rationale		The original ASAN artifact for the ksw_extend2 finding must be recovered before empirical tier classification.
+A1_E03	tier_status		SOURCE_PENDING
+A1_E04	tier_rationale		The original ASAN artifact for the mem_aln2sam finding must be recovered before empirical tier classification.
+A1_E04	tier_status		SOURCE_PENDING
+A2_E01	evidence_tier		E2
+A2_E01	tier_label		Controlled direct empirical case study
+A2_E01	tier_rationale		Direct nanopore signal perturbation and basecalling experiment under a controlled seed-42 Gaussian dose-response.
+A2_E01	tier_status		ASSIGNED
+A2_E02	evidence_tier		E1
+A2_E02	tier_label		Replicated direct empirical evidence
+A2_E02	tier_rationale		The Gaussian dose-response was reproduced across five independent random seeds at multiple perturbation strengths.
+A2_E02	tier_status		ASSIGNED
+A2_E03	evidence_tier		E2
+A2_E03	tier_label		Controlled direct empirical case study
+A2_E03	tier_rationale		Direct empirical alignment measurement following controlled ONT signal perturbation; not independently replicated as the primary claim represented by this row.
+A2_E03	tier_status		ASSIGNED
+A2_E04	evidence_tier		E1
+A2_E04	tier_label		Replicated direct empirical evidence
+A2_E04	tier_rationale		The W0 target-only condition was tested at two independent heterozygous loci, L2 and L3, with 10 parents at each locus and the same null target-state result at both loci.
+A2_E04	tier_status		ASSIGNED
+A3_E01	evidence_tier		E2
+A3_E01	tier_label		Controlled direct empirical case study
+A3_E01	tier_rationale		Direct F11 pathogenic-variant signal-perturbation experiment across controlled conditions, but restricted to one locus, one individual and one principal experimental system.
+A3_E01	tier_status		ASSIGNED
+A3_E02	evidence_tier		E2
+A3_E02	tier_label		Controlled direct empirical case study
+A3_E02	tier_rationale		Direct controlled PM2 perturbation of the clean-confirmed F11 ALT-supporting parents.
+A3_E02	tier_status		ASSIGNED
+A3_E03	evidence_tier		E2
+A3_E03	tier_label		Controlled direct empirical case study
+A3_E03	tier_rationale		Observed downstream variant-call consequence in the controlled F11 experiment; this is not evidence of real clinical ingestion or patient harm.
+A3_E03	tier_status		ASSIGNED
+A3_E04	evidence_tier		E2
+A3_E04	tier_label		Controlled direct empirical case study
+A3_E04	tier_rationale		Matched off-target sham control within the same F11 experimental case, strengthening causal interpretation without constituting external replication.
+A3_E04	tier_status		ASSIGNED
+B1_E01	evidence_tier		E4
+B1_E01	tier_label		Uncalibrated simulation/internal model/design benchmark
+B1_E01	tier_rationale		Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.
+B1_E01	tier_status		ASSIGNED
+B1_E02	evidence_tier		E3
+B1_E02	tier_label		Calibrated simulation/model
+B1_E02	tier_rationale		Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.
+B1_E02	tier_status		ASSIGNED
+B2_E01	evidence_tier		E4
+B2_E01	tier_label		Uncalibrated simulation/internal model/design benchmark
+B2_E01	tier_rationale		Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.
+B2_E01	tier_status		ASSIGNED
+B2_E02	evidence_tier		E4
+B2_E02	tier_label		Uncalibrated simulation/internal model/design benchmark
+B2_E02	tier_rationale		Lifetime re-identification trajectory is a project simulation based on configured database-growth and inference assumptions.
+B2_E02	tier_status		ASSIGNED
+B2_E03	evidence_tier		E4
+B2_E03	tier_label		Uncalibrated simulation/internal model/design benchmark
+B2_E03	tier_rationale		Familial-risk saturation is produced by the internal lifetime risk model and is not externally population-calibrated.
+B2_E03	tier_status		ASSIGNED
+B3_E01	evidence_tier		E4
+B3_E01	tier_label		Uncalibrated simulation/internal model/design benchmark
+B3_E01	tier_rationale		Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.
+B3_E01	tier_status		ASSIGNED
+B3_E02	evidence_tier		E4
+B3_E02	tier_label		Uncalibrated simulation/internal model/design benchmark
+B3_E02	tier_rationale		Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.
+B3_E02	tier_status		ASSIGNED
+B3_E03	evidence_tier		E4
+B3_E03	tier_label		Uncalibrated simulation/internal model/design benchmark
+B3_E03	tier_rationale		Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.
+B3_E03	tier_status		ASSIGNED

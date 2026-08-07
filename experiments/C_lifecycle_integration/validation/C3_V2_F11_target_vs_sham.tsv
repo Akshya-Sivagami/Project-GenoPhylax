@@ -1,0 +1,11 @@
+check	expected	observed	result
+clean_ALT_support	14	14	PASS
+PM2_ALT_lost	0	0	PASS
+sham_ALT_retained	14	14	PASS
+clean_VCF_call	1	1	PASS
+PM2_VCF_call_lost	0	0	PASS
+sham_VCF_call_retained	1	1	PASS
+clean_genotype	0/1	0/1	PASS
+PM2_genotype	NO_CALL	NO_CALL	PASS
+sham_genotype	0/1	0/1	PASS
+clean_vs_sham_QUAL_close	absolute difference <= 0.01	222.201 vs 222.202	PASS

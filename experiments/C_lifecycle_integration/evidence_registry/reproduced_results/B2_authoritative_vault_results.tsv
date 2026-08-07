@@ -1,0 +1,7 @@
+step	added_tier	disclosed_tiers	unrecoverability
+1	Pathogenic Variants	Pathogenic Variants	0.2299
+2	Polygenic Risk Scores	Pathogenic Variants|Polygenic Risk Scores	0.1346
+3	Pharmacogenomic Markers	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers	0.0994
+4	Ancestry Composition	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition	0.0864
+5	Trait Predictions	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions	0.0811
+6	Aggregate Statistics	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions|Aggregate Statistics	0.0801

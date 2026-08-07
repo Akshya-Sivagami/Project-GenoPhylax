@@ -1,0 +1,1492 @@
+MODULE C2.4 — PRE-PATCH REGISTRY INSPECTION
+==============================================================================
+
+REGISTRY FILE
+experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.tsv
+
+REGISTRY COLUMNS
+------------------------------------------------------------------------------
+01. evidence_id
+02. module
+03. stage_ids
+04. asset
+05. threat
+06. mechanism
+07. evidence_type
+08. measured_result
+09. numeric_value
+10. unit
+11. direction
+12. confidence
+13. claim_scope
+14. limitations
+15. primary_source_file
+16. supporting_source_files
+17. source_resolution_status
+18. source_confidence
+19. source_match_score
+
+TARGET REGISTRY ROWS
+==============================================================================
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+stage_ids: S3|S10
+asset: BWA alignment software
+threat: Malformed genomic input triggering memory corruption
+mechanism: Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19
+evidence_type: experimental
+measured_result: Approximately 2.5 million fuzz executions
+numeric_value: 2500000
+unit: executions
+direction: observed
+confidence: high
+claim_scope: software-test campaign
+limitations: Single principal target version and incomplete program coverage
+primary_source_file: experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+supporting_source_files: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed1_split_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed2_split_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed3_split_summary.tsv
+source_resolution_status: WEAK_CANDIDATE
+source_confidence: low
+source_match_score: 45
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+stage_ids: S3|S10
+asset: BWA alignment software
+threat: Memory-safety vulnerability
+mechanism: ASAN-confirmed crash triage
+evidence_type: experimental
+measured_result: 54 total crashes, 33 unique crashes and two root causes
+numeric_value: 2
+unit: root causes
+direction: observed
+confidence: high
+claim_scope: software-test campaign
+limitations: Root causes were established within the project audit; external CVE assignment was not claimed
+primary_source_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+supporting_source_files: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log
+source_resolution_status: WEAK_CANDIDATE
+source_confidence: low
+source_match_score: 58
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+stage_ids: S3
+asset: BWA ksw alignment routine
+threat: Heap buffer overflow
+mechanism: Malformed-input execution reaching ksw_extend2
+evidence_type: experimental
+measured_result: Heap buffer overflow in ksw_extend2 at ksw.c:428
+numeric_value: 
+unit: vulnerability
+direction: observed
+confidence: high
+claim_scope: function-level finding
+limitations: Exploitability beyond the demonstrated crash was not established
+primary_source_file: experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+supporting_source_files: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+source_resolution_status: WEAK_CANDIDATE
+source_confidence: low
+source_match_score: 30
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+stage_ids: S3
+asset: BWA SAM-output routine
+threat: Global buffer overflow
+mechanism: Malformed-input execution reaching mem_aln2sam
+evidence_type: experimental
+measured_result: Global overflow in mem_aln2sam at bwamem.c:906
+numeric_value: 
+unit: vulnerability
+direction: observed
+confidence: high
+claim_scope: function-level finding
+limitations: Exploitability beyond the demonstrated crash was not established
+primary_source_file: experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+supporting_source_files: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+source_resolution_status: WEAK_CANDIDATE
+source_confidence: low
+source_match_score: 30
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+stage_ids: S6|S7
+asset: Layered genomic vault
+threat: Reconstruction from disclosed semantic layers
+mechanism: Layered vault and unrecoverability model
+evidence_type: model-derived
+measured_result: Adding the pathogenic-variant layer reduced unrecoverability to 0.044
+numeric_value: 0.044
+unit: unrecoverability score
+direction: decrease
+confidence: medium
+claim_scope: vault-model scenario
+limitations: Unrecoverability is produced by the project model and is not a formal cryptographic proof
+primary_source_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+supporting_source_files: experiments/B2_vault_design/genomic_vault.py|experiments/B2_vault_design/B2_upgrades.py|experiments/B2_vault_design/vault_design.py|paper/figures/B2_genomic_vault.png
+source_resolution_status: WEAK_CANDIDATE
+source_confidence: low
+source_match_score: 58
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+stage_ids: S7|S9
+asset: Persistently disclosed genomic information
+threat: Time-dependent re-identification
+mechanism: Lifetime genomic-risk simulation
+evidence_type: simulation
+measured_result: Re-identification reached 50% by year 11 and 100% by year 20
+numeric_value: 11
+unit: years to 50 percent re-identification
+direction: increase over time
+confidence: medium
+claim_scope: lifetime-risk simulation
+limitations: Long-term projections depend on model assumptions
+primary_source_file: paper/figures/B2_lifetime_risk.png
+supporting_source_files: paper/figures/B2_lifetime_risk_drivers.png|experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py|paper/figures/B2_genomic_vault.png
+source_resolution_status: STRONG_CANDIDATE
+source_confidence: high
+source_match_score: 136
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+stage_ids: S8|S9
+asset: Familial genomic information
+threat: Persistent familial exposure
+mechanism: Lifetime familial-risk simulation
+evidence_type: simulation
+measured_result: Familial risk reached 100% by year 15
+numeric_value: 15
+unit: years to 100 percent familial risk
+direction: increase over time
+confidence: medium
+claim_scope: lifetime-risk simulation
+limitations: Projection depends on the selected model parameters
+primary_source_file: experiments/B2_vault_design/lifetime_risk.py
+supporting_source_files: paper/figures/B2_lifetime_risk.png|paper/figures/B2_lifetime_risk_drivers.png|research/notes/Findings.txt|experiments/B2_vault_design/B2_upgrades.py
+source_resolution_status: STRONG_CANDIDATE
+source_confidence: high
+source_match_score: 128
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+stage_ids: S8|S10
+asset: Kinship graph exposure boundary
+threat: Graph-originating breach propagation
+mechanism: Graph-aware boundary-isolation simulation
+evidence_type: simulation
+measured_result: Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20
+numeric_value: 6
+unit: exposed nodes at k=10
+direction: decrease
+confidence: medium
+claim_scope: containment simulation
+limitations: Containment performance depends on graph construction
+primary_source_file: experiments/B3_authentication/containment_algorithm.py
+supporting_source_files: paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|paper/figures/B3_attack_origin_comparison.png
+source_resolution_status: STRONG_CANDIDATE
+source_confidence: high
+source_match_score: 128
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+stage_ids: S6|S10
+asset: Genomic-platform authentication layer
+threat: Unauthorized platform access
+mechanism: Behavioural authentication classifier
+evidence_type: simulation or benchmark
+measured_result: At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440
+numeric_value: 0.8409
+unit: F1 score
+direction: performance
+confidence: medium
+claim_scope: authentication benchmark
+limitations: Classifier results require interpretation within the project's generated benchmark setting
+primary_source_file: paper/figures/B3_containment_auth.png
+supporting_source_files: experiments/B3_authentication/containment_algorithm.py|experiments/B3_authentication/.gitkeep|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1
+source_resolution_status: STRONG_CANDIDATE
+source_confidence: high
+source_match_score: 116
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+stage_ids: S6|S10
+asset: Genomic-platform authentication layer
+threat: Missed malicious access
+mechanism: Operational classifier-threshold selection
+evidence_type: design decision
+measured_result: Threshold 3.6 was selected operationally to favour recall
+numeric_value: 3.6
+unit: classifier threshold
+direction: selected
+confidence: medium
+claim_scope: project design decision
+limitations: Operational preference is a design choice rather than a universally optimal threshold
+primary_source_file: experiments/B3_authentication/containment_algorithm.py
+supporting_source_files: experiments/B3_authentication/.gitkeep|paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1
+source_resolution_status: STRONG_CANDIDATE
+source_confidence: high
+source_match_score: 118
+
+==============================================================================
+REGISTRY TARGET PRESENCE
+==============================================================================
+Target IDs requested: 10
+Target IDs found: 10
+Target IDs missing: 0
+
+==============================================================================
+SOURCE RESOLUTION FILE
+==============================================================================
+experiments/C_lifecycle_integration/evidence_registry/C2_evidence_source_resolution.tsv
+
+SOURCE RESOLUTION COLUMNS
+------------------------------------------------------------------------------
+01. evidence_id
+02. module
+03. candidate_rank
+04. candidate_file
+05. score
+06. size_bytes
+07. match_reasons
+08. selected
+
+TARGET SOURCE RESOLUTION ROWS
+==============================================================================
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 1
+candidate_file: experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+score: 45
+size_bytes: 1014
+match_reasons: path:finding | filename:summary | high_value_filename | structured_file
+selected: YES
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 2
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md
+score: 40
+size_bytes: 13616
+match_reasons: path:finding | filename:summary | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 3
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed1_split_summary.tsv
+score: 35
+size_bytes: 486
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: YES
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed2_split_summary.tsv
+score: 35
+size_bytes: 488
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: YES
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed3_split_summary.tsv
+score: 35
+size_bytes: 488
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: YES
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN05_seed1_split_summary.tsv
+score: 35
+size_bytes: 486
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN05_seed2_split_summary.tsv
+score: 35
+size_bytes: 486
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN05_seed3_split_summary.tsv
+score: 35
+size_bytes: 488
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN10_seed1_split_summary.tsv
+score: 35
+size_bytes: 486
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E01
+##############################################################################
+evidence_id: A1_E01
+module: A1
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN10_seed2_split_summary.tsv
+score: 35
+size_bytes: 485
+match_reasons: filename:summary | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 1
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+score: 58
+size_bytes: 28914
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 2
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md
+score: 58
+size_bytes: 10519
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 3
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+score: 58
+size_bytes: 14477
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt
+score: 58
+size_bytes: 3947
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log
+score: 58
+size_bytes: 7180
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/experiment_D_alignment_findings.md
+score: 58
+size_bytes: 10219
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_E2_window_strength_series_findings.md
+score: 58
+size_bytes: 8918
+match_reasons: filename:finding | content:54 | content:33 | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+score: 53
+size_bytes: 61365
+match_reasons: path:finding | content:54 | content:33 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+score: 53
+size_bytes: 61365
+match_reasons: path:finding | content:54 | content:33 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E02
+##############################################################################
+evidence_id: A1_E02
+module: A1
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+score: 53
+size_bytes: 61339
+match_reasons: path:finding | content:54 | content:33 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 1
+candidate_file: experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+score: 30
+size_bytes: 3772
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 2
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt
+score: 30
+size_bytes: 11128
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 3
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+score: 30
+size_bytes: 28914
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md
+score: 30
+size_bytes: 10519
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+score: 30
+size_bytes: 14477
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_findings.txt
+score: 30
+size_bytes: 2694
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt
+score: 30
+size_bytes: 3947
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_FINDINGS_COMPLETE
+score: 30
+size_bytes: 0
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log
+score: 30
+size_bytes: 7180
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E03
+##############################################################################
+evidence_id: A1_E03
+module: A1
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/generate_experiment_D_findings.py
+score: 30
+size_bytes: 23746
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 1
+candidate_file: experiments/A2_adversarial_dna/basecalling/dorado/findings.md
+score: 30
+size_bytes: 3772
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 2
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt
+score: 30
+size_bytes: 11128
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 3
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+score: 30
+size_bytes: 28914
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md
+score: 30
+size_bytes: 10519
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md
+score: 30
+size_bytes: 14477
+match_reasons: filename:finding | high_value_filename
+selected: YES
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_findings.txt
+score: 30
+size_bytes: 2694
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt
+score: 30
+size_bytes: 3947
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_FINDINGS_COMPLETE
+score: 30
+size_bytes: 0
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log
+score: 30
+size_bytes: 7180
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+A1_E04
+##############################################################################
+evidence_id: A1_E04
+module: A1
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/generate_experiment_D_findings.py
+score: 30
+size_bytes: 23746
+match_reasons: filename:finding | high_value_filename
+selected: NO
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 1
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+score: 58
+size_bytes: 28914
+match_reasons: content:0.044 | content:pathogenic | all_content_terms | high_value_filename
+selected: YES
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 2
+candidate_file: experiments/B2_vault_design/genomic_vault.py
+score: 50
+size_bytes: 24229
+match_reasons: filename:vault | content:pathogenic
+selected: YES
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 3
+candidate_file: experiments/B2_vault_design/B2_upgrades.py
+score: 46
+size_bytes: 14367
+match_reasons: path:vault | filename:b2_upgrades
+selected: YES
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 4
+candidate_file: experiments/B2_vault_design/vault_design.py
+score: 36
+size_bytes: 19778
+match_reasons: filename:vault
+selected: YES
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 5
+candidate_file: paper/figures/B2_genomic_vault.png
+score: 36
+size_bytes: 314208
+match_reasons: filename:vault
+selected: YES
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 6
+candidate_file: experiments/B2_vault_design/lifetime_risk.py
+score: 34
+size_bytes: 14103
+match_reasons: path:vault
+selected: NO
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv
+score: 29
+size_bytes: 1118
+match_reasons: content:0.044 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed2_summary.tsv
+score: 29
+size_bytes: 1119
+match_reasons: content:0.044 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 9
+candidate_file: experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+score: 29
+size_bytes: 1014
+match_reasons: content:pathogenic | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B2_E01
+##############################################################################
+evidence_id: B2_E01
+module: B2
+candidate_rank: 10
+candidate_file: experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv
+score: 29
+size_bytes: 773
+match_reasons: content:pathogenic | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 1
+candidate_file: paper/figures/B2_lifetime_risk.png
+score: 136
+size_bytes: 251482
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | filename:risk | filename:b2
+selected: YES
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 2
+candidate_file: paper/figures/B2_lifetime_risk_drivers.png
+score: 136
+size_bytes: 189868
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | filename:risk | filename:b2
+selected: YES
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 3
+candidate_file: experiments/B2_vault_design/lifetime_risk.py
+score: 134
+size_bytes: 14103
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | filename:risk | path:b2
+selected: YES
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 4
+candidate_file: experiments/B2_vault_design/B2_upgrades.py
+score: 36
+size_bytes: 14367
+match_reasons: filename:b2
+selected: YES
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 5
+candidate_file: paper/figures/B2_genomic_vault.png
+score: 36
+size_bytes: 314208
+match_reasons: filename:b2
+selected: YES
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libidn2-1b2a13b7.so.0.3.6
+score: 28
+size_bytes: 265025
+match_reasons: filename:b2
+selected: NO
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 7
+candidate_file: paper/figures/B2_collective_privacy.png
+score: 28
+size_bytes: 168730
+match_reasons: filename:b2
+selected: NO
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 8
+candidate_file: experiments/B2_vault_design/.gitkeep
+score: 26
+size_bytes: 0
+match_reasons: path:b2
+selected: NO
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 9
+candidate_file: experiments/B2_vault_design/genomic_vault.py
+score: 26
+size_bytes: 24229
+match_reasons: path:b2
+selected: NO
+
+##############################################################################
+B2_E02
+##############################################################################
+evidence_id: B2_E02
+module: B2
+candidate_rank: 10
+candidate_file: experiments/B2_vault_design/vault_design.py
+score: 26
+size_bytes: 19778
+match_reasons: path:b2
+selected: NO
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 1
+candidate_file: experiments/B2_vault_design/lifetime_risk.py
+score: 128
+size_bytes: 14103
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | path:b2 | content:familial
+selected: YES
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 2
+candidate_file: paper/figures/B2_lifetime_risk.png
+score: 116
+size_bytes: 251482
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | filename:b2
+selected: YES
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 3
+candidate_file: paper/figures/B2_lifetime_risk_drivers.png
+score: 116
+size_bytes: 189868
+match_reasons: preferred_glob:*lifetime*risk* | filename:lifetime_risk | filename:b2
+selected: YES
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 4
+candidate_file: research/notes/Findings.txt
+score: 58
+size_bytes: 13977
+match_reasons: content:year 15 | content:familial | all_content_terms | high_value_filename
+selected: YES
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 5
+candidate_file: experiments/B2_vault_design/B2_upgrades.py
+score: 50
+size_bytes: 14367
+match_reasons: filename:b2 | content:familial
+selected: YES
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 6
+candidate_file: experiments/B2_vault_design/genomic_vault.py
+score: 40
+size_bytes: 24229
+match_reasons: path:b2 | content:familial
+selected: NO
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 7
+candidate_file: paper/figures/B2_genomic_vault.png
+score: 36
+size_bytes: 314208
+match_reasons: filename:b2
+selected: NO
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libidn2-1b2a13b7.so.0.3.6
+score: 28
+size_bytes: 265025
+match_reasons: filename:b2
+selected: NO
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 9
+candidate_file: paper/figures/B2_collective_privacy.png
+score: 28
+size_bytes: 168730
+match_reasons: filename:b2
+selected: NO
+
+##############################################################################
+B2_E03
+##############################################################################
+evidence_id: B2_E03
+module: B2
+candidate_rank: 10
+candidate_file: experiments/B2_vault_design/.gitkeep
+score: 26
+size_bytes: 0
+match_reasons: path:b2
+selected: NO
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 1
+candidate_file: experiments/B3_authentication/containment_algorithm.py
+score: 128
+size_bytes: 21484
+match_reasons: preferred_glob:*containment* | filename:containment | path:b3 | content:k=10
+selected: YES
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 2
+candidate_file: paper/figures/B3_containment_auth.png
+score: 116
+size_bytes: 175521
+match_reasons: preferred_glob:*containment* | filename:containment | filename:b3
+selected: YES
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 3
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py
+score: 48
+size_bytes: 29317
+match_reasons: content:560 | content:k=10 | all_content_terms
+selected: YES
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py
+score: 48
+size_bytes: 29317
+match_reasons: content:560 | content:k=10 | all_content_terms
+selected: YES
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 5
+candidate_file: paper/figures/B3_attack_origin_comparison.png
+score: 48
+size_bytes: 137665
+match_reasons: filename:attack_origin | filename:b3
+selected: YES
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv
+score: 29
+size_bytes: 61365
+match_reasons: content:560 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv
+score: 29
+size_bytes: 61365
+match_reasons: content:560 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 8
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv
+score: 29
+size_bytes: 61339
+match_reasons: content:560 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv
+score: 29
+size_bytes: 60289
+match_reasons: content:560 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B3_E01
+##############################################################################
+evidence_id: B3_E01
+module: B3
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arctan.csv
+score: 29
+size_bytes: 60305
+match_reasons: content:560 | high_value_filename | structured_file
+selected: NO
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 1
+candidate_file: paper/figures/B3_containment_auth.png
+score: 116
+size_bytes: 175521
+match_reasons: preferred_glob:*b3* | filename:containment_auth | filename:b3
+selected: YES
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 2
+candidate_file: experiments/B3_authentication/containment_algorithm.py
+score: 104
+size_bytes: 21484
+match_reasons: preferred_glob:*b3* | path:authentication | path:b3
+selected: YES
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 3
+candidate_file: experiments/B3_authentication/.gitkeep
+score: 96
+size_bytes: 0
+match_reasons: preferred_glob:*b3* | path:authentication | path:b3
+selected: YES
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6
+score: 88
+size_bytes: 132449
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: YES
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1
+score: 88
+size_bytes: 265777
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: YES
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libsasl2-076b3c1f.so.3.0.0
+score: 88
+size_bytes: 265761
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pillow.libs/libtiff-fb36a6b9.so.6.2.0
+score: 88
+size_bytes: 1053721
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 8
+candidate_file: paper/figures/B3_attack_origin_comparison.png
+score: 88
+size_bytes: 137665
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt
+score: 78
+size_bytes: 1093
+match_reasons: preferred_glob:*b3* | path:b3
+selected: NO
+
+##############################################################################
+B3_E02
+##############################################################################
+evidence_id: B3_E02
+module: B3
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pip/_vendor/urllib3/LICENSE.txt
+score: 78
+size_bytes: 1093
+match_reasons: preferred_glob:*b3* | path:b3
+selected: NO
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 1
+candidate_file: experiments/B3_authentication/containment_algorithm.py
+score: 118
+size_bytes: 21484
+match_reasons: preferred_glob:*b3* | path:authentication | path:b3 | content:recall
+selected: YES
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 2
+candidate_file: experiments/B3_authentication/.gitkeep
+score: 96
+size_bytes: 0
+match_reasons: preferred_glob:*b3* | path:authentication | path:b3
+selected: YES
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 3
+candidate_file: paper/figures/B3_containment_auth.png
+score: 96
+size_bytes: 175521
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: YES
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 4
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6
+score: 88
+size_bytes: 132449
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: YES
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 5
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1
+score: 88
+size_bytes: 265777
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: YES
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 6
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libsasl2-076b3c1f.so.3.0.0
+score: 88
+size_bytes: 265761
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 7
+candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pillow.libs/libtiff-fb36a6b9.so.6.2.0
+score: 88
+size_bytes: 1053721
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 8
+candidate_file: paper/figures/B3_attack_origin_comparison.png
+score: 88
+size_bytes: 137665
+match_reasons: preferred_glob:*b3* | filename:b3
+selected: NO
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 9
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pip-26.1.2.dist-info/licenses/src/pip/_vendor/urllib3/LICENSE.txt
+score: 78
+size_bytes: 1093
+match_reasons: preferred_glob:*b3* | path:b3
+selected: NO
+
+##############################################################################
+B3_E03
+##############################################################################
+evidence_id: B3_E03
+module: B3
+candidate_rank: 10
+candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pip/_vendor/urllib3/LICENSE.txt
+score: 78
+size_bytes: 1093
+match_reasons: preferred_glob:*b3* | path:b3
+selected: NO
+
+==============================================================================
+SOURCE RESOLUTION TARGET PRESENCE
+==============================================================================
+Target IDs found: 10
+Target IDs missing: 0

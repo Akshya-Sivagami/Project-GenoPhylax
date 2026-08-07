@@ -1,0 +1,47 @@
+/home/akshya/Project-GenoPhylax/experiments/B3_authentication/containment_algorithm.py:277: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+/home/akshya/Project-GenoPhylax/experiments/B3_authentication/containment_algorithm.py:473: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+============================================================
+  Module B3 — Graph-Aware Containment & Authentication
+============================================================
+
+[1/4] Building kinship graph...
+      Nodes: 3,303 | Registered: 1,321
+
+[2/4] Computing containment effectiveness...
+      Baseline exposed (no containment): 786
+
+          k    Exposed   Reduction%    Cost%   Efficiency
+      ----------------------------------------------------
+          5        560        28.8%    0.38%        75.66
+         10          6        99.2%    0.76%       130.58
+         15          6        99.2%    1.14%        87.05
+         20          6        99.2%    1.51%        65.72
+         30          6        99.2%    2.27%        43.72
+         40          6        99.2%    3.03%        32.75
+         50          6        99.2%    3.79%        26.18
+
+[3/4] Running credential stuffing detection...
+      Precision : 1.0000
+      Recall    : 0.9800
+      F1 Score  : 0.9899
+      Accuracy  : 0.9960
+      TP=49 FP=0 TN=200 FN=1
+
+[4/4] Computing GRI D4 score...
+      Best containment reduction : 99.24%
+      Auth F1 score              : 0.9899
+      GRI D4 Score               : 0.09 / 10
+
+[5/4] Analyzing attack origin classes...
+
+  Origin                      Baseline   k=10 Reduction
+  ------------------------------------------------------
+  Low-Degree (Peripheral)          780            99.2%
+  Mid-Degree (Average User)        943            20.5%
+  High-Degree (Hub Account)       1077             2.0%
+Saved: B3_attack_origin_comparison.png
+
+Generating plots...
+Plot saved as B3_containment_auth.png

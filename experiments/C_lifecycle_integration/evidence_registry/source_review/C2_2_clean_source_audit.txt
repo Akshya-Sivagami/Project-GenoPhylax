@@ -1,0 +1,439 @@
+MODULE C2.2 — CLEAN AUTHORITATIVE SOURCE AUDIT
+============================================================
+
+Candidate files inspected: 755
+
+============================================================
+A1_E01 — BWA fuzzing approximately 2.5 million executions
+============================================================
+[1] score=60
+docs/roadmap/Roadmap.md
+Phrase hits: none
+Context hits: bwa, fuzz, afl, execution
+Excerpts:
+  L134: | **1. Sample & Sequencing** | Physical DNA sample is sequenced; bioinformatics tools (BWA, SAMtools, GATK) process raw signal into reads. Memory-safety vulnerabilities can be triggered here. | A corrupted read at this stage propagates into every downstream record — it is the root of the chain. |
+  L161: | **A1** | Memory Safety Audit | Static analysis + fuzzing (AFL++, Semgrep) on BWA, SAMtools, GATK, BLAST, Minimap2 for exploitable vulnerabilities via malicious DNA input | Vulnerability report; CVE-class findings; severity taxonomy |
+  L169: ### 4.1 Execution Order Recommendation
+  L171: - **Parallel Execution:** A1 (audit) and B1 (graph model) can run in parallel from week one — neither depends on the other and both produce early concrete results, which matters for a 10-week mentor-credited timeline.
+
+============================================================
+A1_E02 — 54 crashes, 33 unique crashes, two root causes
+============================================================
+[1] score=33
+research/notes/Findings.txt
+Phrase hits: 33
+Context hits: none
+Excerpts:
+  L11: - **The Small-Breach Asymmetry:** Microscopic breaches yield the worst relative damage. Attacking just **0.01%** of the user base triggers a massive **1330x relative amplification** because early entry points efficiently compromise the highly connected "hubs" of the kinship network.
+
+[2] score=30
+docs/roadmap/Roadmap.md
+Phrase hits: none
+Context hits: root cause, bwa
+Excerpts:
+  L134: | **1. Sample & Sequencing** | Physical DNA sample is sequenced; bioinformatics tools (BWA, SAMtools, GATK) process raw signal into reads. Memory-safety vulnerabilities can be triggered here. | A corrupted read at this stage propagates into every downstream record — it is the root of the chain. |
+  L151: | **Graph amplification model** | No formal model of kinship-graph-mediated breach amplification exists, despite 23andMe being the largest genomic breach in history | First model to treat graph amplification as agnostic to root cause — equally describing a credential-stuffing breach AND an upstream 
+  L161: | **A1** | Memory Safety Audit | Static analysis + fuzzing (AFL++, Semgrep) on BWA, SAMtools, GATK, BLAST, Minimap2 for exploitable vulnerabilities via malicious DNA input | Vulnerability report; CVE-class findings; severity taxonomy |
+
+============================================================
+A1_E03 — ksw_extend2 heap buffer overflow
+============================================================
+NO CANDIDATES
+
+============================================================
+A1_E04 — mem_aln2sam global overflow
+============================================================
+NO CANDIDATES
+
+============================================================
+B2_E01 — Pathogenic-variant unrecoverability value
+============================================================
+[1] score=103
+research/notes/Findings.txt
+Phrase hits: 0.215
+Context hits: unrecoverability, pathogenic, vault
+Excerpts:
+  L16: **Module B2 (Vault designing)**: This module designs a zero-trust, graph-aware storage architecture and simulates long-term privacy decay across multi-decade lifespans, shifting from static binary permissions to information-theoretic and conditional access mechanisms. Breakdown of findings based on 
+  L18: - **The Layered Defenses:** The vault architecture partitions genetic assets into five distinct layers. Raw sequences remain permanently locked, while downstream tiers (Ancestry, Pharmacogenomics, Pathogenic Variants, and Polygenic Risk Scores) are gated dynamically based on requester role and crypt
+  L20: • **Information-Theoretic Unrecoverability (The Emergent Threshold):** The vault’s safety threshold (0.5) is no longer an arbitrary heuristic; it is now mathematically emergent, derived from Shannon entropy leakage penalized for overlapping data attributes. The cumulative leakage across tiers scales
+  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+  L28: • **The Clinician Paradox & Conditional Access Escalation:** Rather than utilizing broad binary denials that break real-world clinical workflows, the vault implements a graph-aware conditional access engine matching modern FHIR/Epic security architectures. When a clinician requests high-sensitivity 
+  L79: The current logic is clinically unrealistic. The new framing — clinicians retain pathogenic variant access when clinically justified, but graph-aware controls suppress relative-linked inference pathways — is both more defensible and more novel. This requires a code change in the vault decision engin
+  L81: **B2 Problem 2 — Unrecoverability threshold:**
+  L100: - B2: three code changes (vault logic, unrecoverability model, lifetime risk drivers) + one new experiment (relatives enrollment graph)
+
+[2] score=45
+docs/roadmap/Roadmap.md
+Phrase hits: none
+Context hits: unrecoverability, pathogenic, vault
+Excerpts:
+  L5: *From Molecule to Population: Generation-Time Attacks, Storage Vaulting, and Graph-Amplified Breach Containment*
+  L61: - pathogenic variants
+  L136: | **3. Clinical Interpretation** | The corrupted variant call leads to a misdiagnosis: pathogenic SNV called benign, cancer mutation suppressed, wrong pharmacogenomic dosage. | Patient-level harm is realised here — but the record itself now persists, poisoned, in downstream databases. |
+  L137: | **4. Storage & Database Entry** | The (potentially poisoned) record enters storage. A selective disclosure vault would normally protect raw sequences — but a record corrupted upstream defeats data-quality assumptions the vault was not designed to catch. | **This is the handoff point:** attack outp
+  L152: | **Selective disclosure vault** | No vault design proves raw sequence unrecoverability while only exposing derived markers | First vault design that must also account for upstream record integrity — disclosure guarantees mean nothing if the underlying call was already corrupted at generation |
+  L163: | **A3** | Clinical Consequence Mapping | Map induced variant errors to ClinVar/ACMG pathogenicity classes; demonstrate concrete misdiagnosis scenarios | Clinical risk assessment; worked misdiagnosis case studies |
+  L165: | **B2** | Lifetime Risk + Selective Disclosure Vault | Time-dependent privacy risk function; vault design exposing only derived markers, never raw sequence, with formal unrecoverability proof | Lifetime risk projections; open-source GenomicVault with privacy proof |
+
+[3] score=45
+experiments/B2_vault_design/genomic_vault.py
+Phrase hits: none
+Context hits: unrecoverability, pathogenic, vault
+Excerpts:
+  L7: # MODULE B2 — GenomicVault: Selective Disclosure Architecture
+  L9: # Models a privacy-preserving genomic vault with:
+  L12: #   3. Unrecoverability scoring (D5 linkage)
+  L34: "Pathogenic Variants": {
+  L105: "Pathogenic Variants": [
+  L124: # 1. UNRECOVERABILITY SCORE
+  L130: def compute_unrecoverability(disclosed_tiers):
+  L132: Information-theoretic unrecoverability score.
+  L144: Unrecoverability = 1 - P(reconstruct | disclosed tiers)
+  L156: "Pathogenic Variants"    : 0.420,  # specific loci — high leakage
+  L187: unrecoverability    = round(
+  L190: return unrecoverability
+
+[4] score=30
+experiments/B2_vault_design/vault_design.py
+Phrase hits: none
+Context hits: unrecoverability, vault
+Excerpts:
+  L3: Module B2 — GenomicVault: Selective Disclosure Architecture
+  L6: Deliverable: Vault design with tiered disclosure, unrecoverability
+  L18: # 1. DATA TAXONOMY — What lives in the vault
+  L21: VAULT_LAYERS = {
+  L26: "unrecoverability": 1.0,   # perfect — never exposed
+  L33: "unrecoverability": 0.30,  # partial — VCF can leak raw context
+  L40: "unrecoverability": 0.70,
+  L47: "unrecoverability": 0.60,
+  L54: "unrecoverability": 0.80,
+  L84: # 3. UNRECOVERABILITY SCORE
+  L87: def compute_unrecoverability(tier: str, graph_proximity: int, n_relatives_exposed: int) -> dict:
+  L89: Formal unrecoverability score U(tier, graph_context).
+
+============================================================
+B2_E02 — Re-identification year 11 and year 20
+============================================================
+[1] score=105
+experiments/B2_vault_design/vault_design.py
+Phrase hits: 11, 20
+Context hits: lifetime, risk
+Excerpts:
+  L7: scoring, and graph-context risk (D6 linkage from B1)
+  L34: "description": "Processed variant calls. High re-ID risk; restricted to clinical tier."
+  L37: "label": "Polygenic Risk Scores",
+  L41: "description": "Aggregate scores. Lower re-ID risk; disclosable to research tier."
+  L48: "description": "Population-level summaries. Kinship inference risk remains."
+  L111: # Graph proximity penalty: closer relatives = more reconstruction risk
+  L112: # At hop=0 (owner), no additional risk. At hop=1 (sibling), moderate.
+  L140: D5 (Persistence Risk) adjusted for vault disclosure decisions.
+  L150: return 0.0  # nothing disclosed → zero persistence risk from vault
+  L153: # Based on lifetime_risk.py DB growth curve
+  L164: # 5. GRAPH-CONTEXT DISCLOSURE RISK (D6 linkage)
+  L167: def graph_context_risk(tier: str, graph_proximity: int, n_relatives: int,
+
+[2] score=103
+research/notes/Findings.txt
+Phrase hits: 20
+Context hits: re-identification, lifetime, risk
+Excerpts:
+  L8: - **The Calibration Breakthough:** Synthetic model (2,061 people across 500 families) originally overshot this target because simulated family trees were too tightly knit. By tuning the model using `calibration_tuning.py`, setting the cousin edge probability to **`0.20` (20%)** brought model's ampli
+  L9: - **Redundant Pathway Saturation & Non-Monotonicity:** As shown in `calibration_tuning.png`, genetic vulnerability does not scale linearly with cousin connectivity. Instead, the curve exhibits non-monotonic oscillations. Beyond a localized phase transition at `cp = 0.20`, supplementary biological ed
+  L12: - **Asymmetric Vulnerability in Emerging Databases (GRI D6):** Risk indexing (`gri_d6_scores.py`) cleanly separated platform types. Isolated Research databases scored safely at 0.41, while full-scale commercial platforms like 23andMe hit a critical 10.0. Crucially, Research Biobanks scored at an ala
+  L16: **Module B2 (Vault designing)**: This module designs a zero-trust, graph-aware storage architecture and simulates long-term privacy decay across multi-decade lifespans, shifting from static binary permissions to information-theoretic and conditional access mechanisms. Breakdown of findings based on 
+  L18: - **The Layered Defenses:** The vault architecture partitions genetic assets into five distinct layers. Raw sequences remain permanently locked, while downstream tiers (Ancestry, Pharmacogenomics, Pathogenic Variants, and Polygenic Risk Scores) are gated dynamically based on requester role and crypt
+  L28: • **The Clinician Paradox & Conditional Access Escalation:** Rather than utilizing broad binary denials that break real-world clinical workflows, the vault implements a graph-aware conditional access engine matching modern FHIR/Epic security architectures. When a clinician requests high-sensitivity 
+  L36: • **Mechanistic Drivers of Lifetime Privacy Decay:** Multi-decade simulation curves of the D5 composite score are now grounded by distinct chronological phases, transforming the curve from a simple risk vector into a causal, mechanistic narrative:
+  L37: ◦ **Years 0–10 (Database Growth Dominates):** Risk rises linearly to 3.70, driven heavily by the compounding expansion of public and commercial genomic registries (the database size doubles for the third time).
+  L38: ◦ **Years 10–25 (Inference Expansion Dominates):** The curve hits its major inflection point, jumping sharply to 8.17 by Year 20 as machine learning models cross phenotypic inference midpoints.
+  L39: ◦ **Years 25+ (Saturation & Kinship Persistence):** The composite score plateaus as re-identification and phenotypic inference maximize, while the familial cascade index reaches saturation (100% of modeled kinship pathways reachable) by Year 15 — proving that kinship exposure outlives platform-side 
+  L41: **Phenotypic Dampening:** Unlike identity and lineage exposure, disease inference risk plateaus near 80% and never reaches full saturation. This ceiling adds mathematical credibility to the simulation by respecting the natural, non-genetic biological limits of phenotype predictability.
+  L43: • **Operationalizing Collective Privacy (Risk vs. Enrolled Relatives):** This critical empirical experiment validates the core thesis of collective genomic vulnerability by sweeping from 0 to 100 enrolled relatives to measure D5 score impacts. The results map a definitive progression of network-driv
+
+[3] score=95
+experiments/B2_vault_design/B2_upgrades.py
+Phrase hits: 20
+Context hits: re-identification, lifetime, risk
+Excerpts:
+  L11: # B2 UPGRADE 1 — Lifetime Risk with Driver Annotations
+  L12: # Shows WHICH factor dominates risk growth at each time period
+  L15: CURRENT_YEAR = 2025
+  L18: BASELINE_REID_RISK     = 0.05
+  L19: BASELINE_DISEASE_RISK  = 0.10
+  L20: BASELINE_FAMILIAL_RISK = 0.15
+  L29: def inference_expansion_factor(years, midpoint=20,
+  L34: def compute_lifetime_risk(years):
+  L39: reid_risk     = np.minimum(
+  L40: BASELINE_REID_RISK * db_factor * np.sqrt(inf_factor), 1.0)
+  L41: disease_risk  = np.minimum(
+  L42: BASELINE_DISEASE_RISK * inf_factor, 1.0)
+
+[4] score=95
+experiments/B2_vault_design/lifetime_risk.py
+Phrase hits: 20
+Context hits: re-identification, lifetime, risk
+Excerpts:
+  L6: # MODULE B2 — Lifetime Genomic Risk Model
+  L8: # Models how genomic privacy risk evolves over a person's lifetime.
+  L9: # Three compounding factors drive risk growth:
+  L15: # GRI Dimension: D5 (Persistence Risk)
+  L16: # Key insight: genomic data has a risk horizon of 50-80 years
+  L21: CURRENT_YEAR      = 2025
+  L22: BIRTH_YEAR        = 2025   # person whose risk we're modeling
+  L27: # ── Baseline risk parameters ──────────────────────────────────
+  L28: BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+  L29: BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+  L30: BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+  L36: # More reference genomes = higher re-identification probability.
+
+[5] score=90
+experiments/B2_vault_design/genomic_vault.py
+Phrase hits: 11, 20
+Context hits: risk
+Excerpts:
+  L13: #   4. Graph-context disclosure risk (D6 linkage from B1)
+  L15: # Key insight: the same derived marker carries different risk
+  L17: # disease risk scores can infer their own predispositions,
+  L40: "Polygenic Risk Scores": {
+  L43: "description"   : "Composite disease risk scores (PRS)",
+  L54: "recoverability": 0.20,
+  L74: # a graph-context multiplier (how much D6 risk they add)
+  L80: "d6_weight"       : 0.0,   # no amplification risk
+  L98: "d6_weight"       : 0.85,  # high D6 risk — familial cascade
+  L112: "Polygenic Risk Scores": [
+  L156: "Pathogenic Variants"    : 0.420,  # specific loci — high leakage
+  L157: "Polygenic Risk Scores"  : 0.180,  # aggregated — moderate
+
+[6] score=65
+research/notes/percolation_and_saturation.txt
+Phrase hits: 20
+Context hits: risk
+Excerpts:
+  L6: Beyond `cp = 0.20`, supplementary biological edges introduce network cycles (redundancies) rather than path extensions to unexposed clusters.
+  L7: This implies that security defenses on DTC platforms are highly sensitive to regional kinship structures up to a specific density threshold, after which exposure risk flattens before spiking again.
+  L14: The high risk score of the Research Biobank (6.34) is a critical finding.
+
+============================================================
+B2_E03 — Familial risk reaches year 15 saturation
+============================================================
+[1] score=118
+research/notes/Findings.txt
+Phrase hits: 15
+Context hits: familial, cascade, lifetime, risk
+Excerpts:
+  L10: - **The 3-Hop Security Perimeter:** Analysis proved that genetic exposure completely plateaus at 3 relationship hops. Moving from 2 to 3 hops dramatically expands the blast radius, but 4 or 5 hops add zero new exposed individuals. This establishes a definitive **mathematical perimeter** for threat a
+  L12: - **Asymmetric Vulnerability in Emerging Databases (GRI D6):** Risk indexing (`gri_d6_scores.py`) cleanly separated platform types. Isolated Research databases scored safely at 0.41, while full-scale commercial platforms like 23andMe hit a critical 10.0. Crucially, Research Biobanks scored at an ala
+  L16: **Module B2 (Vault designing)**: This module designs a zero-trust, graph-aware storage architecture and simulates long-term privacy decay across multi-decade lifespans, shifting from static binary permissions to information-theoretic and conditional access mechanisms. Breakdown of findings based on 
+  L18: - **The Layered Defenses:** The vault architecture partitions genetic assets into five distinct layers. Raw sequences remain permanently locked, while downstream tiers (Ancestry, Pharmacogenomics, Pathogenic Variants, and Polygenic Risk Scores) are gated dynamically based on requester role and crypt
+  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+  L28: • **The Clinician Paradox & Conditional Access Escalation:** Rather than utilizing broad binary denials that break real-world clinical workflows, the vault implements a graph-aware conditional access engine matching modern FHIR/Epic security architectures. When a clinician requests high-sensitivity 
+  L34: Meanwhile, requests from a *Relative* bypass conditional escalation and remain strictly blocked due to immediate familial cascade hazards.
+  L36: • **Mechanistic Drivers of Lifetime Privacy Decay:** Multi-decade simulation curves of the D5 composite score are now grounded by distinct chronological phases, transforming the curve from a simple risk vector into a causal, mechanistic narrative:
+  L37: ◦ **Years 0–10 (Database Growth Dominates):** Risk rises linearly to 3.70, driven heavily by the compounding expansion of public and commercial genomic registries (the database size doubles for the third time).
+  L39: ◦ **Years 25+ (Saturation & Kinship Persistence):** The composite score plateaus as re-identification and phenotypic inference maximize, while the familial cascade index reaches saturation (100% of modeled kinship pathways reachable) by Year 15 — proving that kinship exposure outlives platform-side 
+  L41: **Phenotypic Dampening:** Unlike identity and lineage exposure, disease inference risk plateaus near 80% and never reaches full saturation. This ceiling adds mathematical credibility to the simulation by respecting the natural, non-genetic biological limits of phenotype predictability.
+  L43: • **Operationalizing Collective Privacy (Risk vs. Enrolled Relatives):** This critical empirical experiment validates the core thesis of collective genomic vulnerability by sweeping from 0 to 100 enrolled relatives to measure D5 score impacts. The results map a definitive progression of network-driv
+
+[2] score=110
+experiments/B2_vault_design/B2_upgrades.py
+Phrase hits: 15
+Context hits: familial, cascade, lifetime, risk
+Excerpts:
+  L11: # B2 UPGRADE 1 — Lifetime Risk with Driver Annotations
+  L12: # Shows WHICH factor dominates risk growth at each time period
+  L18: BASELINE_REID_RISK     = 0.05
+  L19: BASELINE_DISEASE_RISK  = 0.10
+  L20: BASELINE_FAMILIAL_RISK = 0.15
+  L34: def compute_lifetime_risk(years):
+  L39: reid_risk     = np.minimum(
+  L40: BASELINE_REID_RISK * db_factor * np.sqrt(inf_factor), 1.0)
+  L41: disease_risk  = np.minimum(
+  L42: BASELINE_DISEASE_RISK * inf_factor, 1.0)
+  L43: familial_risk = np.minimum(
+  L44: BASELINE_FAMILIAL_RISK * db_factor * 0.4, 1.0)
+
+[3] score=110
+experiments/B2_vault_design/lifetime_risk.py
+Phrase hits: 15
+Context hits: familial, cascade, lifetime, risk
+Excerpts:
+  L6: # MODULE B2 — Lifetime Genomic Risk Model
+  L8: # Models how genomic privacy risk evolves over a person's lifetime.
+  L9: # Three compounding factors drive risk growth:
+  L15: # GRI Dimension: D5 (Persistence Risk)
+  L16: # Key insight: genomic data has a risk horizon of 50-80 years
+  L22: BIRTH_YEAR        = 2025   # person whose risk we're modeling
+  L27: # ── Baseline risk parameters ──────────────────────────────────
+  L28: BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+  L29: BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+  L30: BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+  L52: # Cheaper sequencing = more adversaries able to sequence = higher risk.
+  L57: Models sequencing cost decay. Returns a risk amplification factor
+
+[4] score=95
+experiments/B2_vault_design/genomic_vault.py
+Phrase hits: 15
+Context hits: familial, cascade, risk
+Excerpts:
+  L13: #   4. Graph-context disclosure risk (D6 linkage from B1)
+  L15: # Key insight: the same derived marker carries different risk
+  L17: # disease risk scores can infer their own predispositions,
+  L18: # creating a familial cascade even from "safe" disclosures.
+  L40: "Polygenic Risk Scores": {
+  L43: "description"   : "Composite disease risk scores (PRS)",
+  L74: # a graph-context multiplier (how much D6 risk they add)
+  L80: "d6_weight"       : 0.0,   # no amplification risk
+  L92: "d6_weight"       : 0.15,
+  L98: "d6_weight"       : 0.85,  # high D6 risk — familial cascade
+  L112: "Polygenic Risk Scores": [
+  L157: "Polygenic Risk Scores"  : 0.180,  # aggregated — moderate
+
+[5] score=80
+experiments/B2_vault_design/vault_design.py
+Phrase hits: 15
+Context hits: lifetime, risk
+Excerpts:
+  L7: scoring, and graph-context risk (D6 linkage from B1)
+  L34: "description": "Processed variant calls. High re-ID risk; restricted to clinical tier."
+  L37: "label": "Polygenic Risk Scores",
+  L41: "description": "Aggregate scores. Lower re-ID risk; disclosable to research tier."
+  L48: "description": "Population-level summaries. Kinship inference risk remains."
+  L111: # Graph proximity penalty: closer relatives = more reconstruction risk
+  L112: # At hop=0 (owner), no additional risk. At hop=1 (sibling), moderate.
+  L116: proximity_penalty = min(0.4, 0.15 * graph_proximity)
+  L140: D5 (Persistence Risk) adjusted for vault disclosure decisions.
+  L150: return 0.0  # nothing disclosed → zero persistence risk from vault
+  L153: # Based on lifetime_risk.py DB growth curve
+  L164: # 5. GRAPH-CONTEXT DISCLOSURE RISK (D6 linkage)
+
+[6] score=30
+research/notes/percolation_and_saturation.txt
+Phrase hits: none
+Context hits: cascade, risk
+Excerpts:
+  L7: This implies that security defenses on DTC platforms are highly sensitive to regional kinship structures up to a specific density threshold, after which exposure risk flattens before spiking again.
+  L10: Because exposure completely saturates at 3 hops, mitigation and notification frameworks do not need to calculate infinite kinship cascades.
+  L14: The high risk score of the Research Biobank (6.34) is a critical finding.
+
+============================================================
+B3_E01 — Containment k=5 k=10 k=20 results
+============================================================
+[1] score=118
+research/notes/Findings.txt
+Phrase hits: 6
+Context hits: k=5, k=10, k=20, containment
+Excerpts:
+  L5: Breakdown of findings based on 4 core files (`graph_model.py`, `amplification_analysis.py`, `calibration_tuning.py`, `gri_d6_scores.py`):
+  L7: - **The Baseline Reality:** In real life, the 23andMe breach compromised 14,000 accounts but exposed 6.9 million people via the "DNA Relatives" feature—a **493x amplification factor**.
+  L8: - **The Calibration Breakthough:** Synthetic model (2,061 people across 500 families) originally overshot this target because simulated family trees were too tightly knit. By tuning the model using `calibration_tuning.py`, setting the cousin edge probability to **`0.20` (20%)** brought model's ampli
+  L12: - **Asymmetric Vulnerability in Emerging Databases (GRI D6):** Risk indexing (`gri_d6_scores.py`) cleanly separated platform types. Isolated Research databases scored safely at 0.41, while full-scale commercial platforms like 23andMe hit a critical 10.0. Crucially, Research Biobanks scored at an ala
+  L22: ◦ **2 Tiers (+ Trait):** 0.876
+  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+  L45: ◦ **30 Relatives Enrolled:** *High Risk* threshold reached; D6 graph-density amplification saturates completely.
+  L51: ** Module B3 (Authentication)**: This module engineers an automated response layer designed to intercept cascading kinship breaches and authenticate access requests under active zero-trust constraints, shifting from a uniform containment model to an origin-dependent topology defense. Breakdown of fi
+  L53: • **The Structural Fallacy of Betweenness:** In dense kinship networks, standard containment strategies that lock high-betweenness "bridge" nodes backfire. Because the graph is hyper-connected, blocking a bridge node merely forces the breadth-first search (BFS) propagation to find alternative, paral
+  L55: • **The Component Isolation Breakthrough:** To bypass the hyper-connectivity problem, the containment engine pivots from node-blocking to **boundary-isolation**. By targeting and isolating the specific connected subgraph component containing the breach, the network successfully halts lateral movemen
+  L57: • **The Attack Origin Dependency (The Reviewer-Proof Finding):** The core contribution of this module proves that containment strategy effectiveness is not uniform; it is fundamentally dependent on the topological class of the compromised entry node:
+  L58: ◦ **Low-Degree Peripheral Breaches (Easy to Contain):** From a baseline of 780 exposed users, locking just k=10 boundary nodes achieves a **99.2% breach reduction**. Because peripheral accounts possess very few neighbors, boundary isolation cuts off lateral movement almost instantly.
+
+[2] score=110
+experiments/B3_authentication/containment_algorithm.py
+Phrase hits: 6
+Context hits: k=5, k=10, k=20, containment
+Excerpts:
+  L19: # 1. BOUNDARY-BASED CONTAINMENT
+  L22: def compute_containment_targets(G, registered_nodes,
+  L23: compromised_nodes, top_k=20):
+  L41: containment_targets, max_hops=3):
+  L42: locked   = set(containment_targets)
+  L62: def analyze_containment_effectiveness(G, registered_nodes,
+  L65: # Same set used for baseline AND all containment runs
+  L80: # Baseline — same compromised nodes, no containment
+  L83: containment_targets=[], max_hops=3
+  L97: targets, _ = compute_containment_targets(
+  L108: containment_cost = round(
+  L116: "containment_cost": containment_cost,
+
+[3] score=25
+research/notes/percolation_and_saturation.txt
+Phrase hits: 6
+Context hits: none
+Excerpts:
+  L14: The high risk score of the Research Biobank (6.34) is a critical finding.
+
+============================================================
+B3_E02 — Authentication threshold 3.8 metrics
+============================================================
+[1] score=68
+research/notes/Findings.txt
+Phrase hits: none
+Context hits: precision, recall, f1, accuracy
+Excerpts:
+  L65: ◦ **Precision:** 1.00 (Zero false positives, ensuring legitimate clinical/research access is never erroneously flagged).
+  L66: ◦ **Recall:** 0.98 (Successfully caught 98% of spoofed or unauthorized access attempts).
+  L67: ◦ **F1-Score:** 0.99 (Demonstrating near-flawless harmonic accuracy).
+
+[2] score=60
+experiments/B3_authentication/containment_algorithm.py
+Phrase hits: none
+Context hits: precision, recall, f1, accuracy
+Excerpts:
+  L211: fig.patch.set_facecolor("#F1F5F9")
+  L343: precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+  L344: recall    = tp / (tp + fn) if (tp + fn) > 0 else 0
+  L345: f1        = (2 * precision * recall / (precision + recall)
+  L346: if (precision + recall) > 0 else 0)
+  L347: accuracy  = (tp + tn) / len(sessions)
+  L351: "precision": round(precision, 4),
+  L352: "recall"   : round(recall, 4),
+  L353: "f1"       : round(f1, 4),
+  L354: "accuracy" : round(accuracy, 4),
+  L362: def compute_d4_score(containment_reduction_pct, auth_f1_score):
+  L364: combined        = (containment_eff + auth_f1_score) / 2.0
+
+============================================================
+B3_E03 — Operational threshold 3.6
+============================================================
+[1] score=53
+research/notes/Findings.txt
+Phrase hits: none
+Context hits: threshold, recall, authentication
+Excerpts:
+  L20: • **Information-Theoretic Unrecoverability (The Emergent Threshold):** The vault’s safety threshold (0.5) is no longer an arbitrary heuristic; it is now mathematically emergent, derived from Shannon entropy leakage penalized for overlapping data attributes. The cumulative leakage across tiers scales
+  L28: • **The Clinician Paradox & Conditional Access Escalation:** Rather than utilizing broad binary denials that break real-world clinical workflows, the vault implements a graph-aware conditional access engine matching modern FHIR/Epic security architectures. When a clinician requests high-sensitivity 
+  L44: ◦ **10 Relatives Enrolled:** *Moderate Risk* threshold breached.
+  L45: ◦ **30 Relatives Enrolled:** *High Risk* threshold reached; D6 graph-density amplification saturates completely.
+  L46: ◦ **50 Relatives Enrolled:** *Critical Risk* threshold breached; D3 familial cascade saturates fully.
+  L51: ** Module B3 (Authentication)**: This module engineers an automated response layer designed to intercept cascading kinship breaches and authenticate access requests under active zero-trust constraints, shifting from a uniform containment model to an origin-dependent topology defense. Breakdown of fi
+  L64: • **High-Fidelity Authentication Performance:** The zero-trust authentication layer achieved exceptional detection metrics, cleanly crossing the research protocol's target thresholds:
+  L66: ◦ **Recall:** 0.98 (Successfully caught 98% of spoofed or unauthorized access attempts).
+  L73: **B1 — Percolation threshold wording:**
+  L75: What we actually observed is redundant pathway saturation, not a true percolation threshold in the Erdős–Rényi sense. The fix is purely in language — we change the claim in the paper to "diminishing amplification returns due to redundant kinship pathways" and cite it as an empirical observation rath
+  L81: **B2 Problem 2 — Unrecoverability threshold:**
+
+[2] score=45
+experiments/B3_authentication/containment_algorithm.py
+Phrase hits: none
+Context hits: threshold, recall, authentication
+Excerpts:
+  L236: label="50% reduction threshold")
+  L239: label="99% reduction threshold")
+  L326: def evaluate_detection(sessions, threshold=4.5):
+  L332: detected = score >= threshold
+  L344: recall    = tp / (tp + fn) if (tp + fn) > 0 else 0
+  L345: f1        = (2 * precision * recall / (precision + recall)
+  L346: if (precision + recall) > 0 else 0)
+  L352: "recall"   : round(recall, 4),
+  L377: "Module B3 — Graph-Aware Containment & Authentication\n",
+  L391: label="50% reduction threshold")
+  L435: lw=2, label="Detection threshold (4.5)")
+  L447: metric_names = ["Precision", "Recall", "F1 Score", "Accuracy"]
+
+[3] score=15
+research/notes/percolation_and_saturation.txt
+Phrase hits: none
+Context hits: threshold
+Excerpts:
+  L3: ## 1. Non-Monotonicity and Percolation Thresholds
+  L7: This implies that security defenses on DTC platforms are highly sensitive to regional kinship structures up to a specific density threshold, after which exposure risk flattens before spiking again.
+

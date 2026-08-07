@@ -1,505 +1,470 @@
-# Module C2 — Cross-Module Evidence Registry
-
-## Status
-
-`DRAFT_SOURCE_REVIEW_REQUIRED`
-
-## Purpose
-
-This registry links measured GenoPhylax results to the canonical lifecycle stages defined in C1. It separates experimental evidence from simulation, calibration, model-derived values and project design decisions.
-
-## Important source qualification
-
-The source paths in this first pass are automatically resolved candidates. Strong candidates may still require human inspection before they are locked as authoritative paper sources. No GenoPhylax Risk Index weights or composite scores are assigned in C2.
-
-## Module coverage
-
-- **A1:** 4 evidence records
-- **A2:** 4 evidence records
-- **A3:** 4 evidence records
-- **B1:** 2 evidence records
-- **B2:** 3 evidence records
-- **B3:** 3 evidence records
-
-## Evidence records
-
-### A1_E01 — A1
-
-**Lifecycle stages:** S3, S10
-
-**Evidence type:** experimental
-
-**Asset:** BWA alignment software
-
-**Threat:** Malformed genomic input triggering memory corruption
-
-**Mechanism:** Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19
-
-**Measured result:** Approximately 2.5 million fuzz executions
-
-**Evidence confidence:** high
-
-**Claim scope:** software-test campaign
-
-**Limitations:** Single principal target version and incomplete program coverage
-
-**Candidate source:** `experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv`
-
-**Source resolution:** WEAK_CANDIDATE (score 45)
-
-### A1_E02 — A1
-
-**Lifecycle stages:** S3, S10
-
-**Evidence type:** experimental
-
-**Asset:** BWA alignment software
-
-**Threat:** Memory-safety vulnerability
-
-**Mechanism:** ASAN-confirmed crash triage
-
-**Measured result:** 54 total crashes, 33 unique crashes and two root causes
-
-**Evidence confidence:** high
-
-**Claim scope:** software-test campaign
-
-**Limitations:** Root causes were established within the project audit; external CVE assignment was not claimed
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md`
-
-**Source resolution:** WEAK_CANDIDATE (score 58)
-
-### A1_E03 — A1
-
-**Lifecycle stages:** S3
-
-**Evidence type:** experimental
-
-**Asset:** BWA ksw alignment routine
-
-**Threat:** Heap buffer overflow
-
-**Mechanism:** Malformed-input execution reaching ksw_extend2
-
-**Measured result:** Heap buffer overflow in ksw_extend2 at ksw.c:428
-
-**Evidence confidence:** high
-
-**Claim scope:** function-level finding
-
-**Limitations:** Exploitability beyond the demonstrated crash was not established
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/dorado/findings.md`
-
-**Source resolution:** WEAK_CANDIDATE (score 30)
-
-### A1_E04 — A1
-
-**Lifecycle stages:** S3
-
-**Evidence type:** experimental
-
-**Asset:** BWA SAM-output routine
-
-**Threat:** Global buffer overflow
-
-**Mechanism:** Malformed-input execution reaching mem_aln2sam
-
-**Measured result:** Global overflow in mem_aln2sam at bwamem.c:906
-
-**Evidence confidence:** high
-
-**Claim scope:** function-level finding
-
-**Limitations:** Exploitability beyond the demonstrated crash was not established
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/dorado/findings.md`
-
-**Source resolution:** WEAK_CANDIDATE (score 30)
-
-### A2_E01 — A2
-
-**Lifecycle stages:** S1, S2
-
-**Evidence type:** experimental
-
-**Asset:** Nanopore raw signal and basecalled reads
-
-**Threat:** Whole-read Gaussian raw-signal perturbation
-
-**Mechanism:** Controlled Gaussian-noise dose series
-
-**Measured result:** Seed-42 mean identity declined from 98.79% at GN01 to 93.89% at GN10
-
-**Evidence confidence:** high
-
-**Claim scope:** 100-read controlled experiment
-
-**Limitations:** One sequencing dataset, one production basecaller and a limited perturbation family
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv`
-
-**Source resolution:** STRONG_CANDIDATE (score 141)
-
-### A2_E02 — A2
-
-**Lifecycle stages:** S1, S2
-
-**Evidence type:** experimental
-
-**Asset:** Nanopore raw signal and basecalled reads
-
-**Threat:** Stochastic raw-signal perturbation
-
-**Mechanism:** Five-seed replication across GN01, GN05 and GN10
-
-**Measured result:** GN10 mean identity replicated within approximately 93.56% to 93.95%
-
-**Evidence confidence:** high
-
-**Claim scope:** multi-seed technical replication
-
-**Limitations:** Replication varied noise realization, not biological sample
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md`
-
-**Source resolution:** STRONG_CANDIDATE (score 258)
-
-### A2_E03 — A2
-
-**Lifecycle stages:** S2, S3
-
-**Evidence type:** experimental
-
-**Asset:** Perturbed nanopore reads
-
-**Threat:** Basecall degradation while preserving downstream usability
-
-**Mechanism:** Minimap2 map-ont alignment of the 1,000-read series
-
-**Measured result:** Approximately 97% remained mapped with mean MAPQ approximately 55.3 to 55.4
-
-**Evidence confidence:** high
-
-**Claim scope:** 1,000-read alignment series
-
-**Limitations:** Mapping retention does not establish preservation of all downstream biological information
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv`
-
-**Source resolution:** STRONG_CANDIDATE (score 263)
-
-### A2_E04 — A2
-
-**Lifecycle stages:** S1, S2, S3
-
-**Evidence type:** experimental
-
-**Asset:** Truth-backed nanopore locus evidence
-
-**Threat:** Target-local signal perturbation
-
-**Mechanism:** W0 targeted-locus perturbation replicated at L2 and L3
-
-**Measured result:** L2 and L3 each retained ALT state in 10 of 10 parents; zero target-state changes
-
-**Evidence confidence:** high
-
-**Claim scope:** cross-locus replication
-
-**Limitations:** The tested W0 effect did not generalize across these two additional loci
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs/cross_locus_W0_target_effect.log`
-
-**Source resolution:** STRONG_CANDIDATE (score 198)
-
-### A3_E01 — A3
-
-**Lifecycle stages:** S1, S2, S3
-
-**Evidence type:** experimental
-
-**Asset:** F11 ALT-supporting nanopore reads
-
-**Threat:** Target-mapped local raw-signal interpolation
-
-**Mechanism:** Interpolation over W0, PM2, PM5, PM10 and PM20 signal windows
-
-**Measured result:** 59 of 70 parent-condition observations changed target state
-
-**Evidence confidence:** high
-
-**Claim scope:** single-locus controlled case study
-
-**Limitations:** Single individual, pathogenic locus, sequencing run, basecaller and model
-
-**Candidate source:** `experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv`
-
-**Source resolution:** STRONG_CANDIDATE (score 219)
-
-### A3_E02 — A3
-
-**Lifecycle stages:** S3, S4
-
-**Evidence type:** experimental
-
-**Asset:** F11 pathogenic variant evidence
-
-**Threat:** Target-overlapping local signal attack
-
-**Mechanism:** PM2 interpolation over target base and two flanking bases
-
-**Measured result:** All 14 clean-confirmed ALT parents lost ALT state under PM2
-
-**Evidence confidence:** high
-
-**Claim scope:** parent-level target-state analysis
-
-**Limitations:** Controlled single-locus experiment
-
-**Candidate source:** `experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt`
-
-**Source resolution:** STRONG_CANDIDATE (score 192)
-
-### A3_E03 — A3
-
-**Lifecycle stages:** S4, S5
-
-**Evidence type:** experimental
-
-**Asset:** Pathogenic F11 heterozygous variant call
-
-**Threat:** False-negative or missed-variant event
-
-**Mechanism:** Controlled hybrid pileup and bcftools variant calling after targeted signal attack
-
-**Measured result:** Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20
-
-**Evidence confidence:** high
-
-**Claim scope:** controlled variant-calling workflow
-
-**Limitations:** Potential clinical interpretation risk only; no real clinical diagnosis or patient outcome was tested
-
-**Candidate source:** `experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv`
-
-**Source resolution:** STRONG_CANDIDATE (score 207)
-
-### A3_E04 — A3
-
-**Lifecycle stages:** S1, S2, S3, S4
-
-**Evidence type:** experimental control
-
-**Asset:** F11 pathogenic variant evidence
-
-**Threat:** Non-target interpolation as confounding mechanism
-
-**Mechanism:** PM2-sized off-target sham interpolation at least 5,000 signal samples from the F11 target
-
-**Measured result:** Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202
-
-**Evidence confidence:** high
-
-**Claim scope:** target-specific causality control
-
-**Limitations:** One off-target sham design within the same read cohort
-
-**Candidate source:** `experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt`
-
-**Source resolution:** STRONG_CANDIDATE (score 242)
-
-### B1_E01 — B1
-
-**Lifecycle stages:** S7, S8
-
-**Evidence type:** simulation
-
-**Asset:** Genomic-sharing population graph
-
-**Threat:** Familial graph-amplified exposure
-
-**Mechanism:** Population graph simulation and breach propagation
-
-**Measured result:** Population graph contained 3,303 nodes, with 1,321 registered individuals and 786 baseline exposed
-
-**Evidence confidence:** medium
-
-**Claim scope:** graph simulation
-
-**Limitations:** Synthetic or modelled graph rather than direct platform data
-
-**Candidate source:** `experiments/B1_graph_amplification/results_log.txt`
-
-**Source resolution:** STRONG_CANDIDATE (score 184)
-
-### B1_E02 — B1
-
-**Lifecycle stages:** S7, S8
-
-**Evidence type:** calibrated simulation
-
-**Asset:** Genomic-sharing population graph
-
-**Threat:** Graph-amplified breach exposure
-
-**Mechanism:** Calibration to a 493-fold target amplification scenario
-
-**Measured result:** Model amplification reached 464.4-fold with 5.8% calibration error
-
-**Evidence confidence:** medium
-
-**Claim scope:** calibrated graph model
-
-**Limitations:** Calibration target does not independently validate every graph assumption
-
-**Candidate source:** `experiments/B1_graph_amplification/results_log.txt`
-
-**Source resolution:** STRONG_CANDIDATE (score 232)
-
-### B2_E01 — B2
-
-**Lifecycle stages:** S6, S7
-
-**Evidence type:** model-derived
-
-**Asset:** Layered genomic vault
-
-**Threat:** Reconstruction from disclosed semantic layers
-
-**Mechanism:** Layered vault and unrecoverability model
-
-**Measured result:** Adding the pathogenic-variant layer reduced unrecoverability to 0.044
-
-**Evidence confidence:** medium
-
-**Claim scope:** vault-model scenario
-
-**Limitations:** Unrecoverability is produced by the project model and is not a formal cryptographic proof
-
-**Candidate source:** `experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md`
-
-**Source resolution:** WEAK_CANDIDATE (score 58)
-
-### B2_E02 — B2
-
-**Lifecycle stages:** S7, S9
-
-**Evidence type:** simulation
-
-**Asset:** Persistently disclosed genomic information
-
-**Threat:** Time-dependent re-identification
-
-**Mechanism:** Lifetime genomic-risk simulation
-
-**Measured result:** Re-identification reached 50% by year 11 and 100% by year 20
-
-**Evidence confidence:** medium
-
-**Claim scope:** lifetime-risk simulation
-
-**Limitations:** Long-term projections depend on model assumptions
-
-**Candidate source:** `paper/figures/B2_lifetime_risk.png`
-
-**Source resolution:** STRONG_CANDIDATE (score 136)
-
-### B2_E03 — B2
-
-**Lifecycle stages:** S8, S9
-
-**Evidence type:** simulation
-
-**Asset:** Familial genomic information
-
-**Threat:** Persistent familial exposure
-
-**Mechanism:** Lifetime familial-risk simulation
-
-**Measured result:** Familial risk reached 100% by year 15
-
-**Evidence confidence:** medium
-
-**Claim scope:** lifetime-risk simulation
-
-**Limitations:** Projection depends on the selected model parameters
-
-**Candidate source:** `experiments/B2_vault_design/lifetime_risk.py`
-
-**Source resolution:** STRONG_CANDIDATE (score 128)
-
-### B3_E01 — B3
-
-**Lifecycle stages:** S8, S10
-
-**Evidence type:** simulation
-
-**Asset:** Kinship graph exposure boundary
-
-**Threat:** Graph-originating breach propagation
-
-**Mechanism:** Graph-aware boundary-isolation simulation
-
-**Measured result:** Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20
-
-**Evidence confidence:** medium
-
-**Claim scope:** containment simulation
-
-**Limitations:** Containment performance depends on graph construction
-
-**Candidate source:** `experiments/B3_authentication/containment_algorithm.py`
-
-**Source resolution:** STRONG_CANDIDATE (score 128)
-
-### B3_E02 — B3
-
-**Lifecycle stages:** S6, S10
-
-**Evidence type:** simulation or benchmark
-
-**Asset:** Genomic-platform authentication layer
-
-**Threat:** Unauthorized platform access
-
-**Mechanism:** Behavioural authentication classifier
-
-**Measured result:** At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440
-
-**Evidence confidence:** medium
-
-**Claim scope:** authentication benchmark
-
-**Limitations:** Classifier results require interpretation within the project's generated benchmark setting
-
-**Candidate source:** `paper/figures/B3_containment_auth.png`
-
-**Source resolution:** STRONG_CANDIDATE (score 116)
-
-### B3_E03 — B3
-
-**Lifecycle stages:** S6, S10
-
-**Evidence type:** design decision
-
-**Asset:** Genomic-platform authentication layer
-
-**Threat:** Missed malicious access
-
-**Mechanism:** Operational classifier-threshold selection
-
-**Measured result:** Threshold 3.6 was selected operationally to favour recall
-
-**Evidence confidence:** medium
-
-**Claim scope:** project design decision
-
-**Limitations:** Operational preference is a design choice rather than a universally optimal threshold
-
-**Candidate source:** `experiments/B3_authentication/containment_algorithm.py`
-
-**Source resolution:** STRONG_CANDIDATE (score 118)
+# C2 Cross-Module Evidence Registry
+
+**Registry status:** `SOURCE_VERIFIED_EXCEPT_A1_TIERS_ASSIGNED_TO_VERIFIED_ROWS`
+
+A2, A3, B1, B2 and B3 evidence records have verified first-party or directly reproduced sources and row-level evidence tiers.
+
+A1 remains provenance-pending and intentionally has no E1–E5 assignment.
+
+Evidence tiers are categorical and are not numerical GRI weights.
+
+## A1_E01 — Module A1
+
+- **stage_ids:** S3|S10
+- **asset:** BWA alignment software
+- **threat:** Malformed genomic input triggering memory corruption
+- **mechanism:** Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19
+- **evidence_type:** experimental
+- **measured_result:** Approximately 2.5 million fuzz executions
+- **numeric_value:** 2500000
+- **unit:** executions
+- **direction:** observed
+- **confidence:** high
+- **claim_scope:** software-test campaign
+- **limitations:** Single principal target version and incomplete program coverage; the authoritative A1 campaign artifact is not present in the current Git clone and must be recovered before source lock.
+- **primary_source_file:** <none>
+- **supporting_source_files:** <none>
+- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
+- **source_confidence:** unresolved
+- **evidence_tier:** <none>
+- **tier_label:** <none>
+- **tier_status:** SOURCE_PENDING
+- **tier_rationale:** Authoritative A1 fuzzing campaign provenance is not present in the current Git clone. Tier assignment is deferred rather than inferred from an unsourced claim.
+
+## A1_E02 — Module A1
+
+- **stage_ids:** S3|S10
+- **asset:** BWA alignment software
+- **threat:** Memory-safety vulnerability
+- **mechanism:** ASAN-confirmed crash triage
+- **evidence_type:** experimental
+- **measured_result:** 54 total crashes, 33 unique crashes and two root causes
+- **numeric_value:** 2
+- **unit:** root causes
+- **direction:** observed
+- **confidence:** high
+- **claim_scope:** software-test campaign
+- **limitations:** Root causes were established within the project audit and external CVE assignment was not claimed; the authoritative A1 crash-triage artifact is not present in the current Git clone.
+- **primary_source_file:** <none>
+- **supporting_source_files:** <none>
+- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
+- **source_confidence:** unresolved
+- **evidence_tier:** <none>
+- **tier_label:** <none>
+- **tier_status:** SOURCE_PENDING
+- **tier_rationale:** Authoritative A1 crash-triage provenance is not present in the current Git clone. Tier assignment is deferred.
+
+## A1_E03 — Module A1
+
+- **stage_ids:** S3
+- **asset:** BWA ksw alignment routine
+- **threat:** Heap buffer overflow
+- **mechanism:** Malformed-input execution reaching ksw_extend2
+- **evidence_type:** experimental
+- **measured_result:** Heap buffer overflow in ksw_extend2 at ksw.c:428
+- **numeric_value:** <none>
+- **unit:** vulnerability
+- **direction:** observed
+- **confidence:** high
+- **claim_scope:** function-level finding
+- **limitations:** Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
+- **primary_source_file:** <none>
+- **supporting_source_files:** <none>
+- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
+- **source_confidence:** unresolved
+- **evidence_tier:** <none>
+- **tier_label:** <none>
+- **tier_status:** SOURCE_PENDING
+- **tier_rationale:** The original ASAN artifact for the ksw_extend2 finding must be recovered before empirical tier classification.
+
+## A1_E04 — Module A1
+
+- **stage_ids:** S3
+- **asset:** BWA SAM-output routine
+- **threat:** Global buffer overflow
+- **mechanism:** Malformed-input execution reaching mem_aln2sam
+- **evidence_type:** experimental
+- **measured_result:** Global overflow in mem_aln2sam at bwamem.c:906
+- **numeric_value:** <none>
+- **unit:** vulnerability
+- **direction:** observed
+- **confidence:** high
+- **claim_scope:** function-level finding
+- **limitations:** Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
+- **primary_source_file:** <none>
+- **supporting_source_files:** <none>
+- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
+- **source_confidence:** unresolved
+- **evidence_tier:** <none>
+- **tier_label:** <none>
+- **tier_status:** SOURCE_PENDING
+- **tier_rationale:** The original ASAN artifact for the mem_aln2sam finding must be recovered before empirical tier classification.
+
+## A2_E01 — Module A2
+
+- **stage_ids:** S1|S2
+- **asset:** Nanopore raw signal and basecalled reads
+- **threat:** Whole-read Gaussian raw-signal perturbation
+- **mechanism:** Controlled Gaussian-noise dose series
+- **evidence_type:** experimental
+- **measured_result:** Seed-42 mean identity declined from 98.79% at GN01 to 93.89% at GN10
+- **numeric_value:** 93.89
+- **unit:** percent mean identity at GN10
+- **direction:** decrease
+- **confidence:** high
+- **claim_scope:** 100-read controlled experiment
+- **limitations:** One sequencing dataset, one production basecaller and a limited perturbation family
+- **primary_source_file:** experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv
+- **supporting_source_files:** experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed3_per_read.tsv
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct nanopore signal perturbation and basecalling experiment under a controlled seed-42 Gaussian dose-response.
+
+## A2_E02 — Module A2
+
+- **stage_ids:** S1|S2
+- **asset:** Nanopore raw signal and basecalled reads
+- **threat:** Stochastic raw-signal perturbation
+- **mechanism:** Five-seed replication across GN01, GN05 and GN10
+- **evidence_type:** experimental
+- **measured_result:** GN10 mean identity replicated within approximately 93.56% to 93.95%
+- **numeric_value:** 5
+- **unit:** random seeds
+- **direction:** replicated
+- **confidence:** high
+- **claim_scope:** multi-seed technical replication
+- **limitations:** Replication varied noise realization, not biological sample
+- **primary_source_file:** experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md
+- **supporting_source_files:** experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E1
+- **tier_label:** Replicated direct empirical evidence
+- **tier_status:** ASSIGNED
+- **tier_rationale:** The Gaussian dose-response was reproduced across five independent random seeds at multiple perturbation strengths.
+
+## A2_E03 — Module A2
+
+- **stage_ids:** S2|S3
+- **asset:** Perturbed nanopore reads
+- **threat:** Basecall degradation while preserving downstream usability
+- **mechanism:** Minimap2 map-ont alignment of the 1,000-read series
+- **evidence_type:** experimental
+- **measured_result:** Approximately 97% remained mapped with mean MAPQ approximately 55.3 to 55.4
+- **numeric_value:** 97
+- **unit:** percent mapped
+- **direction:** retained
+- **confidence:** high
+- **claim_scope:** 1,000-read alignment series
+- **limitations:** Mapping retention does not establish preservation of all downstream biological information
+- **primary_source_file:** experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv
+- **supporting_source_files:** experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D1_clean_validation/metrics/experiment_D1_clean_alignment_summary.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2B_paired_alignment_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_9run_paired_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3_9run_alignment_results.tsv
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct empirical alignment measurement following controlled ONT signal perturbation; not independently replicated as the primary claim represented by this row.
+
+## A2_E04 — Module A2
+
+- **stage_ids:** S1|S2|S3
+- **asset:** Truth-backed nanopore locus evidence
+- **threat:** Target-local signal perturbation
+- **mechanism:** W0 targeted-locus perturbation replicated at L2 and L3
+- **evidence_type:** experimental
+- **measured_result:** Under the W0 target-only perturbation, L2 and L3 each retained the ALT state in 10 of 10 parents, with 0 of 20 combined target-state changes.
+- **numeric_value:** 0
+- **unit:** target-state changes out of 20 parents
+- **direction:** no effect
+- **confidence:** high
+- **claim_scope:** two-locus cross-locus W0 replication
+- **limitations:** Result applies to the target-only W0 perturbation at the two tested heterozygous loci and does not imply that wider targeted windows are ineffective.
+- **primary_source_file:** experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md
+- **supporting_source_files:** experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E1
+- **tier_label:** Replicated direct empirical evidence
+- **tier_status:** ASSIGNED
+- **tier_rationale:** The W0 target-only condition was tested at two independent heterozygous loci, L2 and L3, with 10 parents at each locus and the same null target-state result at both loci.
+
+## A3_E01 — Module A3
+
+- **stage_ids:** S1|S2|S3
+- **asset:** F11 ALT-supporting nanopore reads
+- **threat:** Target-mapped local raw-signal interpolation
+- **mechanism:** Interpolation over W0, PM2, PM5, PM10 and PM20 signal windows
+- **evidence_type:** experimental
+- **measured_result:** 59 of 70 parent-condition observations changed target state
+- **numeric_value:** 84.2857
+- **unit:** percent changed
+- **direction:** increase
+- **confidence:** high
+- **claim_scope:** single-locus controlled case study
+- **limitations:** Single individual, pathogenic locus, sequencing run, basecaller and model
+- **primary_source_file:** experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+- **supporting_source_files:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt|experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_final_validation.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct F11 pathogenic-variant signal-perturbation experiment across controlled conditions, but restricted to one locus, one individual and one principal experimental system.
+
+## A3_E02 — Module A3
+
+- **stage_ids:** S3|S4
+- **asset:** F11 pathogenic variant evidence
+- **threat:** Target-overlapping local signal attack
+- **mechanism:** PM2 interpolation over target base and two flanking bases
+- **evidence_type:** experimental
+- **measured_result:** All 14 clean-confirmed ALT parents lost ALT state under PM2
+- **numeric_value:** 14
+- **unit:** ALT parents changed out of 14
+- **direction:** suppressed
+- **confidence:** high
+- **claim_scope:** parent-level target-state analysis
+- **limitations:** Controlled single-locus experiment
+- **primary_source_file:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt
+- **supporting_source_files:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct controlled PM2 perturbation of the clean-confirmed F11 ALT-supporting parents.
+
+## A3_E03 — Module A3
+
+- **stage_ids:** S4|S5
+- **asset:** Pathogenic F11 heterozygous variant call
+- **threat:** False-negative or missed-variant event
+- **mechanism:** Controlled hybrid pileup and bcftools variant calling after targeted signal attack
+- **evidence_type:** experimental
+- **measured_result:** Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20
+- **numeric_value:** 4
+- **unit:** attack conditions with call loss
+- **direction:** suppressed
+- **confidence:** high
+- **claim_scope:** controlled variant-calling workflow
+- **limitations:** Potential clinical interpretation risk only; no real clinical diagnosis or patient outcome was tested
+- **primary_source_file:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv
+- **supporting_source_files:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_report.txt|experiments/A3_clinical_consequence_mapping/logs/A3_F11_controlled_hybrid_variant_calling.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Observed downstream variant-call consequence in the controlled F11 experiment; this is not evidence of real clinical ingestion or patient harm.
+
+## A3_E04 — Module A3
+
+- **stage_ids:** S1|S2|S3|S4
+- **asset:** F11 pathogenic variant evidence
+- **threat:** Non-target interpolation as confounding mechanism
+- **mechanism:** PM2-sized off-target sham interpolation at least 5,000 signal samples from the F11 target
+- **evidence_type:** experimental control
+- **measured_result:** Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202
+- **numeric_value:** 14
+- **unit:** ALT parents retained out of 14
+- **direction:** retained
+- **confidence:** high
+- **claim_scope:** target-specific causality control
+- **limitations:** One off-target sham design within the same read cohort
+- **primary_source_file:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt
+- **supporting_source_files:** experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_summary.tsv|experiments/A3_clinical_consequence_mapping/logs/A3_F11_PM2_off_target_sham.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_generation_audit.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_target_parent_audit.tsv
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Matched off-target sham control within the same F11 experimental case, strengthening causal interpretation without constituting external replication.
+
+## B1_E01 — Module B1
+
+- **stage_ids:** S7|S8
+- **asset:** Genomic-sharing population graph
+- **threat:** Familial graph-amplified exposure
+- **mechanism:** Population graph simulation and breach propagation
+- **evidence_type:** simulation
+- **measured_result:** The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.
+- **numeric_value:** 4144
+- **unit:** population nodes
+- **direction:** observed model size
+- **confidence:** medium
+- **claim_scope:** B1 synthetic graph-amplification analysis
+- **limitations:** Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv
+- **supporting_source_files:** experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.
+
+## B1_E02 — Module B1
+
+- **stage_ids:** S7|S8
+- **asset:** Genomic-sharing population graph
+- **threat:** Graph-amplified breach exposure
+- **mechanism:** Calibration to a 493-fold target amplification scenario
+- **evidence_type:** calibrated simulation
+- **measured_result:** Model amplification reached 464.4-fold with 5.8% calibration error
+- **numeric_value:** 464.4
+- **unit:** fold amplification
+- **direction:** amplified
+- **confidence:** medium
+- **claim_scope:** calibrated graph model
+- **limitations:** Calibration target does not independently validate every graph assumption
+- **primary_source_file:** experiments/B1_graph_amplification/results_log.txt
+- **supporting_source_files:** paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E3
+- **tier_label:** Calibrated simulation/model
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.
+
+## B2_E01 — Module B2
+
+- **stage_ids:** S6|S7
+- **asset:** Layered genomic vault
+- **threat:** Reconstruction from disclosed semantic layers
+- **mechanism:** Layered vault and unrecoverability model
+- **evidence_type:** model-derived
+- **measured_result:** Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.
+- **numeric_value:** 0.2299
+- **unit:** unrecoverability score
+- **direction:** decrease with cumulative disclosure
+- **confidence:** medium
+- **claim_scope:** vault-model scenario
+- **limitations:** Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+- **supporting_source_files:** experiments/B2_vault_design/genomic_vault.py
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.
+
+## B2_E02 — Module B2
+
+- **stage_ids:** S7|S9
+- **asset:** Persistently disclosed genomic information
+- **threat:** Time-dependent re-identification
+- **mechanism:** Lifetime genomic-risk simulation
+- **evidence_type:** simulation
+- **measured_result:** Re-identification first reached 50 percent at year 11 and 100 percent at year 13 in the committed lifetime-risk model.
+- **numeric_value:** 11
+- **unit:** years to 50 percent re-identification
+- **direction:** increase over time
+- **confidence:** medium
+- **claim_scope:** lifetime-risk simulation
+- **limitations:** Long-term projections depend on model assumptions including database growth and inference-expansion parameters.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv
+- **supporting_source_files:** experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Lifetime re-identification trajectory is a project simulation based on configured database-growth and inference assumptions.
+
+## B2_E03 — Module B2
+
+- **stage_ids:** S8|S9
+- **asset:** Familial genomic information
+- **threat:** Persistent familial exposure
+- **mechanism:** Lifetime familial-risk simulation
+- **evidence_type:** simulation
+- **measured_result:** Familial risk first reached 100 percent at year 15 in the committed lifetime-risk model.
+- **numeric_value:** 15
+- **unit:** years to 100 percent familial risk
+- **direction:** increase over time
+- **confidence:** medium
+- **claim_scope:** lifetime-risk simulation
+- **limitations:** Projection depends on the selected database-growth and familial-risk parameters.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv
+- **supporting_source_files:** experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Familial-risk saturation is produced by the internal lifetime risk model and is not externally population-calibrated.
+
+## B3_E01 — Module B3
+
+- **stage_ids:** S8|S10
+- **asset:** Kinship graph exposure boundary
+- **threat:** Graph-originating breach propagation
+- **mechanism:** Graph-aware boundary-isolation simulation
+- **evidence_type:** simulation
+- **measured_result:** For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+- **numeric_value:** 6
+- **unit:** exposed nodes at k=10
+- **direction:** decrease
+- **confidence:** medium
+- **claim_scope:** containment simulation
+- **limitations:** Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+- **supporting_source_files:** experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.
+
+## B3_E02 — Module B3
+
+- **stage_ids:** S6|S10
+- **asset:** Genomic-platform authentication layer
+- **threat:** Unauthorized platform access
+- **mechanism:** Behavioural authentication classifier
+- **evidence_type:** simulation or benchmark
+- **measured_result:** At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+- **numeric_value:** 0.9899
+- **unit:** F1 score
+- **direction:** performance
+- **confidence:** medium
+- **claim_scope:** authentication benchmark
+- **limitations:** Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+- **supporting_source_files:** experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.
+
+## B3_E03 — Module B3
+
+- **stage_ids:** S6|S10
+- **asset:** Genomic-platform authentication layer
+- **threat:** Missed malicious access
+- **mechanism:** Operational classifier-threshold selection
+- **evidence_type:** design decision
+- **measured_result:** The committed operational authentication configuration uses classifier threshold 4.5.
+- **numeric_value:** 4.5
+- **unit:** classifier threshold
+- **direction:** selected
+- **confidence:** medium
+- **claim_scope:** project design configuration
+- **limitations:** Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.
+- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+- **supporting_source_files:** experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E4
+- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.
 

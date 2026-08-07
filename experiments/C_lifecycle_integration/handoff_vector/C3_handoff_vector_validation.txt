@@ -1,0 +1,17 @@
+C3 Handoff Vector Validation
+============================
+
+Handoff records: 9
+Cases: C3_F11,C3_PRIVACY
+
+F11 handoffs: 5
+Privacy handoffs: 4
+
+Observed empirical handoffs: 4
+Model-supported handoffs: 4
+Modelled propagation handoffs: 1
+
+A1 evidence used: NO
+Numerical modifier weights: NOT DEFINED
+Validation errors: 0
+STATUS: PASS

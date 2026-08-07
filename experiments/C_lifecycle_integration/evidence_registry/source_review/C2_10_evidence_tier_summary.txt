@@ -1,0 +1,15 @@
+C2.10 Evidence Tier Summary
+===========================
+
+Tier assignments are per evidence row.
+
+E1: 2
+E2: 6
+E3: 1
+E4: 7
+E5: 0
+Source pending: 4
+
+No numerical evidence-confidence weights were introduced.
+
+A1 remains source-pending.

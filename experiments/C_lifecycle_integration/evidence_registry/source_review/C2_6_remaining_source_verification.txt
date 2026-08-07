@@ -1,0 +1,220 @@
+MODULE C2.6 — REMAINING SOURCE VERIFICATION
+==============================================================================
+
+Candidate records: 10
+
+##############################################################################
+A2_E01
+##############################################################################
+Module: A2
+Claim: Seed-42 mean identity declined from 98.79% at GN01 to 93.89% at GN10
+Primary source: experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: GN01, GN05, GN10, identity
+Term coverage: 4/4 (1.000)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: condition	sigma_fraction	paired_reads	changed_sequences	changed_sequence_fraction	mean_edit_distance	median_edit_distance	p95_edit_distance	mean_sequence_identity_percent	median_sequence_identity_percent	mean_alignment_identity_percent	mean_clean_qscore	mean_perturbed_qscore	mean_qscore_change	median_qscore_change	read
+  L3: GN01	0.01	100	95	0.9500000000	14.190000	9.000000	45.050000	98.790261	99.517719	98.792314	35.026829	34.962586	-0.064243	-0.081192	59	0.880000	2.000000	80
+  L4: GN05	0.05	100	100	1.0000000000	43.400000	28.500000	129.100000	96.903251	98.468792	96.919068	35.026829	32.776901	-2.249928	-2.341281	96	-0.230000	5.000000	92
+  L5: GN10	0.10	100	100	1.0000000000	112.670000	82.000000	319.150000	93.886341	95.306909	93.979561	35.026829	24.915960	-10.110869	-10.340903	99	-1.020000	11.000000	99
+
+##############################################################################
+A2_E02
+##############################################################################
+Module: A2
+Claim: GN10 mean identity replicated within approximately 93.56% to 93.95%
+Primary source: experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: seed, GN01, GN05, GN10
+Term coverage: 4/4 (1.000)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: # Experiment B — Multi-Seed Gaussian Perturbation Replication
+  L5: Experiment B tested whether the Gaussian raw-signal dose-response observed in Experiment A was reproducible across independent random seeds.
+  L9: - GN01: sigma fraction 0.01
+  L10: - GN05: sigma fraction 0.05
+  L11: - GN10: sigma fraction 0.10
+  L13: Seeds 1, 2, 3, 4, and 5 were used, producing 15 experimental conditions.
+  L25: For all five seeds, increasing Gaussian noise produced:
+  L33: GN01 -> GN05 -> GN10
+  L35: This confirms that the dose-response was reproducible and was not unique to seed 42.
+  L39: ### GN01
+  L45: ### GN05
+  L51: ### GN10
+
+##############################################################################
+A2_E03
+##############################################################################
+Module: A2
+Claim: Approximately 97% remained mapped with mean MAPQ approximately 55.3 to 55.4
+Primary source: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: mapped, MAPQ
+Term coverage: 2/3 (0.667)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: condition	input_reads	total_records	primary_records	mapped_primary	unmapped_primary	mapped_percent	secondary	supplementary	mean_mapped_mapq	mapq_ge20	mapq_ge30	mapq_ge60
+
+##############################################################################
+A2_E04
+##############################################################################
+Module: A2
+Claim: L2 and L3 each retained ALT state in 10 of 10 parents; zero target-state changes
+Primary source: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs/cross_locus_W0_target_effect.log
+Exists: False
+Correct module: True
+Textual source: True
+Term hits: NONE
+Term coverage: 0/4 (0.000)
+Verification: FAIL
+Reason: PRIMARY_SOURCE_MISSING
+
+##############################################################################
+A3_E01
+##############################################################################
+Module: A3
+Claim: 59 of 70 parent-condition observations changed target state
+Primary source: experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: PATHOGENIC, PM2, ALT
+Term coverage: 3/4 (0.750)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: condition	control_type	fixed_REF_background_parents	replacement_parents	parent_REF	parent_ALT	parent_DEL	parent_OTHER	pileup_depth	pileup_REF	pileup_ALT	pileup_DEL	pileup_OTHER	ALT_fraction	vcf_record	GT	QUAL	clinical_outcome
+  L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+  L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+  L4: W0	on_target_target_base_only	10	14	10	11	0	3	25	11	11	0	3	0.500000	1	0/1	141.391	PATHOGENIC_ALT_CALL_RETAINED
+  L5: PM2	on_target_plus_minus_2_bases	10	14	15	0	5	4	25	16	0	5	4	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L6: PM5	on_target_plus_minus_5_bases	10	14	11	0	10	3	25	12	0	10	3	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L7: PM10	on_target_plus_minus_10_bases	10	14	11	0	13	0	25	12	0	13	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+  L8: PM20	on_target_plus_minus_20_bases	10	14	10	0	14	0	25	11	0	14	0	0.000000	0	NO_CALL	.	PATHOGENIC_ALT_CALL_LOST
+
+##############################################################################
+A3_E02
+##############################################################################
+Module: A3
+Claim: All 14 clean-confirmed ALT parents lost ALT state under PM2
+Primary source: experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: F11, attack, PM2
+Term coverage: 3/3 (1.000)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: A3 F11 Controlled Signal Attack Generation
+  L4: Attack method: local linear interpolation
+  L6: Attacked clean ALT parents per condition: 14
+  L8: Conditions: W0, PM2, PM5, PM10, PM20
+  L19: PM2:
+  L46: PM20:
+  L55: Overall status: READY_FOR_ATTACKED_REBASECALLING
+
+##############################################################################
+A3_E03
+##############################################################################
+Module: A3
+Claim: Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20
+Primary source: experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: 0/1, NO_CALL, PM2
+Term coverage: 3/3 (1.000)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L2: CLEAN	25	24	10	14	0	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	25	11	14	PASS
+  L3: W0	25	24	10	11	0	3	0	25	11	11	0	3	0.500000	1	0/1	141.391	25	11	11	PASS
+  L4: PM2	25	24	15	0	5	4	0	25	16	0	5	4	0.000000	0	NO_CALL	.	.	.	.	PASS
+  L5: PM5	25	24	11	0	10	3	0	25	12	0	10	3	0.000000	0	NO_CALL	.	.	.	.	PASS
+  L6: PM10	25	24	11	0	13	0	0	25	12	0	13	0	0.000000	0	NO_CALL	.	.	.	.	PASS
+  L7: PM20	25	24	10	0	14	0	0	25	11	0	14	0	0.000000	0	NO_CALL	.	.	.	.	PASS
+
+##############################################################################
+A3_E04
+##############################################################################
+Module: A3
+Claim: Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202
+Primary source: experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: sham, PM2, ALT
+Term coverage: 3/3 (1.000)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L1: A3 F11 PM2 Off-Target Sham Control
+  L5: Same 14 F11 ALT-confirmed parents
+  L6: Same PM2 signal-window length per parent
+  L10: Sham ALT parents: 14/14
+  L12: Pileup ALT: 14
+  L13: ALT fraction: 0.560000
+  L19: Overall status: OFF_TARGET_SHAM_RETAINED_PATHOGENIC_CALL
+
+##############################################################################
+B1_E01
+##############################################################################
+Module: B1
+Claim: Population graph contained 3,303 nodes, with 1,321 registered individuals and 786 baseline exposed
+Primary source: experiments/B1_graph_amplification/results_log.txt
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: NONE
+Term coverage: 0/3 (0.000)
+Verification: FAIL
+Reason: INSUFFICIENT_CLAIM_TERM_SUPPORT
+
+Relevant excerpts:
+  <no direct excerpts>
+
+##############################################################################
+B1_E02
+##############################################################################
+Module: B1
+Claim: Model amplification reached 464.4-fold with 5.8% calibration error
+Primary source: experiments/B1_graph_amplification/results_log.txt
+Exists: True
+Correct module: True
+Textual source: True
+Term hits: 464, 5.8
+Term coverage: 2/3 (0.667)
+Verification: PASS
+Reason: VERIFIED
+
+Relevant excerpts:
+  L12: | Run 03 | 0.20 (Optimal)     | 464.4x                 | -28.46x                     | -5.8%          |
+
+==============================================================================
+SUMMARY
+==============================================================================
+Records checked: 10
+PASS: 8
+FAIL: 2
+
+Failed records:
+  A2_E04: PRIMARY_SOURCE_MISSING
+  B1_E01: INSUFFICIENT_CLAIM_TERM_SUPPORT

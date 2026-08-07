@@ -1,6 +1,5 @@
-evidence_id	module	measured_result	resolution_status	primary_source_file	source_match_score
-A1_E01	A1	Approximately 2.5 million fuzz executions	WEAK_CANDIDATE	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	45
-A1_E02	A1	54 total crashes, 33 unique crashes and two root causes	WEAK_CANDIDATE	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	58
-A1_E03	A1	Heap buffer overflow in ksw_extend2 at ksw.c:428	WEAK_CANDIDATE	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	30
-A1_E04	A1	Global overflow in mem_aln2sam at bwamem.c:906	WEAK_CANDIDATE	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	30
-B2_E01	B2	Adding the pathogenic-variant layer reduced unrecoverability to 0.044	WEAK_CANDIDATE	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	58
+evidence_id	module	reason	current_claim
+A1_E01	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Approximately 2.5 million fuzz executions
+A1_E02	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	54 total crashes, 33 unique crashes and two root causes
+A1_E03	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Heap buffer overflow in ksw_extend2 at ksw.c:428
+A1_E04	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Global overflow in mem_aln2sam at bwamem.c:906

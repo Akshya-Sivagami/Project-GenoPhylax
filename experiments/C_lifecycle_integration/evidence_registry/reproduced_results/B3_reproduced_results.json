@@ -1,0 +1,17 @@
+{
+  "precision": 1.0,
+  "recall": 0.98,
+  "f1": 0.9899,
+  "accuracy": 0.996,
+  "containment_output_lines": [
+    "/home/akshya/Project-GenoPhylax/experiments/B3_authentication/containment_algorithm.py:277: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown",
+    "/home/akshya/Project-GenoPhylax/experiments/B3_authentication/containment_algorithm.py:473: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown",
+    "Module B3 \u2014 Graph-Aware Containment & Authentication",
+    "[2/4] Computing containment effectiveness...",
+    "Baseline exposed (no containment): 786",
+    "k    Exposed   Reduction%    Cost%   Efficiency",
+    "Best containment reduction : 99.24%",
+    "Origin                      Baseline   k=10 Reduction",
+    "Plot saved as B3_containment_auth.png"
+  ]
+}

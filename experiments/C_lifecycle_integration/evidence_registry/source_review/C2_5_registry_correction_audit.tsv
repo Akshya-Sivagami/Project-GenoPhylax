@@ -1,0 +1,67 @@
+evidence_id	field	old_value	new_value
+A1_E01	primary_source_file	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	
+A1_E01	supporting_source_files	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed1_split_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed2_split_summary.tsv|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_GN01_seed3_split_summary.tsv	
+A1_E01	source_resolution_status	WEAK_CANDIDATE	UNRESOLVED_AUTHORITATIVE_SOURCE
+A1_E01	source_confidence	low	unresolved
+A1_E01	source_match_score	45	
+A1_E01	limitations	Single principal target version and incomplete program coverage	Single principal target version and incomplete program coverage; the authoritative A1 campaign artifact is not present in the current Git clone and must be recovered before source lock.
+A1_E02	primary_source_file	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	
+A1_E02	supporting_source_files	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D4_consolidated_findings/D4_findings_generation.log	
+A1_E02	source_resolution_status	WEAK_CANDIDATE	UNRESOLVED_AUTHORITATIVE_SOURCE
+A1_E02	source_confidence	low	unresolved
+A1_E02	source_match_score	58	
+A1_E02	limitations	Root causes were established within the project audit; external CVE assignment was not claimed	Root causes were established within the project audit and external CVE assignment was not claimed; the authoritative A1 crash-triage artifact is not present in the current Git clone.
+A1_E03	primary_source_file	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	
+A1_E03	supporting_source_files	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md	
+A1_E03	source_resolution_status	WEAK_CANDIDATE	UNRESOLVED_AUTHORITATIVE_SOURCE
+A1_E03	source_confidence	low	unresolved
+A1_E03	source_match_score	30	
+A1_E03	limitations	Exploitability beyond the demonstrated crash was not established	Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
+A1_E04	primary_source_file	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	
+A1_E04	supporting_source_files	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/findings/experiment_C2_findings.md|experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C_1000reads/findings/experiment_C1_findings.md	
+A1_E04	source_resolution_status	WEAK_CANDIDATE	UNRESOLVED_AUTHORITATIVE_SOURCE
+A1_E04	source_confidence	low	unresolved
+A1_E04	source_match_score	30	
+A1_E04	limitations	Exploitability beyond the demonstrated crash was not established	Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
+B2_E01	measured_result	Adding the pathogenic-variant layer reduced unrecoverability to 0.044	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.
+B2_E01	numeric_value	0.044	0.2299
+B2_E01	direction	decrease	decrease with cumulative disclosure
+B2_E01	limitations	Unrecoverability is produced by the project model and is not a formal cryptographic proof	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.
+B2_E01	primary_source_file	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+B2_E01	supporting_source_files	experiments/B2_vault_design/genomic_vault.py|experiments/B2_vault_design/B2_upgrades.py|experiments/B2_vault_design/vault_design.py|paper/figures/B2_genomic_vault.png	experiments/B2_vault_design/genomic_vault.py
+B2_E01	source_resolution_status	WEAK_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B2_E01	source_confidence	low	high
+B2_E01	source_match_score	58	
+B2_E02	measured_result	Re-identification reached 50% by year 11 and 100% by year 20	Re-identification first reached 50 percent at year 11 and 100 percent at year 13 in the committed lifetime-risk model.
+B2_E02	limitations	Long-term projections depend on model assumptions	Long-term projections depend on model assumptions including database growth and inference-expansion parameters.
+B2_E02	primary_source_file	paper/figures/B2_lifetime_risk.png	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv
+B2_E02	supporting_source_files	paper/figures/B2_lifetime_risk_drivers.png|experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py|paper/figures/B2_genomic_vault.png	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py
+B2_E02	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B2_E02	source_match_score	136	
+B2_E03	measured_result	Familial risk reached 100% by year 15	Familial risk first reached 100 percent at year 15 in the committed lifetime-risk model.
+B2_E03	limitations	Projection depends on the selected model parameters	Projection depends on the selected database-growth and familial-risk parameters.
+B2_E03	primary_source_file	experiments/B2_vault_design/lifetime_risk.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv
+B2_E03	supporting_source_files	paper/figures/B2_lifetime_risk.png|paper/figures/B2_lifetime_risk_drivers.png|research/notes/Findings.txt|experiments/B2_vault_design/B2_upgrades.py	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py
+B2_E03	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B2_E03	source_match_score	128	
+B3_E01	measured_result	Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+B3_E01	limitations	Containment performance depends on graph construction	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.
+B3_E01	primary_source_file	experiments/B3_authentication/containment_algorithm.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+B3_E01	supporting_source_files	paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|paper/figures/B3_attack_origin_comparison.png	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+B3_E01	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B3_E01	source_match_score	128	
+B3_E02	measured_result	At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+B3_E02	numeric_value	0.8409	0.9899
+B3_E02	limitations	Classifier results require interpretation within the project's generated benchmark setting	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.
+B3_E02	primary_source_file	paper/figures/B3_containment_auth.png	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+B3_E02	supporting_source_files	experiments/B3_authentication/containment_algorithm.py|experiments/B3_authentication/.gitkeep|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+B3_E02	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B3_E02	source_match_score	116	
+B3_E03	measured_result	Threshold 3.6 was selected operationally to favour recall	The committed operational authentication configuration uses classifier threshold 4.5.
+B3_E03	numeric_value	3.6	4.5
+B3_E03	claim_scope	project design decision	project design configuration
+B3_E03	limitations	Operational preference is a design choice rather than a universally optimal threshold	Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.
+B3_E03	primary_source_file	experiments/B3_authentication/containment_algorithm.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+B3_E03	supporting_source_files	experiments/B3_authentication/.gitkeep|paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libbz2-549b318a.so.1.0.6|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libk5crypto-84470bb3.so.3.1	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+B3_E03	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+B3_E03	source_match_score	118	

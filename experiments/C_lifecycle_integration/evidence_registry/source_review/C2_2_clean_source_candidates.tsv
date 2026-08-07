@@ -1,0 +1,28 @@
+evidence_id	rank	score	candidate_file	phrase_hits	context_hits
+A1_E01	1	60	docs/roadmap/Roadmap.md		bwa|fuzz|afl|execution
+A1_E02	1	33	research/notes/Findings.txt	33	
+A1_E02	2	30	docs/roadmap/Roadmap.md		root cause|bwa
+B2_E01	1	103	research/notes/Findings.txt	0.215	unrecoverability|pathogenic|vault
+B2_E01	2	45	docs/roadmap/Roadmap.md		unrecoverability|pathogenic|vault
+B2_E01	3	45	experiments/B2_vault_design/genomic_vault.py		unrecoverability|pathogenic|vault
+B2_E01	4	30	experiments/B2_vault_design/vault_design.py		unrecoverability|vault
+B2_E02	1	105	experiments/B2_vault_design/vault_design.py	11|20	lifetime|risk
+B2_E02	2	103	research/notes/Findings.txt	20	re-identification|lifetime|risk
+B2_E02	3	95	experiments/B2_vault_design/B2_upgrades.py	20	re-identification|lifetime|risk
+B2_E02	4	95	experiments/B2_vault_design/lifetime_risk.py	20	re-identification|lifetime|risk
+B2_E02	5	90	experiments/B2_vault_design/genomic_vault.py	11|20	risk
+B2_E02	6	65	research/notes/percolation_and_saturation.txt	20	risk
+B2_E03	1	118	research/notes/Findings.txt	15	familial|cascade|lifetime|risk
+B2_E03	2	110	experiments/B2_vault_design/B2_upgrades.py	15	familial|cascade|lifetime|risk
+B2_E03	3	110	experiments/B2_vault_design/lifetime_risk.py	15	familial|cascade|lifetime|risk
+B2_E03	4	95	experiments/B2_vault_design/genomic_vault.py	15	familial|cascade|risk
+B2_E03	5	80	experiments/B2_vault_design/vault_design.py	15	lifetime|risk
+B2_E03	6	30	research/notes/percolation_and_saturation.txt		cascade|risk
+B3_E01	1	118	research/notes/Findings.txt	6	k=5|k=10|k=20|containment
+B3_E01	2	110	experiments/B3_authentication/containment_algorithm.py	6	k=5|k=10|k=20|containment
+B3_E01	3	25	research/notes/percolation_and_saturation.txt	6	
+B3_E02	1	68	research/notes/Findings.txt		precision|recall|f1|accuracy
+B3_E02	2	60	experiments/B3_authentication/containment_algorithm.py		precision|recall|f1|accuracy
+B3_E03	1	53	research/notes/Findings.txt		threshold|recall|authentication
+B3_E03	2	45	experiments/B3_authentication/containment_algorithm.py		threshold|recall|authentication
+B3_E03	3	15	research/notes/percolation_and_saturation.txt		threshold

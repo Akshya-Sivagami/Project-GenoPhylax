@@ -1,0 +1,277 @@
+============================================================
+B2 GENOMIC VAULT — RELEVANT PARAMETERS
+============================================================
+12:#   3. Unrecoverability scoring (D5 linkage)
+30:        "recoverability": 1.0,
+34:    "Pathogenic Variants": {
+36:        "recoverability": 0.85,
+42:        "recoverability": 0.40,
+48:        "recoverability": 0.30,
+54:        "recoverability": 0.20,
+60:        "recoverability": 0.10,
+66:        "recoverability": 0.02,
+105:    "Pathogenic Variants": [
+130:def compute_unrecoverability(disclosed_tiers):
+132:    Information-theoretic unrecoverability score.
+136:    leakage exceeds a threshold, raw sequence reconstruction
+139:    Each tier has an entropy_leakage value representing what
+141:        - High leakage tiers leak specific variant positions
+142:        - Low leakage tiers only leak aggregate statistics
+144:    Unrecoverability = 1 - P(reconstruct | disclosed tiers)
+145:    P(reconstruct) derived from cumulative entropy leakage
+151:    # Entropy leakage per tier — fraction of raw sequence
+156:        "Pathogenic Variants"    : 0.420,  # specific loci — high leakage
+164:    # Cumulative entropy leakage (additive with diminishing returns)
+167:    cumulative_leakage = 0.0
+173:        base_leakage = ENTROPY_LEAKAGE.get(tier, 0.0)
+176:        # marginal leakage because genomic regions overlap
+178:        marginal_leakage = base_leakage * overlap_factor
+179:        cumulative_leakage += marginal_leakage
+183:    # P(reconstruct) rises steeply once leakage > 0.5
+186:    reconstruction_prob = 1.0 - np.exp(-3.5 * cumulative_leakage)
+187:    unrecoverability    = round(
+190:    return unrecoverability
+274:                "unrecoverability": 1.0,
+287:            and tier_name in ["Pathogenic Variants",
+298:                "unrecoverability": compute_unrecoverability([tier_name]),
+313:        unrec = compute_unrecoverability(approved + [tier_name])
+328:                "unrecoverability": unrec,
+340:                "unrecoverability": unrec,
+352:                "unrecoverability": unrec,
+390:                  f"{r['total_risk']:>10.3f} {r['unrecoverability']:>12.4f}"
+479:    # ── Plot 4: Unrecoverability score as tiers are cumulatively disclosed ──
+484:        key=lambda t: DATA_TIERS[t]["recoverability"]
+490:        unrec_scores.append(compute_unrecoverability(cumulative_disclosed))
+498:    ax.set_ylabel("Unrecoverability Score (1=safe, 0=recoverable)", fontsize=9)
+499:    ax.set_title("Raw Sequence Unrecoverability\nas More Tiers Are Disclosed",
+533:    print("\n[2] Unrecoverability analysis:")
+536:    print(f"  {'Tiers Disclosed':<35} {'Unrecoverability Score':>22}")
+538:    for t in sorted(non_locked, key=lambda x: DATA_TIERS[x]["recoverability"]):
+540:        score = compute_unrecoverability(cumulative)
+
+============================================================
+B2 LIFETIME RISK — RELEVANT PARAMETERS
+============================================================
+8:# Models how genomic privacy risk evolves over a person's lifetime.
+9:# Three compounding factors drive risk growth:
+16:# Key insight: genomic data has a risk horizon of 50-80 years
+21:CURRENT_YEAR      = 2025
+22:BIRTH_YEAR        = 2025   # person whose risk we're modeling
+23:LIFE_EXPECTANCY   = 80     # years
+25:CALENDAR_YEARS    = CURRENT_YEAR + YEARS
+27:# ── Baseline risk parameters ──────────────────────────────────
+28:BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+29:BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+30:BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+35:# Public genomic databases double roughly every 3-4 years.
+36:# More reference genomes = higher re-identification probability.
+40:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+45:    raw = 2 ** (years / doubling_time)
+52:# Cheaper sequencing = more adversaries able to sequence = higher risk.
+55:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+57:    Models sequencing cost decay. Returns a risk amplification factor
+59:    Cost halves every `half_life` years.
+62:    cost = np.maximum(0.5 ** (years / half_life), floor)
+63:    # Normalize: at year 0, cost=1, amplification=1
+75:def inference_expansion_factor(years, midpoint=20, steepness=0.2, max_factor=8.0):
+78:    At midpoint years, capability is at 50% of maximum.
+80:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+81:    # Scale: starts at ~0.5 at year 0 (some inference already possible)
+88:# Combines all three factors into per-dimension risk trajectories.
+89:# Each dimension is capped at 1.0 (100% risk).
+92:def compute_lifetime_risk(years):
+93:    db_factor   = database_growth_factor(years)
+94:    tech_factor = technology_decay_factor(years)
+95:    inf_factor  = inference_expansion_factor(years)
+97:    # Re-identification risk: driven by database growth + inference
+98:    reid_risk = np.minimum(
+99:        BASELINE_REID_RISK * db_factor * np.sqrt(inf_factor),
+103:    # Disease inference risk: driven by inference expansion
+104:    disease_risk = np.minimum(
+105:        BASELINE_DISEASE_RISK * inf_factor,
+109:    # Familial cascade risk: driven by database growth (more relatives enrolled)
+110:    familial_risk = np.minimum(
+111:        BASELINE_FAMILIAL_RISK * db_factor * 0.4,
+116:    composite = (reid_risk + disease_risk + familial_risk) / 3.0
+120:        "reid"     : reid_risk,
+121:        "disease"  : disease_risk,
+122:        "familial" : familial_risk,
+133:# At what age does each risk dimension cross critical thresholds?
+136:def find_risk_horizons(risks, years, thresholds=[0.25, 0.5, 0.75, 1.0]):
+138:    for dim in ["reid", "disease", "familial"]:
+141:            crossings = np.where(risks[dim] >= t)[0]
+143:                horizons[dim][t] = int(years[crossings[0]])
+153:def plot_lifetime_risk(years, calendar_years, risks, horizons):
+159:    C = {"reid": "#C0392B", "disease": "#D97706",
+160:         "familial": "#6D28D9", "composite": "#0D1B2A",
+166:    ax.plot(years, risks["reid"],     color=C["reid"],     lw=2.5, label="Re-identification Risk")
+167:    ax.plot(years, risks["disease"],  color=C["disease"],  lw=2.5, label="Disease Inference Risk")
+168:    ax.plot(years, risks["familial"], color=C["familial"], lw=2.5, label="Familial Cascade Risk")
+169:    ax.plot(years, risks["composite"],color=C["composite"],lw=2,
+183:    ax.fill_between(years, risks["d5_score"], alpha=0.3, color=C["d5"])
+184:    ax.plot(years, risks["d5_score"], color=C["d5"], lw=2.5)
+203:    ax.plot(years, np.minimum(risks["db_factor"], 50),
+205:    ax.plot(years, risks["inf_factor"],
+207:    ax2.plot(years, 1.0/np.maximum(risks["tech_factor"]/risks["tech_factor"].max(), 0.001),
+222:    dim_keys   = ["reid", "disease", "familial"]
+235:    ax.set_xticklabels([f"{int(t*100)}% risk" for t in thresholds], fontsize=9)
+249:    plt.savefig("B2_lifetime_risk.png", dpi=150, bbox_inches="tight",
+252:    print("Plot saved as B2_lifetime_risk.png")
+264:    print("\nComputing lifetime risk trajectories...")
+265:    risks = compute_lifetime_risk(YEARS)
+273:        print(f"  {m:<6} {risks['reid'][idx]:>8.3f} "
+274:              f"{risks['disease'][idx]:>10.3f} "
+275:              f"{risks['familial'][idx]:>10.3f} "
+276:              f"{risks['d5_score'][idx]:>10.2f}")
+278:    print("\nFinding risk horizons...")
+279:    horizons = find_risk_horizons(risks, YEARS)
+280:    print(f"\n  {'Dimension':<20} {'25% risk':>10} {'50% risk':>10} "
+281:          f"{'75% risk':>10} {'100% risk':>10}")
+283:    dim_names = {"reid": "Re-identification",
+285:                 "familial": "Familial Cascade"}
+293:    plot_lifetime_risk(YEARS, CALENDAR_YEARS, risks, horizons)
+
+============================================================
+B2 UPGRADES — RELEVANT PARAMETERS
+============================================================
+12:# Shows WHICH factor dominates risk growth at each time period
+18:BASELINE_REID_RISK     = 0.05
+19:BASELINE_DISEASE_RISK  = 0.10
+20:BASELINE_FAMILIAL_RISK = 0.15
+22:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+23:    return np.minimum(2 ** (years / doubling_time), saturation)
+25:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+26:    cost = np.maximum(0.5 ** (years / half_life), floor)
+29:def inference_expansion_factor(years, midpoint=20,
+31:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+34:def compute_lifetime_risk(years):
+35:    db_factor   = database_growth_factor(years)
+36:    tech_factor = technology_decay_factor(years)
+37:    inf_factor  = inference_expansion_factor(years)
+39:    reid_risk     = np.minimum(
+40:        BASELINE_REID_RISK * db_factor * np.sqrt(inf_factor), 1.0)
+41:    disease_risk  = np.minimum(
+42:        BASELINE_DISEASE_RISK * inf_factor, 1.0)
+43:    familial_risk = np.minimum(
+44:        BASELINE_FAMILIAL_RISK * db_factor * 0.4, 1.0)
+45:    composite     = (reid_risk + disease_risk + familial_risk) / 3.0
+49:        "reid": reid_risk, "disease": disease_risk,
+50:        "familial": familial_risk, "composite": composite,
+56:def plot_lifetime_risk_with_drivers(years, risks):
+65:    C = {"reid": "#C0392B", "disease": "#D97706",
+66:         "familial": "#6D28D9", "d5": "#0D9488"}
+71:    ax.plot(years, risks["reid"],     color=C["reid"],
+73:    ax.plot(years, risks["disease"],  color=C["disease"],
+75:    ax.plot(years, risks["familial"], color=C["familial"],
+102:        (8,  risks["reid"][8],     "DB doubles\n3rd time",  "#1B3A6B"),
+103:        (20, risks["disease"][20], "Inference\nmidpoint",   "#D97706"),
+104:        (13, risks["familial"][13],"Familial\n50% risk",    "#6D28D9"),
+118:    # Stacked area showing contribution of each risk dimension
+119:    reid_contrib     = risks["reid"]     / 3.0 * 10.0
+120:    disease_contrib  = risks["disease"]  / 3.0 * 10.0
+121:    familial_contrib = risks["familial"] / 3.0 * 10.0
+123:    ax.stackplot(years,
+124:                 np.minimum(reid_contrib,     10/3),
+126:                 np.minimum(familial_contrib, 10/3),
+132:    ax.plot(years, np.minimum(risks["d5_score"], 10),
+152:    plt.savefig("B2_lifetime_risk_drivers.png", dpi=150,
+156:    print("Saved: B2_lifetime_risk_drivers.png")
+162:# your risk increases as more relatives enroll in the platform
+165:def compute_relative_enrollment_risk(G, target_node,
+170:    For a target individual, compute their D5+D6 composite risk
+193:    # D3 familial cascade risk scales with enrolled relatives
+194:    d3_risk = min(0.15 + 0.016 * n_enroll, 1.0)
+196:    # D6 amplification risk — more enrolled = larger graph component
+206:    # D1 re-identification risk — more relatives = easier kinship match
+207:    d1_risk = min(0.05 + 0.008 * n_enroll, 1.0)
+210:    composite = (d1_risk + d3_risk + d6_component) / 3.0
+215:        "d1_risk"      : round(d1_risk, 4),
+216:        "d3_risk"      : round(d3_risk, 4),
+236:        r = compute_relative_enrollment_risk(
+254:    d1s     = [r["d1_risk"]      for r in results]
+255:    d3s     = [r["d3_risk"]      for r in results]
+274:    # Annotate key thresholds
+275:    for threshold, label in [(4.0, "Moderate"), (6.0, "High"),
+277:        crossings = [i for i, d in enumerate(d5s) if d >= threshold]
+282:            ax.text(nx_val + 1, threshold + 0.15,
+309:               lw=1, alpha=0.6, label="50% risk threshold")
+338:    print("\n[1/2] Generating lifetime risk with driver annotations...")
+339:    risks = compute_lifetime_risk(YEARS)
+340:    plot_lifetime_risk_with_drivers(YEARS, risks)
+352:        print(f"  {r['n_relatives']:>10} {r['d1_risk']:>8.4f} "
+353:              f"{r['d3_risk']:>8.4f} {r['d6_component']:>8.4f} "
+
+============================================================
+B3 — RELEVANT PARAMETERS
+============================================================
+22:def compute_containment_targets(G, registered_nodes,
+23:                                compromised_nodes, top_k=20):
+36:    return boundary_list[:top_k], boundary
+41:                               containment_targets, max_hops=3):
+42:    locked   = set(containment_targets)
+62:def analyze_containment_effectiveness(G, registered_nodes,
+65:    # Same set used for baseline AND all containment runs
+80:    # Baseline — same compromised nodes, no containment
+83:        containment_targets=[], max_hops=3
+97:        targets, _ = compute_containment_targets(
+98:            G, registered_nodes, compromised, top_k=k
+108:        containment_cost = round(
+116:            "containment_cost": containment_cost,
+118:                reduction_pct / containment_cost, 2
+119:            ) if containment_cost > 0 else 0,
+126:    Compare containment effectiveness across three breach
+133:    Same containment strategy applied to all three —
+134:    reveals how attack origin affects containment outcome.
+165:            containment_targets=[], max_hops=3
+178:            targets, _ = compute_containment_targets(
+179:                G, registered_nodes, compromised, top_k=k
+236:               label="50% reduction threshold")
+239:               label="99% reduction threshold")
+266:    ax.set_ylabel("Baseline Exposed Users (no containment)",
+285:def generate_access_sessions(n_normal=200, n_attack=50, seed=42):
+326:def evaluate_detection(sessions, threshold=4.5):
+332:        detected = score >= threshold
+343:    precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+344:    recall    = tp / (tp + fn) if (tp + fn) > 0 else 0
+345:    f1        = (2 * precision * recall / (precision + recall)
+346:                 if (precision + recall) > 0 else 0)
+347:    accuracy  = (tp + tn) / len(sessions)
+351:        "precision": round(precision, 4),
+352:        "recall"   : round(recall, 4),
+353:        "f1"       : round(f1, 4),
+354:        "accuracy" : round(accuracy, 4),
+362:def compute_d4_score(containment_reduction_pct, auth_f1_score):
+363:    containment_eff = max(containment_reduction_pct / 100.0, 0.0)
+364:    combined        = (containment_eff + auth_f1_score) / 2.0
+373:def plot_b3_results(containment_results, baseline_exposed,
+385:    ks         = [r["k"] for r in containment_results]
+386:    reductions = [r["reduction_pct"] for r in containment_results]
+391:               label="50% reduction threshold")
+402:    efficiencies = [r["efficiency"] for r in containment_results]
+406:    best_k   = containment_results[best_idx]["k"]
+407:    ax.annotate(f"Best k={best_k}",
+435:               lw=2, label="Detection threshold (4.5)")
+448:    metric_vals  = [metrics["precision"], metrics["recall"],
+449:                    metrics["f1"],        metrics["accuracy"]]
+465:               label="Target threshold (0.9)")
+470:    plt.savefig("B3_containment_auth.png", dpi=150,
+474:    print("Plot saved as B3_containment_auth.png")
+494:    print("\n[2/4] Computing containment effectiveness...")
+497:    containment_results, baseline = analyze_containment_effectiveness(
+500:    print(f"      Baseline exposed (no containment): {baseline:,}")
+504:    for r in containment_results:
+507:              f"{r['containment_cost']:>7.2f}% "
+510:    print("\n[3/4] Running credential stuffing detection...")
+511:    sessions = generate_access_sessions(n_normal=200, n_attack=50)
+512:    auth_results, metrics = evaluate_detection(
+513:        sessions, threshold=4.5
+515:    print(f"      Precision : {metrics['precision']:.4f}")
+516:    print(f"      Recall    : {metrics['recall']:.4f}")
+517:    print(f"      F1 Score  : {metrics['f1']:.4f}")
+518:    print(f"      Accuracy  : {metrics['accuracy']:.4f}")
+524:                         for r in containment_results)
+525:    d4 = compute_d4_score(best_reduction, metrics["f1"])
+526:    print(f"      Best containment reduction : {best_reduction}%")
+527:    print(f"      Auth F1 score              : {metrics['f1']}")
+535:          f"{'k=10 Reduction':>16}")
+545:    plot_b3_results(containment_results, baseline,

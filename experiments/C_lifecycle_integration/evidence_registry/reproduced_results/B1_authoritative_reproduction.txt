@@ -1,0 +1,41 @@
+/home/akshya/Project-GenoPhylax/experiments/B1_graph_amplification/amplification_analysis.py:142: UserWarning: FigureCanvasAgg is non-interactive, and thus cannot be shown
+  plt.show()
+=======================================================
+  Module B1 — Graph Amplification Analysis
+  Project GenoPhylax
+=======================================================
+
+[1/4] Building kinship graph (1000 families)...
+      Nodes: 4,144  |  Edges: 157,147
+[2/4] Simulating 40% DTC registration...
+      Registered: 1,657
+[3/4] Running analyses...
+      ✓ Breach size impact
+      ✓ Registration rate impact
+      ✓ Hop depth analysis
+      ✓ 23andMe calibration
+
+[4/4] Results summary:
+      Calibration amplification : 2110.0x
+      23andMe real amplification: 492.86x
+      Model/Real ratio           : 4.2812
+
+      Breach size breakdown:
+        0.01% compromised → 1330.0x amplification
+        0.05% compromised → 934.0x amplification
+        0.10% compromised → 877.0x amplification
+        0.50% compromised → 167.12x amplification
+        1.00% compromised → 83.5x amplification
+        5.00% compromised → 16.54x amplification
+        10.00% compromised → 8.32x amplification
+        20.00% compromised → 4.33x amplification
+
+      Hop depth breakdown:
+        1 hops → 128 exposed
+        2 hops → 1878 exposed
+        3 hops → 3134 exposed
+        4 hops → 3134 exposed
+        5 hops → 3134 exposed
+
+Generating plots...
+Plot saved as B1_amplification_results.png

@@ -1,0 +1,386 @@
+MODULE C2.7 — TARGETED SOURCE RECOVERY
+==============================================================================
+
+##############################################################################
+A2_E04
+##############################################################################
+L2 and L3 each retained ALT state in 10 of 10 parents with zero target-state changes under W0
+
+[1] score=280
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_publication_figure_data_preflight.txt
+Term hits: l2, l3, 10/10, no_effect, target-state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0, cross_locus+w0, no_effect+l2
+Relevant excerpts:
+  L62: FILE: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_condition_comparison.tsv
+  L69: condition	condition_label	placement	context_bases	base_events_per_read	loci_tested	reads_processed	reads_passed	total_changed_samples	total_signal_samples	combined_changed_percent	outside_changed_samples	clean_alt_parents	alt_retained_parents	alt_changed_parents	alt_changed_percent	L2_alt_changed	L3_alt_changed	interpretation
+  L70: W0	W0 target-only	Centred on target	0	1	2	20	20	334	5922376	0.0056396284194046445	0	20	20	0	0.0	0	0	Target-only signal edit was insufficient.
+  L71: SHAM20	Near sham +20	20 bases downstream	5	11	2	20	20	2522	5922376	0.04258426010101351	0	20	19	1	5.0	1	0	Mostly negative, with one L2 short-range spillover deletion.
+  L73: PM5	PM5 target-centred	Centred on target	5	11	2	20	20	3030	5922376	0.05116189853531758	0	20	0	20	100.0	10	10	Complete target-state disruption at both loci.
+  L76: condition	condition_label	placement	context_bases	base_events_per_read	loci_tested	reads_processed	reads_passed	total_changed_samples	total_signal_samples	combined_changed_percent	outside_changed_samples	clean_alt_parents	alt_retained_parents	alt_changed_parents	alt_changed_percent	L2_alt_changed	L3_alt_changed	interpretation
+  L77: W0	W0 target-only	Centred on target	0	1	2	20	20	334	5922376	0.0056396284194046445	0	20	20	0	0.0	0	0	Target-only signal edit was insufficient.
+  L78: SHAM20	Near sham +20	20 bases downstream	5	11	2	20	20	2522	5922376	0.04258426010101351	0	20	19	1	5.0	1	0	Mostly negative, with one L2 short-range spillover deletion.
+  L80: PM5	PM5 target-centred	Centred on target	5	11	2	20	20	3030	5922376	0.05116189853531758	0	20	0	20	100.0	10	10	Complete target-state disruption at both loci.
+  L83: FILE: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_locus_comparison.tsv
+  L91: W0	W0 target-only	Centred on target	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	0	1	10	10	10	107	2934299	0.003646526819523164	0	10	10	0	0.0	NO_EFFECT
+  L92: W0	W0 target-only	Centred on target	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	0	1	10	10	10	227	2988077	0.007596859117084332	0	10	10	0	0.0	NO_EFFECT
+  L93: SHAM20	Near sham +20	20 bases downstream	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	5	11	10	10	0	1350	2934299	0.04600758136781562	0	10	9	1	10.0	EFFECT_OBSERVED
+  L94: SHAM20	Near sham +20	20 bases downstream	L3	L3_chr4_40028853_A_G	chr4:40028853 A>G	5	11	10	10	0	1172	2988077	0.03922255015516669	0	10	10	0	0.0	NO_EFFECT
+  L95: SHAM100	Distant sham +100	100 bases downstream	L2	L2_chr1_20061156_A_T	chr1:20061156 A>T	5	11	10	10	0	1246	2934299	0.042463293617998714	0	10	10	0	0.0	NO_EFFECT
+
+[2] score=250
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md
+Term hits: l2, l3, 10/10, no effect, target-state, target state, cross-locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0, no effect+l2
+Relevant excerpts:
+  L1: # Experiment E — Cross-Locus W0 Target-Only Signal Attack
+  L5: The W0 experiment tested whether modifying only the raw-signal event mapped to the target nucleotide was sufficient to alter Dorado's basecall at two independent heterozygous variant loci.
+  L7: Unlike the successful PM5 attack, W0 used:
+  L17: | L2 | chr1:20061156 A>T |
+  L18: | L3 | chr4:40028853 A>G |
+  L28: | L2 | 10/10 | 107 | 2,934,299 | 0.0036465% | 0 |
+  L29: | L3 | 10/10 | 227 | 2,988,077 | 0.0075969% | 0 |
+  L39: | L2 | 10 | 10 |
+  L40: | L3 | 10 | 10 |
+  L48: | L2 | 10 | 10 | 10 | 10 | 10 |
+  L49: | L3 | 11 | 10 | 11 | 10 | 11 |
+  L51: L3 generated one additional supplementary or split-alignment record, but all ten parent reads retained high-confidence primary alignments.
+  L55: W0 produced no change in the intended ALT allele at either locus.
+  L57: | Locus | Clean ALT parents | ALT retained after W0 | ALT changed | Effect |
+  L59: | L2 | 10 | 10 | 0/10 | No effect |
+
+[3] score=250
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+Term hits: l2, l3, 10/10, target-state, target state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L1: # Experiment E — Final Cross-Locus Targeted Signal Attack Findings
+  L11: | L2 | chr1:20061156 A>T | 10 |
+  L12: | L3 | chr4:40028853 A>G | 10 |
+  L16: 1. **W0:** target event only;
+  L23: | Condition | Window | Placement | Combined signal changed | L2 target changes | L3 target changes | Total target changes |
+  L25: | W0 target-only | 1 base-events | Centred on target | 0.005640% | 0/10 | 0/10 | 0/20 |
+  L28: | PM5 target-centred | 11 base-events | Centred on target | 0.051162% | 10/10 | 10/10 | 20/20 |
+  L32: The target-centred PM5 perturbation changed **20/20 ALT-supporting parent reads**, with 10/10 target-state changes at each independent locus.
+  L36: - W0 changed 0/20 target states;
+  L44: W0 altered only the signal event associated with the target nucleotide. Despite being positioned directly at the target, it produced no target-state changes at either locus.
+  L54: The +20-base sham produced one L2 ALT-to-deletion transition. Audit showed that its window did not overlap PM5's target window, but the nearest window edges were only nine base-events apart. The read remained mapped at MAPQ 60 while its local CIGAR changed.
+  L58: ## Cross-locus reproducibility
+  L96: - Signal summary: `experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/PM5_attack_generation/PM5_attack_summary.tsv`
+  L97: - Target-effect summary: `experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/PM5_target_effect/PM5_clean_vs_attacked_summary.tsv`
+
+[4] score=240
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/build_experiment_E_final_comparison.py
+Term hits: l2, l3, 10/10, target-state, target state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L12: "experiment_E_cross_locus_replication"
+  L30: "experiment_E_final_cross_locus_findings.md"
+  L35: "L2_chr1_20061156_A_T": {
+  L36: "short": "L2",
+  L39: "L3_chr4_40028853_A_G": {
+  L40: "short": "L3",
+  L236: 10 if name in {"W0", "PM5"} else 0,
+  L297: "W0",
+  L387: "L2_alt_changed": next(
+  L390: if row["locus"] == "L2"
+  L392: "L3_alt_changed": next(
+  L395: if row["locus"] == "L3"
+  L398: "W0": (
+  L403: "Mostly negative, with one L2 "
+  L411: "Complete target-state disruption "
+
+[5] score=230
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md
+Term hits: l2, l3, 10/10, no effect, cross-locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0, no effect+l2
+Relevant excerpts:
+  L1: # Experiment E — Cross-Locus Specificity Controls
+  L14: | L2 | chr1:20061156 A>T |
+  L15: | L3 | chr4:40028853 A>G |
+  L21: ## Control 1 — W0 target-only perturbation
+  L23: W0 modified only the raw-signal event assigned to the target nucleotide.
+  L29: | L2 | 10 | 107 | 0.0036465% | 0 |
+  L30: | L3 | 10 | 227 | 0.0075969% | 0 |
+  L36: | L2 | 10 | 10 | 0 |
+  L37: | L3 | 10 | 10 | 0 |
+  L57: | L2 | 10 | 1,350 | 0.0460076% | 0 |
+  L58: | L3 | 10 | 1,172 | 0.0392226% | 0 |
+  L64: | L2 | 9 | 1 | One ALT-to-deletion transition |
+  L65: | L3 | 10 | 0 | No effect |
+  L67: ### L2 audit
+  L69: The changed L2 parent was:
+
+[6] score=195
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt
+Term hits: l2, l3, target-state, target state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L136: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md
+  L162: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md
+  L164: # Experiment E — Cross-Locus Specificity Controls
+  L166: ## Control 1 — W0 target-only perturbation
+  L173: ### L2 audit
+  L185: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_replication_findings.md
+  L187: # Experiment E — Cross-Locus Replication of a Targeted Nanopore Signal Attack
+  L196: ### L2 — chr1:20061156 A>T
+  L197: ### L3 — chr4:40028853 A>G
+  L201: ### L2 — chr1:20061156 A>T
+  L204: ### L3 — chr4:40028853 A>G
+  L211: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md
+  L213: # Experiment E — Final Cross-Locus Targeted Signal Attack Findings
+  L217: - W0 changed 0/20 target states;
+  L222: ## Cross-locus reproducibility
+
+[7] score=195
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md
+Term hits: l2, l3, 10/10, target-state, target state, cross-locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0
+Relevant excerpts:
+  L33: 7. cross-locus replication;
+  L51: W0 target-only control:       0/20 target changes
+  L142: | E2                 | Target-window strength series                     | Compare W0, PM2, PM10 and PM20 attack windows                  |
+  L143: | E cross-locus      | Replication at L2 and L3                          | Establish reproducibility beyond one locus                     |
+  L144: | E controls         | W0 and shifted shams                              | Establish context dependence and spatial specificity           |
+  L419: * W0;
+  L424: The later cross-locus experiment standardized the primary attack at:
+  L440: | W0        |             0 |
+  L449: ## Target-state results
+  L451: ### W0
+  L481: Increasing the local context beyond the isolated target event altered target-state outcomes.
+  L491: # 11. Experiment E — Cross-Locus Replication
+  L495: The cross-locus experiment tested whether the PM5 effect reproduced beyond the original chromosome 20 locus.
+  L501: | L2    | chr1:20061156 A>T |
+  L502: | L3    | chr4:40028853 A>G |
+
+[8] score=185
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md
+Term hits: l2, l3, 10/10, target-state, cross-locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0
+Relevant excerpts:
+  L217: | W0        |             0 |                    280 |       0.0066173% |   6 |   2 |        3 |     0 |
+  L226: # 9. Experiment E — Cross-Locus PM5 Replication
+  L232: | L2    | chr1:20061156 A>T |
+  L233: | L3    | chr4:40028853 A>G |
+  L239: | L2    |                  1,438 |                 0.0490066% |
+  L240: | L3    |                  1,592 |                 0.0532784% |
+  L242: ## Target-state result
+  L246: | L2       |              10 |            0 |       10 |
+  L247: | L3       |              10 |            0 |       10 |
+  L254: | L2       |       1 |            7 |         2 |            0 |
+  L255: | L3       |       3 |            5 |         2 |            0 |
+  L270: | Condition    |         Window | Placement      | Combined signal changed | L2 changes | L3 changes | Total target changes |
+  L272: | W0           |   1 base-event | Target-centred |              0.0056396% |       0/10 |       0/10 |                 0/20 |
+  L275: | PM5          | 11 base-events | Target-centred |              0.0511619% |      10/10 |      10/10 |                20/20 |
+  L294: | L2    |                19 |               9 |                 10 |             52.63% |
+
+[9] score=185
+experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_pandas_table_validation.txt
+Term hits: l2, l3, no_effect, target-state, cross_locus, w0
+Combination hits: l2+l3, cross_locus+w0, no_effect+l2
+Relevant excerpts:
+  L155: PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_condition_comparison.tsv
+  L174: - L2_alt_changed
+  L175: - L3_alt_changed
+  L179: condition    condition_label            placement  context_bases  base_events_per_read  loci_tested  reads_processed  reads_passed  total_changed_samples  total_signal_samples  combined_changed_percent  outside_changed_samples  clean_alt_parents  alt_retained_parents  alt_changed_parents  alt_changed_percent  L2_alt_changed  L3_alt_changed                   
+  L180: W0     W0 target-only    Centred on target              0                     1            2               20            20                    334               5922376                  0.005640                        0                 20                    20                    0                  0.0               0               0                    Target
+  L181: SHAM20      Near sham +20  20 bases downstream              5                    11            2               20            20                   2522               5922376                  0.042584                        0                 20                    19                    1                  5.0               1               0 Mostly negative, with
+  L183: PM5 PM5 target-centred    Centred on target              5                    11            2               20            20                   3030               5922376                  0.051162                        0                 20                     0                   20                100.0              10              10               Complete t
+  L187: PATH: experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/final_comparison/experiment_E_final_locus_comparison.tsv
+  L213: W0     W0 target-only    Centred on target    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              0                     1               10            10                    10                    107               2934299         0.003647                        0                 10                    10                    0                  0.0            N
+  L214: W0     W0 target-only    Centred on target    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              0                     1               10            10                    10                    227               2988077         0.007597                        0                 10                    10                    0                  0.0            N
+  L215: SHAM20      Near sham +20  20 bases downstream    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                     0                   1350               2934299         0.046008                        0                 10                     9                    1                 10.0      EFF
+  L216: SHAM20      Near sham +20  20 bases downstream    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              5                    11               10            10                     0                   1172               2988077         0.039223                        0                 10                    10                    0                  0.0         
+  L217: SHAM100  Distant sham +100 100 bases downstream    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                     0                   1246               2934299         0.042463                        0                 10                    10                    0                  0.0        
+  L218: SHAM100  Distant sham +100 100 bases downstream    L3 L3_chr4_40028853_A_G chr4:40028853 A>G              5                    11               10            10                     0                   1387               2988077         0.046418                        0                 10                    10                    0                  0.0        
+  L219: PM5 PM5 target-centred    Centred on target    L2 L2_chr1_20061156_A_T chr1:20061156 A>T              5                    11               10            10                    10                   1438               2934299         0.049007                        0                 10                     0                   10                100.0      EFFECT
+
+[10] score=185
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md
+Term hits: l2, l3, 10/10, target-state, cross-locus, w0
+Combination hits: l2+l3, 10/10+w0, cross-locus+w0
+Relevant excerpts:
+  L10: L2 and L3 clean POD5
+  L12: L2 and L3 PM5 POD5
+  L18: Per-read target-state comparison
+  L188: The existing cross-locus inputs remain available for later testing on a compatible system:
+  L191: target_pod5/L2_chr1_20061156_A_T.pod5
+  L192: target_pod5/L3_chr4_40028853_A_G.pod5
+  L194: attacked_pod5/PM5/L2_chr1_20061156_A_T.PM5.pod5
+  L195: attacked_pod5/PM5/L3_chr4_40028853_A_G.PM5.pod5
+  L198: The W0 and distant-sham controls are also available if a future compatible Bonito system is obtained.
+  L204: The final Dorado cross-locus comparison remains:
+  L206: | Condition                  | L2 changes | L3 changes | Combined |
+  L208: | W0 target-only             |       0/10 |       0/10 |     0/20 |
+  L211: | Target-centred PM5         |      10/10 |      10/10 |    20/20 |
+  L220: * cross-locus reproducibility;
+
+[11] score=185
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_off_target_sham.sh
+Term hits: l2, l3, target state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L9: CROSS_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication"
+  L16: SHAM_SCRIPT="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/generate_cross_locus_off_target_sham.py"
+  L17: ANALYSIS_SCRIPT="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/analyze_cross_locus_W0_target_effect.py"
+  L19: POD5_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM"
+  L20: BASECALL_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_basecalls/OFF_TARGET_SHAM"
+  L21: ALIGN_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments/OFF_TARGET_SHAM"
+  L22: VALIDATION_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/OFF_TARGET_SHAM"
+  L23: RESULT_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/OFF_TARGET_SHAM_target_effect"
+  L24: LOG_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs"
+  L25: MARKER_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers"
+  L27: COMPLETE="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_OFF_TARGET_SHAM.COMPLETE"
+  L28: FAILED="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_OFF_TARGET_SHAM.FAILED"
+  L42: echo "CROSS-LOCUS OFF-TARGET SHAM CONTROL"
+  L52: if [[ -e "$STAGE1" ]]    && [[ -s "$POD5_DIR/L2_chr1_20061156_A_T.SHAM.pod5" ]]    && [[ -s "$POD5_DIR/L3_chr4_40028853_A_G.SHAM.pod5" ]]    && [[ -s "$VALIDATION_DIR/OFF_TARGET_SHAM_summary.tsv" ]]
+  L62: rm -f       "$POD5_DIR/L2_chr1_20061156_A_T.SHAM.pod5"       "$POD5_DIR/L3_chr4_40028853_A_G.SHAM.pod5"       "$VALIDATION_DIR/OFF_TARGET_SHAM_audit.tsv"       "$VALIDATION_DIR/OFF_TARGET_SHAM_summary.tsv"       "$STAGE1"
+
+[12] score=185
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_off_target_sham100.sh
+Term hits: l2, l3, target state, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L9: CROSS_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication"
+  L16: SHAM_SCRIPT="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/generate_cross_locus_off_target_sham.py"
+  L17: ANALYSIS_SCRIPT="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/analyze_cross_locus_W0_target_effect.py"
+  L19: POD5_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/OFF_TARGET_SHAM100"
+  L20: BASECALL_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_basecalls/OFF_TARGET_SHAM100"
+  L21: ALIGN_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments/OFF_TARGET_SHAM100"
+  L22: VALIDATION_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/OFF_TARGET_SHAM100"
+  L23: RESULT_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/OFF_TARGET_SHAM100_target_effect"
+  L24: LOG_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs"
+  L25: MARKER_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers"
+  L27: COMPLETE="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_OFF_TARGET_SHAM100.COMPLETE"
+  L28: FAILED="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_OFF_TARGET_SHAM100.FAILED"
+  L42: echo "CROSS-LOCUS OFF-TARGET SHAM CONTROL"
+  L52: if [[ -e "$STAGE1" ]]    && [[ -s "$POD5_DIR/L2_chr1_20061156_A_T.SHAM.pod5" ]]    && [[ -s "$POD5_DIR/L3_chr4_40028853_A_G.SHAM.pod5" ]]    && [[ -s "$VALIDATION_DIR/OFF_TARGET_SHAM100_summary.tsv" ]]
+  L62: rm -f       "$POD5_DIR/L2_chr1_20061156_A_T.SHAM.pod5"       "$POD5_DIR/L3_chr4_40028853_A_G.SHAM.pod5"       "$VALIDATION_DIR/OFF_TARGET_SHAM100_audit.tsv"       "$VALIDATION_DIR/OFF_TARGET_SHAM100_summary.tsv"       "$STAGE1"
+
+[13] score=180
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_target_effect.sh
+Term hits: l2, l3, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L8: SCRIPT="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/analyze_cross_locus_W0_target_effect.py"
+  L10: PER_READ="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/W0_target_effect/W0_clean_vs_attacked_per_read.tsv"
+  L11: SUMMARY="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/results/W0_target_effect/W0_clean_vs_attacked_summary.tsv"
+  L13: COMPLETE="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_TARGET_EFFECT.COMPLETE"
+  L14: FAILED="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_TARGET_EFFECT.FAILED"
+  L19: echo "W0 target-effect analysis failed: $STATUS"
+  L27: "$PYTHON" "$SCRIPT"   --l2-clean "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/clean_alignments/L2_chr1_20061156_A_T.clean.aligned.sorted.bam"   --l2-w0 "experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments/W0/L2_chr1_20061156_A_T.W0.aligned.sorted.b
+  L54: print("W0 target-effect summary validation: PASS")
+  L61: echo "CROSS-LOCUS W0 TARGET-EFFECT ANALYSIS: COMPLETE"
+
+[14] score=175
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_alignment.sh
+Term hits: l2, l3, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L7: INPUT_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_basecalls/W0"
+  L8: OUTPUT_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_alignments/W0"
+  L9: LOG_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs"
+  L12: COMPLETE="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_ALIGNMENT.COMPLETE"
+  L13: FAILED="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_ALIGNMENT.FAILED"
+  L18: echo "W0 alignment failed with exit status $STATUS"
+  L93: align_condition     "L2 W0 ALIGNMENT"     "$INPUT_DIR/L2_chr1_20061156_A_T.W0.bam"     "L2_chr1_20061156_A_T.W0"     "chr1"     "20061156"
+  L95: align_condition     "L3 W0 ALIGNMENT"     "$INPUT_DIR/L3_chr4_40028853_A_G.W0.bam"     "L3_chr4_40028853_A_G.W0"     "chr4"     "40028853"
+  L102: for BAM in     "$OUTPUT_DIR/L2_chr1_20061156_A_T.W0.aligned.sorted.bam"     "$OUTPUT_DIR/L3_chr4_40028853_A_G.W0.aligned.sorted.bam"
+  L118: echo "CROSS-LOCUS W0 ALIGNMENT: COMPLETE"
+
+[15] score=175
+experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_attack_generation.sh
+Term hits: l2, l3, cross-locus, cross_locus, w0
+Combination hits: l2+l3, cross-locus+w0, cross_locus+w0
+Relevant excerpts:
+  L7: CROSS_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication"
+  L10: W0_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation"
+  L11: W0_POD5_DIR="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/W0"
+  L13: WINDOWS_TSV="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/signal_windows/clean_target_signal_windows.tsv"
+  L15: L2_INPUT_POD5="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/target_pod5/L2_chr1_20061156_A_T.pod5"
+  L16: L3_INPUT_POD5="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/target_pod5/L3_chr4_40028853_A_G.pod5"
+  L18: L2_CLEAN_BAM="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/clean_alignments/L2_chr1_20061156_A_T.clean.aligned.sorted.bam"
+  L19: L3_CLEAN_BAM="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/clean_alignments/L3_chr4_40028853_A_G.clean.aligned.sorted.bam"
+  L21: L2_W0_POD5="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/W0/L2_chr1_20061156_A_T.W0.pod5"
+  L22: L3_W0_POD5="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/attacked_pod5/W0/L3_chr4_40028853_A_G.W0.pod5"
+  L24: AUDIT_TSV="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation/W0_attack_audit.tsv"
+  L25: SUMMARY_TSV="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation/W0_attack_summary.tsv"
+  L27: COMPLETE="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_ATTACK_GENERATION.COMPLETE"
+  L28: FAILED="experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/markers/CROSS_LOCUS_W0_ATTACK_GENERATION.FAILED"
+  L33: echo "W0 attack generation failed with exit status $STATUS"
+
+##############################################################################
+B1_E01
+##############################################################################
+Population graph contained 3,303 nodes, 1,321 registered individuals and 786 baseline exposed
+
+[1] score=65
+experiments/B1_graph_amplification/amplification_analysis.py
+Term hits: registered, nodes
+Combination hits: nodes+registered
+Relevant excerpts:
+  L12: def analyze_breach_size_impact(G, registered, breach_fractions):
+  L15: n_comp = max(1, int(len(registered) * frac))
+  L16: r = simulate_breach(G, registered, n_comp)
+  L36: for n in G.nodes():
+  L37: G.nodes[n]["registered"] = False
+  L38: registered = simulate_registration(G, registration_rate=rate)
+  L39: n_comp = max(1, int(len(registered) * n_compromised_frac))
+  L40: r = simulate_breach(G, registered, n_comp)
+  L43: "n_registered"     : len(registered),
+  L56: def analyze_hop_depth(G, registered, n_compromised, max_hops_range):
+  L59: r = simulate_breach(G, registered, n_compromised, max_hops=hops)
+  L86: ax.set_xlabel("% of Registered Users Compromised", fontsize=10)
+  L158: print(f"      Nodes: {G.number_of_nodes():,}  |  Edges: {G.number_of_edges():,}")
+  L161: registered = simulate_registration(G, registration_rate=0.4)
+  L162: print(f"      Registered: {len(registered):,}")
+
+[2] score=65
+experiments/B1_graph_amplification/graph_model.py
+Term hits: registered, nodes
+Combination hits: nodes+registered
+Relevant excerpts:
+  L42: # Add nodes with metadata
+  L44: G.add_node(n, family=f, registered=False, exposed=False)
+  L81: # like 23andMe. Only registered users appear in the kinship graph features.
+  L86: Mark a fraction of nodes as registered on the DTC platform.
+  L90: registration_rate : fraction of population registered
+  L93: registered_nodes : list of registered node IDs
+  L95: all_nodes = list(G.nodes())
+  L96: n_register = int(len(all_nodes) * registration_rate)
+  L97: registered = random.sample(all_nodes, n_register)
+  L99: for n in registered:
+  L100: G.nodes[n]["registered"] = True
+  L102: return registered
+  L109: # to all registered relatives — modelling DNA Relatives-style features.
+  L112: def simulate_breach(G, registered_nodes, n_compromised, max_hops=3):
+  L118: registered_nodes : list of registered node IDs
+
+[3] score=60
+experiments/B1_graph_amplification/gri_d6_scores.py
+Term hits: registered, nodes
+Combination hits: nodes+registered
+Relevant excerpts:
+  L117: registered = simulate_registration(G, registration_rate=sc["reg_rate"])
+  L120: for n in G.nodes():
+  L121: G.nodes[n]["registered"] = False
+  L122: n_reg = int(G.number_of_nodes() * sc["reg_rate"])
+  L124: reg_nodes = random.sample(list(G.nodes()), n_reg)
+  L125: for n in reg_nodes:
+  L126: G.nodes[n]["registered"] = True
+  L129: r = simulate_breach(G, reg_nodes, n_comp, max_hops=sc["max_hops"])
+
+[4] score=15
+experiments/B1_graph_amplification/results_log.txt
+Term hits: nodes
+Combination hits: none
+Relevant excerpts:
+  L4: - **Population:** 2,061 nodes across 500 families
+
+[5] score=10
+experiments/B1_graph_amplification/calibration_tuning.py
+Term hits: registered
+Combination hits: none
+Relevant excerpts:
+  L27: registered = simulate_registration(G, registration_rate=0.4)
+  L28: cal = calibrate_against_23andme(G, registered)
+

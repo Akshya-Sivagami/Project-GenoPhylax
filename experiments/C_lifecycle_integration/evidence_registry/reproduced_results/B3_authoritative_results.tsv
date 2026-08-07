@@ -1,0 +1,4 @@
+record_type	condition	baseline_exposed	exposed_after	reduction_pct	threshold	precision	recall	f1	accuracy
+containment	k=5	786	560	28.8					
+containment	k=10	786	6	99.2					
+authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996

@@ -1,0 +1,11 @@
+evidence_id	module	primary_source_file	exists	correct_module	textual_source	term_hits	term_hit_count	term_total	hit_fraction	verification_status	reason
+A2_E01	A2	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv	YES	YES	YES	GN01|GN05|GN10|identity	4	4	1.000	PASS	VERIFIED
+A2_E02	A2	experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md	YES	YES	YES	seed|GN01|GN05|GN10	4	4	1.000	PASS	VERIFIED
+A2_E03	A2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv	YES	YES	YES	mapped|MAPQ	2	3	0.667	PASS	VERIFIED
+A2_E04	A2	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/logs/cross_locus_W0_target_effect.log	NO	YES	YES		0	4	0.000	FAIL	PRIMARY_SOURCE_MISSING
+A3_E01	A3	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	YES	YES	YES	PATHOGENIC|PM2|ALT	3	4	0.750	PASS	VERIFIED
+A3_E02	A3	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt	YES	YES	YES	F11|attack|PM2	3	3	1.000	PASS	VERIFIED
+A3_E03	A3	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv	YES	YES	YES	0/1|NO_CALL|PM2	3	3	1.000	PASS	VERIFIED
+A3_E04	A3	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt	YES	YES	YES	sham|PM2|ALT	3	3	1.000	PASS	VERIFIED
+B1_E01	B1	experiments/B1_graph_amplification/results_log.txt	YES	YES	YES		0	3	0.000	FAIL	INSUFFICIENT_CLAIM_TERM_SUPPORT
+B1_E02	B1	experiments/B1_graph_amplification/results_log.txt	YES	YES	YES	464|5.8	2	3	0.667	PASS	VERIFIED

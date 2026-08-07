@@ -1,15 +1,27 @@
-MODULE C2 — EVIDENCE REGISTRY VALIDATION
-==========================================
-Generated UTC: 2026-08-06T09:37:23.925521+00:00
+C2 Evidence Registry Validation
+================================
+
+Registry state:
+SOURCE_VERIFIED_EXCEPT_A1_TIERS_ASSIGNED_TO_VERIFIED_ROWS
+
 Evidence records: 20
 Unique evidence IDs: 20
-Modules represented: A1,A2,A3,B1,B2,B3
-Strong source candidates: 15
-Review-required candidates: 0
-Weak source candidates: 5
-Unresolved sources: 0
-Schema validation errors: 0
-Schema validation status: PASS
-Registry status: DRAFT_SOURCE_REVIEW_REQUIRED
+Tier-assigned records: 16
+Source-pending records: 4
 
-Interpretation: PASS confirms structural validity and module coverage. It does not mean every automatically selected source file has been manually verified.
+Evidence tier counts:
+  E1: 2
+  E2: 6
+  E3: 1
+  E4: 7
+  E5: 0
+
+Source-pending:
+  A1_E01
+  A1_E02
+  A1_E03
+  A1_E04
+
+Numerical tier weights: NOT DEFINED
+Validation errors: 0
+STATUS: PASS

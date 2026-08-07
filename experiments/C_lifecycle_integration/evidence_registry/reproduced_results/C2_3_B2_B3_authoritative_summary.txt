@@ -1,0 +1,60 @@
+MODULE C2.3 — AUTHORITATIVE B2/B3 RESULT SUMMARY
+================================================
+
+Generated UTC:
+2026-08-07T06:36:29Z
+
+Git HEAD:
+17386fc5d30c313ddeba36fdf4c595d7b79abe56 Initialize Module C lifecycle integration framework
+
+================================================
+B2 VAULT RESULTS
+================================================
+step	added_tier	disclosed_tiers	unrecoverability
+1	Pathogenic Variants	Pathogenic Variants	0.2299
+2	Polygenic Risk Scores	Pathogenic Variants|Polygenic Risk Scores	0.1346
+3	Pharmacogenomic Markers	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers	0.0994
+4	Ancestry Composition	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition	0.0864
+5	Trait Predictions	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions	0.0811
+6	Aggregate Statistics	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions|Aggregate Statistics	0.0801
+
+================================================
+B2 LIFETIME RESULTS
+================================================
+dimension	threshold	first_year_reached
+reid	0.25	8
+reid	0.5	11
+reid	0.75	12
+reid	0.8	13
+reid	0.9	13
+reid	0.99	13
+reid	1.0	13
+disease	0.25	14
+disease	0.5	22
+disease	0.75	33
+disease	0.8	
+disease	0.9	
+disease	0.99	
+disease	1.0	
+familial	0.25	8
+familial	0.5	11
+familial	0.75	13
+familial	0.8	14
+familial	0.9	14
+familial	0.99	15
+familial	1.0	15
+composite	0.25	8
+composite	0.5	12
+composite	0.75	15
+composite	0.8	19
+composite	0.9	29
+composite	0.99	
+composite	1.0	
+
+================================================
+B3 RESULTS
+================================================
+record_type	condition	baseline_exposed	exposed_after	reduction_pct	threshold	precision	recall	f1	accuracy
+containment	k=5	786	560	28.8					
+containment	k=10	786	6	99.2					
+authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996

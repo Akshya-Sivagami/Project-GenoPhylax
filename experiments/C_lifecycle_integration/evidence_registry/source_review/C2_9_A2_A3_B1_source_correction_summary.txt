@@ -1,0 +1,20 @@
+C2.9 A2/A3/B1 Source Correction Summary
+========================================
+
+A2_E04:
+  Recovered authoritative tracked source.
+  W0 retained ALT at L2 10/10 and L3 10/10.
+  Combined target changes: 0/20.
+
+B1_E01:
+  Previous 3303 / 1321 / 786 claim removed.
+  Those values were cross-module contamination from B3.
+  Reproduced B1 graph: 4144 nodes.
+  Registered at 40%: 1657.
+  No unsupported B1 baseline-exposed value retained.
+
+A2/A3/B1 source state:
+  VERIFIED
+
+A1:
+  Still provenance-pending.

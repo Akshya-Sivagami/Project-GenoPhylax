@@ -1,0 +1,136 @@
+# C3 Handoff Vector Registry
+
+The Handoff Vector records how evidence propagates between adjacent GenoPhylax lifecycle stages.
+
+No numerical GRI weights are defined at C3.
+
+## Case 1 — F11 Integrity Propagation
+
+### HF11_01: S1 → S2
+
+- **source_evidence_ids:** A2_E01|A2_E02
+- **observation_class:** OBSERVED_EMPIRICAL
+- **evidence_tier:** E1
+- **effect_summary:** Controlled raw-signal perturbation altered downstream Dorado basecalled sequences with reproducible dose-response.
+- **integrity_impact:** observed
+- **clinical_severity:** not_yet_realized
+- **detectability:** measurable_with_sequence_comparison
+- **recoverability:** possible_with_clean_raw_signal
+- **containment_difficulty:** local_at_generation_stage
+- **confidence_basis:** Direct signal perturbation with multi-seed replication.
+- **limitations:** Dorado/HG002 experimental configuration; not universal across basecallers or sequencing chemistries.
+
+### HF11_02: S2 → S3
+
+- **source_evidence_ids:** A2_E03|A2_E04
+- **observation_class:** OBSERVED_EMPIRICAL
+- **evidence_tier:** E1
+- **effect_summary:** Perturbed basecalls remained alignable; mapping preservation showed that signal corruption can survive into alignment rather than being automatically rejected.
+- **integrity_impact:** observed
+- **clinical_severity:** not_yet_realized
+- **detectability:** partially_detectable
+- **recoverability:** possible_with_clean_reprocessing
+- **containment_difficulty:** moderate
+- **confidence_basis:** Direct alignment measurement plus independent cross-locus target-only replication.
+- **limitations:** Mapping preservation does not imply every perturbation propagates identically.
+
+### HF11_03: S3 → S4
+
+- **source_evidence_ids:** A3_E01|A3_E02
+- **observation_class:** OBSERVED_EMPIRICAL
+- **evidence_tier:** E2
+- **effect_summary:** At the F11 pathogenic locus, controlled local signal attacks changed parent-level target states and removed ALT support.
+- **integrity_impact:** high
+- **clinical_severity:** potentially_high
+- **detectability:** detectable_with_targeted_audit
+- **recoverability:** possible_from_clean_signal_and_reads
+- **containment_difficulty:** moderate
+- **confidence_basis:** Controlled one-locus F11 case with clean baseline.
+- **limitations:** One individual, one locus and one principal basecaller.
+
+### HF11_04: S4 → S5
+
+- **source_evidence_ids:** A3_E03|A3_E04
+- **observation_class:** OBSERVED_EMPIRICAL
+- **evidence_tier:** E2
+- **effect_summary:** Clean F11 pathogenic 0/1 call was lost under on-target perturbation while the matched off-target sham retained the pathogenic call.
+- **integrity_impact:** high
+- **clinical_severity:** potentially_high
+- **detectability:** requires_reference_or_control_comparison
+- **recoverability:** possible_before_persistent_storage
+- **containment_difficulty:** moderate_to_high
+- **confidence_basis:** Controlled F11 attack with matched off-target sham.
+- **limitations:** Clinical consequence is annotation-level interpretation; no patient diagnosis or treatment decision was observed.
+
+### HF11_05: S5 → S6
+
+- **source_evidence_ids:** A3_E03
+- **observation_class:** MODELLED_PROPAGATION
+- **evidence_tier:** E5
+- **effect_summary:** A clinically interpreted variant record could be persisted into downstream storage with the upstream integrity error.
+- **integrity_impact:** potentially_persistent
+- **clinical_severity:** potentially_high
+- **detectability:** depends_on_downstream_audit
+- **recoverability:** reduced_after_persistence
+- **containment_difficulty:** higher_after_storage
+- **confidence_basis:** Lifecycle propagation scenario anchored to observed F11 variant-call loss but not directly tested in a clinical database.
+- **limitations:** No real clinical database ingestion, EHR propagation, patient diagnosis or treatment outcome was performed.
+
+## Case 2 — Privacy Amplification and Containment
+
+### HPRIV_01: S6 → S7
+
+- **source_evidence_ids:** B2_E01
+- **observation_class:** MODEL_SUPPORTED
+- **evidence_tier:** E4
+- **effect_summary:** Disclosure of increasingly informative genomic layers reduced modeled unrecoverability.
+- **integrity_impact:** not_primary_dimension
+- **clinical_severity:** indirect
+- **detectability:** policy_and_access_log_dependent
+- **recoverability:** limited_after_disclosure
+- **containment_difficulty:** moderate
+- **confidence_basis:** Reproduced internal vault model.
+- **limitations:** Project model; not a formal cryptographic unrecoverability proof.
+
+### HPRIV_02: S7 → S8
+
+- **source_evidence_ids:** B1_E01|B1_E02
+- **observation_class:** MODEL_SUPPORTED
+- **evidence_tier:** E3
+- **effect_summary:** Genomic disclosure propagated through modeled kinship relationships, with amplification calibrated against a documented 23andMe-scale reference.
+- **integrity_impact:** not_primary_dimension
+- **clinical_severity:** familial_privacy_consequence
+- **detectability:** network_analysis_required
+- **recoverability:** low_after_graph_propagation
+- **containment_difficulty:** high
+- **confidence_basis:** Synthetic graph model with external amplification calibration.
+- **limitations:** Synthetic population graph; calibration does not make individual-level predictions.
+
+### HPRIV_03: S8 → S9
+
+- **source_evidence_ids:** B2_E02|B2_E03
+- **observation_class:** MODEL_SUPPORTED
+- **evidence_tier:** E4
+- **effect_summary:** Modeled re-identification and familial exposure increased over time, with familial risk saturating under the configured lifetime-risk model.
+- **integrity_impact:** not_primary_dimension
+- **clinical_severity:** privacy_and_inference_consequence
+- **detectability:** longitudinal_monitoring_required
+- **recoverability:** low
+- **containment_difficulty:** high
+- **confidence_basis:** Reproduced lifetime and familial-risk simulation.
+- **limitations:** Long-term projections depend on internal model assumptions.
+
+### HPRIV_04: S9 → S10
+
+- **source_evidence_ids:** B3_E01|B3_E02|B3_E03
+- **observation_class:** MODEL_SUPPORTED
+- **evidence_tier:** E4
+- **effect_summary:** Graph-aware containment and authentication reduced modeled exposure and detected generated unauthorized-access attempts.
+- **integrity_impact:** response_stage
+- **clinical_severity:** mitigating
+- **detectability:** high_with_authentication_layer
+- **recoverability:** partial
+- **containment_difficulty:** origin_dependent
+- **confidence_basis:** Reproduced internal containment simulation and generated authentication benchmark.
+- **limitations:** Synthetic graph and benchmark; no real platform incident response was evaluated.
+

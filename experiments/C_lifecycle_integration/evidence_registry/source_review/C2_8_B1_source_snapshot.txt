@@ -1,0 +1,120 @@
+============================================================
+graph_model.py
+============================================================
+7:random.seed(42)
+8:np.random.seed(42)
+12:# Builds a synthetic population-scale kinship graph with realistic
+13:# family structures: nuclear families, cousins, grandparents.
+16:def generate_kinship_graph(n_families=500, avg_children=2, cousin_prob=0.3):
+21:        n_families   : number of nuclear family units
+22:        avg_children : average children per family
+23:        cousin_prob  : probability of cross-family cousin edges
+30:    family_data = []
+32:    for f in range(n_families):
+33:        # Each family: 2 parents + children
+42:        # Add nodes with metadata
+44:            G.add_node(n, family=f, registered=False, exposed=False)
+60:        family_data.append({
+65:    # Cross-family cousin edges
+66:    for f1 in range(n_families):
+67:        for f2 in range(f1+1, n_families):
+69:                c1 = random.choice(family_data[f1]["children"]) \
+70:                     if family_data[f1]["children"] else family_data[f1]["parents"][0]
+71:                c2 = random.choice(family_data[f2]["children"]) \
+72:                     if family_data[f2]["children"] else family_data[f2]["parents"][0]
+75:    return G, family_data
+80:# Simulates what fraction of the population registers on a DTC platform
+81:# like 23andMe. Only registered users appear in the kinship graph features.
+84:def simulate_registration(G, registration_rate=0.4):
+86:    Mark a fraction of nodes as registered on the DTC platform.
+90:        registration_rate : fraction of population registered
+93:        registered_nodes : list of registered node IDs
+95:    all_nodes = list(G.nodes())
+96:    n_register = int(len(all_nodes) * registration_rate)
+97:    registered = random.sample(all_nodes, n_register)
+99:    for n in registered:
+100:        G.nodes[n]["registered"] = True
+102:    return registered
+109:# to all registered relatives — modelling DNA Relatives-style features.
+112:def simulate_breach(G, registered_nodes, n_compromised, max_hops=3):
+118:        registered_nodes : list of registered node IDs
+120:        max_hops         : how many relationship hops exposure travels
+126:    for n in G.nodes():
+127:        G.nodes[n]["exposed"] = False
+128:        G.nodes[n]["compromised"] = False
+130:    # Select initial compromised accounts from registered users
+131:    n_compromised = min(n_compromised, len(registered_nodes))
+132:    compromised = random.sample(registered_nodes, n_compromised)
+135:        G.nodes[n]["compromised"] = True
+136:        G.nodes[n]["exposed"] = True
+138:    # BFS propagation through kinship graph up to max_hops
+142:    for hop in range(max_hops):
+146:                if neighbor not in exposed_set and G.nodes[neighbor]["registered"]:
+149:                    G.nodes[neighbor]["exposed"] = True
+158:        "n_registered"       : len(registered_nodes),
+162:        "exposure_rate"      : round(total_exposed / len(registered_nodes), 4),
+163:        "compromised_nodes"  : compromised,
+164:        "exposed_nodes"      : list(exposed_set),
+174:def calibrate_against_23andme(G, registered_nodes):
+177:    23andMe had ~14M registered users; 14K compromised → 6.9M exposed.
+180:    total_registered = len(registered_nodes)
+184:    n_compromised = max(1, int(total_registered * breach_ratio))
+186:    result = simulate_breach(G, registered_nodes, n_compromised, max_hops=3)
+203:    G, family_data = generate_kinship_graph(n_families=500)
+204:    print(f"  Nodes: {G.number_of_nodes():,}")
+207:    print("\nSimulating DTC platform registration (40% rate)...")
+208:    registered = simulate_registration(G, registration_rate=0.4)
+209:    print(f"  Registered users: {len(registered):,}")
+212:    n_comp = max(1, int(len(registered) * 0.001))
+213:    result = simulate_breach(G, registered, n_compromised=n_comp)
+219:    cal = calibrate_against_23andme(G, registered)
+
+============================================================
+amplification_analysis.py
+============================================================
+4:from graph_model import generate_kinship_graph, simulate_registration, simulate_breach, calibrate_against_23andme
+12:def analyze_breach_size_impact(G, registered, breach_fractions):
+15:        n_comp = max(1, int(len(registered) * frac))
+16:        r = simulate_breach(G, registered, n_comp)
+20:            "n_exposed"    : r["n_exposed"],
+29:# Higher registration = more relatives in the graph = more exposure
+32:def analyze_registration_impact(G, family_data, registration_rates, n_compromised_frac=0.001):
+34:    for rate in registration_rates:
+35:        # Reset registration
+36:        for n in G.nodes():
+37:            G.nodes[n]["registered"] = False
+38:        registered = simulate_registration(G, registration_rate=rate)
+39:        n_comp = max(1, int(len(registered) * n_compromised_frac))
+40:        r = simulate_breach(G, registered, n_comp)
+42:            "registration_rate": rate,
+43:            "n_registered"     : len(registered),
+56:def analyze_hop_depth(G, registered, n_compromised, max_hops_range):
+59:        r = simulate_breach(G, registered, n_compromised, max_hops=hops)
+62:            "n_exposed"    : r["n_exposed"],
+97:    rates = [r["registration_rate"] * 100 for r in reg_results]
+109:    exposed = [r["n_exposed"] for r in hop_results]
+110:    bars = ax.bar(hops, exposed, color=colors["amber"], edgecolor="white", linewidth=0.8)
+116:    for bar, val in zip(bars, exposed):
+156:    print("\n[1/4] Building kinship graph (1000 families)...")
+157:    G, family_data = generate_kinship_graph(n_families=1000, avg_children=2, cousin_prob=0.3)
+158:    print(f"      Nodes: {G.number_of_nodes():,}  |  Edges: {G.number_of_edges():,}")
+160:    print("[2/4] Simulating 40% DTC registration...")
+161:    registered = simulate_registration(G, registration_rate=0.4)
+162:    print(f"      Registered: {len(registered):,}")
+167:    breach_results = analyze_breach_size_impact(G, registered, breach_fractions)
+170:    registration_rates = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8]
+171:    reg_results = analyze_registration_impact(G, family_data, registration_rates)
+174:    n_comp = max(1, int(len(registered) * 0.001))
+175:    hop_results = analyze_hop_depth(G, registered, n_comp, max_hops_range=[1, 2, 3, 4, 5])
+178:    cal_result = calibrate_against_23andme(G, registered)
+192:        print(f"        {r['max_hops']} hops → {r['n_exposed']} exposed")
+
+============================================================
+calibration_tuning.py
+============================================================
+3:from graph_model import generate_kinship_graph, simulate_registration, calibrate_against_23andme
+15:    cousin_probs = [0.01, 0.02, 0.05, 0.08, 0.10, 0.15, 0.20, 0.25, 0.30]
+24:            G, family_data = generate_kinship_graph(
+25:                n_families=1000, avg_children=2, cousin_prob=cp
+27:            registered = simulate_registration(G, registration_rate=0.4)
+28:            cal = calibrate_against_23andme(G, registered)

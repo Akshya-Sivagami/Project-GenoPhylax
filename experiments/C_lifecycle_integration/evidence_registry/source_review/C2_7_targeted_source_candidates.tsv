@@ -1,0 +1,21 @@
+evidence_id	rank	score	candidate_file	term_hits	combination_hits
+A2_E04	1	280	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_publication_figure_data_preflight.txt	l2|l3|10/10|no_effect|target-state|cross-locus|cross_locus|w0	l2+l3|10/10+w0|cross-locus+w0|cross_locus+w0|no_effect+l2
+A2_E04	2	250	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md	l2|l3|10/10|no effect|target-state|target state|cross-locus|w0	l2+l3|10/10+w0|cross-locus+w0|no effect+l2
+A2_E04	3	250	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_final_cross_locus_findings.md	l2|l3|10/10|target-state|target state|cross-locus|cross_locus|w0	l2+l3|10/10+w0|cross-locus+w0|cross_locus+w0
+A2_E04	4	240	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/scripts/build_experiment_E_final_comparison.py	l2|l3|10/10|target-state|target state|cross-locus|cross_locus|w0	l2+l3|10/10+w0|cross-locus+w0|cross_locus+w0
+A2_E04	5	230	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_cross_locus_controls_findings.md	l2|l3|10/10|no effect|cross-locus|w0	l2+l3|10/10+w0|cross-locus+w0|no effect+l2
+A2_E04	6	195	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_findings_index.txt	l2|l3|target-state|target state|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+A2_E04	7	195	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_master_findings.md	l2|l3|10/10|target-state|target state|cross-locus|w0	l2+l3|10/10+w0|cross-locus+w0
+A2_E04	8	185	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/A2_GPU_numerical_summary.md	l2|l3|10/10|target-state|cross-locus|w0	l2+l3|10/10+w0|cross-locus+w0
+A2_E04	9	185	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_pandas_table_validation.txt	l2|l3|no_effect|target-state|cross_locus|w0	l2+l3|cross_locus+w0|no_effect+l2
+A2_E04	10	185	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_bonito_feasibility_findings.md	l2|l3|10/10|target-state|cross-locus|w0	l2+l3|10/10+w0|cross-locus+w0
+A2_E04	11	185	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_off_target_sham.sh	l2|l3|target state|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+A2_E04	12	185	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_off_target_sham100.sh	l2|l3|target state|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+A2_E04	13	180	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_target_effect.sh	l2|l3|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+A2_E04	14	175	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_alignment.sh	l2|l3|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+A2_E04	15	175	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/run_cross_locus_W0_attack_generation.sh	l2|l3|cross-locus|cross_locus|w0	l2+l3|cross-locus+w0|cross_locus+w0
+B1_E01	1	65	experiments/B1_graph_amplification/amplification_analysis.py	registered|nodes	nodes+registered
+B1_E01	2	65	experiments/B1_graph_amplification/graph_model.py	registered|nodes	nodes+registered
+B1_E01	3	60	experiments/B1_graph_amplification/gri_d6_scores.py	registered|nodes	nodes+registered
+B1_E01	4	15	experiments/B1_graph_amplification/results_log.txt	nodes	
+B1_E01	5	10	experiments/B1_graph_amplification/calibration_tuning.py	registered	

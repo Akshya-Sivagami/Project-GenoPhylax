@@ -1,0 +1,43 @@
+C2.5 Registry Correction Summary
+================================
+
+Registry state:
+PARTIALLY_VERIFIED_SOURCE_LOCK_PENDING_A1
+
+Corrections applied:
+
+B2_E01:
+  Pathogenic Variants alone = 0.2299 unrecoverability
+  All six derived tiers cumulatively disclosed = 0.0801
+
+B2_E02:
+  Re-identification >=50% first at year 11
+  Re-identification reaches 100% first at year 13
+
+B2_E03:
+  Familial risk reaches 100% first at year 15
+
+B3_E01:
+  Baseline = 786 exposed
+  k=5 = 560 exposed, 28.8% reduction
+  k=10 = 6 exposed, 99.2% reduction
+
+B3_E02:
+  Threshold = 4.5
+  Precision = 1.0000
+  Recall = 0.9800
+  F1 = 0.9899
+  Accuracy = 0.9960
+
+B3_E03:
+  Reproducible committed configuration threshold = 4.5
+
+A1_E01-A1_E04:
+  Claims retained.
+  False A2/A3 source mappings removed.
+  Authoritative source provenance remains unresolved.
+
+Important:
+  This is not a final whole-registry source lock.
+  Evidence tiers are not yet assigned.
+  C3/C4 scoring implementation must not begin yet.

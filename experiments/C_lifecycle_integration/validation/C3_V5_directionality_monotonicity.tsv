@@ -1,0 +1,6 @@
+validation_target	expected_direction	observed	result
+A2 Gaussian dose-response identity	GN01 > GN05 > GN10 identity	98.790261 > 96.903251 > 93.886341	PASS
+B2 cumulative disclosure unrecoverability	unrecoverability decreases with disclosure	0.2299 > 0.1346 > 0.0994 > 0.0864 > 0.0811 > 0.0801	PASS
+B2 re-identification threshold ordering	higher risk thresholds reached no earlier	8,11,12,13,13,13,13	PASS
+B2 familial threshold ordering	higher risk thresholds reached no earlier	8,11,13,14,14,15,15	PASS
+B3 containment direction	larger containment set reduces exposure	k5=560/28.8% k10=6/99.2%	PASS

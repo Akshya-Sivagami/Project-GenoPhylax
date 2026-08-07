@@ -1,0 +1,15 @@
+C3 Validation Suite V1-V5
+==========================
+
+V1 Schema and traceability: PASS (9 pass, 0 fail)
+V2 F11 target vs sham: PASS (10 pass, 0 fail)
+V3 Privacy amplification contrast: PASS (4 pass, 0 fail)
+V4 Evidence/confidence sanity: PASS (9 pass, 0 fail)
+V5 Directionality/monotonicity: PASS (5 pass, 0 fail)
+
+Overall failed checks: 0
+V6 ablation: NOT YET APPLICABLE
+V7 weight sensitivity: NOT YET APPLICABLE
+V8 wording guardrail: partially enforced in V4
+
+STATUS: PASS
