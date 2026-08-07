@@ -2,6 +2,9 @@
 
 The Handoff Vector records how evidence propagates between adjacent GenoPhylax lifecycle stages.
 
+Evidence tiers apply to the specific lifecycle handoff claim.
+General replicated mechanism evidence may strengthen interpretation without automatically upgrading a single-case handoff to E1.
+
 No numerical GRI weights are defined at C3.
 
 ## Case 1 — F11 Integrity Propagation
@@ -10,29 +13,29 @@ No numerical GRI weights are defined at C3.
 
 - **source_evidence_ids:** A2_E01|A2_E02
 - **observation_class:** OBSERVED_EMPIRICAL
-- **evidence_tier:** E1
+- **evidence_tier:** E2
 - **effect_summary:** Controlled raw-signal perturbation altered downstream Dorado basecalled sequences with reproducible dose-response.
 - **integrity_impact:** observed
 - **clinical_severity:** not_yet_realized
 - **detectability:** measurable_with_sequence_comparison
 - **recoverability:** possible_with_clean_raw_signal
 - **containment_difficulty:** local_at_generation_stage
-- **confidence_basis:** Direct signal perturbation with multi-seed replication.
-- **limitations:** Dorado/HG002 experimental configuration; not universal across basecallers or sequencing chemistries.
+- **confidence_basis:** Specific F11 handoff is a controlled single-case empirical transition. Separate A2 E1 multi-seed evidence supports the general signal-to-basecall perturbation mechanism but does not constitute replication of the F11-specific handoff.
+- **limitations:** F11-specific propagation is one individual, one locus and one principal basecaller. General A2 multi-seed replication must not be interpreted as F11-specific replication.
 
 ### HF11_02: S2 → S3
 
 - **source_evidence_ids:** A2_E03|A2_E04
 - **observation_class:** OBSERVED_EMPIRICAL
-- **evidence_tier:** E1
+- **evidence_tier:** E2
 - **effect_summary:** Perturbed basecalls remained alignable; mapping preservation showed that signal corruption can survive into alignment rather than being automatically rejected.
 - **integrity_impact:** observed
 - **clinical_severity:** not_yet_realized
 - **detectability:** partially_detectable
 - **recoverability:** possible_with_clean_reprocessing
 - **containment_difficulty:** moderate
-- **confidence_basis:** Direct alignment measurement plus independent cross-locus target-only replication.
-- **limitations:** Mapping preservation does not imply every perturbation propagates identically.
+- **confidence_basis:** Specific F11 propagation through downstream read/alignment processing is treated as a controlled empirical case study. Separate A2 cross-locus and mapping evidence supports the general propagation mechanism without upgrading this F11-specific transition to replicated evidence.
+- **limitations:** General A2 mapping and cross-locus evidence is supporting mechanism evidence, not independent replication of this specific F11 lifecycle transition.
 
 ### HF11_03: S3 → S4
 

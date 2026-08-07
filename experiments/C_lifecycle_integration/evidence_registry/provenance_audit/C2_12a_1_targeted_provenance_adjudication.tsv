@@ -1,0 +1,3 @@
+claim_id	final_candidate_status	evidence_basis	adjudication
+P01_B1_GRAPH_MISATTRIBUTION	TRACED_TO_DIFFERENT_MODULE	B3 authoritative reproduction + B1 authoritative reproduction	The retired values attributed to B1 are reproduced in the B3 containment analysis, while the committed B1 analysis independently reproduces a different graph configuration.
+P05_B3_HUB_K20	TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER	Git commit 75b5316 + current B3 reproduction	Git history contains top_k=20 as an implementation/default parameter, but the current reproduced attack-origin analysis does not establish a universal empirical requirement that hub-origin containment needs k=20.

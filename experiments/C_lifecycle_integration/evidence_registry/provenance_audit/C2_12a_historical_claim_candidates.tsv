@@ -1,0 +1,3 @@
+claim_id	search_type	module_found	commit	commit_date	candidate_file	matched_terms	details
+P05_B3_HUB_K20	CURRENT_TREE	B3			experiments/B3_authentication/containment_algorithm.py	k=20	
+P05_B3_HUB_K20	GIT_HISTORY	B3	75b5316dcb7eeaf0a3f6ced2f9ccb91a5360c605	2026-06-30	experiments/B3_authentication/containment_algorithm.py	k=20	feat(Module B): complete all B1, B2, and B3 experiment scripts, figures, and logs

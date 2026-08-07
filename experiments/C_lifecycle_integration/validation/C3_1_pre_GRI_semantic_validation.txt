@@ -1,0 +1,19 @@
+C3.1 Pre-GRI Semantic Validation
+================================
+
+Historical correction ledger rows: 5
+
+P01 cross-module misattribution resolved: YES
+
+P05 implementation-parameter overinterpretation resolved: YES
+
+F11 observed handoffs all E2: YES
+
+F11 S5->S6 remains E5: YES
+
+A1 included in C3: NO
+A1 included in GRI scope: NO
+
+Numerical GRI weights: NOT DEFINED
+Validation errors: 0
+STATUS: PASS

@@ -7,9 +7,11 @@ Cases: C3_F11,C3_PRIVACY
 F11 handoffs: 5
 Privacy handoffs: 4
 
-Observed empirical handoffs: 4
-Model-supported handoffs: 4
-Modelled propagation handoffs: 1
+F11 observed handoff tiers: E2,E2,E2,E2
+F11 modelled persistence tier: E5
+
+General A2 E1 evidence retained as supporting mechanism evidence: YES
+F11-specific E1 handoffs remaining: NO
 
 A1 evidence used: NO
 Numerical modifier weights: NOT DEFINED

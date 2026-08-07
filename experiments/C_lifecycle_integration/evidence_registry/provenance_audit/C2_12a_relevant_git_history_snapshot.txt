@@ -1,0 +1,17 @@
+============================================================
+B1 HISTORY
+============================================================
+406b019 | 2026-06-25 20:10:50 +0530 | feat(B1): finalize kinship graph module, log calibration results, and figures
+b122ef7 | 2026-06-16 20:55:22 +0530 | Created Project GenoPhylax repository structure
+
+============================================================
+B2 HISTORY
+============================================================
+75b5316 | 2026-06-30 11:14:15 +0530 | feat(Module B): complete all B1, B2, and B3 experiment scripts, figures, and logs
+b122ef7 | 2026-06-16 20:55:22 +0530 | Created Project GenoPhylax repository structure
+
+============================================================
+B3 HISTORY
+============================================================
+75b5316 | 2026-06-30 11:14:15 +0530 | feat(Module B): complete all B1, B2, and B3 experiment scripts, figures, and logs
+b122ef7 | 2026-06-16 20:55:22 +0530 | Created Project GenoPhylax repository structure
