@@ -1,0 +1,40 @@
+C4.1 GRI Dimension Architecture Validation
+===========================================
+
+Dimensions: 7
+Handoff-dimension cells: 63
+Case-dimension rollups: 14
+
+D2 name:
+  Disease Inference / Clinical Interpretation Risk
+
+Privacy D4:
+  HPRIV_01 applicability: INDIRECT
+  HPRIV_01 polarity: RISK_INCREASING
+  HPRIV_04 applicability: DIRECT
+  HPRIV_04 polarity: RISK_MITIGATING
+  Structural state: CONTEXT_PLUS_DIRECT_MITIGATION_NO_RISK_ANCHOR
+  Primary risk anchor: <none>
+
+Applicability counts:
+  DIRECT: 12
+  INDIRECT: 15
+  NONE: 36
+
+Polarity counts:
+  RISK_INCREASING: 22
+  RISK_MITIGATING: 5
+  NOT_APPLICABLE: 36
+
+Primary severity anchors: 6
+
+Authorized sharing treated as direct unauthorized-access evidence: NO
+Direct mitigation may create missing risk anchor: NO
+Raw handoff summation permitted: NO
+
+Numerical normalization: NOT DEFINED
+Numerical GRI weights: NOT DEFINED
+Numerical dimension scores: NOT DEFINED
+
+Validation errors: 0
+STATUS: PASS
