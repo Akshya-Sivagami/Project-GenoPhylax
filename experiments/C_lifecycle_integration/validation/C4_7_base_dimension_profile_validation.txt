@@ -1,0 +1,30 @@
+C4.7 Base Dimension Profile Validation
+=====================================
+
+Case-dimension rows: 14
+
+F11 scored dimensions:
+  D2 = 1.0000000000 / E2
+  D7 = 1.0000000000 / E2
+
+F11 context-only:
+  D5 = S5->S6 modelled propagation only
+
+Privacy scored dimensions:
+  D1 = 0.8886656512 / E4
+  D3 = 0.8817416604 / E4
+  D5 = 0.8852036558 / E4
+  D6 = 0.9904301172 / E3
+
+Privacy D2 = CONTEXT_ONLY
+Privacy D4 = NO_BASELINE_SEVERITY
+Privacy D7 = NOT_APPLICABLE
+
+Non-scored dimensions imputed as zero: NO
+Modifiers applied: NO
+Evidence multipliers applied: NO
+Dimension weights defined: NO
+Base GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

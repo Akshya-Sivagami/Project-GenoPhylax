@@ -1,0 +1,15 @@
+case_id	dimension_id	dimension_name	profile_status	normalized_risk_value	primary_severity_anchor	evidence_tier	evidence_support_class	aggregation_eligible	missing_as_zero	rationale
+C3_F11	D1	Identity Risk	NOT_APPLICABLE					NO	NO	Dimension is outside the current worked-case mechanism.
+C3_F11	D2	Disease Inference / Clinical Interpretation Risk	SCORED	1.0000000000	HF11_04	E2	CONTROLLED_EMPIRICAL	YES	NO	Resolved baseline dimension severity.
+C3_F11	D3	Familial Cascade Risk	NOT_APPLICABLE					NO	NO	Dimension is outside the current worked-case mechanism.
+C3_F11	D4	Accessibility Risk	NOT_APPLICABLE					NO	NO	Dimension is outside the current worked-case mechanism.
+C3_F11	D5	Persistence Risk	CONTEXT_ONLY					NO	NO	S5->S6 persistence/storage propagation is modelled E5 context only; no observed severity scalar.
+C3_F11	D6	Amplification Risk	NOT_APPLICABLE					NO	NO	Dimension is outside the current worked-case mechanism.
+C3_F11	D7	Pipeline Exposure Risk	SCORED	1.0000000000	HF11_04	E2	CONTROLLED_EMPIRICAL	YES	NO	Resolved baseline dimension severity.
+C3_PRIVACY	D1	Identity Risk	SCORED	0.8886656512	HPRIV_03	E4	INTERNAL_MODEL	YES	NO	Resolved baseline dimension severity.
+C3_PRIVACY	D2	Disease Inference / Clinical Interpretation Risk	CONTEXT_ONLY					NO	NO	Disease-inference trajectory is model context but not part of the locked privacy severity evidence set.
+C3_PRIVACY	D3	Familial Cascade Risk	SCORED	0.8817416604	HPRIV_03	E4	INTERNAL_MODEL	YES	NO	Resolved baseline dimension severity.
+C3_PRIVACY	D4	Accessibility Risk	NO_BASELINE_SEVERITY					NO	NO	Context and direct mitigation evidence exist, but no direct risk-increasing baseline severity anchor exists.
+C3_PRIVACY	D5	Persistence Risk	SCORED	0.8852036558	HPRIV_03	E4	INTERNAL_MODEL	YES	NO	Resolved baseline dimension severity.
+C3_PRIVACY	D6	Amplification Risk	SCORED	0.9904301172	HPRIV_02	E3	CALIBRATED_MODEL	YES	NO	Resolved baseline dimension severity.
+C3_PRIVACY	D7	Pipeline Exposure Risk	NOT_APPLICABLE					NO	NO	Dimension is outside the current worked-case mechanism.

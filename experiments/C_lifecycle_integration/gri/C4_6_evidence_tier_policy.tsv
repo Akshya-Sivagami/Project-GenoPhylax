@@ -1,0 +1,6 @@
+evidence_tier	ordinal_rank	tier_label	support_class	claim_prefix	numeric_multiplier	arithmetic_permitted
+E1	1	Replicated direct empirical evidence	REPLICATED_EMPIRICAL	replicated project empirical evidence		NO
+E2	2	Controlled direct empirical case study	CONTROLLED_EMPIRICAL	controlled direct empirical evidence		NO
+E3	3	Calibrated simulation/model	CALIBRATED_MODEL	calibrated model evidence		NO
+E4	4	Uncalibrated simulation/internal model/design benchmark	INTERNAL_MODEL	project-internal model-derived evidence		NO
+E5	5	Illustrative/hypothetical lifecycle propagation	ILLUSTRATIVE_ONLY	modelled or illustrative propagation		NO

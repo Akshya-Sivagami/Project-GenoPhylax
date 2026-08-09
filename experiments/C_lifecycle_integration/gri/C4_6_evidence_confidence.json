@@ -1,0 +1,176 @@
+{
+  "schema": "C4_6_evidence_confidence_v1",
+  "m6_type": "CATEGORICAL_ORDINAL_EVIDENCE_PROFILE",
+  "numeric_evidence_multiplier_defined": false,
+  "evidence_tier_arithmetic_permitted": false,
+  "risk_values_modified_by_m6": false,
+  "tier_policy": [
+    {
+      "evidence_tier": "E1",
+      "ordinal_rank": "1",
+      "tier_label": "Replicated direct empirical evidence",
+      "support_class": "REPLICATED_EMPIRICAL",
+      "claim_prefix": "replicated project empirical evidence",
+      "numeric_multiplier": "",
+      "arithmetic_permitted": "NO"
+    },
+    {
+      "evidence_tier": "E2",
+      "ordinal_rank": "2",
+      "tier_label": "Controlled direct empirical case study",
+      "support_class": "CONTROLLED_EMPIRICAL",
+      "claim_prefix": "controlled direct empirical evidence",
+      "numeric_multiplier": "",
+      "arithmetic_permitted": "NO"
+    },
+    {
+      "evidence_tier": "E3",
+      "ordinal_rank": "3",
+      "tier_label": "Calibrated simulation/model",
+      "support_class": "CALIBRATED_MODEL",
+      "claim_prefix": "calibrated model evidence",
+      "numeric_multiplier": "",
+      "arithmetic_permitted": "NO"
+    },
+    {
+      "evidence_tier": "E4",
+      "ordinal_rank": "4",
+      "tier_label": "Uncalibrated simulation/internal model/design benchmark",
+      "support_class": "INTERNAL_MODEL",
+      "claim_prefix": "project-internal model-derived evidence",
+      "numeric_multiplier": "",
+      "arithmetic_permitted": "NO"
+    },
+    {
+      "evidence_tier": "E5",
+      "ordinal_rank": "5",
+      "tier_label": "Illustrative/hypothetical lifecycle propagation",
+      "support_class": "ILLUSTRATIVE_ONLY",
+      "claim_prefix": "modelled or illustrative propagation",
+      "numeric_multiplier": "",
+      "arithmetic_permitted": "NO"
+    }
+  ],
+  "dimension_evidence_profile": [
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "normalized_risk_value": "1.0000000000",
+      "primary_severity_anchor": "HF11_04",
+      "evidence_tier": "E2",
+      "evidence_support_class": "CONTROLLED_EMPIRICAL",
+      "claim_prefix": "controlled direct empirical evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    },
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D7",
+      "normalized_risk_value": "1.0000000000",
+      "primary_severity_anchor": "HF11_04",
+      "evidence_tier": "E2",
+      "evidence_support_class": "CONTROLLED_EMPIRICAL",
+      "claim_prefix": "controlled direct empirical evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D1",
+      "normalized_risk_value": "0.8886656512",
+      "primary_severity_anchor": "HPRIV_03",
+      "evidence_tier": "E4",
+      "evidence_support_class": "INTERNAL_MODEL",
+      "claim_prefix": "project-internal model-derived evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D3",
+      "normalized_risk_value": "0.8817416604",
+      "primary_severity_anchor": "HPRIV_03",
+      "evidence_tier": "E4",
+      "evidence_support_class": "INTERNAL_MODEL",
+      "claim_prefix": "project-internal model-derived evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D5",
+      "normalized_risk_value": "0.8852036558",
+      "primary_severity_anchor": "HPRIV_03",
+      "evidence_tier": "E4",
+      "evidence_support_class": "INTERNAL_MODEL",
+      "claim_prefix": "project-internal model-derived evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "normalized_risk_value": "0.9904301172",
+      "primary_severity_anchor": "HPRIV_02",
+      "evidence_tier": "E3",
+      "evidence_support_class": "CALIBRATED_MODEL",
+      "claim_prefix": "calibrated model evidence",
+      "numeric_evidence_multiplier": "",
+      "risk_value_modified_by_m6": "NO",
+      "m6_status": "CATEGORICAL_EVIDENCE_PROFILE"
+    }
+  ],
+  "case_evidence_profile": [
+    {
+      "case_id": "C3_F11",
+      "scored_dimension_count": "2",
+      "evidence_tiers": "E2",
+      "tier_counts": "E2:2",
+      "case_evidence_profile": "CONTROLLED_EMPIRICAL_CASE",
+      "numeric_case_confidence": "",
+      "interpretation": "All scored F11 dimensions use controlled direct empirical case-study evidence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scored_dimension_count": "4",
+      "evidence_tiers": "E3|E4",
+      "tier_counts": "E3:1|E4:3",
+      "case_evidence_profile": "MODEL_DEPENDENT_MIXED_SUPPORT",
+      "numeric_case_confidence": "",
+      "interpretation": "Privacy scored dimensions are model-derived; D6 is calibrated-model evidence while D1/D3/D5 remain internal-model evidence."
+    }
+  ],
+  "reporting_policy": [
+    {
+      "output_component": "BASE_GRI",
+      "uses_risk_magnitude": "YES",
+      "uses_numeric_evidence_discount": "NO",
+      "purpose": "Report normalized risk magnitude under selected framework assumptions."
+    },
+    {
+      "output_component": "M6_EVIDENCE_PROFILE",
+      "uses_risk_magnitude": "NO",
+      "uses_numeric_evidence_discount": "NO",
+      "purpose": "Report evidence tier/support class for each scored dimension and case."
+    },
+    {
+      "output_component": "SENSITIVITY_RANGE",
+      "uses_risk_magnitude": "YES",
+      "uses_numeric_evidence_discount": "NO",
+      "purpose": "Report effect of weight, scenario and modeling assumptions."
+    },
+    {
+      "output_component": "ABLATION_RESULT",
+      "uses_risk_magnitude": "YES",
+      "uses_numeric_evidence_discount": "NO",
+      "purpose": "Test dependence on individual dimensions/modifiers."
+    }
+  ],
+  "dimension_weights_defined": false,
+  "final_gri_computed": false
+}

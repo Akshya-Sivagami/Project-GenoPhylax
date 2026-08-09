@@ -1,0 +1,7 @@
+case_id	dimension_id	normalized_risk_value	primary_severity_anchor	evidence_tier	evidence_support_class	claim_prefix	numeric_evidence_multiplier	risk_value_modified_by_m6	m6_status
+C3_F11	D2	1.0000000000	HF11_04	E2	CONTROLLED_EMPIRICAL	controlled direct empirical evidence		NO	CATEGORICAL_EVIDENCE_PROFILE
+C3_F11	D7	1.0000000000	HF11_04	E2	CONTROLLED_EMPIRICAL	controlled direct empirical evidence		NO	CATEGORICAL_EVIDENCE_PROFILE
+C3_PRIVACY	D1	0.8886656512	HPRIV_03	E4	INTERNAL_MODEL	project-internal model-derived evidence		NO	CATEGORICAL_EVIDENCE_PROFILE
+C3_PRIVACY	D3	0.8817416604	HPRIV_03	E4	INTERNAL_MODEL	project-internal model-derived evidence		NO	CATEGORICAL_EVIDENCE_PROFILE
+C3_PRIVACY	D5	0.8852036558	HPRIV_03	E4	INTERNAL_MODEL	project-internal model-derived evidence		NO	CATEGORICAL_EVIDENCE_PROFILE
+C3_PRIVACY	D6	0.9904301172	HPRIV_02	E3	CALIBRATED_MODEL	calibrated model evidence		NO	CATEGORICAL_EVIDENCE_PROFILE

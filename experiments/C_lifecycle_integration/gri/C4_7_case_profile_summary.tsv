@@ -1,0 +1,3 @@
+case_id	scored_dimension_count	scored_dimensions	context_or_unscored_dimensions	not_applicable_dimensions	missing_dimensions_imputed_as_zero	dimension_weights_defined	base_gri_computed
+C3_F11	2	D2|D7	D5	D1|D3|D4|D6	NO	NO	NO
+C3_PRIVACY	4	D1|D3|D5|D6	D2|D4	D7	NO	NO	NO

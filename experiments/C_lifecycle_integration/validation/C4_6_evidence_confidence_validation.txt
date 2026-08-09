@@ -1,0 +1,40 @@
+C4.6 M6 Evidence-Confidence Validation
+======================================
+
+M6 representation:
+  CATEGORICAL_ORDINAL_EVIDENCE_PROFILE
+
+Evidence tiers:
+  E1 Replicated direct empirical
+  E2 Controlled direct empirical
+  E3 Calibrated model
+  E4 Internal/model-derived
+  E5 Illustrative/modelled propagation
+
+Numeric evidence multipliers defined: NO
+Evidence-tier arithmetic permitted: NO
+Risk magnitude modified by M6: NO
+
+F11:
+  D2 = E2
+  D7 = E2
+  Case profile = CONTROLLED_EMPIRICAL_CASE
+
+Privacy:
+  D1 = E4
+  D3 = E4
+  D5 = E4
+  D6 = E3
+  Case profile = MODEL_DEPENDENT_MIXED_SUPPORT
+
+Privacy D4 scored M6 entry: NO
+
+Base GRI kept separate from evidence support: YES
+Sensitivity kept separate from evidence support: YES
+Ablation kept separate from evidence support: YES
+
+Dimension weights defined: NO
+Final GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

@@ -1,0 +1,3 @@
+case_id	scored_dimension_count	evidence_tiers	tier_counts	case_evidence_profile	numeric_case_confidence	interpretation
+C3_F11	2	E2	E2:2	CONTROLLED_EMPIRICAL_CASE		All scored F11 dimensions use controlled direct empirical case-study evidence.
+C3_PRIVACY	4	E3|E4	E3:1|E4:3	MODEL_DEPENDENT_MIXED_SUPPORT		Privacy scored dimensions are model-derived; D6 is calibrated-model evidence while D1/D3/D5 remain internal-model evidence.

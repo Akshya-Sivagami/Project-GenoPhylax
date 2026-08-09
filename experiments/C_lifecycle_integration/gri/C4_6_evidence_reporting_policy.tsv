@@ -1,0 +1,5 @@
+output_component	uses_risk_magnitude	uses_numeric_evidence_discount	purpose
+BASE_GRI	YES	NO	Report normalized risk magnitude under selected framework assumptions.
+M6_EVIDENCE_PROFILE	NO	NO	Report evidence tier/support class for each scored dimension and case.
+SENSITIVITY_RANGE	YES	NO	Report effect of weight, scenario and modeling assumptions.
+ABLATION_RESULT	YES	NO	Test dependence on individual dimensions/modifiers.
