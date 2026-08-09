@@ -1,0 +1,239 @@
+{
+  "schema": "C4_5_modifier_architecture_v2",
+  "risk_direction": "0=less concerning;1=more concerning",
+  "modifier_definitions": [
+    {
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "definition": "Degree to which relevant genomic evidence is altered from controlled baseline.",
+      "risk_direction": "HIGHER_VALUE_MORE_CONCERNING",
+      "numeric_range": "[0,1]"
+    },
+    {
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "definition": "Severity of clinically meaningful consequence associated with the affected genomic interpretation.",
+      "risk_direction": "HIGHER_VALUE_MORE_CONCERNING",
+      "numeric_range": "[0,1]_WHEN_DEFENSIBLY_QUANTIFIED"
+    },
+    {
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "definition": "Difficulty of detecting harmful or unauthorized state.",
+      "risk_direction": "HIGHER_VALUE_HARDER_TO_DETECT",
+      "numeric_range": "[0,1]"
+    },
+    {
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "definition": "Difficulty of restoring confidentiality or reducing recoverability/reconstruction after exposure.",
+      "risk_direction": "HIGHER_VALUE_MORE_DIFFICULT_TO_RECOVER",
+      "numeric_range": "[0,1]"
+    },
+    {
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "definition": "Residual difficulty containing downstream exposure after response controls.",
+      "risk_direction": "HIGHER_VALUE_MORE_DIFFICULT_TO_CONTAIN",
+      "numeric_range": "[0,1]"
+    }
+  ],
+  "case_applicability": [
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M1",
+      "applicability_status": "NUMERICALLY_RESOLVED",
+      "rationale": "Controlled ALT-support loss directly measures integrity impact."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M2",
+      "applicability_status": "APPLICABLE_BUT_UNQUANTIFIED",
+      "rationale": "Pathogenic clinical interpretation is relevant, but patient severity/outcome was not measured."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M3",
+      "applicability_status": "UNMEASURED",
+      "rationale": "No validated attack-detection study was performed."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M4",
+      "applicability_status": "UNMEASURED",
+      "rationale": "Recovery/remediation after variant suppression was not tested."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M5",
+      "applicability_status": "UNMEASURED",
+      "rationale": "Operational containment of the F11 attack was not tested."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M1",
+      "applicability_status": "NOT_APPLICABLE",
+      "rationale": "Privacy worked case is disclosure/amplification rather than genomic integrity alteration."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M2",
+      "applicability_status": "NOT_APPLICABLE",
+      "rationale": "Current locked privacy case contains no direct clinical-severity measurement."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M3",
+      "applicability_status": "NUMERICALLY_RESOLVED",
+      "rationale": "B3 authentication F1 supports a model-bounded residual detectability descriptor."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M4",
+      "applicability_status": "NUMERICALLY_RESOLVED",
+      "rationale": "B2 unrecoverability model supports a recoverability-risk complement."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M5",
+      "applicability_status": "SCENARIO_ENVELOPE",
+      "rationale": "B3 containment varies strongly by scenario/origin; a single scalar is not selected at C4.5."
+    }
+  ],
+  "modifier_values": [
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "1.0000000000",
+      "numeric_status": "RESOLVED",
+      "source": "NORM_F11_D2_ALT_LOSS",
+      "evidence_scope": "DIRECT_CONTROLLED_F11",
+      "correlation_note": "Shares source evidence with D2; cannot be treated as independent."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "APPLICABLE_BUT_UNQUANTIFIED",
+      "source": "A3 pathogenic F11 interpretation",
+      "evidence_scope": "PATHOGENIC_CLASSIFICATION_ONLY",
+      "correlation_note": "No patient-outcome severity measurement."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_DIRECT_DETECTION_STUDY",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_RECOVERY_EXPERIMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_F11_CONTAINMENT_EXPERIMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "source": "",
+      "evidence_scope": "PRIVACY_MECHANISM",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "source": "",
+      "evidence_scope": "NO_DIRECT_CLINICAL_SEVERITY_MEASUREMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "0.0101000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "source": "B3 authentication F1=0.9899",
+      "evidence_scope": "GENERATED_AUTHENTICATION_TEST_DISTRIBUTION",
+      "correlation_note": "Related to B3 D4 mitigation evidence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "0.9199000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "source": "B2 all-six unrecoverability=0.0801",
+      "evidence_scope": "PROJECT_VAULT_MODEL",
+      "correlation_note": "Related conceptually to D5 persistence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR",
+      "source": "B3 attack-origin containment scenarios",
+      "evidence_scope": "PROJECT_CONTAINMENT_MODEL_ORIGIN_SENSITIVITY",
+      "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+    }
+  ],
+  "m5_scenario_envelope": [
+    {
+      "scenario_id": "M5_LOW_DEGREE",
+      "scenario_label": "Low-degree/peripheral origin",
+      "containment_reduction": "0.9920000000",
+      "residual_containment_difficulty": "0.0080000000",
+      "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+    },
+    {
+      "scenario_id": "M5_MID_DEGREE",
+      "scenario_label": "Mid-degree/average origin",
+      "containment_reduction": "0.2050000000",
+      "residual_containment_difficulty": "0.7950000000",
+      "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+    },
+    {
+      "scenario_id": "M5_HIGH_DEGREE",
+      "scenario_label": "High-degree/hub origin",
+      "containment_reduction": "0.0200000000",
+      "residual_containment_difficulty": "0.9800000000",
+      "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+    }
+  ],
+  "m5_envelope_min": 0.008,
+  "m5_envelope_max": 0.98,
+  "privacy_m4_pathogenic_only_context": 0.7701,
+  "modifiers_automatically_applied_to_dimensions": false,
+  "m5_single_scalar_selected": false,
+  "m6_defined": false,
+  "final_gri_computed": false,
+  "provenance_patch": {
+    "status": "APPLIED",
+    "source": "C4_5a M5 provenance repair"
+  }
+}

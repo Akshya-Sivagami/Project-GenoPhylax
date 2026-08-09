@@ -1,0 +1,6 @@
+modifier_id	modifier_name	definition	risk_direction	numeric_range
+M1	Integrity Impact	Degree to which relevant genomic evidence is altered from controlled baseline.	HIGHER_VALUE_MORE_CONCERNING	[0,1]
+M2	Clinical Severity	Severity of clinically meaningful consequence associated with the affected genomic interpretation.	HIGHER_VALUE_MORE_CONCERNING	[0,1]_WHEN_DEFENSIBLY_QUANTIFIED
+M3	Detectability	Difficulty of detecting harmful or unauthorized state.	HIGHER_VALUE_HARDER_TO_DETECT	[0,1]
+M4	Recoverability	Difficulty of restoring confidentiality or reducing recoverability/reconstruction after exposure.	HIGHER_VALUE_MORE_DIFFICULT_TO_RECOVER	[0,1]
+M5	Containment Difficulty	Residual difficulty containing downstream exposure after response controls.	HIGHER_VALUE_MORE_DIFFICULT_TO_CONTAIN	[0,1]

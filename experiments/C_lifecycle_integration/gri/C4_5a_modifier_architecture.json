@@ -1,0 +1,136 @@
+{
+  "schema": "C4_5a_modifier_architecture_v2",
+  "privacy_M5": {
+    "status": "SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR",
+    "minimum_residual_containment_difficulty": 0.008,
+    "maximum_residual_containment_difficulty": 0.98,
+    "scenarios": [
+      {
+        "scenario_id": "M5_LOW_DEGREE",
+        "scenario_label": "Low-degree/peripheral origin",
+        "containment_reduction": "0.9920000000",
+        "residual_containment_difficulty": "0.0080000000",
+        "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+      },
+      {
+        "scenario_id": "M5_MID_DEGREE",
+        "scenario_label": "Mid-degree/average origin",
+        "containment_reduction": "0.2050000000",
+        "residual_containment_difficulty": "0.7950000000",
+        "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+      },
+      {
+        "scenario_id": "M5_HIGH_DEGREE",
+        "scenario_label": "High-degree/hub origin",
+        "containment_reduction": "0.0200000000",
+        "residual_containment_difficulty": "0.9800000000",
+        "source_status": "COMMITTED_B3_SOURCE_VERIFIED"
+      }
+    ],
+    "single_scalar_selected": false
+  },
+  "modifier_values": [
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "1.0000000000",
+      "numeric_status": "RESOLVED",
+      "source": "NORM_F11_D2_ALT_LOSS",
+      "evidence_scope": "DIRECT_CONTROLLED_F11",
+      "correlation_note": "Shares source evidence with D2; cannot be treated as independent."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "APPLICABLE_BUT_UNQUANTIFIED",
+      "source": "A3 pathogenic F11 interpretation",
+      "evidence_scope": "PATHOGENIC_CLASSIFICATION_ONLY",
+      "correlation_note": "No patient-outcome severity measurement."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_DIRECT_DETECTION_STUDY",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_RECOVERY_EXPERIMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "source": "",
+      "evidence_scope": "NO_F11_CONTAINMENT_EXPERIMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "source": "",
+      "evidence_scope": "PRIVACY_MECHANISM",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "source": "",
+      "evidence_scope": "NO_DIRECT_CLINICAL_SEVERITY_MEASUREMENT",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "0.0101000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "source": "B3 authentication F1=0.9899",
+      "evidence_scope": "GENERATED_AUTHENTICATION_TEST_DISTRIBUTION",
+      "correlation_note": "Related to B3 D4 mitigation evidence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "0.9199000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "source": "B2 all-six unrecoverability=0.0801",
+      "evidence_scope": "PROJECT_VAULT_MODEL",
+      "correlation_note": "Related conceptually to D5 persistence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR",
+      "source": "B3 attack-origin containment scenarios",
+      "evidence_scope": "PROJECT_CONTAINMENT_MODEL_ORIGIN_SENSITIVITY",
+      "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+    }
+  ],
+  "m6_defined": false,
+  "gri_computed": false
+}

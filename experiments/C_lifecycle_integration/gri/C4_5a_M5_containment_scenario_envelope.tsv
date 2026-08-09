@@ -1,0 +1,4 @@
+scenario_id	scenario_label	containment_reduction	residual_containment_difficulty	source_status
+M5_LOW_DEGREE	Low-degree/peripheral origin	0.9920000000	0.0080000000	COMMITTED_B3_SOURCE_VERIFIED
+M5_MID_DEGREE	Mid-degree/average origin	0.2050000000	0.7950000000	COMMITTED_B3_SOURCE_VERIFIED
+M5_HIGH_DEGREE	High-degree/hub origin	0.0200000000	0.9800000000	COMMITTED_B3_SOURCE_VERIFIED

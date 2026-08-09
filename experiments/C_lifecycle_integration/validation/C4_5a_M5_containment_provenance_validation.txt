@@ -1,0 +1,22 @@
+C4.5a M5 Containment Provenance Validation
+==========================================
+
+Source-backed M5 scenarios: 3
+
+M5 residual envelope: [0.0080000000, 0.9800000000]
+
+Expected origin scenarios:
+  Low-degree/peripheral: residual 0.008
+  Mid-degree/average: residual 0.795
+  High-degree/hub: residual 0.980
+
+Single M5 scalar selected: NO
+Easiest scenario treated as universal: NO
+Hardest scenario treated as universal: NO
+Scenario dependence retained: YES
+
+M6 defined: NO
+Final GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

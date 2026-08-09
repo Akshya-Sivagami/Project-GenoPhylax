@@ -1,0 +1,38 @@
+C4.5 Final Modifier Architecture Validation
+==========================================
+
+Modifier architecture: M1-M5
+
+F11:
+  M1 Integrity Impact = 1.0000000000
+  M2 Clinical Severity = APPLICABLE_BUT_UNQUANTIFIED
+  M3 Detectability = UNMEASURED
+  M4 Recoverability = UNMEASURED
+  M5 Containment Difficulty = UNMEASURED
+
+Privacy:
+  M1 Integrity Impact = NOT_APPLICABLE
+  M2 Clinical Severity = NOT_APPLICABLE
+  M3 Detectability = 0.0101000000
+  M4 Recoverability = 0.9199000000
+  M5 Containment Difficulty = SCENARIO_ENVELOPE
+
+M5 source-backed scenarios: 3
+M5 residual minimum: 0.0080000000
+M5 residual maximum: 0.9800000000
+
+M5 low-degree residual = 0.008: YES
+M5 mid-degree residual = 0.795: YES
+M5 high-degree residual = 0.980: YES
+
+M5 single scalar selected: NO
+Unmeasured converted to zero: NO
+Not applicable converted to zero: NO
+Clinical severity invented: NO
+Modifiers automatically applied to dimensions: NO
+
+M6 evidence confidence defined: NO
+Final GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

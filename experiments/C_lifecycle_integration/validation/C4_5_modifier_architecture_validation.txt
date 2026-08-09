@@ -1,0 +1,38 @@
+C4.5 Modifier Architecture Validation
+=====================================
+
+Modifier definitions: M1-M5
+Definitions: 5
+Case-modifier mappings: 10
+Modifier-value rows: 10
+M5 scenario rows: 2
+
+Common modifier direction:
+  0 = less concerning
+  1 = more concerning
+
+F11:
+  M1 Integrity Impact = 1.0000000000
+  M2 Clinical Severity = APPLICABLE_BUT_UNQUANTIFIED
+  M3 Detectability = UNMEASURED
+  M4 Recoverability = UNMEASURED
+  M5 Containment Difficulty = UNMEASURED
+
+Privacy:
+  M1 Integrity Impact = NOT_APPLICABLE
+  M2 Clinical Severity = NOT_APPLICABLE
+  M3 Detectability = 0.0101000000
+  M4 Recoverability = 0.9199000000
+  M5 Containment Difficulty = SCENARIO_ENVELOPE
+
+Unmeasured converted to zero: NO
+Not-applicable converted to zero: NO
+Unquantified clinical severity invented: NO
+Single easiest containment scenario selected as universal M5: NO
+
+Modifiers automatically multiplied into dimensions: NO
+M6 evidence confidence defined: NO
+Final GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

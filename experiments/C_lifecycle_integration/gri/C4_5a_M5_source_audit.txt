@@ -1,0 +1,1133 @@
+C4.5a M5 Source Audit
+=====================
+
+Authoritative B3 reproduction:
+-----------------------------
+record_type	condition	baseline_exposed	exposed_after	reduction_pct	threshold	precision	recall	f1	accuracy
+containment	k=5	786	560	28.8					
+containment	k=10	786	6	99.2					
+authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+
+Candidate committed B3 files:
+-----------------------------
+experiments/B3_authentication/containment_algorithm.py
+experiments/C_lifecycle_integration/evidence_registry/C2_12b_historical_correction_ledger.md
+experiments/C_lifecycle_integration/evidence_registry/C2_12b_historical_correction_ledger.tsv
+experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.json
+experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.md
+experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.tsv
+experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_1_targeted_provenance_adjudication.tsv
+experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_1_targeted_provenance_adjudication.txt
+experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_historical_claim_provenance_audit.txt
+experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_historical_claim_provenance_summary.tsv
+experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_B3_source_parameter_snapshot.txt
+experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+experiments/C_lifecycle_integration/evidence_registry/reproduced_results/C2_B2_B3_reproduction_report.txt
+experiments/C_lifecycle_integration/evidence_registry/source_review/C2_1_authoritative_source_discovery.txt
+experiments/C_lifecycle_integration/evidence_registry/source_review/C2_2_clean_source_audit.txt
+experiments/C_lifecycle_integration/evidence_registry/source_review/C2_4_pre_patch_registry_inspection.txt
+experiments/C_lifecycle_integration/evidence_registry/source_review/C2_5_registry_correction_audit.tsv
+experiments/C_lifecycle_integration/gri/C4_3_source_extraction_diagnostic.txt
+experiments/C_lifecycle_integration/gri/C4_5_M5_containment_scenario_envelope.tsv
+experiments/C_lifecycle_integration/gri/C4_5_modifier_architecture.json
+experiments/C_lifecycle_integration/methodology/C4_5_modifier_methodology.md
+experiments/C_lifecycle_integration/scripts/build_C2_cross_module_evidence_registry.py
+
+Relevant excerpts:
+------------------
+
+===== experiments/B3_authentication/containment_algorithm.py =====
+121-
+122-    return results, baseline_exposed
+123-
+124-def analyze_attack_origins(G, registered_nodes, k_values):
+125-    """
+126-    Compare containment effectiveness across three breach
+127-    origin classes based on compromised node degree:
+128-    
+129:    Low-degree  : peripheral accounts (easiest to contain)
+130:    Mid-degree  : average users (realistic credential stuffing)
+131:    High-degree : hub accounts (hardest to contain)
+132-    
+133-    Same containment strategy applied to all three —
+134:    reveals how attack origin affects containment outcome.
+135-    """
+136-    reg_list = sorted(registered_nodes,
+137-                      key=lambda n: G.degree(n))
+138-    n        = len(reg_list)
+139-    n_comp   = max(5, int(n * 0.005))
+140-
+141-    origin_classes = {
+142:        "Low-Degree\n(Peripheral)": reg_list[:n//4],
+143:        "Mid-Degree\n(Average User)": reg_list[n//4:n//2],
+144:        "High-Degree\n(Hub Account)": reg_list[3*n//4:],
+145-    }
+146-
+147-    all_results = {}
+148-
+149-    for label, pool in origin_classes.items():
+150-        compromised = random.sample(
+151-            pool, min(n_comp, len(pool))
+152-        )
+--
+199-        }
+200-
+201-    return all_results
+202-
+203-
+204-def plot_attack_origin_comparison(origin_results):
+205-    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+206-    fig.suptitle(
+207:        "Module B3 — Containment Effectiveness by Attack Origin\n"
+208-        "Project GenoPhylax",
+209-        fontsize=13, fontweight="bold", color="#0D1B2A"
+210-    )
+211-    fig.patch.set_facecolor("#F1F5F9")
+212-
+213-    colors = {
+214:        "Low-Degree\n(Peripheral)" : "#15803D",
+215:        "Mid-Degree\n(Average User)": "#D97706",
+216:        "High-Degree\n(Hub Account)": "#C0392B",
+217-    }
+218-    markers = {
+219:        "Low-Degree\n(Peripheral)" : "o",
+220:        "Mid-Degree\n(Average User)": "s",
+221:        "High-Degree\n(Hub Account)": "^",
+222-    }
+223-
+224-    # ── Plot 1: Reduction % vs k for each origin class ──
+225-    ax = axes[0]
+226-    ax.set_facecolor("white")
+227-    for label, data in origin_results.items():
+228-        ks         = [r["k"] for r in data["results"]]
+229-        reductions = [r["reduction"] for r in data["results"]]
+--
+235-               lw=1.5, alpha=0.7,
+236-               label="50% reduction threshold")
+237-    ax.axhline(99, color="gray", linestyle=":",
+238-               lw=1.5, alpha=0.5,
+239-               label="99% reduction threshold")
+240-    ax.set_xlabel("Accounts Locked for Containment (k)",
+241-                  fontsize=10)
+242-    ax.set_ylabel("Breach Reduction (%)", fontsize=10)
+243:    ax.set_title("Containment Effectiveness by Attack Origin",
+244-                 fontweight="bold")
+245-    ax.legend(fontsize=9)
+246-    ax.grid(True, alpha=0.3)
+247-    ax.set_ylim(-10, 105)
+248-
+249-    # ── Plot 2: Baseline exposure by origin class ──
+250-    ax = axes[1]
+251-    ax.set_facecolor("white")
+--
+260-    for bar, val in zip(bars, baselines):
+261-        ax.text(bar.get_x() + bar.get_width()/2,
+262-                bar.get_height() + 5,
+263-                str(val), ha="center", va="bottom",
+264-                fontsize=11, fontweight="bold")
+265-
+266-    ax.set_ylabel("Baseline Exposed Users (no containment)",
+267-                  fontsize=10)
+268:    ax.set_title("Breach Blast Radius by Attack Origin\n"
+269-                 "(Before Containment)",
+270-                 fontweight="bold")
+271-    ax.grid(True, alpha=0.3, axis="y")
+272-
+273-    plt.tight_layout()
+274-    plt.savefig("B3_attack_origin_comparison.png", dpi=150,
+275-                bbox_inches="tight",
+276-                facecolor=fig.get_facecolor())
+--
+289-    for _ in range(n_normal):
+290-        sessions.append({
+291-            "label"            : 0,
+292-            "access_rate"      : rng.normal(2.5, 1.0),
+293-            "account_diversity": rng.integers(1, 4),
+294-            "query_diversity"  : rng.integers(1, 5),
+295-            "ip_changes"       : rng.integers(0, 2),
+296-            "graph_depth"      : rng.integers(0, 2),
+297:            "session_duration" : rng.normal(12.0, 5.0),
+298-            "failed_logins"    : rng.integers(0, 2),
+299-        })
+300-
+301-    for _ in range(n_attack):
+302-        sessions.append({
+303-            "label"            : 1,
+304-            "access_rate"      : rng.normal(45.0, 15.0),
+305-            "account_diversity": rng.integers(10, 100),
+--
+313-    return sessions
+314-
+315-
+316-def compute_anomaly_score(session):
+317-    score = 0.0
+318-    score += min(session["access_rate"] / 50.0, 1.0)       * 3.0
+319-    score += min(session["account_diversity"] / 50.0, 1.0) * 2.5
+320-    score += min(session["ip_changes"] / 10.0, 1.0)        * 1.5
+321:    score += min(session["graph_depth"] / 5.0, 1.0)        * 2.0
+322-    score += min(session["failed_logins"] / 20.0, 1.0)     * 1.0
+323-    return round(min(score, 10.0), 2)
+324-
+325-
+326-def evaluate_detection(sessions, threshold=4.5):
+327-    results = []
+328-    tp = fp = tn = fn = 0
+329-
+--
+356-
+357-
+358-# ═══════════════════════════════════════════════════════════════
+359-# 3. GRI D4 SCORING
+360-# ═══════════════════════════════════════════════════════════════
+361-
+362-def compute_d4_score(containment_reduction_pct, auth_f1_score):
+363-    containment_eff = max(containment_reduction_pct / 100.0, 0.0)
+364:    combined        = (containment_eff + auth_f1_score) / 2.0
+365-    d4              = round((1.0 - combined) * 10.0, 2)
+366-    return max(d4, 0.0)
+367-
+368-
+369-# ═══════════════════════════════════════════════════════════════
+370-# 4. PLOT
+371-# ═══════════════════════════════════════════════════════════════
+372-
+--
+522-    print("\n[4/4] Computing GRI D4 score...")
+523-    best_reduction = max(r["reduction_pct"]
+524-                         for r in containment_results)
+525-    d4 = compute_d4_score(best_reduction, metrics["f1"])
+526-    print(f"      Best containment reduction : {best_reduction}%")
+527-    print(f"      Auth F1 score              : {metrics['f1']}")
+528-    print(f"      GRI D4 Score               : {d4} / 10")
+529-
+530:    print("\n[5/4] Analyzing attack origin classes...")
+531-    origin_results = analyze_attack_origins(
+532-        G, registered, k_values
+533-    )
+534-    print(f"\n  {'Origin':<25} {'Baseline':>10} "
+535-          f"{'k=10 Reduction':>16}")
+536-    print("  " + "-" * 54)
+537-    for label, data in origin_results.items():
+538-        k10 = next(r for r in data["results"] if r["k"] == 10)
+
+===== experiments/C_lifecycle_integration/evidence_registry/C2_12b_historical_correction_ledger.md =====
+58-- **due_diligence_performed:** Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.
+59-- **supersession_basis:** Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.
+60-- **authoritative_source:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+61-- **date_corrected:** 2026-08-07
+62-
+63-## P05_B3_HUB_K20
+64-
+65-- **module:** B3
+66:- **retired_claim:** Hub-origin breaches were described as requiring k=20 for containment.
+67:- **retired_value:** hub-origin requires k=20
+68:- **current_claim:** Current attack-origin reproduction shows strong dependence on origin class and does not establish a universal k=20 requirement for hub-origin breaches.
+69:- **current_value:** High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established
+70-- **retirement_reason:** A historical top_k=20 implementation/default parameter was overinterpreted as an empirical requirement.
+71-- **historical_origin_status:** TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER
+72:- **due_diligence_performed:** Git commit 75b5316 inspected; historical top_k=20 implementation context compared against current reproduced attack-origin results.
+73:- **supersession_basis:** The implementation parameter is not itself evidence of a required containment threshold; current attack-origin analysis reports observed reductions by origin instead.
+74-- **authoritative_source:** experiments/B3_authentication/containment_algorithm.py | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+75-- **date_corrected:** 2026-08-07
+76-
+
+===== experiments/C_lifecycle_integration/evidence_registry/C2_12b_historical_correction_ledger.tsv =====
+1-claim_id	module	retired_claim	retired_value	current_claim	current_value	retirement_reason	historical_origin_status	due_diligence_performed	supersession_basis	authoritative_source	date_corrected
+2-P01_B1_GRAPH_MISATTRIBUTION	B1/B3	B1 population graph reported as 3,303 nodes, 1,321 registered individuals and 786 baseline exposed.	3303 nodes | 1321 registered | 786 exposed	Current committed B1 reproduction generates 4,144 nodes and 1,657 registered individuals. The 3,303 / 1,321 / 786 values belong to the B3 containment graph.	B1: 4144 nodes | 1657 registered; B3: 3303 nodes | 1321 registered | 786 baseline exposed	Cross-module evidence misattribution.	TRACED_TO_DIFFERENT_MODULE	Current repository and bounded Git-history audit performed; B1 and B3 authoritative reproductions compared directly.	The old values reproduce under B3, while the committed B1 analysis independently reproduces a different graph.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+3-P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability reported as 0.044.	0.044	Current committed B2 model reproduces Pathogenic Variants single-tier unrecoverability as 0.2299.	0.2299	Retired value cannot be reproduced from the committed model.	NOT_FOUND_IN_GIT_HISTORY	Current tracked B2 files searched; bounded Git pickaxe history searched for 0.044/.044; no source located.	Current committed implementation is reproducible and its parameters and outputs are archived under Module C.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	2026-08-07
+4-P03_B2_REID_YEAR20	B2	Re-identification risk reported as reaching 100 percent by year 20.	100% by year 20	Current committed B2 lifetime-risk model first reaches 100 percent re-identification at year 13.	100% first reached at year 13	Retired timing is not reproduced by the current committed lifetime-risk implementation.	NOT_FOUND_IN_GIT_HISTORY	Current tracked B2 artifacts and bounded Git-history searches for the year-20 claim were performed; no source found.	Current lifetime-risk implementation reproduces the year-13 saturation threshold and preserves the full threshold trajectory.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	2026-08-07
+5-P04_B3_AUTH_THRESHOLD	B3	Authentication threshold reported as 3.6 or 3.8 with older precision/recall/F1/accuracy metrics.	threshold 3.6/3.8 | F1 approximately 0.8409	Current committed B3 implementation uses threshold 4.5 with precision 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960.	threshold 4.5 | P=1.0000 | R=0.9800 | F1=0.9899 | Acc=0.9960	Retired threshold/metrics are not present in or reproduced by the current committed B3 implementation.	NOT_FOUND_IN_GIT_HISTORY	Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.	Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	2026-08-07
+6:P05_B3_HUB_K20	B3	Hub-origin breaches were described as requiring k=20 for containment.	hub-origin requires k=20	Current attack-origin reproduction shows strong dependence on origin class and does not establish a universal k=20 requirement for hub-origin breaches.	High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established	A historical top_k=20 implementation/default parameter was overinterpreted as an empirical requirement.	TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER	Git commit 75b5316 inspected; historical top_k=20 implementation context compared against current reproduced attack-origin results.	The implementation parameter is not itself evidence of a required containment threshold; current attack-origin analysis reports observed reductions by origin instead.	experiments/B3_authentication/containment_algorithm.py | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+
+===== experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.json =====
+431-    {
+432-      "evidence_id": "B3_E01",
+433-      "module": "B3",
+434-      "stage_ids": "S8|S10",
+435-      "asset": "Kinship graph exposure boundary",
+436-      "threat": "Graph-originating breach propagation",
+437-      "mechanism": "Graph-aware boundary-isolation simulation",
+438-      "evidence_type": "simulation",
+439:      "measured_result": "For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).",
+440-      "numeric_value": "6",
+441-      "unit": "exposed nodes at k=10",
+442-      "direction": "decrease",
+443-      "confidence": "medium",
+444-      "claim_scope": "containment simulation",
+445:      "limitations": "Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.",
+446-      "primary_source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv",
+447-      "supporting_source_files": "experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt",
+448-      "source_resolution_status": "VERIFIED_REPRODUCED_SOURCE",
+449-      "source_confidence": "high",
+450-      "source_match_score": "",
+451-      "evidence_tier": "E4",
+452-      "tier_label": "Uncalibrated simulation/internal model/design benchmark",
+453-      "tier_rationale": "Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.",
+
+===== experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.md =====
+401-
+402-## B3_E01 — Module B3
+403-
+404-- **stage_ids:** S8|S10
+405-- **asset:** Kinship graph exposure boundary
+406-- **threat:** Graph-originating breach propagation
+407-- **mechanism:** Graph-aware boundary-isolation simulation
+408-- **evidence_type:** simulation
+409:- **measured_result:** For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+410-- **numeric_value:** 6
+411-- **unit:** exposed nodes at k=10
+412-- **direction:** decrease
+413-- **confidence:** medium
+414-- **claim_scope:** containment simulation
+415:- **limitations:** Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.
+416-- **primary_source_file:** experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+417-- **supporting_source_files:** experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+418-- **source_resolution_status:** VERIFIED_REPRODUCED_SOURCE
+419-- **source_confidence:** high
+420-- **evidence_tier:** E4
+421-- **tier_label:** Uncalibrated simulation/internal model/design benchmark
+422-- **tier_status:** ASSIGNED
+423-- **tier_rationale:** Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.
+
+===== experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.tsv =====
+11-A3_E02	A3	S3|S4	F11 pathogenic variant evidence	Target-overlapping local signal attack	PM2 interpolation over target base and two flanking bases	experimental	All 14 clean-confirmed ALT parents lost ALT state under PM2	14	ALT parents changed out of 14	suppressed	high	parent-level target-state analysis	Controlled single-locus experiment	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt	experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Direct controlled PM2 perturbation of the clean-confirmed F11 ALT-supporting parents.	ASSIGNED
+12-A3_E03	A3	S4|S5	Pathogenic F11 heterozygous variant call	False-negative or missed-variant event	Controlled hybrid pileup and bcftools variant calling after targeted signal attack	experimental	Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20	4	attack conditions with call loss	suppressed	high	controlled variant-calling workflow	Potential clinical interpretation risk only; no real clinical diagnosis or patient outcome was tested	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_report.txt|experiments/A3_clinical_consequence_mapping/logs/A3_F11_controlled_hybrid_variant_calling.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Observed downstream variant-call consequence in the controlled F11 experiment; this is not evidence of real clinical ingestion or patient harm.	ASSIGNED
+13-A3_E04	A3	S1|S2|S3|S4	F11 pathogenic variant evidence	Non-target interpolation as confounding mechanism	PM2-sized off-target sham interpolation at least 5,000 signal samples from the F11 target	experimental control	Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202	14	ALT parents retained out of 14	retained	high	target-specific causality control	One off-target sham design within the same read cohort	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_summary.tsv|experiments/A3_clinical_consequence_mapping/logs/A3_F11_PM2_off_target_sham.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_generation_audit.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_target_parent_audit.tsv	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Matched off-target sham control within the same F11 experimental case, strengthening causal interpretation without constituting external replication.	ASSIGNED
+14-B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+15-B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+16-B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+17-B2_E02	B2	S7|S9	Persistently disclosed genomic information	Time-dependent re-identification	Lifetime genomic-risk simulation	simulation	Re-identification first reached 50 percent at year 11 and 100 percent at year 13 in the committed lifetime-risk model.	11	years to 50 percent re-identification	increase over time	medium	lifetime-risk simulation	Long-term projections depend on model assumptions including database growth and inference-expansion parameters.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Lifetime re-identification trajectory is a project simulation based on configured database-growth and inference assumptions.	ASSIGNED
+18-B2_E03	B2	S8|S9	Familial genomic information	Persistent familial exposure	Lifetime familial-risk simulation	simulation	Familial risk first reached 100 percent at year 15 in the committed lifetime-risk model.	15	years to 100 percent familial risk	increase over time	medium	lifetime-risk simulation	Projection depends on the selected database-growth and familial-risk parameters.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Familial-risk saturation is produced by the internal lifetime risk model and is not externally population-calibrated.	ASSIGNED
+19:B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+20-B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+21-B3_E03	B3	S6|S10	Genomic-platform authentication layer	Missed malicious access	Operational classifier-threshold selection	design decision	The committed operational authentication configuration uses classifier threshold 4.5.	4.5	classifier threshold	selected	medium	project design configuration	Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.	ASSIGNED
+
+===== experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_1_targeted_provenance_adjudication.tsv =====
+1-claim_id	final_candidate_status	evidence_basis	adjudication
+2-P01_B1_GRAPH_MISATTRIBUTION	TRACED_TO_DIFFERENT_MODULE	B3 authoritative reproduction + B1 authoritative reproduction	The retired values attributed to B1 are reproduced in the B3 containment analysis, while the committed B1 analysis independently reproduces a different graph configuration.
+3:P05_B3_HUB_K20	TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER	Git commit 75b5316 + current B3 reproduction	Git history contains top_k=20 as an implementation/default parameter, but the current reproduced attack-origin analysis does not establish a universal empirical requirement that hub-origin containment needs k=20.
+
+===== experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_1_targeted_provenance_adjudication.txt =====
+1-============================================================
+2-P01 — B1/B3 GRAPH VALUE ADJUDICATION
+3-============================================================
+4-
+5-B3 authoritative results:
+6-record_type	condition	baseline_exposed	exposed_after	reduction_pct	threshold	precision	recall	f1	accuracy
+7-containment	k=5	786	560	28.8					
+8:containment	k=10	786	6	99.2					
+9-authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+10-
+11-Relevant B3 reproduction lines:
+12-10:      Nodes: 3,303 | Registered: 1,321
+13-13:      Baseline exposed (no containment): 786
+14-15:          k    Exposed   Reduction%    Cost%   Efficiency
+15-39:  Origin                      Baseline   k=10 Reduction
+16-
+--
+75-   121	
+76-   122	    return results, baseline_exposed
+77-   123	
+78-   124	def analyze_attack_origins(G, registered_nodes, k_values):
+79-   125	    """
+80-   126	    Compare containment effectiveness across three breach
+81-   127	    origin classes based on compromised node degree:
+82-   128	    
+83:   129	    Low-degree  : peripheral accounts (easiest to contain)
+84:   130	    Mid-degree  : average users (realistic credential stuffing)
+85:   131	    High-degree : hub accounts (hardest to contain)
+86-   132	    
+87-   133	    Same containment strategy applied to all three —
+88:   134	    reveals how attack origin affects containment outcome.
+89-   135	    """
+90-   136	    reg_list = sorted(registered_nodes,
+91-   137	                      key=lambda n: G.degree(n))
+92-   138	    n        = len(reg_list)
+93-   139	    n_comp   = max(5, int(n * 0.005))
+94-   140	
+95-   141	    origin_classes = {
+96:   142	        "Low-Degree\n(Peripheral)": reg_list[:n//4],
+97:   143	        "Mid-Degree\n(Average User)": reg_list[n//4:n//2],
+98:   144	        "High-Degree\n(Hub Account)": reg_list[3*n//4:],
+99-   145	    }
+100-   146	
+101-   147	    all_results = {}
+102-   148	
+103-   149	    for label, pool in origin_classes.items():
+104-   150	        compromised = random.sample(
+105-   151	            pool, min(n_comp, len(pool))
+106-   152	        )
+--
+119-   199	        }
+120-   200	
+121-   201	    return all_results
+122-   202	
+123-   203	
+124-   204	def plot_attack_origin_comparison(origin_results):
+125-   205	    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+126-   206	    fig.suptitle(
+127:   207	        "Module B3 — Containment Effectiveness by Attack Origin\n"
+128-   208	        "Project GenoPhylax",
+129-   209	        fontsize=13, fontweight="bold", color="#0D1B2A"
+130-   210	    )
+131-   211	    fig.patch.set_facecolor("#F1F5F9")
+132-   212	
+133-   213	    colors = {
+134:   214	        "Low-Degree\n(Peripheral)" : "#15803D",
+135:   215	        "Mid-Degree\n(Average User)": "#D97706",
+136:   216	        "High-Degree\n(Hub Account)": "#C0392B",
+137-   217	    }
+138-   218	    markers = {
+139:   219	        "Low-Degree\n(Peripheral)" : "o",
+140:   220	        "Mid-Degree\n(Average User)": "s",
+141:   221	        "High-Degree\n(Hub Account)": "^",
+142-   222	    }
+143-   223	
+144-   224	    # ── Plot 1: Reduction % vs k for each origin class ──
+145-   225	    ax = axes[0]
+146-   226	    ax.set_facecolor("white")
+147-   227	    for label, data in origin_results.items():
+148-   228	        ks         = [r["k"] for r in data["results"]]
+149-   229	        reductions = [r["reduction"] for r in data["results"]]
+--
+155-   235	               lw=1.5, alpha=0.7,
+156-   236	               label="50% reduction threshold")
+157-   237	    ax.axhline(99, color="gray", linestyle=":",
+158-   238	               lw=1.5, alpha=0.5,
+159-   239	               label="99% reduction threshold")
+160-   240	    ax.set_xlabel("Accounts Locked for Containment (k)",
+161-   241	                  fontsize=10)
+162-   242	    ax.set_ylabel("Breach Reduction (%)", fontsize=10)
+163:   243	    ax.set_title("Containment Effectiveness by Attack Origin",
+164-   244	                 fontweight="bold")
+165-   245	    ax.legend(fontsize=9)
+166-   246	    ax.grid(True, alpha=0.3)
+167-   247	    ax.set_ylim(-10, 105)
+168-   248	
+169-   249	    # ── Plot 2: Baseline exposure by origin class ──
+170-   250	    ax = axes[1]
+171-   251	    ax.set_facecolor("white")
+--
+180-   260	    for bar, val in zip(bars, baselines):
+181-   261	        ax.text(bar.get_x() + bar.get_width()/2,
+182-   262	                bar.get_height() + 5,
+183-   263	                str(val), ha="center", va="bottom",
+184-   264	                fontsize=11, fontweight="bold")
+185-   265	
+186-   266	    ax.set_ylabel("Baseline Exposed Users (no containment)",
+187-   267	                  fontsize=10)
+188:   268	    ax.set_title("Breach Blast Radius by Attack Origin\n"
+189-   269	                 "(Before Containment)",
+190-   270	                 fontweight="bold")
+191-   271	    ax.grid(True, alpha=0.3, axis="y")
+192-   272	
+193-   273	    plt.tight_layout()
+194-   274	    plt.savefig("B3_attack_origin_comparison.png", dpi=150,
+195-   275	                bbox_inches="tight",
+196-   276	                facecolor=fig.get_facecolor())
+--
+216-   522	    print("\n[4/4] Computing GRI D4 score...")
+217-   523	    best_reduction = max(r["reduction_pct"]
+218-   524	                         for r in containment_results)
+219-   525	    d4 = compute_d4_score(best_reduction, metrics["f1"])
+220-   526	    print(f"      Best containment reduction : {best_reduction}%")
+221-   527	    print(f"      Auth F1 score              : {metrics['f1']}")
+222-   528	    print(f"      GRI D4 Score               : {d4} / 10")
+223-   529	
+224:   530	    print("\n[5/4] Analyzing attack origin classes...")
+225-   531	    origin_results = analyze_attack_origins(
+226-   532	        G, registered, k_values
+227-   533	    )
+228-   534	    print(f"\n  {'Origin':<25} {'Baseline':>10} "
+229-   535	          f"{'k=10 Reduction':>16}")
+230-   536	    print("  " + "-" * 54)
+231-   537	    for label, data in origin_results.items():
+232-   538	        k10 = next(r for r in data["results"] if r["k"] == 10)
+--
+278-   121	
+279-   122	    return results, baseline_exposed
+280-   123	
+281-   124	def analyze_attack_origins(G, registered_nodes, k_values):
+282-   125	    """
+283-   126	    Compare containment effectiveness across three breach
+284-   127	    origin classes based on compromised node degree:
+285-   128	    
+286:   129	    Low-degree  : peripheral accounts (easiest to contain)
+287:   130	    Mid-degree  : average users (realistic credential stuffing)
+288:   131	    High-degree : hub accounts (hardest to contain)
+289-   132	    
+290-   133	    Same containment strategy applied to all three —
+291:   134	    reveals how attack origin affects containment outcome.
+292-   135	    """
+293-   136	    reg_list = sorted(registered_nodes,
+294-   137	                      key=lambda n: G.degree(n))
+295-   138	    n        = len(reg_list)
+296-   139	    n_comp   = max(5, int(n * 0.005))
+297-   140	
+298-   141	    origin_classes = {
+299:   142	        "Low-Degree\n(Peripheral)": reg_list[:n//4],
+300:   143	        "Mid-Degree\n(Average User)": reg_list[n//4:n//2],
+301:   144	        "High-Degree\n(Hub Account)": reg_list[3*n//4:],
+302-   145	    }
+303-   146	
+304-   147	    all_results = {}
+305-   148	
+306-   149	    for label, pool in origin_classes.items():
+307-   150	        compromised = random.sample(
+308-   151	            pool, min(n_comp, len(pool))
+309-   152	        )
+--
+322-   199	        }
+323-   200	
+324-   201	    return all_results
+325-   202	
+326-   203	
+327-   204	def plot_attack_origin_comparison(origin_results):
+328-   205	    fig, axes = plt.subplots(1, 2, figsize=(14, 6))
+329-   206	    fig.suptitle(
+330:   207	        "Module B3 — Containment Effectiveness by Attack Origin\n"
+331-   208	        "Project GenoPhylax",
+332-   209	        fontsize=13, fontweight="bold", color="#0D1B2A"
+333-   210	    )
+334-   211	    fig.patch.set_facecolor("#F1F5F9")
+335-   212	
+336-   213	    colors = {
+337:   214	        "Low-Degree\n(Peripheral)" : "#15803D",
+338:   215	        "Mid-Degree\n(Average User)": "#D97706",
+339:   216	        "High-Degree\n(Hub Account)": "#C0392B",
+340-   217	    }
+341-   218	    markers = {
+342:   219	        "Low-Degree\n(Peripheral)" : "o",
+343:   220	        "Mid-Degree\n(Average User)": "s",
+344:   221	        "High-Degree\n(Hub Account)": "^",
+345-   222	    }
+346-   223	
+347-   224	    # ── Plot 1: Reduction % vs k for each origin class ──
+348-   225	    ax = axes[0]
+349-   226	    ax.set_facecolor("white")
+350-   227	    for label, data in origin_results.items():
+351-   228	        ks         = [r["k"] for r in data["results"]]
+352-   229	        reductions = [r["reduction"] for r in data["results"]]
+--
+358-   235	               lw=1.5, alpha=0.7,
+359-   236	               label="50% reduction threshold")
+360-   237	    ax.axhline(99, color="gray", linestyle=":",
+361-   238	               lw=1.5, alpha=0.5,
+362-   239	               label="99% reduction threshold")
+363-   240	    ax.set_xlabel("Accounts Locked for Containment (k)",
+364-   241	                  fontsize=10)
+365-   242	    ax.set_ylabel("Breach Reduction (%)", fontsize=10)
+366:   243	    ax.set_title("Containment Effectiveness by Attack Origin",
+367-   244	                 fontweight="bold")
+368-   245	    ax.legend(fontsize=9)
+369-   246	    ax.grid(True, alpha=0.3)
+370-   247	    ax.set_ylim(-10, 105)
+371-   248	
+372-   249	    # ── Plot 2: Baseline exposure by origin class ──
+373-   250	    ax = axes[1]
+374-   251	    ax.set_facecolor("white")
+--
+383-   260	    for bar, val in zip(bars, baselines):
+384-   261	        ax.text(bar.get_x() + bar.get_width()/2,
+385-   262	                bar.get_height() + 5,
+386-   263	                str(val), ha="center", va="bottom",
+387-   264	                fontsize=11, fontweight="bold")
+388-   265	
+389-   266	    ax.set_ylabel("Baseline Exposed Users (no containment)",
+390-   267	                  fontsize=10)
+391:   268	    ax.set_title("Breach Blast Radius by Attack Origin\n"
+392-   269	                 "(Before Containment)",
+393-   270	                 fontweight="bold")
+394-   271	    ax.grid(True, alpha=0.3, axis="y")
+395-   272	
+396-   273	    plt.tight_layout()
+397-   274	    plt.savefig("B3_attack_origin_comparison.png", dpi=150,
+398-   275	                bbox_inches="tight",
+399-   276	                facecolor=fig.get_facecolor())
+--
+419-   522	    print("\n[4/4] Computing GRI D4 score...")
+420-   523	    best_reduction = max(r["reduction_pct"]
+421-   524	                         for r in containment_results)
+422-   525	    d4 = compute_d4_score(best_reduction, metrics["f1"])
+423-   526	    print(f"      Best containment reduction : {best_reduction}%")
+424-   527	    print(f"      Auth F1 score              : {metrics['f1']}")
+425-   528	    print(f"      GRI D4 Score               : {d4} / 10")
+426-   529	
+427:   530	    print("\n[5/4] Analyzing attack origin classes...")
+428-   531	    origin_results = analyze_attack_origins(
+429-   532	        G, registered, k_values
+430-   533	    )
+431-   534	    print(f"\n  {'Origin':<25} {'Baseline':>10} "
+432-   535	          f"{'k=10 Reduction':>16}")
+433-   536	    print("  " + "-" * 54)
+434-   537	    for label, data in origin_results.items():
+435-   538	        k10 = next(r for r in data["results"] if r["k"] == 10)
+--
+437-   540	              f"{data['baseline']:>10} "
+438-   541	              f"{k10['reduction']:>15.1f}%")
+439-   542	    plot_attack_origin_comparison(origin_results)
+440-   543	    
+441-   544	    print("\nGenerating plots...")
+
+===== experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_historical_claim_provenance_audit.txt =====
+60-
+61-PROVISIONAL STATUS: NOT_FOUND_IN_GIT_HISTORY
+62-RATIONALE: Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+63-
+64-##################################################################################
+65-P05_B3_HUB_K20
+66-##################################################################################
+67-Module: B3
+68:Retired claim: Hub-origin containment required k=20
+69:Current claim: Current reproduction does not establish a universal k=20 hub-origin requirement
+70-
+71-Current-tree candidate files: 1
+72-  FILE: experiments/B3_authentication/containment_algorithm.py
+73-  Module found: B3
+74-  Terms: k=20
+75-    L23: compromised_nodes, top_k=20):
+76-
+77-Git-history candidate commits: 1
+
+===== experiments/C_lifecycle_integration/evidence_registry/provenance_audit/C2_12a_historical_claim_provenance_summary.tsv =====
+1-claim_id	module	retired_claim	current_claim	current_tree_candidates	git_candidate_commits	modules_with_trace	provisional_origin_status	due_diligence_performed	provisional_rationale
+2-P01_B1_GRAPH_MISATTRIBUTION	B1	3,303 nodes / 1,321 registered / 786 exposed	B1 reproduction: 4,144 nodes / 1,657 registered	0	0		HISTORICAL_ORIGIN_UNRESOLVED	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	No sufficiently specific cause established by this bounded audit.
+3-P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability = 0.044	Pathogenic Variants unrecoverability = 0.2299	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+4-P03_B2_REID_YEAR20	B2	Re-identification reaches 100% by year 20	Re-identification first reaches 100% at year 13	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+5-P04_B3_AUTH_THRESHOLD	B3	Authentication threshold 3.6/3.8 with older metrics	Committed threshold 4.5; F1 = 0.9899	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+6:P05_B3_HUB_K20	B3	Hub-origin containment required k=20	Current reproduction does not establish a universal k=20 hub-origin requirement	1	1	B3	HISTORICAL_TRACE_FOUND_REQUIRES_LEDGER_REVIEW	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	At least one relevant Git-history commit contains the retired token; inspect captured commit/diff evidence before assigning a more specific cause.
+
+===== experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_B3_source_parameter_snapshot.txt =====
+63-28:BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+64-29:BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+65-30:BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+66-35:# Public genomic databases double roughly every 3-4 years.
+67-36:# More reference genomes = higher re-identification probability.
+68-40:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+69-45:    raw = 2 ** (years / doubling_time)
+70-52:# Cheaper sequencing = more adversaries able to sequence = higher risk.
+71:55:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+72-57:    Models sequencing cost decay. Returns a risk amplification factor
+73-59:    Cost halves every `half_life` years.
+74-62:    cost = np.maximum(0.5 ** (years / half_life), floor)
+75-63:    # Normalize: at year 0, cost=1, amplification=1
+76-75:def inference_expansion_factor(years, midpoint=20, steepness=0.2, max_factor=8.0):
+77-78:    At midpoint years, capability is at 50% of maximum.
+78-80:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+79-81:    # Scale: starts at ~0.5 at year 0 (some inference already possible)
+--
+135-B2 UPGRADES — RELEVANT PARAMETERS
+136-============================================================
+137-12:# Shows WHICH factor dominates risk growth at each time period
+138-18:BASELINE_REID_RISK     = 0.05
+139-19:BASELINE_DISEASE_RISK  = 0.10
+140-20:BASELINE_FAMILIAL_RISK = 0.15
+141-22:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+142-23:    return np.minimum(2 ** (years / doubling_time), saturation)
+143:25:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+144-26:    cost = np.maximum(0.5 ** (years / half_life), floor)
+145-29:def inference_expansion_factor(years, midpoint=20,
+146-31:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+147-34:def compute_lifetime_risk(years):
+148-35:    db_factor   = database_growth_factor(years)
+149-36:    tech_factor = technology_decay_factor(years)
+150-37:    inf_factor  = inference_expansion_factor(years)
+151-39:    reid_risk     = np.minimum(
+--
+216-97:        targets, _ = compute_containment_targets(
+217-98:            G, registered_nodes, compromised, top_k=k
+218-108:        containment_cost = round(
+219-116:            "containment_cost": containment_cost,
+220-118:                reduction_pct / containment_cost, 2
+221-119:            ) if containment_cost > 0 else 0,
+222-126:    Compare containment effectiveness across three breach
+223-133:    Same containment strategy applied to all three —
+224:134:    reveals how attack origin affects containment outcome.
+225-165:            containment_targets=[], max_hops=3
+226-178:            targets, _ = compute_containment_targets(
+227-179:                G, registered_nodes, compromised, top_k=k
+228-236:               label="50% reduction threshold")
+229-239:               label="99% reduction threshold")
+230-266:    ax.set_ylabel("Baseline Exposed Users (no containment)",
+231-285:def generate_access_sessions(n_normal=200, n_attack=50, seed=42):
+232-326:def evaluate_detection(sessions, threshold=4.5):
+--
+237-346:                 if (precision + recall) > 0 else 0)
+238-347:    accuracy  = (tp + tn) / len(sessions)
+239-351:        "precision": round(precision, 4),
+240-352:        "recall"   : round(recall, 4),
+241-353:        "f1"       : round(f1, 4),
+242-354:        "accuracy" : round(accuracy, 4),
+243-362:def compute_d4_score(containment_reduction_pct, auth_f1_score):
+244-363:    containment_eff = max(containment_reduction_pct / 100.0, 0.0)
+245:364:    combined        = (containment_eff + auth_f1_score) / 2.0
+246-373:def plot_b3_results(containment_results, baseline_exposed,
+247-385:    ks         = [r["k"] for r in containment_results]
+248-386:    reductions = [r["reduction_pct"] for r in containment_results]
+249-391:               label="50% reduction threshold")
+250-402:    efficiencies = [r["efficiency"] for r in containment_results]
+251-406:    best_k   = containment_results[best_idx]["k"]
+252-407:    ax.annotate(f"Best k={best_k}",
+253-435:               lw=2, label="Detection threshold (4.5)")
+
+===== experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt =====
+10-      Nodes: 3,303 | Registered: 1,321
+11-
+12-[2/4] Computing containment effectiveness...
+13-      Baseline exposed (no containment): 786
+14-
+15-          k    Exposed   Reduction%    Cost%   Efficiency
+16-      ----------------------------------------------------
+17-          5        560        28.8%    0.38%        75.66
+18:         10          6        99.2%    0.76%       130.58
+19:         15          6        99.2%    1.14%        87.05
+20:         20          6        99.2%    1.51%        65.72
+21:         30          6        99.2%    2.27%        43.72
+22:         40          6        99.2%    3.03%        32.75
+23:         50          6        99.2%    3.79%        26.18
+24-
+25-[3/4] Running credential stuffing detection...
+26-      Precision : 1.0000
+27-      Recall    : 0.9800
+28-      F1 Score  : 0.9899
+29-      Accuracy  : 0.9960
+30-      TP=49 FP=0 TN=200 FN=1
+31-
+32-[4/4] Computing GRI D4 score...
+33:      Best containment reduction : 99.24%
+34-      Auth F1 score              : 0.9899
+35-      GRI D4 Score               : 0.09 / 10
+36-
+37:[5/4] Analyzing attack origin classes...
+38-
+39-  Origin                      Baseline   k=10 Reduction
+40-  ------------------------------------------------------
+41:  Low-Degree (Peripheral)          780            99.2%
+42:  Mid-Degree (Average User)        943            20.5%
+43:  High-Degree (Hub Account)       1077             2.0%
+44-Saved: B3_attack_origin_comparison.png
+45-
+46-Generating plots...
+47-Plot saved as B3_containment_auth.png
+
+===== experiments/C_lifecycle_integration/evidence_registry/reproduced_results/C2_B2_B3_reproduction_report.txt =====
+119-  first_year_ge_0.8: 0
+120-  first_year_ge_0.9: 0
+121-  first_year_ge_0.99: 0
+122-  first_year_ge_1.0: 0
+123-
+124-tech_factor:
+125-  year=0: 1.0000000000
+126-  year=5: 5.6568542495
+127:  year=10: 32.0000000000
+128-  year=11: 45.2548339959
+129-  year=15: 181.0193359838
+130-  year=20: 1000.0000000000
+131-  year=25: 1000.0000000000
+132-  year=50: 1000.0000000000
+133-  year=80: 1000.0000000000
+134-  first_year_ge_0.5: 0
+135-  first_year_ge_0.8: 0
+--
+171-      Nodes: 3,303 | Registered: 1,321
+172-
+173-[2/4] Computing containment effectiveness...
+174-      Baseline exposed (no containment): 786
+175-
+176-          k    Exposed   Reduction%    Cost%   Efficiency
+177-      ----------------------------------------------------
+178-          5        560        28.8%    0.38%        75.66
+179:         10          6        99.2%    0.76%       130.58
+180:         15          6        99.2%    1.14%        87.05
+181:         20          6        99.2%    1.51%        65.72
+182:         30          6        99.2%    2.27%        43.72
+183:         40          6        99.2%    3.03%        32.75
+184:         50          6        99.2%    3.79%        26.18
+185-
+186-[3/4] Running credential stuffing detection...
+187-      Precision : 1.0000
+188-      Recall    : 0.9800
+189-      F1 Score  : 0.9899
+190-      Accuracy  : 0.9960
+191-      TP=49 FP=0 TN=200 FN=1
+192-
+193-[4/4] Computing GRI D4 score...
+194:      Best containment reduction : 99.24%
+195-      Auth F1 score              : 0.9899
+196-      GRI D4 Score               : 0.09 / 10
+197-
+198:[5/4] Analyzing attack origin classes...
+199-
+200-  Origin                      Baseline   k=10 Reduction
+201-  ------------------------------------------------------
+202:  Low-Degree (Peripheral)          780            99.2%
+203:  Mid-Degree (Average User)        943            20.5%
+204:  High-Degree (Hub Account)       1077             2.0%
+205-Saved: B3_attack_origin_comparison.png
+206-
+207-Generating plots...
+208-Plot saved as B3_containment_auth.png
+209-
+210---------------------------------------
+211-SOURCE PARAMETER SNAPSHOT
+212---------------------------------------
+--
+275-28:BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+276-29:BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+277-30:BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+278-35:# Public genomic databases double roughly every 3-4 years.
+279-36:# More reference genomes = higher re-identification probability.
+280-40:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+281-45:    raw = 2 ** (years / doubling_time)
+282-52:# Cheaper sequencing = more adversaries able to sequence = higher risk.
+283:55:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+284-57:    Models sequencing cost decay. Returns a risk amplification factor
+285-59:    Cost halves every `half_life` years.
+286-62:    cost = np.maximum(0.5 ** (years / half_life), floor)
+287-63:    # Normalize: at year 0, cost=1, amplification=1
+288-75:def inference_expansion_factor(years, midpoint=20, steepness=0.2, max_factor=8.0):
+289-78:    At midpoint years, capability is at 50% of maximum.
+290-80:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+291-81:    # Scale: starts at ~0.5 at year 0 (some inference already possible)
+--
+347-B2 UPGRADES — RELEVANT PARAMETERS
+348-============================================================
+349-12:# Shows WHICH factor dominates risk growth at each time period
+350-18:BASELINE_REID_RISK     = 0.05
+351-19:BASELINE_DISEASE_RISK  = 0.10
+352-20:BASELINE_FAMILIAL_RISK = 0.15
+353-22:def database_growth_factor(years, doubling_time=3.5, saturation=50.0):
+354-23:    return np.minimum(2 ** (years / doubling_time), saturation)
+355:25:def technology_decay_factor(years, half_life=2.0, floor=0.001):
+356-26:    cost = np.maximum(0.5 ** (years / half_life), floor)
+357-29:def inference_expansion_factor(years, midpoint=20,
+358-31:    sigmoid = 1.0 / (1.0 + np.exp(-steepness * (years - midpoint)))
+359-34:def compute_lifetime_risk(years):
+360-35:    db_factor   = database_growth_factor(years)
+361-36:    tech_factor = technology_decay_factor(years)
+362-37:    inf_factor  = inference_expansion_factor(years)
+363-39:    reid_risk     = np.minimum(
+--
+428-97:        targets, _ = compute_containment_targets(
+429-98:            G, registered_nodes, compromised, top_k=k
+430-108:        containment_cost = round(
+431-116:            "containment_cost": containment_cost,
+432-118:                reduction_pct / containment_cost, 2
+433-119:            ) if containment_cost > 0 else 0,
+434-126:    Compare containment effectiveness across three breach
+435-133:    Same containment strategy applied to all three —
+436:134:    reveals how attack origin affects containment outcome.
+437-165:            containment_targets=[], max_hops=3
+438-178:            targets, _ = compute_containment_targets(
+439-179:                G, registered_nodes, compromised, top_k=k
+440-236:               label="50% reduction threshold")
+441-239:               label="99% reduction threshold")
+442-266:    ax.set_ylabel("Baseline Exposed Users (no containment)",
+443-285:def generate_access_sessions(n_normal=200, n_attack=50, seed=42):
+444-326:def evaluate_detection(sessions, threshold=4.5):
+--
+449-346:                 if (precision + recall) > 0 else 0)
+450-347:    accuracy  = (tp + tn) / len(sessions)
+451-351:        "precision": round(precision, 4),
+452-352:        "recall"   : round(recall, 4),
+453-353:        "f1"       : round(f1, 4),
+454-354:        "accuracy" : round(accuracy, 4),
+455-362:def compute_d4_score(containment_reduction_pct, auth_f1_score):
+456-363:    containment_eff = max(containment_reduction_pct / 100.0, 0.0)
+457:364:    combined        = (containment_eff + auth_f1_score) / 2.0
+458-373:def plot_b3_results(containment_results, baseline_exposed,
+459-385:    ks         = [r["k"] for r in containment_results]
+460-386:    reductions = [r["reduction_pct"] for r in containment_results]
+461-391:               label="50% reduction threshold")
+462-402:    efficiencies = [r["efficiency"] for r in containment_results]
+463-406:    best_k   = containment_results[best_idx]["k"]
+464-407:    ax.annotate(f"Best k={best_k}",
+465-435:               lw=2, label="Detection threshold (4.5)")
+
+===== experiments/C_lifecycle_integration/evidence_registry/source_review/C2_1_authoritative_source_discovery.txt =====
+868-Matching excerpts:
+869-  L23: compromised_nodes, top_k=20):
+870-  L535: f"{'k=10 Reduction':>16}")
+871-
+872-[2] score=57 groups=2/3
+873-research/notes/Findings.txt
+874-Reasons: content:k=10 | content:k=20
+875-Matching excerpts:
+876:  L58: ◦ **Low-Degree Peripheral Breaches (Easy to Contain):** From a baseline of 780 exposed users, locking just k=10 boundary nodes achieves a **99.2% breach reduction**. Because peripheral accounts possess very few neighbors, boundary isolation cuts off lateral movement almost instantly.
+877:  L59: ◦ **Mid-Degree Average-User Breaches (Moderately Hard):** From a baseline of 943 exposed users, k=10 provides a weak **20.5% reduction**. The containment curve requires scaling to k=20 boundary nodes before achieving a stable 99% mitigation rate, reflecting the denser connectivity of typical network
+878:  L60: ◦ **High-Degree Hub Breaches (Uncontainable):** From a baseline of 1,077 exposed users, locking k=10 boundary nodes yields a negligible **2% reduction**. Even at maximum structural intervention (k=50), containment never recovers. Hub nodes are fundamentally uncontainable via boundary isolation alone
+879-
+880-[3] score=50 groups=2/3
+881-experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py
+882-Reasons: content:560 | content:k=10
+883-Matching excerpts:
+884-  L394: assert_raises(OverflowError, np.may_share_memory, x, x, max_work=10**100)
+885-  L395: assert_raises(OverflowError, np.shares_memory, x, x, max_work=10**100)
+886-  L543: # Regression check for gh-5604
+--
+1080-
+1081-[11] score=39 groups=1/4
+1082-experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN01_seed3_per_read.tsv
+1083-Reasons: path:metrics | content:0.74 | structured_file
+1084-Matching excerpts:
+1085-  L53: 0fc815ae-af2d-41cf-9d82-4d358a48d97e	395	345	-50	2.220253	1.478261	-0.741992	0	180	0.4556962025	54.430380	56.834532	237	86	22	72
+1086-  L177: 2eeb527b-818b-49f1-86c5-3b91416665da	446	444	-2	27.264574	26.522523	-0.742051	0	12	0.0269058296	97.309417	97.333333	438	2	4	6
+1087-  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35374	-31	40.746928	40.683496	-0.063432	0	69	0.0019488773	99.805112	99.805195	35351	8	15	46
+1088:  L535: 859c50fd-fee6-4444-b1d3-f6ec84705bb6	379	376	-3	27.625330	28.372340	0.747011	0	3	0.0079155673	99.208443	99.208443	376	0	0	3
+1089-  L987: fd55eaca-e3c3-4e2f-b2b5-0ae28929f2c9	955	950	-5	36.946597	37.692632	0.746035	0	5	0.0052356021	99.476440	99.476440	950	0	0	5
+1090-
+1091-[12] score=39 groups=1/4
+1092-experiments/A2_adversarial_dna/basecalling/perturbations/experiment_C2_multiseed/metrics/hg002_1000reads_clean_vs_GN05_seed1_per_read.tsv
+1093-Reasons: path:metrics | content:0.74 | structured_file
+1094-Matching excerpts:
+1095-  L531: 84ea6b3f-2e3d-4deb-8def-d3d16865a662	35405	35364	-41	40.746928	38.857539	-1.889390	0	234	0.0066092360	99.339076	99.340455	35245	45	74	115
+1096-  L626: 9f18d3c5-2bfe-492b-8c2f-c548684e7813	1162	1160	-2	39.715146	38.965517	-0.749629	0	2	0.0017211704	99.827883	99.827883	1160	0	0	2
+
+===== experiments/C_lifecycle_integration/evidence_registry/source_review/C2_2_clean_source_audit.txt =====
+328-  L8: - **The Calibration Breakthough:** Synthetic model (2,061 people across 500 families) originally overshot this target because simulated family trees were too tightly knit. By tuning the model using `calibration_tuning.py`, setting the cousin edge probability to **`0.20` (20%)** brought model's ampli
+329-  L12: - **Asymmetric Vulnerability in Emerging Databases (GRI D6):** Risk indexing (`gri_d6_scores.py`) cleanly separated platform types. Isolated Research databases scored safely at 0.41, while full-scale commercial platforms like 23andMe hit a critical 10.0. Crucially, Research Biobanks scored at an ala
+330-  L22: ◦ **2 Tiers (+ Trait):** 0.876
+331-  L26: ◦ **6 Tiers (+ Pathogenic Variants):** 0.215 (The unrecoverability score drops to 0.215, indicating a high modeled probability of successful reconstruction.)
+332-  L45: ◦ **30 Relatives Enrolled:** *High Risk* threshold reached; D6 graph-density amplification saturates completely.
+333-  L51: ** Module B3 (Authentication)**: This module engineers an automated response layer designed to intercept cascading kinship breaches and authenticate access requests under active zero-trust constraints, shifting from a uniform containment model to an origin-dependent topology defense. Breakdown of fi
+334-  L53: • **The Structural Fallacy of Betweenness:** In dense kinship networks, standard containment strategies that lock high-betweenness "bridge" nodes backfire. Because the graph is hyper-connected, blocking a bridge node merely forces the breadth-first search (BFS) propagation to find alternative, paral
+335-  L55: • **The Component Isolation Breakthrough:** To bypass the hyper-connectivity problem, the containment engine pivots from node-blocking to **boundary-isolation**. By targeting and isolating the specific connected subgraph component containing the breach, the network successfully halts lateral movemen
+336:  L57: • **The Attack Origin Dependency (The Reviewer-Proof Finding):** The core contribution of this module proves that containment strategy effectiveness is not uniform; it is fundamentally dependent on the topological class of the compromised entry node:
+337:  L58: ◦ **Low-Degree Peripheral Breaches (Easy to Contain):** From a baseline of 780 exposed users, locking just k=10 boundary nodes achieves a **99.2% breach reduction**. Because peripheral accounts possess very few neighbors, boundary isolation cuts off lateral movement almost instantly.
+338-
+339-[2] score=110
+340-experiments/B3_authentication/containment_algorithm.py
+341-Phrase hits: 6
+342-Context hits: k=5, k=10, k=20, containment
+343-Excerpts:
+344-  L19: # 1. BOUNDARY-BASED CONTAINMENT
+345-  L22: def compute_containment_targets(G, registered_nodes,
+--
+384-  L345: f1        = (2 * precision * recall / (precision + recall)
+385-  L346: if (precision + recall) > 0 else 0)
+386-  L347: accuracy  = (tp + tn) / len(sessions)
+387-  L351: "precision": round(precision, 4),
+388-  L352: "recall"   : round(recall, 4),
+389-  L353: "f1"       : round(f1, 4),
+390-  L354: "accuracy" : round(accuracy, 4),
+391-  L362: def compute_d4_score(containment_reduction_pct, auth_f1_score):
+392:  L364: combined        = (containment_eff + auth_f1_score) / 2.0
+393-
+394-============================================================
+395-B3_E03 — Operational threshold 3.6
+396-============================================================
+397-[1] score=53
+398-research/notes/Findings.txt
+399-Phrase hits: none
+400-Context hits: threshold, recall, authentication
+
+===== experiments/C_lifecycle_integration/evidence_registry/source_review/C2_4_pre_patch_registry_inspection.txt =====
+195-##############################################################################
+196-evidence_id: B3_E01
+197-module: B3
+198-stage_ids: S8|S10
+199-asset: Kinship graph exposure boundary
+200-threat: Graph-originating breach propagation
+201-mechanism: Graph-aware boundary-isolation simulation
+202-evidence_type: simulation
+203:measured_result: Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20
+204-numeric_value: 6
+205-unit: exposed nodes at k=10
+206-direction: decrease
+207-confidence: medium
+208-claim_scope: containment simulation
+209-limitations: Containment performance depends on graph construction
+210-primary_source_file: experiments/B3_authentication/containment_algorithm.py
+211-supporting_source_files: paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|paper/figures/B3_attack_origin_comparison.png
+--
+1318-selected: NO
+1319-
+1320-##############################################################################
+1321-B3_E02
+1322-##############################################################################
+1323-evidence_id: B3_E02
+1324-module: B3
+1325-candidate_rank: 7
+1326:candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pillow.libs/libtiff-fb36a6b9.so.6.2.0
+1327-score: 88
+1328-size_bytes: 1053721
+1329-match_reasons: preferred_glob:*b3* | filename:b3
+1330-selected: NO
+1331-
+1332-##############################################################################
+1333-B3_E02
+1334-##############################################################################
+--
+1438-selected: NO
+1439-
+1440-##############################################################################
+1441-B3_E03
+1442-##############################################################################
+1443-evidence_id: B3_E03
+1444-module: B3
+1445-candidate_rank: 7
+1446:candidate_file: experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pillow.libs/libtiff-fb36a6b9.so.6.2.0
+1447-score: 88
+1448-size_bytes: 1053721
+1449-match_reasons: preferred_glob:*b3* | filename:b3
+1450-selected: NO
+1451-
+1452-##############################################################################
+1453-B3_E03
+1454-##############################################################################
+
+===== experiments/C_lifecycle_integration/evidence_registry/source_review/C2_5_registry_correction_audit.tsv =====
+39-B2_E02	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+40-B2_E02	source_match_score	136	
+41-B2_E03	measured_result	Familial risk reached 100% by year 15	Familial risk first reached 100 percent at year 15 in the committed lifetime-risk model.
+42-B2_E03	limitations	Projection depends on the selected model parameters	Projection depends on the selected database-growth and familial-risk parameters.
+43-B2_E03	primary_source_file	experiments/B2_vault_design/lifetime_risk.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv
+44-B2_E03	supporting_source_files	paper/figures/B2_lifetime_risk.png|paper/figures/B2_lifetime_risk_drivers.png|research/notes/Findings.txt|experiments/B2_vault_design/B2_upgrades.py	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py
+45-B2_E03	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+46-B2_E03	source_match_score	128	
+47:B3_E01	measured_result	Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+48:B3_E01	limitations	Containment performance depends on graph construction	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.
+49-B3_E01	primary_source_file	experiments/B3_authentication/containment_algorithm.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+50-B3_E01	supporting_source_files	paper/figures/B3_containment_auth.png|experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py|paper/figures/B3_attack_origin_comparison.png	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt
+51-B3_E01	source_resolution_status	STRONG_CANDIDATE	VERIFIED_REPRODUCED_SOURCE
+52-B3_E01	source_match_score	128	
+53-B3_E02	measured_result	At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+54-B3_E02	numeric_value	0.8409	0.9899
+55-B3_E02	limitations	Classifier results require interpretation within the project's generated benchmark setting	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.
+56-B3_E02	primary_source_file	paper/figures/B3_containment_auth.png	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+
+===== experiments/C_lifecycle_integration/gri/C4_3_source_extraction_diagnostic.txt =====
+19-A3_E02	A3	S3|S4	F11 pathogenic variant evidence	Target-overlapping local signal attack	PM2 interpolation over target base and two flanking bases	experimental	All 14 clean-confirmed ALT parents lost ALT state under PM2	14	ALT parents changed out of 14	suppressed	high	parent-level target-state analysis	Controlled single-locus experiment	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt	experiments/A3_clinical_consequence_mapping/results/F11_candidate/attacked_rebasecalling/F11_attacked_rebasecalling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_inventory/F11_controlled_hybrid_inventory_summary.txt	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Direct controlled PM2 perturbation of the clean-confirmed F11 ALT-supporting parents.	ASSIGNED
+20-A3_E03	A3	S4|S5	Pathogenic F11 heterozygous variant call	False-negative or missed-variant event	Controlled hybrid pileup and bcftools variant calling after targeted signal attack	experimental	Clean 0/1 call with QUAL 222.201 was lost under PM2, PM5, PM10 and PM20	4	attack conditions with call loss	suppressed	high	controlled variant-calling workflow	Potential clinical interpretation risk only; no real clinical diagnosis or patient outcome was tested	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_report.txt|experiments/A3_clinical_consequence_mapping/logs/A3_F11_controlled_hybrid_variant_calling.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_clinical_consequence_summary.tsv	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Observed downstream variant-call consequence in the controlled F11 experiment; this is not evidence of real clinical ingestion or patient harm.	ASSIGNED
+21-A3_E04	A3	S1|S2|S3|S4	F11 pathogenic variant evidence	Non-target interpolation as confounding mechanism	PM2-sized off-target sham interpolation at least 5,000 signal samples from the F11 target	experimental control	Sham retained 14 of 14 ALT parents, genotype 0/1 and QUAL 222.202	14	ALT parents retained out of 14	retained	high	target-specific causality control	One off-target sham design within the same read cohort	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_summary.tsv|experiments/A3_clinical_consequence_mapping/logs/A3_F11_PM2_off_target_sham.log|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_generation_audit.tsv|experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_target_parent_audit.tsv	VERIFIED_EXISTING_SOURCE	high		E2	Controlled direct empirical case study	Matched off-target sham control within the same F11 experimental case, strengthening causal interpretation without constituting external replication.	ASSIGNED
+22-B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+23-B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+24-B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+25-B2_E02	B2	S7|S9	Persistently disclosed genomic information	Time-dependent re-identification	Lifetime genomic-risk simulation	simulation	Re-identification first reached 50 percent at year 11 and 100 percent at year 13 in the committed lifetime-risk model.	11	years to 50 percent re-identification	increase over time	medium	lifetime-risk simulation	Long-term projections depend on model assumptions including database growth and inference-expansion parameters.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Lifetime re-identification trajectory is a project simulation based on configured database-growth and inference assumptions.	ASSIGNED
+26-B2_E03	B2	S8|S9	Familial genomic information	Persistent familial exposure	Lifetime familial-risk simulation	simulation	Familial risk first reached 100 percent at year 15 in the committed lifetime-risk model.	15	years to 100 percent familial risk	increase over time	medium	lifetime-risk simulation	Projection depends on the selected database-growth and familial-risk parameters.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	experiments/B2_vault_design/lifetime_risk.py|experiments/B2_vault_design/B2_upgrades.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Familial-risk saturation is produced by the internal lifetime risk model and is not externally population-calibrated.	ASSIGNED
+27:B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+28-B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+29-
+30-================================================================================
+31-SOURCE: experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv
+32-TYPE: TSV
+33-SIZE: 116
+34-SHA256: be20c476d08d8baf581fbea96c59df421628fdb7d2c045debbf07c650858b087
+35-COLUMNS: metric | value | unit
+--
+90-TYPE: TSV
+91-SIZE: 247
+92-SHA256: 2d60d59e6aeb361ebb61ecb0b94fbe809df2416e345b84272fa522942b68ea32
+93-COLUMNS: record_type | condition | baseline_exposed | exposed_after | reduction_pct | threshold | precision | recall | f1 | accuracy
+94-
+95-FIRST 20 LINES:
+96-record_type	condition	baseline_exposed	exposed_after	reduction_pct	threshold	precision	recall	f1	accuracy
+97-containment	k=5	786	560	28.8					
+98:containment	k=10	786	6	99.2					
+99-authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+100-
+101- SELECTED F11 SOURCE: experiments/A3_clinical_consequence_mapping/results/F11_candidate/clean_rebasecalling/F11_clean_rebasecalling_summary.txt
+102- B2 LIFETIME FIELDS: ['dimension', 'threshold', 'first_year_reached']
+103- EXTRACTED METRICS:
+104-RAW_F11_CLEAN_ALT  UNRESOLVED experiments/A3_clinical_consequence_mapping/results/F11_candidate/clean_rebasecalling/F11_clean_rebasecalling_summary.txt
+105-RAW_F11_PM2_ALT  UNRESOLVED experiments/A3_clinical_consequence_mapping/results/F11_candidate/clean_rebasecalling/F11_clean_rebasecalling_summary.txt
+106-RAW_F11_CALL_LOSS  UNRESOLVED experiments/A3_clinical_consequence_mapping/results/F11_candidate/clean_rebasecalling/F11_clean_rebasecalling_summary.txt
+107-RAW_B1_AMPLIFICATION  UNRESOLVED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv
+108-RAW_B1_REFERENCE_ANCHOR  UNRESOLVED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv
+109-RAW_B1_CALIBRATION_ERROR  UNRESOLVED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv
+110-RAW_B2_PATHOGENIC_UNRECOVERABILITY 0.2299 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+111-RAW_B2_ALL6_UNRECOVERABILITY 0.0801 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+112-RAW_B3_K5_REDUCTION 28.8 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+113:RAW_B3_K10_REDUCTION 99.2 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+114-RAW_B3_AUTH_F1 0.9899 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+115- TRAJECTORY COUNTS:
+116- IMPORTANT: No temporal scalar has been selected.
+117-IMPORTANT: D7 structural scalar remains deferred.
+
+===== experiments/C_lifecycle_integration/gri/C4_5_M5_containment_scenario_envelope.tsv =====
+1-scenario_id	scenario_label	containment_reduction	residual_containment_difficulty	source_status
+2:M5_PRINCIPAL_K10	Principal/peripheral k=10 containment benchmark	0.9920000000	0.0080000000	AUTHORITATIVE_RESULT_VERIFIED
+3:M5_LOW_DEGREE	Low-degree/peripheral origin	0.9920000000	0.0080000000	AUTHORITATIVE_RESULT_VERIFIED
+
+===== experiments/C_lifecycle_integration/gri/C4_5_modifier_architecture.json =====
+200-      "source": "B3 containment results",
+201-      "evidence_scope": "PROJECT_CONTAINMENT_MODEL",
+202-      "correlation_note": "Related to D4 mitigation; scenario dependent."
+203-    }
+204-  ],
+205-  "m5_scenario_envelope": [
+206-    {
+207-      "scenario_id": "M5_PRINCIPAL_K10",
+208:      "scenario_label": "Principal/peripheral k=10 containment benchmark",
+209-      "containment_reduction": "0.9920000000",
+210-      "residual_containment_difficulty": "0.0080000000",
+211-      "source_status": "AUTHORITATIVE_RESULT_VERIFIED"
+212-    },
+213-    {
+214-      "scenario_id": "M5_LOW_DEGREE",
+215:      "scenario_label": "Low-degree/peripheral origin",
+216-      "containment_reduction": "0.9920000000",
+217-      "residual_containment_difficulty": "0.0080000000",
+218-      "source_status": "AUTHORITATIVE_RESULT_VERIFIED"
+219-    }
+220-  ],
+221-  "m5_envelope_min": 0.008,
+222-  "m5_envelope_max": 0.008,
+223-  "privacy_m4_pathogenic_only_context": 0.7701,
+
+===== experiments/C_lifecycle_integration/methodology/C4_5_modifier_methodology.md =====
+234-For F11, no operational containment experiment was performed.
+235-
+236-Therefore:
+237-
+238-F11 M5 = UNMEASURED.
+239-
+240-For privacy, B3 directly models containment.
+241-
+242:However, containment performance depends strongly on attack origin.
+243-
+244-The current evidence includes substantially different results for:
+245-
+246:- low-degree/peripheral origin;
+247:- mid-degree origin;
+248:- high-degree/hub origin.
+249-
+250-Therefore a single containment scalar must not be selected from the easiest
+251-scenario.
+252-
+253-C4.5 retains an M5 scenario envelope.
+254-
+255-For the principal k=10 containment benchmark:
+256-
+257:99.2 percent reduction corresponds to residual difficulty:
+258-
+259-1 - 0.992 = 0.008
+260-
+261:But attack-origin sensitivity demonstrates that this low residual is not
+262-universal.
+263-
+264-The scenario envelope is retained until later sensitivity analysis.
+265-
+266----
+267-
+268-# Modifier and dimension correlation
+269-
+
+===== experiments/C_lifecycle_integration/scripts/build_C2_cross_module_evidence_registry.py =====
+821-            "module": "B3",
+822-            "stage_ids": ["S8", "S10"],
+823-            "asset": "Kinship graph exposure boundary",
+824-            "threat": "Graph-originating breach propagation",
+825-            "mechanism": "Graph-aware boundary-isolation simulation",
+826-            "evidence_type": "simulation",
+827-            "measured_result": (
+828-                "Exposure declined from 560 at k=5 to 6 at k=10; "
+829:                "hub-origin containment required k=20"
+830-            ),
+831-            "numeric_value": 6,
+832-            "unit": "exposed nodes at k=10",
+833-            "direction": "decrease",
+834-            "confidence": "medium",
+835-            "limitations": "Containment performance depends on graph construction",
+836-            "claim_scope": "containment simulation",
+837-            "preferred_globs": [
