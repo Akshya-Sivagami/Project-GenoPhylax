@@ -1,0 +1,44 @@
+V7 GenoPhylax Risk Index Sensitivity Validation
+================================================
+
+F11:
+  baseline GRI = 1.0000000000
+  tested D2/D7 weight range = 1.0000000000 .. 1.0000000000
+  weight invariant: YES
+  independence implied: NO
+
+Privacy baseline:
+  equal-dimension GRI = 0.9115102712
+
+Privacy correlation-aware weighting:
+  50/50 B2-family vs D6 GRI = 0.9378168865
+  equal-dimension baseline corresponds to 75/25 family weighting: YES
+
+Privacy family-weight endpoints:
+  B2-only = 0.8852036558
+  D6-only = 0.9904301172
+
+Temporal scalarization:
+  trapezoid AUC = 0.9115102712
+  annual sample mean = 0.9082052704
+
+D6 reference-anchor sensitivity:
+  -20%, -10%, baseline, +10%, +20%: COMPLETE
+
+M5 scenario sensitivity:
+  low-degree residual = 0.008
+  mid-degree residual = 0.795
+  high-degree residual = 0.980
+  M5 changed Base GRI: NO
+
+Numeric evidence weighting introduced: NO
+Unsupported modifier multiplication introduced: NO
+Baseline C4.8 GRI changed: NO
+
+Sensitivity range is a confidence interval: NO
+Sensitivity range is deterministic stress testing: YES
+
+V8 claims audit still required: YES
+
+Validation errors: 0
+STATUS: PASS

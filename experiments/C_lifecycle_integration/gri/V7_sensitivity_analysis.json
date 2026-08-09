@@ -1,0 +1,295 @@
+{
+  "schema": "V7_GRI_sensitivity_v1",
+  "baseline": {
+    "F11": 1.0,
+    "PRIVACY": 0.9115102712
+  },
+  "privacy_B2_family_mean": 0.8852036558000002,
+  "weight_sensitivity": [
+    {
+      "case_id": "C3_F11",
+      "scenario_id": "F11_D2_WEIGHT_0.00",
+      "B2_family_weight": "",
+      "D1_weight": "",
+      "D2_weight": "0.0000000000",
+      "D3_weight": "",
+      "D5_weight": "",
+      "D6_weight": "",
+      "D7_weight": "1.0000000000",
+      "sensitivity_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "scenario_role": "WEIGHT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_F11",
+      "scenario_id": "F11_D2_WEIGHT_0.25",
+      "B2_family_weight": "",
+      "D1_weight": "",
+      "D2_weight": "0.2500000000",
+      "D3_weight": "",
+      "D5_weight": "",
+      "D6_weight": "",
+      "D7_weight": "0.7500000000",
+      "sensitivity_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "scenario_role": "WEIGHT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_F11",
+      "scenario_id": "F11_D2_WEIGHT_0.50",
+      "B2_family_weight": "",
+      "D1_weight": "",
+      "D2_weight": "0.5000000000",
+      "D3_weight": "",
+      "D5_weight": "",
+      "D6_weight": "",
+      "D7_weight": "0.5000000000",
+      "sensitivity_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "scenario_role": "PRIMARY_BASELINE"
+    },
+    {
+      "case_id": "C3_F11",
+      "scenario_id": "F11_D2_WEIGHT_0.75",
+      "B2_family_weight": "",
+      "D1_weight": "",
+      "D2_weight": "0.7500000000",
+      "D3_weight": "",
+      "D5_weight": "",
+      "D6_weight": "",
+      "D7_weight": "0.2500000000",
+      "sensitivity_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "scenario_role": "WEIGHT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_F11",
+      "scenario_id": "F11_D2_WEIGHT_1.00",
+      "B2_family_weight": "",
+      "D1_weight": "",
+      "D2_weight": "1.0000000000",
+      "D3_weight": "",
+      "D5_weight": "",
+      "D6_weight": "",
+      "D7_weight": "0.0000000000",
+      "sensitivity_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "scenario_role": "WEIGHT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scenario_id": "PRIV_B2_WEIGHT_0.00",
+      "B2_family_weight": "0.0000000000",
+      "D1_weight": "0.0000000000",
+      "D2_weight": "",
+      "D3_weight": "0.0000000000",
+      "D5_weight": "0.0000000000",
+      "D6_weight": "1.0000000000",
+      "D7_weight": "",
+      "sensitivity_GRI": "0.9904301172",
+      "delta_from_baseline": "0.0789198460",
+      "scenario_role": "FAMILY_ENDPOINT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scenario_id": "PRIV_B2_WEIGHT_0.25",
+      "B2_family_weight": "0.2500000000",
+      "D1_weight": "0.0833333333",
+      "D2_weight": "",
+      "D3_weight": "0.0833333333",
+      "D5_weight": "0.0833333333",
+      "D6_weight": "0.7500000000",
+      "D7_weight": "",
+      "sensitivity_GRI": "0.9641235018",
+      "delta_from_baseline": "0.0526132306",
+      "scenario_role": "FAMILY_WEIGHT_STRESS_TEST"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scenario_id": "PRIV_B2_WEIGHT_0.50",
+      "B2_family_weight": "0.5000000000",
+      "D1_weight": "0.1666666667",
+      "D2_weight": "",
+      "D3_weight": "0.1666666667",
+      "D5_weight": "0.1666666667",
+      "D6_weight": "0.5000000000",
+      "D7_weight": "",
+      "sensitivity_GRI": "0.9378168865",
+      "delta_from_baseline": "0.0263066153",
+      "scenario_role": "CORRELATION_AWARE_EQUAL_FAMILY"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scenario_id": "PRIV_B2_WEIGHT_0.75",
+      "B2_family_weight": "0.7500000000",
+      "D1_weight": "0.2500000000",
+      "D2_weight": "",
+      "D3_weight": "0.2500000000",
+      "D5_weight": "0.2500000000",
+      "D6_weight": "0.2500000000",
+      "D7_weight": "",
+      "sensitivity_GRI": "0.9115102712",
+      "delta_from_baseline": "-0.0000000001",
+      "scenario_role": "PRIMARY_EQUAL_DIMENSION_BASELINE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "scenario_id": "PRIV_B2_WEIGHT_1.00",
+      "B2_family_weight": "1.0000000000",
+      "D1_weight": "0.3333333333",
+      "D2_weight": "",
+      "D3_weight": "0.3333333333",
+      "D5_weight": "0.3333333333",
+      "D6_weight": "0.0000000000",
+      "D7_weight": "",
+      "sensitivity_GRI": "0.8852036558",
+      "delta_from_baseline": "-0.0263066154",
+      "scenario_role": "FAMILY_ENDPOINT_STRESS_TEST"
+    }
+  ],
+  "temporal_sensitivity": [
+    {
+      "scenario_id": "PRIMARY_TRAPEZOID_AUC",
+      "D1_temporal": "0.8886656512",
+      "D3_temporal": "0.8817416604",
+      "D5_temporal": "0.8852036558",
+      "D6": "0.9904301172",
+      "privacy_GRI": "0.9115102712",
+      "delta_from_primary": "-0.0000000001",
+      "role": "PRIMARY"
+    },
+    {
+      "scenario_id": "ALTERNATIVE_ANNUAL_SAMPLE_MEAN",
+      "D1_temporal": "0.8841948055",
+      "D3_temporal": "0.8773991708",
+      "D5_temporal": "0.8807969881",
+      "D6": "0.9904301172",
+      "privacy_GRI": "0.9082052704",
+      "delta_from_primary": "-0.0033050008",
+      "role": "TEMPORAL_SENSITIVITY"
+    }
+  ],
+  "D6_reference_sensitivity": [
+    {
+      "reference_factor": "0.80",
+      "reference_anchor": "394.288000",
+      "calibrated_amplification": "464.400000",
+      "raw_log_ratio": "1.0273065487",
+      "normalized_D6": "1.0000000000",
+      "clipping_applied": "YES",
+      "privacy_GRI": "0.9139027419",
+      "delta_from_baseline": "0.0023924707",
+      "scenario_role": "REFERENCE_SENSITIVITY"
+    },
+    {
+      "reference_factor": "0.90",
+      "reference_anchor": "443.574000",
+      "calibrated_amplification": "464.400000",
+      "raw_log_ratio": "1.0075085871",
+      "normalized_D6": "1.0000000000",
+      "clipping_applied": "YES",
+      "privacy_GRI": "0.9139027419",
+      "delta_from_baseline": "0.0023924707",
+      "scenario_role": "REFERENCE_SENSITIVITY"
+    },
+    {
+      "reference_factor": "1.00",
+      "reference_anchor": "492.860000",
+      "calibrated_amplification": "464.400000",
+      "raw_log_ratio": "0.9904301172",
+      "normalized_D6": "0.9904301172",
+      "clipping_applied": "NO",
+      "privacy_GRI": "0.9115102712",
+      "delta_from_baseline": "-0.0000000000",
+      "scenario_role": "PRIMARY_REFERENCE"
+    },
+    {
+      "reference_factor": "1.10",
+      "reference_anchor": "542.146000",
+      "calibrated_amplification": "464.400000",
+      "raw_log_ratio": "0.9754690118",
+      "normalized_D6": "0.9754690118",
+      "clipping_applied": "NO",
+      "privacy_GRI": "0.9077699948",
+      "delta_from_baseline": "-0.0037402764",
+      "scenario_role": "REFERENCE_SENSITIVITY"
+    },
+    {
+      "reference_factor": "1.20",
+      "reference_anchor": "591.432000",
+      "calibrated_amplification": "464.400000",
+      "raw_log_ratio": "0.9621976938",
+      "normalized_D6": "0.9621976938",
+      "clipping_applied": "NO",
+      "privacy_GRI": "0.9044521653",
+      "delta_from_baseline": "-0.0070581059",
+      "scenario_role": "REFERENCE_SENSITIVITY"
+    }
+  ],
+  "M5_scenario_sensitivity": [
+    {
+      "scenario_id": "M5_LOW_DEGREE",
+      "scenario_label": "Low-degree/peripheral origin",
+      "M5_residual_containment_difficulty": "0.0080000000",
+      "baseline_privacy_GRI": "0.9115102712",
+      "modifier_applied_to_base_GRI": "NO",
+      "GRI_under_primary_policy": "0.9115102712",
+      "GRI_delta": "0.0000000000",
+      "interpretation": "M5 scenario changes modifier context but not primary Base GRI."
+    },
+    {
+      "scenario_id": "M5_MID_DEGREE",
+      "scenario_label": "Mid-degree/average origin",
+      "M5_residual_containment_difficulty": "0.7950000000",
+      "baseline_privacy_GRI": "0.9115102712",
+      "modifier_applied_to_base_GRI": "NO",
+      "GRI_under_primary_policy": "0.9115102712",
+      "GRI_delta": "0.0000000000",
+      "interpretation": "M5 scenario changes modifier context but not primary Base GRI."
+    },
+    {
+      "scenario_id": "M5_HIGH_DEGREE",
+      "scenario_label": "High-degree/hub origin",
+      "M5_residual_containment_difficulty": "0.9800000000",
+      "baseline_privacy_GRI": "0.9115102712",
+      "modifier_applied_to_base_GRI": "NO",
+      "GRI_under_primary_policy": "0.9115102712",
+      "GRI_delta": "0.0000000000",
+      "interpretation": "M5 scenario changes modifier context but not primary Base GRI."
+    }
+  ],
+  "summary": [
+    {
+      "case_id": "C3_F11",
+      "baseline_GRI": "1.0000000000",
+      "tested_weight_min": "1.0000000000",
+      "tested_weight_max": "1.0000000000",
+      "temporal_sensitivity": "NOT_APPLICABLE",
+      "reference_anchor_sensitivity": "NOT_APPLICABLE",
+      "M5_modifier_min": "",
+      "M5_modifier_max": "",
+      "overall_tested_GRI_min": "1.0000000000",
+      "overall_tested_GRI_max": "1.0000000000",
+      "range_type": "DETERMINISTIC_SENSITIVITY_NOT_CONFIDENCE_INTERVAL",
+      "interpretation": "F11 Base GRI is invariant to all tested D2/D7 convex weights."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "baseline_GRI": "0.9115102712",
+      "tested_weight_min": "0.8852036558",
+      "tested_weight_max": "0.9904301172",
+      "temporal_sensitivity": "0.9082052704..0.9115102712",
+      "reference_anchor_sensitivity": "0.9044521653..0.9139027419",
+      "M5_modifier_min": "0.0080000000",
+      "M5_modifier_max": "0.9800000000",
+      "overall_tested_GRI_min": "0.8852036558",
+      "overall_tested_GRI_max": "0.9904301172",
+      "range_type": "DETERMINISTIC_SENSITIVITY_NOT_CONFIDENCE_INTERVAL",
+      "interpretation": "Weight assumptions dominate tested GRI variation; temporal and reference-anchor perturbations are comparatively smaller. M5 varies widely but remains a separate modifier."
+    }
+  ],
+  "statistical_confidence_interval": false,
+  "evidence_weights_used": false,
+  "modifier_multiplication_used": false,
+  "baseline_changed": false
+}

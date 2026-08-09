@@ -1,0 +1,4 @@
+scenario_id	scenario_label	M5_residual_containment_difficulty	baseline_privacy_GRI	modifier_applied_to_base_GRI	GRI_under_primary_policy	GRI_delta	interpretation
+M5_LOW_DEGREE	Low-degree/peripheral origin	0.0080000000	0.9115102712	NO	0.9115102712	0.0000000000	M5 scenario changes modifier context but not primary Base GRI.
+M5_MID_DEGREE	Mid-degree/average origin	0.7950000000	0.9115102712	NO	0.9115102712	0.0000000000	M5 scenario changes modifier context but not primary Base GRI.
+M5_HIGH_DEGREE	High-degree/hub origin	0.9800000000	0.9115102712	NO	0.9115102712	0.0000000000	M5 scenario changes modifier context but not primary Base GRI.

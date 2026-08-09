@@ -1,0 +1,3 @@
+case_id	ablation_id	removed_dimensions	remaining_dimensions	remaining_evidence_family	baseline_GRI	ablated_GRI	delta_from_baseline	absolute_delta	interpretation
+C3_PRIVACY	REMOVE_D6_B1_AMPLIFICATION	D6	D1|D3|D5	B2_LIFETIME_MODEL	0.9115102712	0.8852036558	-0.0263066154	0.0263066154	Privacy score using B2 lifetime-model family only.
+C3_PRIVACY	REMOVE_D1_D3_D5_B2_LIFETIME	D1|D3|D5	D6	B1_CALIBRATED_AMPLIFICATION	0.9115102712	0.9904301172	0.0789198460	0.0789198460	Privacy score using calibrated B1 amplification dimension only.

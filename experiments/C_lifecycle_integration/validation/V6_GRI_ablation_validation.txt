@@ -1,0 +1,29 @@
+V6 GenoPhylax Risk Index Ablation Validation
+============================================
+
+Baseline GRI values preserved:
+  F11 = 1.0000000000
+  Privacy = 0.9115102712
+
+F11 leave-one-dimension-out:
+  remove D2 -> GRI 1.0
+  remove D7 -> GRI 1.0
+  interpretation: numerical invariance, NOT independent replication
+
+Privacy single-dimension ablations: CALCULATED
+
+Privacy B2-family-only GRI: 0.8852036558
+Privacy D6-only GRI: 0.9904301172
+
+Privacy D1/D3/D5 treated as independent confirmations: NO
+D5 dependence on D1/D3 acknowledged: YES
+
+Modifiers applied during ablation: NO
+Evidence weights applied during ablation: NO
+Baseline GRI changed: NO
+
+V7 sensitivity still required: YES
+V8 claims audit still required: YES
+
+Validation errors: 0
+STATUS: PASS

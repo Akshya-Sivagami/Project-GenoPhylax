@@ -1,0 +1,128 @@
+{
+  "schema": "V6_GRI_ablation_v1",
+  "baseline_GRI": {
+    "C3_F11": 1.0,
+    "C3_PRIVACY": 0.9115102712
+  },
+  "leave_one_dimension_out": [
+    {
+      "case_id": "C3_F11",
+      "removed_dimension": "D2",
+      "baseline_GRI": "1.0000000000",
+      "remaining_dimensions": "D7",
+      "remaining_dimension_count": "1",
+      "ablated_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "absolute_delta": "0.0000000000",
+      "independence_claim_permitted": "NO"
+    },
+    {
+      "case_id": "C3_F11",
+      "removed_dimension": "D7",
+      "baseline_GRI": "1.0000000000",
+      "remaining_dimensions": "D2",
+      "remaining_dimension_count": "1",
+      "ablated_GRI": "1.0000000000",
+      "delta_from_baseline": "0.0000000000",
+      "absolute_delta": "0.0000000000",
+      "independence_claim_permitted": "NO"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "removed_dimension": "D1",
+      "baseline_GRI": "0.9115102712",
+      "remaining_dimensions": "D3|D5|D6",
+      "remaining_dimension_count": "3",
+      "ablated_GRI": "0.9191251445",
+      "delta_from_baseline": "0.0076148733",
+      "absolute_delta": "0.0076148733",
+      "independence_claim_permitted": "NO"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "removed_dimension": "D3",
+      "baseline_GRI": "0.9115102712",
+      "remaining_dimensions": "D1|D5|D6",
+      "remaining_dimension_count": "3",
+      "ablated_GRI": "0.9214331414",
+      "delta_from_baseline": "0.0099228702",
+      "absolute_delta": "0.0099228702",
+      "independence_claim_permitted": "NO"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "removed_dimension": "D5",
+      "baseline_GRI": "0.9115102712",
+      "remaining_dimensions": "D1|D3|D6",
+      "remaining_dimension_count": "3",
+      "ablated_GRI": "0.9202791429",
+      "delta_from_baseline": "0.0087688717",
+      "absolute_delta": "0.0087688717",
+      "independence_claim_permitted": "NO"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "removed_dimension": "D6",
+      "baseline_GRI": "0.9115102712",
+      "remaining_dimensions": "D1|D3|D5",
+      "remaining_dimension_count": "3",
+      "ablated_GRI": "0.8852036558",
+      "delta_from_baseline": "-0.0263066154",
+      "absolute_delta": "0.0263066154",
+      "independence_claim_permitted": "NO"
+    }
+  ],
+  "grouped_provenance_ablation": [
+    {
+      "case_id": "C3_PRIVACY",
+      "ablation_id": "REMOVE_D6_B1_AMPLIFICATION",
+      "removed_dimensions": "D6",
+      "remaining_dimensions": "D1|D3|D5",
+      "remaining_evidence_family": "B2_LIFETIME_MODEL",
+      "baseline_GRI": "0.9115102712",
+      "ablated_GRI": "0.8852036558",
+      "delta_from_baseline": "-0.0263066154",
+      "absolute_delta": "0.0263066154",
+      "interpretation": "Privacy score using B2 lifetime-model family only."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "ablation_id": "REMOVE_D1_D3_D5_B2_LIFETIME",
+      "removed_dimensions": "D1|D3|D5",
+      "remaining_dimensions": "D6",
+      "remaining_evidence_family": "B1_CALIBRATED_AMPLIFICATION",
+      "baseline_GRI": "0.9115102712",
+      "ablated_GRI": "0.9904301172",
+      "delta_from_baseline": "0.0789198460",
+      "absolute_delta": "0.0789198460",
+      "interpretation": "Privacy score using calibrated B1 amplification dimension only."
+    }
+  ],
+  "summary": [
+    {
+      "case_id": "C3_F11",
+      "baseline_GRI": "1.0000000000",
+      "single_dimension_ablations": "2",
+      "max_absolute_single_ablation_delta": "0.0000000000",
+      "most_influential_single_dimension": "TIE_D2_D7",
+      "correlated_dimension_family": "D2|D7",
+      "group_ablation_performed": "NO_NOT_MEANINGFUL_WITH_TWO_SINGLE_PATH_ENDPOINTS",
+      "interpretation": "Removing D2 or D7 leaves GRI=1.0; this is numerical invariance, not independent replication."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "baseline_GRI": "0.9115102712",
+      "single_dimension_ablations": "4",
+      "max_absolute_single_ablation_delta": "0.0263066154",
+      "most_influential_single_dimension": "D6",
+      "correlated_dimension_family": "D1|D3|D5",
+      "group_ablation_performed": "YES",
+      "interpretation": "Single-dimension and provenance-family ablations both required because D1/D3/D5 share the B2 lifetime-model family."
+    }
+  ],
+  "f11_independent_replication_claim": false,
+  "privacy_d1_d3_d5_independent_claim": false,
+  "modifiers_applied": false,
+  "evidence_weights_applied": false,
+  "baseline_changed": false
+}
