@@ -1,0 +1,48 @@
+A1 CAMPAIGN ATTRIBUTION VALIDATION
+==================================
+
+BWA campaigns:
+
+PASS  fuzz_output/bwa_asan/default/fuzzer_stats
+      target = BWA
+      role = CANONICAL_PRIMARY_ASAN
+
+PASS  fuzz_output/bwa_asan_backup/default/fuzzer_stats
+      target = BWA
+      role = SUPPORTING_EARLIER_ASAN
+
+PASS  fuzz_output/bwa_asan_fixed/default/fuzzer_stats
+      target = BWA
+      role = RESTART_FIXED_ASAN
+      note = zero runtime metadata; context only for duration/throughput
+
+PASS  fuzz_output/bwa/default/fuzzer_stats
+      target = BWA
+      role = SUPPORTING_NON_ASAN
+
+Excluded non-BWA campaigns:
+
+PASS  fuzz_output/samtools/default/fuzzer_stats
+      target = Samtools
+      status = EXCLUDED_NON_BWA
+
+PASS  fuzz_output/samtools_fuzz/default/fuzzer_stats
+      target = Samtools
+      status = EXCLUDED_NON_BWA
+
+Canonical primary BWA ASAN statistics:
+
+execs_done = 963339
+run_time_seconds = 23120
+run_time_hours = 6.4222
+bitmap_coverage_percent = 15.44
+saved_crashes = 521
+
+Historical 17.69% BWA coverage:
+SUPERSEDED
+
+Historical approximately 2.5M execution aggregate:
+HISTORICAL_ONLY_NOT_RECONSTRUCTED
+
+STATUS:
+PASS

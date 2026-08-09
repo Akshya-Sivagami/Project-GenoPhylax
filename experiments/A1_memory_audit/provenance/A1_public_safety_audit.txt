@@ -1,0 +1,15 @@
+A1 SANITIZED PACKAGE SAFETY AUDIT
+=================================
+
+Files included:
+A1_bwa_identity.tsv
+A1_campaign_interpretation.md
+A1_campaign_reconstruction.tsv
+A1_claims_and_limitations.md
+A1_finding_summary.tsv
+A1_private_evidence_hashes.tsv
+A1_recovery_provenance.md
+
+Forbidden raw fuzzing artifact names:
+
+PASS: no raw fuzzing inputs/reproducer artifacts included

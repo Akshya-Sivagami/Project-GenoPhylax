@@ -1,0 +1,3 @@
+finding_id	target	component	source_location	sanitized_memory_safety_class	access_type	cwe	asan_confirmed	exploitability_established	rce_demonstrated	write_corruption_demonstrated	public_trigger_material
+A1_F01	BWA	ksw_extend2	ksw.c:428	heap-backed out-of-bounds read	READ	CWE-125	YES	NO	NO	NO	NO
+A1_F02	BWA	mem_aln2sam	bwamem.c:906	global/static-storage out-of-bounds read	READ	CWE-125	YES	NO	NO	NO	NO

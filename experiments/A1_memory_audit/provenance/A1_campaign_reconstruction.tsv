@@ -1,0 +1,7 @@
+campaign_id	target	campaign_role	instrumentation	source_path	execs_done	run_time_seconds	run_time_hours	bitmap_coverage_percent	saved_crashes	interpretation	status
+A1_BWA_01	BWA	SUPPORTING_EARLIER_ASAN	ASAN	fuzz_output/bwa_asan_backup/default/fuzzer_stats	207707	2284	0.6344	14.93	101	Earlier_or_backup_preserved_BWA_ASAN_state	SUPPORTING_BWA
+A1_BWA_02	BWA	CANONICAL_PRIMARY_ASAN	ASAN	fuzz_output/bwa_asan/default/fuzzer_stats	963339	23120	6.4222	15.44	521	Strongest_preserved_primary_BWA_ASAN_campaign	CANONICAL_BWA
+A1_BWA_03	BWA	RESTART_FIXED_ASAN	ASAN	fuzz_output/bwa_asan_fixed/default/fuzzer_stats	3567	0	NA	13.27	0	Restart_or_fixed_snapshot_with_zero_runtime_metadata_not_valid_for_duration_or_throughput	SUPPORTING_CONTEXT_ONLY
+A1_BWA_04	BWA	SUPPORTING_NON_ASAN	NONE	fuzz_output/bwa/default/fuzzer_stats	177601	2411	0.6697	15.38	149	Preserved_non_ASAN_BWA_fuzzing_campaign	SUPPORTING_BWA
+A1_NONBWA_01	Samtools	EXCLUDED_OTHER_TARGET	UNKNOWN	fuzz_output/samtools/default/fuzzer_stats	672943	13846	3.8461	0.52	0	Samtools_campaign_not_part_of_BWA_A1_statistics	EXCLUDED_NON_BWA
+A1_NONBWA_02	Samtools	EXCLUDED_OTHER_TARGET	UNKNOWN	fuzz_output/samtools_fuzz/default/fuzzer_stats	306486	6922	1.9228	0.52	0	Samtools_campaign_not_part_of_BWA_A1_statistics	EXCLUDED_NON_BWA

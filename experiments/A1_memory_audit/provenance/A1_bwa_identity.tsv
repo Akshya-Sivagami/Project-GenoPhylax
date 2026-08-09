@@ -1,0 +1,8 @@
+field	value
+software	BWA
+repository_origin	https://github.com/lh3/bwa.git
+git_commit	91fb301a50e64afee7653d312a9487c2ba0d452e
+git_describe	v0.7.19-1-g91fb301
+binary_version	Version: 0.7.19-r1273
+recovered_source_location	PRIVATE_LOCAL_ONLY
+recovery_date	2026-08-09
