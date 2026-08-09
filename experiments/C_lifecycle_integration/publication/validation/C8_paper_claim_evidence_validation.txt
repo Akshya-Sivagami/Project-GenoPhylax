@@ -1,0 +1,29 @@
+C8 PAPER CLAIM / EVIDENCE VALIDATION
+====================================
+
+C2 evidence rows checked: 20
+Primary publication claims: 8
+Paper limitations locked: 8
+Manuscript section mappings: 10
+
+Evidence tier locks:
+- E1 = 2
+- E2 = 10
+- E3 = 1
+- E4 = 7
+- E5 = 0
+
+Critical semantic locks:
+- A1 remains STANDALONE_NON_GRI
+- F11 is controlled E2 worked-case evidence
+- Privacy is mixed E3/E4 model-dependent evidence
+- Evidence tiers are not GRI multipliers
+- Missing/N/A dimensions are not zero
+- Privacy M3 remains UNMEASURED
+- B3 F1=0.9899 is contextual mitigation evidence only
+- V7 sensitivity ranges are not confidence intervals
+- GRI is not probability of breach or patient harm
+- Not every S1-S10 handoff was directly observed end-to-end
+
+Validation errors: 0
+STATUS: PASS

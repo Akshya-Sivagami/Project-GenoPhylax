@@ -1,0 +1,11 @@
+manuscript_section	claim_ids	figures	tables	writing_role
+Introduction	P08	Figure_01	Table_01	Motivate lifecycle fragmentation and introduce GenoPhylax as an integration framework.
+Methods — A1	P01		Table_02	Describe sanitized BWA memory-safety audit.
+Methods — A2/A3	P02|P03	Figure_02	Table_03	Describe controlled nanopore perturbations and F11 worked case.
+Methods — B1/B2/B3	P04|P05|P06	Figure_06	Table_05	Describe calibrated/internal privacy, persistence and containment models.
+Methods — Integration / GRI	P07|P08	Figure_01	Table_01|Table_02|Table_04	Define lifecycle handoffs, evidence tiers, dimensions, modifiers and Base GRI policy.
+Results — Integrity	P01|P02|P03	Figure_02	Table_03|Table_06	Report software and raw-signal integrity findings without generalizing beyond observed scope.
+Results — Privacy / Containment	P04|P05|P06	Figure_06	Table_05	Report calibrated/model-derived downstream results.
+Results — GRI	P07	Figure_03|Figure_04|Figure_05	Table_04	Report Base GRI, ablation and deterministic sensitivity.
+Discussion	P01|P02|P03|P04|P05|P06|P07|P08		Table_06	Interpret cross-lifecycle significance while preserving evidence-tier and scope distinctions.
+Limitations	P01|P02|P03|P04|P05|P06|P07|P08		Table_06	Explicitly state empirical, modeling, calibration and external-validation limits.

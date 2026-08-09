@@ -1,0 +1,9 @@
+limitation_id	category	locked_limitation
+L01	Empirical scope	The direct sequencing attack evidence is limited to tested HG002 nanopore data, selected loci, Dorado configurations, and one F11 clinical worked case.
+L02	Clinical validation	No patient outcomes were observed and no external clinical validation was performed.
+L03	Model dependence	B1/B2/B3 downstream privacy and containment outputs depend on configured synthetic or internal models; only B1 amplification contains an explicit external reference calibration anchor.
+L04	GRI interpretation	GRI is a provenance-aware severity representation for worked cases, not an empirical probability of compromise, clinical harm, or population incidence.
+L05	Evidence dependence	Privacy dimensions D1, D3 and D5 share the B2 lifetime-model family and are not independent replications.
+L06	Sensitivity	Reported V7 ranges are deterministic sensitivity analyses rather than confidence intervals.
+L07	Lifecycle coverage	The ten-stage lifecycle is an integration framework; not every adjacent handoff has been observed experimentally end-to-end.
+L08	A1 disclosure	Public repository artifacts for A1 are sanitized; raw crash inputs/reproducers remain private pending responsible disclosure decisions.
