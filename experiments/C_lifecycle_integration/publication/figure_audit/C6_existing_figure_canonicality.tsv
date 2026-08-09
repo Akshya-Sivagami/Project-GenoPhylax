@@ -1,0 +1,10 @@
+figure	module	initial_status	reason
+B1_amplification_results.png	B1	HOLD_FOR_REVIEW	May encode pre-calibration amplification. Do not publish unless verified against 464.4x authoritative result.
+B1_calibration_tuning.png	B1	CANONICAL_CANDIDATE	Calibration figure is the preferred B1 candidate if it shows the final 464.4x result against ~492.86x target.
+B1_gri_d6_scores.png	B1	HOLD_FOR_REVIEW	Must match final normalized D6=0.9904301172 and current calibration semantics.
+B2_collective_privacy.png	B2	HOLD_FOR_REVIEW	B2 had historical corrected values; figure requires explicit current-value verification.
+B2_genomic_vault.png	B2	HOLD_FOR_REVIEW	Must not contain obsolete unrecoverability=0.044; current pathogenic value is 0.2299.
+B2_lifetime_risk.png	B2	HOLD_FOR_REVIEW	Must reflect current re-identification saturation at year 13 rather than superseded year-20 wording.
+B2_lifetime_risk_drivers.png	B2	HOLD_FOR_REVIEW	Requires consistency with current reproduced lifetime model.
+B3_attack_origin_comparison.png	B3	PREFER_REPRODUCED_COPY	Prefer reproduced_results/B3_run copy; historical hub-k20 interpretation must not be used.
+B3_containment_auth.png	B3	PREFER_REPRODUCED_COPY	Prefer reproduced_results/B3_run copy and verify threshold=4.5/F1=0.9899.
