@@ -1,0 +1,13 @@
+test_id	family	raw_input	normalized_value	expected_value	directionality_rule	status
+T01	PROPORTION_RISK	0	0.0000000000	0.0000000000	minimum probability -> lower risk	PASS
+T02	PROPORTION_RISK	1	1.0000000000	1.0000000000	maximum probability -> higher risk	PASS
+T03	COMPLEMENT_PROPORTION	unrecoverability=1	0.0000000000	0.0000000000	complete unrecoverability -> lower recoverability-related risk	PASS
+T04	COMPLEMENT_PROPORTION	unrecoverability=0	1.0000000000	1.0000000000	zero unrecoverability -> higher recoverability-related risk	PASS
+T05	LOSS_FRACTION	baseline=14 attacked=14	0.0000000000	0.0000000000	no loss -> lower represented attack effect	PASS
+T06	LOSS_FRACTION	baseline=14 attacked=0	1.0000000000	1.0000000000	complete loss -> maximum represented attack effect	PASS
+T07	LOG_REFERENCE_RATIO	x=0 R=492.86	0.0000000000	0.0000000000	no amplification -> lower amplification risk	PASS
+T08	LOG_REFERENCE_RATIO	x=492.86 R=492.86	1.0000000000	1.0000000000	reference-level amplification -> normalized ceiling	PASS
+T09	RESIDUAL_RISK	mitigation=0	1.0000000000	1.0000000000	no mitigation -> maximum residual risk	PASS
+T10	RESIDUAL_RISK	mitigation=1	0.0000000000	0.0000000000	complete mitigation -> zero residual risk	PASS
+T11	QUALITY_COMPLEMENT	quality=0	1.0000000000	1.0000000000	zero detection quality -> maximum performance residual	PASS
+T12	QUALITY_COMPLEMENT	quality=1	0.0000000000	0.0000000000	perfect detection quality -> zero performance residual	PASS

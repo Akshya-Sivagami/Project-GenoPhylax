@@ -1,0 +1,37 @@
+C4.2 Normalization Specification Validation
+===========================================
+
+Normalization registry rows: 12
+Boundary tests: 12
+
+Risk direction:
+  0 = lower represented risk
+  1 = higher represented risk
+
+F11 D2 primary severity metric:
+  NORM_F11_D2_ALT_LOSS
+
+F11 D2 corroborating terminal endpoint:
+  NORM_F11_D2_CALL_LOSS
+
+F11 duplicate severity counting permitted: NO
+
+Lifetime trajectory scalarization:
+  D1: DEFERRED_TO_C4_3
+  D3: DEFERRED_TO_C4_3
+  D5: DEFERRED_TO_C4_3
+
+Single arbitrary lifetime evaluation year permitted: NO
+Terminal saturation automatically used as severity: NO
+Arbitrary model-horizon normalization permitted: NO
+
+Privacy D4 baseline severity defined: NO
+Mitigation may manufacture baseline severity: NO
+
+Dimension weights: NOT DEFINED
+Evidence weights: NOT DEFINED
+Final dimension scores: NOT COMPUTED
+GRI score: NOT COMPUTED
+
+Validation errors: 0
+STATUS: PASS
