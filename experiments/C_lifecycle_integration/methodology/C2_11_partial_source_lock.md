@@ -1,5 +1,7 @@
 # C2.11 Partial Evidence Source Lock
 
+> **SUPERSEDED HISTORICAL CHECKPOINT:** This document records the pre-recovery C2 state. A1 authoritative provenance was recovered on 2026-08-09. See C2.13 for the current A1 source-lock state.
+
 ## Status
 
 `PARTIAL_LOCK_FOR_C3`

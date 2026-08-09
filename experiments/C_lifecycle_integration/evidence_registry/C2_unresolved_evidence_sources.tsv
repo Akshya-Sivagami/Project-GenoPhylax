@@ -1,5 +1,1 @@
 evidence_id	module	reason	current_claim
-A1_E01	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Approximately 2.5 million fuzz executions
-A1_E02	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	54 total crashes, 33 unique crashes and two root causes
-A1_E03	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Heap buffer overflow in ksw_extend2 at ksw.c:428
-A1_E04	A1	UNRESOLVED_AUTHORITATIVE_SOURCE	Global overflow in mem_aln2sam at bwamem.c:906

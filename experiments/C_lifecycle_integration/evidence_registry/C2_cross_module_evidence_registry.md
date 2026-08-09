@@ -1,10 +1,10 @@
 # C2 Cross-Module Evidence Registry
 
-**Registry status:** `SOURCE_VERIFIED_EXCEPT_A1_TIERS_ASSIGNED_TO_VERIFIED_ROWS`
+**Registry status:** `SOURCE_VERIFIED_ALL_ROWS_TIER_ASSIGNED`
 
-A2, A3, B1, B2 and B3 evidence records have verified first-party or directly reproduced sources and row-level evidence tiers.
+All 20 C2 evidence rows now have authoritative or provenance-locked sources and row-level evidence tiers.
 
-A1 remains provenance-pending and intentionally has no E1–E5 assignment.
+A1_E01 through A1_E04 were recovered on 2026-08-09 and are assigned E2 controlled direct empirical case-study evidence. A1 remains STANDALONE_NON_GRI and is not retroactively added to the existing F11 or Privacy C3/GRI worked cases.
 
 Evidence tiers are categorical and are not numerical GRI weights.
 
@@ -12,93 +12,93 @@ Evidence tiers are categorical and are not numerical GRI weights.
 
 - **stage_ids:** S3|S10
 - **asset:** BWA alignment software
-- **threat:** Malformed genomic input triggering memory corruption
-- **mechanism:** Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19
+- **threat:** Malformed genomic input exposing memory-safety defects
+- **mechanism:** Coverage-guided fuzzing of AddressSanitizer-instrumented BWA 0.7.19-r1273
 - **evidence_type:** experimental
-- **measured_result:** Approximately 2.5 million fuzz executions
-- **numeric_value:** 2500000
+- **measured_result:** Canonical preserved BWA ASAN campaign: 963,339 executions over 23,120 seconds (~6.42 h), 15.44% AFL bitmap coverage, and 521 saved crash artifacts
+- **numeric_value:** 963339
 - **unit:** executions
 - **direction:** observed
 - **confidence:** high
 - **claim_scope:** software-test campaign
-- **limitations:** Single principal target version and incomplete program coverage; the authoritative A1 campaign artifact is not present in the current Git clone and must be recovered before source lock.
-- **primary_source_file:** <none>
-- **supporting_source_files:** <none>
-- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
-- **source_confidence:** unresolved
-- **evidence_tier:** <none>
-- **tier_label:** <none>
-- **tier_status:** SOURCE_PENDING
-- **tier_rationale:** Authoritative A1 fuzzing campaign provenance is not present in the current Git clone. Tier assignment is deferred rather than inferred from an unsourced claim.
+- **limitations:** Single principal BWA version/configuration and incomplete program coverage; saved crash artifacts are not equivalent to distinct vulnerabilities; historical ~2.5M aggregate execution and 17.69% BWA coverage claims are not canonical
+- **primary_source_file:** experiments/A1_memory_audit/provenance/A1_campaign_reconstruction.tsv
+- **supporting_source_files:** experiments/A1_memory_audit/provenance/A1_campaign_interpretation.md|experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt|experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv|experiments/A1_memory_audit/provenance/A1_finding_summary.tsv
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct controlled BWA/ASAN fuzzing evidence from the canonical preserved campaign; one principal software version/configuration without meaningful independent replication.
 
 ## A1_E02 — Module A1
 
 - **stage_ids:** S3|S10
 - **asset:** BWA alignment software
-- **threat:** Memory-safety vulnerability
-- **mechanism:** ASAN-confirmed crash triage
+- **threat:** Memory-safety defects
+- **mechanism:** AddressSanitizer-confirmed crash triage and root-cause analysis
 - **evidence_type:** experimental
-- **measured_result:** 54 total crashes, 33 unique crashes and two root causes
+- **measured_result:** Two distinct ASAN-confirmed source-level out-of-bounds-read root causes
 - **numeric_value:** 2
 - **unit:** root causes
 - **direction:** observed
 - **confidence:** high
 - **claim_scope:** software-test campaign
-- **limitations:** Root causes were established within the project audit and external CVE assignment was not claimed; the authoritative A1 crash-triage artifact is not present in the current Git clone.
-- **primary_source_file:** <none>
-- **supporting_source_files:** <none>
-- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
-- **source_confidence:** unresolved
-- **evidence_tier:** <none>
-- **tier_label:** <none>
-- **tier_status:** SOURCE_PENDING
-- **tier_rationale:** Authoritative A1 crash-triage provenance is not present in the current Git clone. Tier assignment is deferred.
+- **limitations:** Crash-artifact counts and unique crash-input hashes are not equivalent to distinct vulnerabilities; exploitability, memory-write corruption, RCE, and external CVE assignment were not established
+- **primary_source_file:** experiments/A1_memory_audit/provenance/A1_finding_summary.tsv
+- **supporting_source_files:** experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md|experiments/A1_memory_audit/provenance/A1_recovery_provenance.md|experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv|experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Two directly observed ASAN-confirmed source-level root causes within one BWA software audit; distinct root causes do not by themselves constitute independent replication.
 
 ## A1_E03 — Module A1
 
 - **stage_ids:** S3
 - **asset:** BWA ksw alignment routine
-- **threat:** Heap buffer overflow
-- **mechanism:** Malformed-input execution reaching ksw_extend2
+- **threat:** Heap-backed out-of-bounds read
+- **mechanism:** Malformed-input execution reaching ksw_extend2 under AddressSanitizer
 - **evidence_type:** experimental
-- **measured_result:** Heap buffer overflow in ksw_extend2 at ksw.c:428
+- **measured_result:** ASAN-confirmed heap-backed out-of-bounds READ in ksw_extend2 at ksw.c:428 (CWE-125)
 - **numeric_value:** <none>
-- **unit:** vulnerability
+- **unit:** finding
 - **direction:** observed
 - **confidence:** high
 - **claim_scope:** function-level finding
-- **limitations:** Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
-- **primary_source_file:** <none>
-- **supporting_source_files:** <none>
-- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
-- **source_confidence:** unresolved
-- **evidence_tier:** <none>
-- **tier_label:** <none>
-- **tier_status:** SOURCE_PENDING
-- **tier_rationale:** The original ASAN artifact for the ksw_extend2 finding must be recovered before empirical tier classification.
+- **limitations:** Exploitability beyond sanitizer-detected invalid read/process failure was not established; no memory-write corruption or RCE was demonstrated
+- **primary_source_file:** experiments/A1_memory_audit/provenance/A1_finding_summary.tsv
+- **supporting_source_files:** experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md|experiments/A1_memory_audit/provenance/A1_recovery_provenance.md|experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv|experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct ASAN-confirmed ksw_extend2 out-of-bounds-read finding in the recovered controlled BWA audit; not independently replicated.
 
 ## A1_E04 — Module A1
 
 - **stage_ids:** S3
 - **asset:** BWA SAM-output routine
-- **threat:** Global buffer overflow
-- **mechanism:** Malformed-input execution reaching mem_aln2sam
+- **threat:** Global/static-storage out-of-bounds read
+- **mechanism:** Malformed-input execution reaching mem_aln2sam under AddressSanitizer
 - **evidence_type:** experimental
-- **measured_result:** Global overflow in mem_aln2sam at bwamem.c:906
+- **measured_result:** ASAN-confirmed global/static-storage out-of-bounds READ in mem_aln2sam at bwamem.c:906 (CWE-125)
 - **numeric_value:** <none>
-- **unit:** vulnerability
+- **unit:** finding
 - **direction:** observed
 - **confidence:** high
 - **claim_scope:** function-level finding
-- **limitations:** Exploitability beyond the demonstrated crash was not established; the original ASAN evidence artifact must be recovered before authoritative source lock.
-- **primary_source_file:** <none>
-- **supporting_source_files:** <none>
-- **source_resolution_status:** UNRESOLVED_AUTHORITATIVE_SOURCE
-- **source_confidence:** unresolved
-- **evidence_tier:** <none>
-- **tier_label:** <none>
-- **tier_status:** SOURCE_PENDING
-- **tier_rationale:** The original ASAN artifact for the mem_aln2sam finding must be recovered before empirical tier classification.
+- **limitations:** Exploitability beyond sanitizer-detected invalid read/process failure was not established; no memory-write corruption or RCE was demonstrated
+- **primary_source_file:** experiments/A1_memory_audit/provenance/A1_finding_summary.tsv
+- **supporting_source_files:** experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md|experiments/A1_memory_audit/provenance/A1_recovery_provenance.md|experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv|experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt
+- **source_resolution_status:** VERIFIED_EXISTING_SOURCE
+- **source_confidence:** high
+- **evidence_tier:** E2
+- **tier_label:** Controlled direct empirical case study
+- **tier_status:** ASSIGNED
+- **tier_rationale:** Direct ASAN-confirmed mem_aln2sam out-of-bounds-read finding in the recovered controlled BWA audit; not independently replicated.
 
 ## A2_E01 — Module A2
 

@@ -1,8 +1,8 @@
 evidence_id	module	source_resolution_status	evidence_tier	tier_status	c3_eligible	partial_lock_status	reason
-A1_E01	A1	UNRESOLVED_AUTHORITATIVE_SOURCE		SOURCE_PENDING	NO	EXCLUDED_SOURCE_PENDING	Authoritative source provenance pending; excluded from scored C3/C4 lifecycle cases.
-A1_E02	A1	UNRESOLVED_AUTHORITATIVE_SOURCE		SOURCE_PENDING	NO	EXCLUDED_SOURCE_PENDING	Authoritative source provenance pending; excluded from scored C3/C4 lifecycle cases.
-A1_E03	A1	UNRESOLVED_AUTHORITATIVE_SOURCE		SOURCE_PENDING	NO	EXCLUDED_SOURCE_PENDING	Authoritative source provenance pending; excluded from scored C3/C4 lifecycle cases.
-A1_E04	A1	UNRESOLVED_AUTHORITATIVE_SOURCE		SOURCE_PENDING	NO	EXCLUDED_SOURCE_PENDING	Authoritative source provenance pending; excluded from scored C3/C4 lifecycle cases.
+A1_E01	A1	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	NO	SOURCE_LOCKED_STANDALONE_NON_GRI	Authoritative A1 provenance recovered and E2 tier assigned; A1 remains outside the already-validated F11/Privacy C3 and Base GRI worked cases by explicit scope decision.
+A1_E02	A1	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	NO	SOURCE_LOCKED_STANDALONE_NON_GRI	Authoritative A1 provenance recovered and E2 tier assigned; A1 remains outside the already-validated F11/Privacy C3 and Base GRI worked cases by explicit scope decision.
+A1_E03	A1	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	NO	SOURCE_LOCKED_STANDALONE_NON_GRI	Authoritative A1 provenance recovered and E2 tier assigned; A1 remains outside the already-validated F11/Privacy C3 and Base GRI worked cases by explicit scope decision.
+A1_E04	A1	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	NO	SOURCE_LOCKED_STANDALONE_NON_GRI	Authoritative A1 provenance recovered and E2 tier assigned; A1 remains outside the already-validated F11/Privacy C3 and Base GRI worked cases by explicit scope decision.
 A2_E01	A2	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	YES	LOCKED_FOR_C3	Verified first-party/reproduced source and row-level evidence tier assigned.
 A2_E02	A2	VERIFIED_EXISTING_SOURCE	E1	ASSIGNED	YES	LOCKED_FOR_C3	Verified first-party/reproduced source and row-level evidence tier assigned.
 A2_E03	A2	VERIFIED_EXISTING_SOURCE	E2	ASSIGNED	YES	LOCKED_FOR_C3	Verified first-party/reproduced source and row-level evidence tier assigned.

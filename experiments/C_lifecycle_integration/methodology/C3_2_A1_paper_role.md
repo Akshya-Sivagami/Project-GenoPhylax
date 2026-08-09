@@ -2,41 +2,82 @@
 
 ## Decision
 
-Module A1 is retained as a standalone upstream software-integrity contribution
-within Project GenoPhylax.
+Module A1 is retained as a **standalone upstream software-integrity
+contribution** within Project GenoPhylax.
 
-A1 is not currently included in quantitative GRI scoring.
+A1 is source-locked but remains:
 
-## Rationale
+`STANDALONE_NON_GRI`
 
-The A1 BWA fuzzing experiment was completed historically, but the original
-authoritative fuzzing and AddressSanitizer artifacts are not present in the
-current provenance-locked repository state.
+A1 is not included in the existing quantitative F11 or Privacy GRI worked
+cases.
 
-C2 therefore retains A1_E01 through A1_E04 as SOURCE_PENDING.
+## Provenance status
 
-They are excluded from:
+The original A1 environment was recovered on 2026-08-09.
+
+A complete private forensic archive was created and verified before sanitized
+public provenance was committed under:
+
+`experiments/A1_memory_audit/provenance/`
+
+The recovered evidence supports:
+
+- one canonical preserved BWA ASAN campaign with 963,339 executions over
+  23,120 seconds (~6.42 h), 15.44% AFL bitmap coverage, and 521 saved crash
+  artifacts;
+- two distinct ASAN-confirmed out-of-bounds-read root causes;
+- `ksw_extend2` at `ksw.c:428`, classified as a heap-backed out-of-bounds
+  READ / CWE-125;
+- `mem_aln2sam` at `bwamem.c:906`, classified as a global/static-storage
+  out-of-bounds READ / CWE-125.
+
+A1_E01 through A1_E04 are therefore no longer `SOURCE_PENDING`.
+
+Under the C2 evidence-tier policy they are E2 controlled direct empirical
+case-study evidence.
+
+## Why A1 remains outside Base GRI
+
+The exclusion is now a **scope decision rather than a provenance deficiency**.
+
+The existing quantitative GenoPhylax worked cases were intentionally defined
+as:
+
+1. F11 integrity — A2/A3;
+2. Privacy amplification/containment — B1/B2/B3.
+
+A1 demonstrates a separate upstream software-security attack surface but was
+not represented as a worked lifecycle handoff in the validated C3 cases.
+
+Source recovery therefore does not justify retroactively inserting A1 into:
 
 - C3 scored handoffs;
-- GRI dimension calculation;
-- evidence-confidence adjustment;
-- quantitative integrated case-study scoring.
+- C4 Base GRI calculation;
+- V6 ablation;
+- V7 sensitivity;
+- V8 publication-claim numerical locks.
 
 ## Paper framing
 
-A1 demonstrates that vulnerabilities may exist in genomic computational
-software at an upstream lifecycle entry point.
+A1 demonstrates that genomic computational software itself can expose
+memory-safety failure modes when processing malformed genomic input.
 
-The quantitative GenoPhylax GRI case studies are built from provenance-locked
-A2, A3, B1, B2 and B3 evidence.
+The recovered evidence establishes sanitizer-detected out-of-bounds READs.
+It does not establish:
 
-The paper must not imply that every named project module contributes
-numerically to the GRI.
+- arbitrary code execution;
+- remote code execution;
+- memory-write corruption;
+- patient harm;
+- clinical record poisoning;
+- successful SAM poisoning.
 
-## Future upgrade
+The paper must not imply that every project module contributes numerically to
+GRI.
 
-If authoritative A1 artifacts are recovered before final paper freeze, A1 may
-be source-locked and independently evaluated for inclusion.
+## Future work
 
-Failure to recover those artifacts does not invalidate the current F11 or
-privacy GRI case studies.
+A separate A1 lifecycle worked case could be designed later, but doing so
+would constitute a new analysis rather than a repair of the currently
+validated F11/Privacy GRI.

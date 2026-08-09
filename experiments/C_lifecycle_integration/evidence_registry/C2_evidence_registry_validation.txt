@@ -2,26 +2,32 @@ C2 Evidence Registry Validation
 ================================
 
 Registry state:
-SOURCE_VERIFIED_EXCEPT_A1_TIERS_ASSIGNED_TO_VERIFIED_ROWS
+SOURCE_VERIFIED_ALL_ROWS_TIER_ASSIGNED
 
 Evidence records: 20
 Unique evidence IDs: 20
-Tier-assigned records: 16
-Source-pending records: 4
+Tier-assigned records: 20
+Source-pending records: 0
 
 Evidence tier counts:
   E1: 2
-  E2: 6
+  E2: 10
   E3: 1
   E4: 7
   E5: 0
 
-Source-pending:
-  A1_E01
-  A1_E02
-  A1_E03
-  A1_E04
+A1 source recovery:
+  A1_E01: VERIFIED_EXISTING_SOURCE / E2 / ASSIGNED
+  A1_E02: VERIFIED_EXISTING_SOURCE / E2 / ASSIGNED
+  A1_E03: VERIFIED_EXISTING_SOURCE / E2 / ASSIGNED
+  A1_E04: VERIFIED_EXISTING_SOURCE / E2 / ASSIGNED
+
+A1 C3 eligibility: NO
+A1 role: SOURCE_LOCKED_STANDALONE_NON_GRI
+Existing C3-eligible evidence rows: 16
 
 Numerical tier weights: NOT DEFINED
+Existing F11/Privacy Base GRI mathematics: UNCHANGED
+
 Validation errors: 0
 STATUS: PASS

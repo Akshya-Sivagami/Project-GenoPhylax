@@ -1,0 +1,24 @@
+C2.13 A1 SOURCE RECOVERY SUMMARY
+================================
+
+Generated UTC: 2026-08-09T12:14:57.712221+00:00
+
+A1 authoritative source rows recovered: 4
+A1 tier assignments: E2,E2,E2,E2
+
+Total evidence rows: 20
+Tier-assigned rows: 20
+SOURCE_PENDING rows: 0
+
+Evidence tier counts:
+  E1: 2
+  E2: 10
+  E3: 1
+  E4: 7
+  E5: 0
+
+C3-eligible rows retained: 16
+A1 source-locked but standalone/non-GRI rows: 4
+
+Numerical evidence-tier weights: NOT DEFINED
+Existing F11/Privacy Base GRI mathematics: UNCHANGED

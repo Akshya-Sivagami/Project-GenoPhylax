@@ -66,7 +66,22 @@ classification solely from remembered or secondary descriptions.
 
 ## Current A1 handling
 
-A1_E01 through A1_E04 remain `SOURCE_PENDING`.
+Authoritative A1 provenance was recovered on 2026-08-09 and preserved through
+a private forensic archive plus a sanitized provenance package committed under
+`experiments/A1_memory_audit/provenance/`.
 
-Their original fuzzing and AddressSanitizer evidence must be recovered before
-an empirical tier is assigned.
+A1_E01 through A1_E04 are therefore no longer `SOURCE_PENDING`.
+
+Each is assigned **E2 — Controlled direct empirical case study**:
+
+- A1_E01: one principal preserved BWA/ASAN fuzzing configuration;
+- A1_E02: direct root-cause analysis within that software audit;
+- A1_E03: one directly observed `ksw_extend2` ASAN finding;
+- A1_E04: one directly observed `mem_aln2sam` ASAN finding.
+
+E1 is not assigned because meaningful independent replication of the same
+principal finding/effect across independent systems, versions, datasets, or
+other replication units was not demonstrated.
+
+A1 remains `STANDALONE_NON_GRI`; source recovery does not make A1 part of the
+existing F11 or Privacy quantitative GRI worked cases.

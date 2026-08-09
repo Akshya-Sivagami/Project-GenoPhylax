@@ -1,8 +1,54 @@
 evidence_id	module	candidate_rank	candidate_file	score	size_bytes	match_reasons	selected
-A1_E01	A1	1				authoritative_A1_source_not_present_in_current_git_clone	NO
-A1_E02	A1	1				authoritative_A1_source_not_present_in_current_git_clone	NO
-A1_E03	A1	1				authoritative_A1_source_not_present_in_current_git_clone	NO
-A1_E04	A1	1				authoritative_A1_source_not_present_in_current_git_clone	NO
+A1_E01	A1	1	experiments/A1_memory_audit/provenance/A1_campaign_reconstruction.tsv	197	1271	preferred_glob:*A1_campaign_reconstruction.tsv | path:A1_memory_audit | path:provenance | filename:campaign | content:CANONICAL_PRIMARY_ASAN | content:963339 | content:15.44 | content:BWA | all_content_terms | structured_file	YES
+A1_E01	A1	2	experiments/A1_memory_audit/provenance/A1_campaign_interpretation.md	144	4447	preferred_glob:*A1_campaign_interpretation.md | path:A1_memory_audit | path:provenance | filename:campaign | content:15.44 | content:BWA	YES
+A1_E01	A1	3	experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt	142	1127	path:A1_memory_audit | path:provenance | filename:campaign | content:CANONICAL_PRIMARY_ASAN | content:963339 | content:15.44 | content:BWA | all_content_terms | high_value_filename	YES
+A1_E01	A1	4	experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv	83	265	path:A1_memory_audit | path:provenance | filename:bwa | content:BWA | structured_file	YES
+A1_E01	A1	5	experiments/A1_memory_audit/provenance/A1_finding_summary.tsv	65	402	path:A1_memory_audit | path:provenance | content:BWA | high_value_filename | structured_file	YES
+A1_E01	A1	6	experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md	60	2646	path:A1_memory_audit | path:provenance | content:BWA | high_value_filename	NO
+A1_E01	A1	7	experiments/A1_memory_audit/provenance/A1_public_safety_audit.txt	60	373	path:A1_memory_audit | path:provenance | content:BWA | high_value_filename	NO
+A1_E01	A1	8	experiments/A1_memory_audit/provenance/A1_recovery_provenance.md	60	1818	path:A1_memory_audit | filename:provenance | content:BWA	NO
+A1_E01	A1	9	experiments/A1_memory_audit/provenance/A1_private_evidence_hashes.tsv	55	644	path:A1_memory_audit | path:provenance | content:BWA | structured_file	NO
+A1_E01	A1	10	experiments/A1_memory_audit/provenance/A1_sanitized_package_sha256.tsv	55	666	path:A1_memory_audit | path:provenance | content:BWA | structured_file	NO
+A1_E02	A1	1	experiments/A1_memory_audit/provenance/A1_finding_summary.tsv	193	402	preferred_glob:*A1_finding_summary.tsv | path:A1_memory_audit | path:provenance | filename:finding | content:A1_F01 | content:A1_F02 | content:CWE-125 | all_content_terms | high_value_filename | structured_file	YES
+A1_E02	A1	2	experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md	120	2646	preferred_glob:*A1_claims_and_limitations.md | path:A1_memory_audit | path:provenance | content:CWE-125 | high_value_filename	YES
+A1_E02	A1	3	experiments/A1_memory_audit/provenance/A1_recovery_provenance.md	108	1818	path:A1_memory_audit | filename:provenance | content:A1_F01 | content:A1_F02 | content:CWE-125 | all_content_terms	YES
+A1_E02	A1	4	experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv	69	265	path:A1_memory_audit | path:provenance | filename:bwa | structured_file	YES
+A1_E02	A1	5	experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt	46	1127	path:A1_memory_audit | path:provenance | high_value_filename	YES
+A1_E02	A1	6	experiments/A1_memory_audit/provenance/A1_public_safety_audit.txt	46	373	path:A1_memory_audit | path:provenance | high_value_filename	NO
+A1_E02	A1	7	experiments/A1_memory_audit/provenance/A1_campaign_reconstruction.tsv	41	1271	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E02	A1	8	experiments/A1_memory_audit/provenance/A1_private_evidence_hashes.tsv	41	644	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E02	A1	9	experiments/A1_memory_audit/provenance/A1_sanitized_package_sha256.tsv	41	666	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E02	A1	10	experiments/A1_memory_audit/provenance/A1_campaign_interpretation.md	36	4447	path:A1_memory_audit | path:provenance	NO
+A1_E03	A1	1	experiments/A1_memory_audit/provenance/A1_finding_summary.tsv	193	402	preferred_glob:*A1_finding_summary.tsv | path:A1_memory_audit | path:provenance | filename:finding | content:ksw_extend2 | content:ksw.c:428 | content:CWE-125 | all_content_terms | high_value_filename | structured_file	YES
+A1_E03	A1	2	experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md	168	2646	preferred_glob:*A1_claims_and_limitations.md | path:A1_memory_audit | path:provenance | content:ksw_extend2 | content:ksw.c:428 | content:CWE-125 | all_content_terms | high_value_filename	YES
+A1_E03	A1	3	experiments/A1_memory_audit/provenance/A1_recovery_provenance.md	108	1818	path:A1_memory_audit | filename:provenance | content:ksw_extend2 | content:ksw.c:428 | content:CWE-125 | all_content_terms	YES
+A1_E03	A1	4	experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv	69	265	path:A1_memory_audit | path:provenance | filename:bwa | structured_file	YES
+A1_E03	A1	5	experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt	46	1127	path:A1_memory_audit | path:provenance | high_value_filename	YES
+A1_E03	A1	6	experiments/A1_memory_audit/provenance/A1_public_safety_audit.txt	46	373	path:A1_memory_audit | path:provenance | high_value_filename	NO
+A1_E03	A1	7	experiments/A1_memory_audit/provenance/A1_campaign_reconstruction.tsv	41	1271	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E03	A1	8	experiments/A1_memory_audit/provenance/A1_private_evidence_hashes.tsv	41	644	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E03	A1	9	experiments/A1_memory_audit/provenance/A1_sanitized_package_sha256.tsv	41	666	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E03	A1	10	experiments/A1_memory_audit/provenance/A1_campaign_interpretation.md	36	4447	path:A1_memory_audit | path:provenance	NO
+A1_E04	A1	1	experiments/A1_memory_audit/provenance/A1_finding_summary.tsv	193	402	preferred_glob:*A1_finding_summary.tsv | path:A1_memory_audit | path:provenance | filename:finding | content:mem_aln2sam | content:bwamem.c:906 | content:CWE-125 | all_content_terms | high_value_filename | structured_file	YES
+A1_E04	A1	2	experiments/A1_memory_audit/provenance/A1_claims_and_limitations.md	168	2646	preferred_glob:*A1_claims_and_limitations.md | path:A1_memory_audit | path:provenance | content:mem_aln2sam | content:bwamem.c:906 | content:CWE-125 | all_content_terms | high_value_filename	YES
+A1_E04	A1	3	experiments/A1_memory_audit/provenance/A1_recovery_provenance.md	108	1818	path:A1_memory_audit | filename:provenance | content:mem_aln2sam | content:bwamem.c:906 | content:CWE-125 | all_content_terms	YES
+A1_E04	A1	4	experiments/A1_memory_audit/provenance/A1_bwa_identity.tsv	69	265	path:A1_memory_audit | path:provenance | filename:bwa | structured_file	YES
+A1_E04	A1	5	experiments/A1_memory_audit/provenance/A1_campaign_attribution_validation.txt	46	1127	path:A1_memory_audit | path:provenance | high_value_filename	YES
+A1_E04	A1	6	experiments/A1_memory_audit/provenance/A1_public_safety_audit.txt	46	373	path:A1_memory_audit | path:provenance | high_value_filename	NO
+A1_E04	A1	7	experiments/A1_memory_audit/provenance/A1_campaign_reconstruction.tsv	41	1271	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E04	A1	8	experiments/A1_memory_audit/provenance/A1_private_evidence_hashes.tsv	41	644	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E04	A1	9	experiments/A1_memory_audit/provenance/A1_sanitized_package_sha256.tsv	41	666	path:A1_memory_audit | path:provenance | structured_file	NO
+A1_E04	A1	10	experiments/A1_memory_audit/provenance/A1_campaign_interpretation.md	36	4447	path:A1_memory_audit | path:provenance	NO
+A2_E01	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv		1043	manually_verified_first_party_source	YES
+A2_E02	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md		2777	manually_verified_first_party_source	YES
+A2_E03	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv		435	manually_verified_first_party_source	YES
+A2_E04	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md		3651	manually_verified_first_party_source	YES
+A3_E01	A3	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv		1014	manually_verified_first_party_source	YES
+A3_E02	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt		1254	manually_verified_first_party_source	YES
+A3_E03	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv		654	manually_verified_first_party_source	YES
+A3_E04	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt		469	manually_verified_first_party_source	YES
+B1_E01	B1	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv		116	direct_reproduction_from_committed_B1_analysis	YES
+B1_E02	B1	1	experiments/B1_graph_amplification/results_log.txt		1084	manually_verified_first_party_source	YES
 B2_E01	B2	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv		675	direct_reproduction_from_committed_B2_model	YES
 B2_E01	B2	2	experiments/B2_vault_design/genomic_vault.py		24229	committed_model_implementation	YES
 B2_E02	B2	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv		456	direct_reproduction_from_committed_B2_lifetime_model	YES
@@ -15,13 +61,3 @@ B3_E02	B3	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_res
 B3_E02	B3	2	experiments/B3_authentication/containment_algorithm.py		21484	committed_model_implementation	YES
 B3_E03	B3	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv		247	direct_reproduction_from_committed_B3_implementation	YES
 B3_E03	B3	2	experiments/B3_authentication/containment_algorithm.py		21484	committed_model_implementation	YES
-A2_E01	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_gaussian_dose_response_summary.tsv		1043	manually_verified_first_party_source	YES
-A2_E02	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/findings/experiment_B_multiseed_findings.md		2777	manually_verified_first_party_source	YES
-A2_E03	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D2_seed42_alignment/metrics/experiment_D2_seed42_alignment_summary.tsv		435	manually_verified_first_party_source	YES
-A2_E04	A2	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/findings/experiment_E_W0_cross_locus_findings.md		3651	manually_verified_first_party_source	YES
-A3_E01	A3	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv		1014	manually_verified_first_party_source	YES
-A3_E02	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/F11_attack_generation_summary.txt		1254	manually_verified_first_party_source	YES
-A3_E03	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_variant_calling_summary.tsv		654	manually_verified_first_party_source	YES
-A3_E04	A3	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/PM2_off_target_sham/F11_PM2_off_target_sham_report.txt		469	manually_verified_first_party_source	YES
-B1_E01	B1	1	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv		116	direct_reproduction_from_committed_B1_analysis	YES
-B1_E02	B1	1	experiments/B1_graph_amplification/results_log.txt		1084	manually_verified_first_party_source	YES
