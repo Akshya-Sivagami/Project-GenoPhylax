@@ -1,0 +1,33 @@
+C4.3a.1 Targeted Source-Schema Adjudication
+==========================================
+
+B1 rows including header: 4
+B1 row-width distribution: {3: 4}
+
+B1 expected literal visibility:
+  464.4: NO
+  492.86: NO
+  5.8: NO
+  4144: YES
+  1657: YES
+
+B2 lifetime rows including header: 29
+B2 lifetime row-width distribution: {3: 29}
+
+B2 expected threshold-year literal visibility:
+  8: YES
+  11: YES
+  12: YES
+  13: YES
+  14: YES
+  15: YES
+  22: YES
+  33: YES
+
+B2 lifetime TSV appears to contain full annual trajectory: NO
+
+Interpretation:
+B2 TSV likely contains threshold/reproduction summaries; full trajectory must be reproduced from committed implementation.
+
+No GRI scalarization decision made: YES
+No commit performed: YES

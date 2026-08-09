@@ -1,0 +1,27 @@
+C4.3b Temporal Scalarization Validation
+=======================================
+
+Selected temporal method:
+  HORIZON_NORMALIZED_TRAPEZOID_AUC
+
+D1 Identity temporal severity: 0.8886656512
+D3 Familial temporal severity: 0.8817416604
+D5 Persistence severity: 0.8852036558
+
+D5 disease trajectory included: NO
+D5 B2 native composite used: NO
+D5 provenance restricted to B2_E02/B2_E03 channels: YES
+
+Terminal saturation used directly: NO
+Single selected year used directly: NO
+Full trajectory used: YES
+
+Privacy D4 baseline severity defined: NO
+F11 D7 structural transform defined: NO
+
+Dimension weights: NOT DEFINED
+Evidence weights: NOT DEFINED
+GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

@@ -1,0 +1,163 @@
+{
+  "schema": "C4_3b_temporal_scalarization_v1",
+  "selected_temporal_method": "HORIZON_NORMALIZED_TRAPEZOID_AUC",
+  "d1_value": 0.8886656511913562,
+  "d3_value": 0.8817416604069249,
+  "d5_value": 0.8852036557991405,
+  "d5_native_composite_auc_context": 0.7982036492262939,
+  "disease_auc_context": 0.6242036360805685,
+  "d5_native_composite_used": false,
+  "disease_used_in_locked_d5": false,
+  "d7_transform_defined": false,
+  "dimension_weights_defined": false,
+  "evidence_weights_defined": false,
+  "gri_computed": false,
+  "selection": [
+    {
+      "dimension_id": "D1",
+      "case_id": "C3_PRIVACY",
+      "source_trajectory": "REID",
+      "selected_method": "HORIZON_NORMALIZED_TRAPEZOID_AUC",
+      "selected_value": "0.8886656512",
+      "selection_status": "SELECTED_BASELINE",
+      "rationale": "Uses complete probability trajectory; captures both onset and sustained re-identification risk."
+    },
+    {
+      "dimension_id": "D3",
+      "case_id": "C3_PRIVACY",
+      "source_trajectory": "FAMILIAL",
+      "selected_method": "HORIZON_NORMALIZED_TRAPEZOID_AUC",
+      "selected_value": "0.8817416604",
+      "selection_status": "SELECTED_BASELINE",
+      "rationale": "Uses complete familial-risk trajectory and preserves onset differences that terminal saturation would erase."
+    },
+    {
+      "dimension_id": "D5",
+      "case_id": "C3_PRIVACY",
+      "source_trajectory": "REID|FAMILIAL",
+      "selected_method": "EQUAL_MEAN_OF_PROVENANCE_ELIGIBLE_TEMPORAL_AUCS",
+      "selected_value": "0.8852036558",
+      "selection_status": "SELECTED_BASELINE",
+      "rationale": "HPRIV_03 is locked to re-identification and familial evidence. Disease and model-native composite are excluded from baseline."
+    }
+  ],
+  "candidate_comparison": [
+    {
+      "risk_type": "REID",
+      "normalized_trapezoid_auc": "0.8886656512",
+      "sample_mean_probability": "0.8841948055",
+      "terminal_probability": "1.0000000000",
+      "maximum_probability": "1.0000000000",
+      "abs_auc_minus_mean": "0.0044708457",
+      "baseline_role": "D1_BASELINE"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "normalized_trapezoid_auc": "0.8817416604",
+      "sample_mean_probability": "0.8773991708",
+      "terminal_probability": "1.0000000000",
+      "maximum_probability": "1.0000000000",
+      "abs_auc_minus_mean": "0.0043424896",
+      "baseline_role": "D3_BASELINE"
+    },
+    {
+      "risk_type": "DISEASE",
+      "normalized_trapezoid_auc": "0.6242036361",
+      "sample_mean_probability": "0.6221306655",
+      "terminal_probability": "0.7999956991",
+      "maximum_probability": "0.7999956991",
+      "abs_auc_minus_mean": "0.0020729705",
+      "baseline_role": "CONTEXT_ONLY"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "normalized_trapezoid_auc": "0.7982036492",
+      "sample_mean_probability": "0.7945748806",
+      "terminal_probability": "0.9333318997",
+      "maximum_probability": "0.9333318997",
+      "abs_auc_minus_mean": "0.0036287686",
+      "baseline_role": "CONTEXT_ONLY"
+    },
+    {
+      "risk_type": "D5_PROVENANCE_RESTRICTED",
+      "normalized_trapezoid_auc": "0.8852036558",
+      "sample_mean_probability": "0.8807969881",
+      "terminal_probability": "1.0000000000",
+      "maximum_probability": "1.0000000000",
+      "abs_auc_minus_mean": "0.0044066677",
+      "baseline_role": "D5_BASELINE"
+    }
+  ],
+  "resolved_dimension_inputs": [
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "1.0000000000",
+      "input_status": "RESOLVED",
+      "method": "LOSS_FRACTION",
+      "source": "NORM_F11_D2_ALT_LOSS",
+      "aggregation_eligibility": "ELIGIBLE"
+    },
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D7",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "",
+      "input_status": "STRUCTURAL_TRANSFORM_DEFERRED",
+      "method": "NOT_YET_SELECTED",
+      "source": "HF11_01|HF11_02|HF11_03|HF11_04",
+      "aggregation_eligibility": "NOT_YET_ELIGIBLE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D1",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "0.8886656512",
+      "input_status": "RESOLVED",
+      "method": "HORIZON_NORMALIZED_TRAPEZOID_AUC",
+      "source": "B2_REID_TRAJECTORY",
+      "aggregation_eligibility": "ELIGIBLE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D3",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "0.8817416604",
+      "input_status": "RESOLVED",
+      "method": "HORIZON_NORMALIZED_TRAPEZOID_AUC",
+      "source": "B2_FAMILIAL_TRAJECTORY",
+      "aggregation_eligibility": "ELIGIBLE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "dimension_role": "CONTEXT_PLUS_DIRECT_MITIGATION_NO_RISK_ANCHOR",
+      "normalized_input": "",
+      "input_status": "NO_BASELINE_SEVERITY",
+      "method": "NOT_APPLICABLE",
+      "source": "B2_CONTEXT|B3_MITIGATION",
+      "aggregation_eligibility": "EXCLUDE_FROM_BASELINE_SEVERITY_AGGREGATION"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D5",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "0.8852036558",
+      "input_status": "RESOLVED",
+      "method": "EQUAL_MEAN_OF_PROVENANCE_ELIGIBLE_TEMPORAL_AUCS",
+      "source": "B2_REID_TRAJECTORY|B2_FAMILIAL_TRAJECTORY",
+      "aggregation_eligibility": "ELIGIBLE_WITH_CORRELATION_CAVEAT"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "dimension_role": "DIRECT_SEVERITY",
+      "normalized_input": "0.9904301172",
+      "input_status": "RESOLVED",
+      "method": "LOG_REFERENCE_RATIO",
+      "source": "NORM_PRIV_D6_AMPLIFICATION",
+      "aggregation_eligibility": "ELIGIBLE"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+C4.3a.1 Source-Schema Adjudication Validation
+=============================================
+
+B1 readable TSV: YES
+B2 lifetime readable TSV: YES
+
+B1 464.4 visible in authoritative TSV: NO
+B1 492.86 visible in authoritative TSV: NO
+
+B2 full annual trajectory directly present: NO
+
+STATUS: PASS

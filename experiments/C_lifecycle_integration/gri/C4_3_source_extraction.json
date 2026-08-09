@@ -1,0 +1,3229 @@
+{
+  "schema": "C4_3_authoritative_source_extraction_v2",
+  "raw_metrics": [
+    {
+      "metric_id": "RAW_F11_CLEAN_ALT",
+      "module": "A3",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "raw_value": "14",
+      "raw_unit": "parent_count",
+      "extraction_status": "EXACT_SCHEMA_EXTRACTION",
+      "source_locator": "condition=CLEAN,parent_ALT",
+      "notes": "Primary F11 D2 baseline."
+    },
+    {
+      "metric_id": "RAW_F11_PM2_ALT",
+      "module": "A3",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "raw_value": "0",
+      "raw_unit": "parent_count",
+      "extraction_status": "EXACT_SCHEMA_EXTRACTION",
+      "source_locator": "condition=PM2,parent_ALT",
+      "notes": "Primary F11 D2 attacked condition."
+    },
+    {
+      "metric_id": "RAW_F11_SHAM_ALT",
+      "module": "A3",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "raw_value": "14",
+      "raw_unit": "parent_count",
+      "extraction_status": "EXACT_SCHEMA_EXTRACTION",
+      "source_locator": "condition=PM2_OFF_TARGET_SHAM,parent_ALT",
+      "notes": "Matched control retains ALT support."
+    },
+    {
+      "metric_id": "RAW_F11_CALL_LOSS",
+      "module": "A3",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "source_file": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "raw_value": "1.0",
+      "raw_unit": "binary",
+      "extraction_status": "EXACT_SCHEMA_EXTRACTION",
+      "source_locator": "CLEAN vcf_record/GT versus PM2 vcf_record/GT",
+      "notes": "Corroborating terminal endpoint only."
+    },
+    {
+      "metric_id": "RAW_B1_AMPLIFICATION",
+      "module": "B1",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "source_file": "experiments/B1_graph_amplification/results_log.txt",
+      "raw_value": "464.4000",
+      "raw_unit": "fold",
+      "extraction_status": "C2_LOCKED_VALUE_PRIMARY_SOURCE_VERIFIED",
+      "source_locator": "B1_E02 numeric_value + primary source literal",
+      "notes": "Calibrated B1 result."
+    },
+    {
+      "metric_id": "RAW_B1_REFERENCE_ANCHOR",
+      "module": "B1",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "source_file": "experiments/B1_graph_amplification/results_log.txt",
+      "raw_value": "492.860000",
+      "raw_unit": "fold",
+      "extraction_status": "EXACT_COMMITTED_REFERENCE_LITERAL",
+      "source_locator": "literal 492.86 at line approximately 9",
+      "notes": "Reference anchor for log normalization."
+    },
+    {
+      "metric_id": "RAW_B1_CALIBRATION_ERROR",
+      "module": "B1",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/C2_cross_module_evidence_registry.tsv",
+      "raw_value": "5.8000",
+      "raw_unit": "percent",
+      "extraction_status": "C2_LOCKED_EVIDENCE_EXTRACTION",
+      "source_locator": "B1_E02 measured result",
+      "notes": "Calibration metadata, not severity."
+    },
+    {
+      "metric_id": "RAW_B2_PATHOGENIC_UNRECOVERABILITY",
+      "module": "B2",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv",
+      "raw_value": "0.2299",
+      "raw_unit": "proportion",
+      "extraction_status": "AUTHORITATIVE_LITERAL_VERIFIED",
+      "source_locator": "Pathogenic-only result",
+      "notes": "Context only."
+    },
+    {
+      "metric_id": "RAW_B2_ALL6_UNRECOVERABILITY",
+      "module": "B2",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv",
+      "raw_value": "0.0801",
+      "raw_unit": "proportion",
+      "extraction_status": "AUTHORITATIVE_LITERAL_VERIFIED",
+      "source_locator": "all-six result",
+      "notes": "Context only."
+    },
+    {
+      "metric_id": "RAW_B3_K5_REDUCTION",
+      "module": "B3",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv",
+      "raw_value": "28.8",
+      "raw_unit": "percent",
+      "extraction_status": "AUTHORITATIVE_LITERAL_VERIFIED",
+      "source_locator": "k=5 containment result",
+      "notes": "Mitigation only."
+    },
+    {
+      "metric_id": "RAW_B3_K10_REDUCTION",
+      "module": "B3",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv",
+      "raw_value": "99.2",
+      "raw_unit": "percent",
+      "extraction_status": "AUTHORITATIVE_LITERAL_VERIFIED",
+      "source_locator": "k=10 containment result",
+      "notes": "Mitigation only."
+    },
+    {
+      "metric_id": "RAW_B3_AUTH_F1",
+      "module": "B3",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "source_file": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv",
+      "raw_value": "0.9899",
+      "raw_unit": "proportion",
+      "extraction_status": "AUTHORITATIVE_LITERAL_VERIFIED",
+      "source_locator": "authentication F1 result",
+      "notes": "Mitigation only."
+    }
+  ],
+  "b2_lifetime_trajectories": [
+    {
+      "risk_type": "REID",
+      "year": "0",
+      "probability": "0.053054299301",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "0",
+      "probability": "0.112590346973",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "0",
+      "probability": "0.060000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "0",
+      "probability": "0.075214882092",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "1",
+      "probability": "0.065452318421",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "1",
+      "probability": "0.115316889655",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "1",
+      "probability": "0.073140819252",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "1",
+      "probability": "0.084636675776",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "2",
+      "probability": "0.080921188375",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "2",
+      "probability": "0.118617895504",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "2",
+      "probability": "0.089159657348",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "2",
+      "probability": "0.096232913742",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "3",
+      "probability": "0.100288939406",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "3",
+      "probability": "0.122606825289",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "3",
+      "probability": "0.108686839712",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "3",
+      "probability": "0.110527534802",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "4",
+      "probability": "0.124628187432",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "4",
+      "probability": "0.127416005958",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "4",
+      "probability": "0.132490741641",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "4",
+      "probability": "0.128178311677",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "5",
+      "probability": "0.155332341366",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "5",
+      "probability": "0.133198111224",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "5",
+      "probability": "0.161508023116",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "5",
+      "probability": "0.150012825235",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "6",
+      "probability": "0.194214753730",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "6",
+      "probability": "0.140126923129",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "6",
+      "probability": "0.196880485442",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "6",
+      "probability": "0.177074054100",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "7",
+      "probability": "0.243636527836",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "7",
+      "probability": "0.148396894240",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "7",
+      "probability": "0.240000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "7",
+      "probability": "0.210677807359",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "8",
+      "probability": "0.306669421570",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "8",
+      "probability": "0.158220887546",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "8",
+      "probability": "0.292563277009",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "8",
+      "probability": "0.252484528708",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "9",
+      "probability": "0.387300792338",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "9",
+      "probability": "0.169825342384",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "9",
+      "probability": "0.356638629393",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "9",
+      "probability": "0.304588254705",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "10",
+      "probability": "0.490687673589",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "10",
+      "probability": "0.183442045415",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "10",
+      "probability": "0.434747358847",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "10",
+      "probability": "0.369625692617",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "11",
+      "probability": "0.623466739969",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "11",
+      "probability": "0.199295745430",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "11",
+      "probability": "0.529962966563",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "11",
+      "probability": "0.450908483987",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "12",
+      "probability": "0.794126061626",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "12",
+      "probability": "0.217587130406",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "12",
+      "probability": "0.646032092464",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "12",
+      "probability": "0.552581761499",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "13",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "13",
+      "probability": "0.238471278009",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "13",
+      "probability": "0.787521941767",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "13",
+      "probability": "0.675331073259",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "14",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "14",
+      "probability": "0.262032651551",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "14",
+      "probability": "0.960000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "14",
+      "probability": "0.740677550517",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "15",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "15",
+      "probability": "0.288258994959",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "15",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "15",
+      "probability": "0.762752998320",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "16",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "16",
+      "probability": "0.317017863211",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "16",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "16",
+      "probability": "0.772339287737",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "17",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "17",
+      "probability": "0.348040585642",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "17",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "17",
+      "probability": "0.782680195214",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "18",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "18",
+      "probability": "0.380918637921",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "18",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "18",
+      "probability": "0.793639545974",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "19",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "19",
+      "probability": "0.415116201881",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "19",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "19",
+      "probability": "0.805038733960",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "20",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "20",
+      "probability": "0.450000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "20",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "20",
+      "probability": "0.816666666667",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "21",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "21",
+      "probability": "0.484883798119",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "21",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "21",
+      "probability": "0.828294599373",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "22",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "22",
+      "probability": "0.519081362079",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "22",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "22",
+      "probability": "0.839693787360",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "23",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "23",
+      "probability": "0.551959414358",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "23",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "23",
+      "probability": "0.850653138119",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "24",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "24",
+      "probability": "0.582982136789",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "24",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "24",
+      "probability": "0.860994045596",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "25",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "25",
+      "probability": "0.611741005041",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "25",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "25",
+      "probability": "0.870580335014",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "26",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "26",
+      "probability": "0.637967348449",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "26",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "26",
+      "probability": "0.879322449483",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "27",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "27",
+      "probability": "0.661528721991",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "27",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "27",
+      "probability": "0.887176240664",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "28",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "28",
+      "probability": "0.682412869594",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "28",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "28",
+      "probability": "0.894137623198",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "29",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "29",
+      "probability": "0.700704254570",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "29",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "29",
+      "probability": "0.900234751523",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "30",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "30",
+      "probability": "0.716557954585",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "30",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "30",
+      "probability": "0.905519318195",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "31",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "31",
+      "probability": "0.730174657616",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "31",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "31",
+      "probability": "0.910058219205",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "32",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "32",
+      "probability": "0.741779112454",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "32",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "32",
+      "probability": "0.913926370818",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "33",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "33",
+      "probability": "0.751603105760",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "33",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "33",
+      "probability": "0.917201035253",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "34",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "34",
+      "probability": "0.759873076871",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "34",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "34",
+      "probability": "0.919957692290",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "35",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "35",
+      "probability": "0.766801888776",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "35",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "35",
+      "probability": "0.922267296259",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "36",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "36",
+      "probability": "0.772583994042",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "36",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "36",
+      "probability": "0.924194664681",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "37",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "37",
+      "probability": "0.777393174711",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "37",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "37",
+      "probability": "0.925797724904",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "38",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "38",
+      "probability": "0.781382104496",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "38",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "38",
+      "probability": "0.927127368165",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "39",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "39",
+      "probability": "0.784683110345",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "39",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "39",
+      "probability": "0.928227703448",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "40",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "40",
+      "probability": "0.787409653027",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "40",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "40",
+      "probability": "0.929136551009",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "41",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "41",
+      "probability": "0.789658177815",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "41",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "41",
+      "probability": "0.929886059272",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "42",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "42",
+      "probability": "0.791510095511",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "42",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "42",
+      "probability": "0.930503365170",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "43",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "43",
+      "probability": "0.793033738693",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "43",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "43",
+      "probability": "0.931011246231",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "44",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "44",
+      "probability": "0.794286200193",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "44",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "44",
+      "probability": "0.931428733398",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "45",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "45",
+      "probability": "0.795315004353",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "45",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "45",
+      "probability": "0.931771668118",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "46",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "46",
+      "probability": "0.796159590770",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "46",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "46",
+      "probability": "0.932053196923",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "47",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "47",
+      "probability": "0.796852608787",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "47",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "47",
+      "probability": "0.932284202929",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "48",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "48",
+      "probability": "0.797421032070",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "48",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "48",
+      "probability": "0.932473677357",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "49",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "49",
+      "probability": "0.797887108573",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "49",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "49",
+      "probability": "0.932629036191",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "50",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "50",
+      "probability": "0.798269163790",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "50",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "50",
+      "probability": "0.932756387930",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "51",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "51",
+      "probability": "0.798582275728",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "51",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "51",
+      "probability": "0.932860758576",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "52",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "52",
+      "probability": "0.798838839244",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "52",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "52",
+      "probability": "0.932946279748",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "53",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "53",
+      "probability": "0.799049036035",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "53",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "53",
+      "probability": "0.933016345345",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "54",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "54",
+      "probability": "0.799221224777",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "54",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "54",
+      "probability": "0.933073741592",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "55",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "55",
+      "probability": "0.799362264164",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "55",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "55",
+      "probability": "0.933120754721",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "56",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "56",
+      "probability": "0.799477779816",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "56",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "56",
+      "probability": "0.933159259939",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "57",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "57",
+      "probability": "0.799572384448",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "57",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "57",
+      "probability": "0.933190794816",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "58",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "58",
+      "probability": "0.799649859225",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "58",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "58",
+      "probability": "0.933216619742",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "59",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "59",
+      "probability": "0.799713302985",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "59",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "59",
+      "probability": "0.933237767662",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "60",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "60",
+      "probability": "0.799765254909",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "60",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "60",
+      "probability": "0.933255084970",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "61",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "61",
+      "probability": "0.799807795291",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "61",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "61",
+      "probability": "0.933269265097",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "62",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "62",
+      "probability": "0.799842628261",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "62",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "62",
+      "probability": "0.933280876087",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "63",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "63",
+      "probability": "0.799871149667",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "63",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "63",
+      "probability": "0.933290383222",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "64",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "64",
+      "probability": "0.799894502749",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "64",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "64",
+      "probability": "0.933298167583",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "65",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "65",
+      "probability": "0.799913623797",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "65",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "65",
+      "probability": "0.933304541266",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "66",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "66",
+      "probability": "0.799929279564",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "66",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "66",
+      "probability": "0.933309759855",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "67",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "67",
+      "probability": "0.799942097944",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "67",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "67",
+      "probability": "0.933314032648",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "68",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "68",
+      "probability": "0.799952593095",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "68",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "68",
+      "probability": "0.933317531032",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "69",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "69",
+      "probability": "0.799961186033",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "69",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "69",
+      "probability": "0.933320395344",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "70",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "70",
+      "probability": "0.799968221492",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "70",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "70",
+      "probability": "0.933322740497",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "71",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "71",
+      "probability": "0.799973981744",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "71",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "71",
+      "probability": "0.933324660581",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "72",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "72",
+      "probability": "0.799978697910",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "72",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "72",
+      "probability": "0.933326232637",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "73",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "73",
+      "probability": "0.799982559228",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "73",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "73",
+      "probability": "0.933327519743",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "74",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "74",
+      "probability": "0.799985720639",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "74",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "74",
+      "probability": "0.933328573546",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "75",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "75",
+      "probability": "0.799988309005",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "75",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "75",
+      "probability": "0.933329436335",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "76",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "76",
+      "probability": "0.799990428194",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "76",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "76",
+      "probability": "0.933330142731",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "77",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "77",
+      "probability": "0.799992163248",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "77",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "77",
+      "probability": "0.933330721083",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "78",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "78",
+      "probability": "0.799993583797",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "78",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "78",
+      "probability": "0.933331194599",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "79",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "79",
+      "probability": "0.799994746849",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "79",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "79",
+      "probability": "0.933331582283",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "REID",
+      "year": "80",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "DISEASE",
+      "year": "80",
+      "probability": "0.799995699078",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "year": "80",
+      "probability": "1.000000000000",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "year": "80",
+      "probability": "0.933331899693",
+      "source_file": "experiments/B2_vault_design/lifetime_risk.py",
+      "source_function": "compute_lifetime_risk",
+      "reproduction_status": "REPRODUCED_FROM_COMMITTED_MODEL"
+    }
+  ],
+  "b2_threshold_reproduction": [
+    {
+      "dimension": "reid",
+      "threshold": "0.25",
+      "authoritative_first_year": "8",
+      "reproduced_first_year": "8",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "0.50",
+      "authoritative_first_year": "11",
+      "reproduced_first_year": "11",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "0.75",
+      "authoritative_first_year": "12",
+      "reproduced_first_year": "12",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "0.80",
+      "authoritative_first_year": "13",
+      "reproduced_first_year": "13",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "0.90",
+      "authoritative_first_year": "13",
+      "reproduced_first_year": "13",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "0.99",
+      "authoritative_first_year": "13",
+      "reproduced_first_year": "13",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "reid",
+      "threshold": "1.00",
+      "authoritative_first_year": "13",
+      "reproduced_first_year": "13",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.25",
+      "authoritative_first_year": "14",
+      "reproduced_first_year": "14",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.50",
+      "authoritative_first_year": "22",
+      "reproduced_first_year": "22",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.75",
+      "authoritative_first_year": "33",
+      "reproduced_first_year": "33",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.80",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.90",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "0.99",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "disease",
+      "threshold": "1.00",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.25",
+      "authoritative_first_year": "8",
+      "reproduced_first_year": "8",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.50",
+      "authoritative_first_year": "11",
+      "reproduced_first_year": "11",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.75",
+      "authoritative_first_year": "13",
+      "reproduced_first_year": "13",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.80",
+      "authoritative_first_year": "14",
+      "reproduced_first_year": "14",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.90",
+      "authoritative_first_year": "14",
+      "reproduced_first_year": "14",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "0.99",
+      "authoritative_first_year": "15",
+      "reproduced_first_year": "15",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "familial",
+      "threshold": "1.00",
+      "authoritative_first_year": "15",
+      "reproduced_first_year": "15",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.25",
+      "authoritative_first_year": "8",
+      "reproduced_first_year": "8",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.50",
+      "authoritative_first_year": "12",
+      "reproduced_first_year": "12",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.75",
+      "authoritative_first_year": "15",
+      "reproduced_first_year": "15",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.80",
+      "authoritative_first_year": "19",
+      "reproduced_first_year": "19",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.90",
+      "authoritative_first_year": "29",
+      "reproduced_first_year": "29",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "0.99",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    },
+    {
+      "dimension": "composite",
+      "threshold": "1.00",
+      "authoritative_first_year": "",
+      "reproduced_first_year": "",
+      "match": "YES",
+      "authoritative_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "model_source": "experiments/B2_vault_design/lifetime_risk.py"
+    }
+  ],
+  "temporal_scalarization_candidates": [
+    {
+      "risk_type": "REID",
+      "first_year": "0",
+      "last_year": "80",
+      "n_timepoints": "81",
+      "terminal_probability": "1.0000000000",
+      "maximum_probability": "1.0000000000",
+      "mean_probability": "0.8841948055",
+      "normalized_trapezoid_auc": "0.8886656512",
+      "first_year_ge_0_25": "8",
+      "first_year_ge_0_5": "11",
+      "first_year_ge_0_75": "12",
+      "first_year_ge_0_8": "13",
+      "first_year_ge_0_9": "13",
+      "first_year_ge_0_99": "13",
+      "first_year_ge_1_0": "13",
+      "selection_status": "CANDIDATES_ONLY_NOT_SELECTED",
+      "d5_role": "PRIMARY_MODEL_TRAJECTORY"
+    },
+    {
+      "risk_type": "DISEASE",
+      "first_year": "0",
+      "last_year": "80",
+      "n_timepoints": "81",
+      "terminal_probability": "0.7999956991",
+      "maximum_probability": "0.7999956991",
+      "mean_probability": "0.6221306655",
+      "normalized_trapezoid_auc": "0.6242036361",
+      "first_year_ge_0_25": "14",
+      "first_year_ge_0_5": "22",
+      "first_year_ge_0_75": "33",
+      "first_year_ge_0_8": "",
+      "first_year_ge_0_9": "",
+      "first_year_ge_0_99": "",
+      "first_year_ge_1_0": "",
+      "selection_status": "CANDIDATES_ONLY_NOT_SELECTED",
+      "d5_role": "PRIMARY_MODEL_TRAJECTORY"
+    },
+    {
+      "risk_type": "FAMILIAL",
+      "first_year": "0",
+      "last_year": "80",
+      "n_timepoints": "81",
+      "terminal_probability": "1.0000000000",
+      "maximum_probability": "1.0000000000",
+      "mean_probability": "0.8773991708",
+      "normalized_trapezoid_auc": "0.8817416604",
+      "first_year_ge_0_25": "8",
+      "first_year_ge_0_5": "11",
+      "first_year_ge_0_75": "13",
+      "first_year_ge_0_8": "14",
+      "first_year_ge_0_9": "14",
+      "first_year_ge_0_99": "15",
+      "first_year_ge_1_0": "15",
+      "selection_status": "CANDIDATES_ONLY_NOT_SELECTED",
+      "d5_role": "PRIMARY_MODEL_TRAJECTORY"
+    },
+    {
+      "risk_type": "COMPOSITE",
+      "first_year": "0",
+      "last_year": "80",
+      "n_timepoints": "81",
+      "terminal_probability": "0.9333318997",
+      "maximum_probability": "0.9333318997",
+      "mean_probability": "0.7945748806",
+      "normalized_trapezoid_auc": "0.7982036492",
+      "first_year_ge_0_25": "8",
+      "first_year_ge_0_5": "12",
+      "first_year_ge_0_75": "15",
+      "first_year_ge_0_8": "19",
+      "first_year_ge_0_9": "29",
+      "first_year_ge_0_99": "",
+      "first_year_ge_1_0": "",
+      "selection_status": "CANDIDATES_ONLY_NOT_SELECTED",
+      "d5_role": "MODEL_NATIVE_COMPOSITE_CONTEXT_ONLY"
+    }
+  ],
+  "normalized_anchor_inputs": [
+    {
+      "normalization_id": "NORM_F11_D2_ALT_LOSS",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "raw_value": "clean=14;PM2=0",
+      "normalized_value": "1.0000000000",
+      "status": "NORMALIZED_PRIMARY_SEVERITY",
+      "source_metric_ids": "RAW_F11_CLEAN_ALT|RAW_F11_PM2_ALT",
+      "notes": "Primary severity metric."
+    },
+    {
+      "normalization_id": "NORM_F11_D2_CALL_LOSS",
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "raw_value": "clean=0/1;PM2=NO_CALL;sham=0/1",
+      "normalized_value": "1.0000000000",
+      "status": "CORROBORATING_ONLY_NOT_INDEPENDENT",
+      "source_metric_ids": "RAW_F11_CALL_LOSS",
+      "notes": "Not independently aggregated."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D6_AMPLIFICATION",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "raw_value": "x=464.4000;R=492.860000",
+      "normalized_value": "0.9904301172",
+      "status": "NORMALIZED_PRIMARY_SEVERITY",
+      "source_metric_ids": "RAW_B1_AMPLIFICATION|RAW_B1_REFERENCE_ANCHOR",
+      "notes": "C4.2 log-reference normalization."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D1_REID",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D1",
+      "raw_value": "81-point REID trajectory",
+      "normalized_value": "",
+      "status": "TRAJECTORY_REPRODUCED_SCALAR_DEFERRED",
+      "source_metric_ids": "B2 compute_lifetime_risk",
+      "notes": "Temporal scalarization not selected."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D3_FAMILIAL",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D3",
+      "raw_value": "81-point FAMILIAL trajectory",
+      "normalized_value": "",
+      "status": "TRAJECTORY_REPRODUCED_SCALAR_DEFERRED",
+      "source_metric_ids": "B2 compute_lifetime_risk",
+      "notes": "Temporal scalarization not selected."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D5_PERSISTENCE",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D5",
+      "raw_value": "81-point model trajectories available",
+      "normalized_value": "",
+      "status": "TRAJECTORY_REPRODUCED_SCALAR_DEFERRED",
+      "source_metric_ids": "B2 compute_lifetime_risk",
+      "notes": "D5 scalar definition still deferred."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D4_PATHOGENIC_CONTEXT",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "raw_value": "0.2299",
+      "normalized_value": "0.7701000000",
+      "status": "CONTEXT_ONLY_NOT_SEVERITY",
+      "source_metric_ids": "RAW_B2_PATHOGENIC_UNRECOVERABILITY",
+      "notes": "Must not become D4 baseline severity."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D4_ALL6_CONTEXT",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "raw_value": "0.0801",
+      "normalized_value": "0.9199000000",
+      "status": "CONTEXT_ONLY_NOT_SEVERITY",
+      "source_metric_ids": "RAW_B2_ALL6_UNRECOVERABILITY",
+      "notes": "Must not become D4 baseline severity."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D4_K5_RESIDUAL",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "raw_value": "0.288000",
+      "normalized_value": "0.7120000000",
+      "status": "DIRECT_MITIGATION_ONLY",
+      "source_metric_ids": "RAW_B3_K5_REDUCTION",
+      "notes": "Residual modeled exposure."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D4_K10_RESIDUAL",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "raw_value": "0.992000",
+      "normalized_value": "0.0080000000",
+      "status": "DIRECT_MITIGATION_ONLY",
+      "source_metric_ids": "RAW_B3_K10_REDUCTION",
+      "notes": "Residual modeled exposure."
+    },
+    {
+      "normalization_id": "NORM_PRIV_D4_AUTH_RESIDUAL",
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D4",
+      "raw_value": "0.989900",
+      "normalized_value": "0.0101000000",
+      "status": "DIRECT_MITIGATION_ONLY",
+      "source_metric_ids": "RAW_B3_AUTH_F1",
+      "notes": "Performance complement, not compromise probability."
+    }
+  ],
+  "source_trace": [
+    {
+      "input_id": "F11_D2",
+      "primary_source": "experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv",
+      "supporting_source": "",
+      "trace_status": "EXACT_SCHEMA_VERIFIED",
+      "value_summary": "CLEAN ALT=14; PM2 ALT=0; SHAM ALT=14; PM2 GT=NO_CALL"
+    },
+    {
+      "input_id": "PRIV_D6",
+      "primary_source": "experiments/B1_graph_amplification/results_log.txt",
+      "supporting_source": "experiments/B1_graph_amplification/results_log.txt",
+      "trace_status": "SOURCE_VERIFIED",
+      "value_summary": "amplification=464.4000; reference=492.860000; error=5.8000%"
+    },
+    {
+      "input_id": "PRIV_D1_D3_D5",
+      "primary_source": "experiments/B2_vault_design/lifetime_risk.py",
+      "supporting_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv",
+      "trace_status": "MODEL_REPRODUCED_AND_THRESHOLD_VALIDATED",
+      "value_summary": "81 annual points per risk trajectory"
+    },
+    {
+      "input_id": "PRIV_D4_CONTEXT",
+      "primary_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv",
+      "supporting_source": "",
+      "trace_status": "AUTHORITATIVE_RESULT_VERIFIED",
+      "value_summary": "Pathogenic U=0.2299; all-six U=0.0801"
+    },
+    {
+      "input_id": "PRIV_D4_MITIGATION",
+      "primary_source": "experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv",
+      "supporting_source": "",
+      "trace_status": "AUTHORITATIVE_RESULT_VERIFIED",
+      "value_summary": "k5=28.8%; k10=99.2%; F1=0.9899"
+    }
+  ],
+  "temporal_scalarization_selected": false,
+  "d7_structural_transform_selected": false,
+  "dimension_weights_defined": false,
+  "evidence_weights_defined": false,
+  "gri_computed": false
+}

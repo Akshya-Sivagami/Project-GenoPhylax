@@ -1,0 +1,33 @@
+C4.3a.2 Authoritative Numerical Extraction Validation
+====================================================
+
+Raw metric rows: 12
+Trajectory rows: 324
+B2 threshold comparisons: 28
+Temporal candidate rows: 4
+Normalized-input rows: 11
+Source-trace rows: 5
+
+F11 CLEAN ALT = 14: YES
+F11 PM2 ALT = 0: YES
+F11 sham ALT = 14: YES
+F11 D2 normalized ALT loss = 1.0: YES
+
+B1 calibrated amplification = 464.4x: YES
+B1 D6 normalized value: 0.9904301172
+
+B2 REID annual points: 81
+B2 FAMILIAL annual points: 81
+B2 DISEASE annual points: 81
+B2 COMPOSITE annual points: 81
+
+B2 authoritative threshold reproduction: PASS
+
+Temporal scalarization selected: NO
+D7 transform selected: NO
+Dimension weights defined: NO
+Evidence weights defined: NO
+GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

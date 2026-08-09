@@ -1,0 +1,4 @@
+dimension_id	case_id	source_trajectory	selected_method	selected_value	selection_status	rationale
+D1	C3_PRIVACY	REID	HORIZON_NORMALIZED_TRAPEZOID_AUC	0.8886656512	SELECTED_BASELINE	Uses complete probability trajectory; captures both onset and sustained re-identification risk.
+D3	C3_PRIVACY	FAMILIAL	HORIZON_NORMALIZED_TRAPEZOID_AUC	0.8817416604	SELECTED_BASELINE	Uses complete familial-risk trajectory and preserves onset differences that terminal saturation would erase.
+D5	C3_PRIVACY	REID|FAMILIAL	EQUAL_MEAN_OF_PROVENANCE_ELIGIBLE_TEMPORAL_AUCS	0.8852036558	SELECTED_BASELINE	HPRIV_03 is locked to re-identification and familial evidence. Disease and model-native composite are excluded from baseline.

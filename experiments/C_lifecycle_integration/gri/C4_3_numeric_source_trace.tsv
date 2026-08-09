@@ -1,0 +1,6 @@
+input_id	primary_source	supporting_source	trace_status	value_summary
+F11_D2	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv		EXACT_SCHEMA_VERIFIED	CLEAN ALT=14; PM2 ALT=0; SHAM ALT=14; PM2 GT=NO_CALL
+PRIV_D6	experiments/B1_graph_amplification/results_log.txt	experiments/B1_graph_amplification/results_log.txt	SOURCE_VERIFIED	amplification=464.4000; reference=492.860000; error=5.8000%
+PRIV_D1_D3_D5	experiments/B2_vault_design/lifetime_risk.py	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_lifetime_results.tsv	MODEL_REPRODUCED_AND_THRESHOLD_VALIDATED	81 annual points per risk trajectory
+PRIV_D4_CONTEXT	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv		AUTHORITATIVE_RESULT_VERIFIED	Pathogenic U=0.2299; all-six U=0.0801
+PRIV_D4_MITIGATION	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv		AUTHORITATIVE_RESULT_VERIFIED	k5=28.8%; k10=99.2%; F1=0.9899
