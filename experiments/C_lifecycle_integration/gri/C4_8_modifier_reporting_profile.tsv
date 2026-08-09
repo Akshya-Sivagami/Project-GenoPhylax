@@ -1,0 +1,11 @@
+case_id	modifier_id	modifier_name	normalized_value	numeric_status	baseline_GRI_adjustment	reporting_role	correlation_note
+C3_F11	M1	Integrity Impact	1.0000000000	RESOLVED	NONE	QUALIFYING_MODIFIER	Shares source evidence with D2; cannot be treated as independent.
+C3_F11	M2	Clinical Severity		APPLICABLE_BUT_UNQUANTIFIED	NONE	QUALIFYING_MODIFIER	No patient-outcome severity measurement.
+C3_F11	M3	Detectability		UNMEASURED	NONE	QUALIFYING_MODIFIER	
+C3_F11	M4	Recoverability		UNMEASURED	NONE	QUALIFYING_MODIFIER	
+C3_F11	M5	Containment Difficulty		UNMEASURED	NONE	QUALIFYING_MODIFIER	
+C3_PRIVACY	M1	Integrity Impact		NOT_APPLICABLE	NONE	QUALIFYING_MODIFIER	
+C3_PRIVACY	M2	Clinical Severity		NOT_APPLICABLE	NONE	QUALIFYING_MODIFIER	
+C3_PRIVACY	M3	Detectability	0.0101000000	RESOLVED_MODEL_SUPPORTED	NONE	QUALIFYING_MODIFIER	Related to B3 D4 mitigation evidence.
+C3_PRIVACY	M4	Recoverability	0.9199000000	RESOLVED_MODEL_SUPPORTED	NONE	QUALIFYING_MODIFIER	Related conceptually to D5 persistence.
+C3_PRIVACY	M5	Containment Difficulty		SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR	NONE	SCENARIO_CONTEXT	Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent.

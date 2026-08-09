@@ -1,0 +1,234 @@
+{
+  "schema": "C4_8_baseline_GRI_v1",
+  "aggregation_policy": [
+    {
+      "policy_id": "BASELINE_EQUAL_APPLICABLE",
+      "aggregation_family": "ARITHMETIC_MEAN",
+      "eligible_dimension_rule": "profile_status=SCORED",
+      "weight_rule": "EQUAL_WITHIN_CASE_SCORED_SET",
+      "missing_as_zero": "NO",
+      "modifier_multiplication": "NO",
+      "evidence_discount": "NO",
+      "status": "PRIMARY_BASELINE"
+    }
+  ],
+  "baseline_weights": [
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D2",
+      "normalized_risk_value": "1.0000000000",
+      "baseline_weight": "0.5000000000",
+      "weighted_contribution": "0.5000000000",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E2"
+    },
+    {
+      "case_id": "C3_F11",
+      "dimension_id": "D7",
+      "normalized_risk_value": "1.0000000000",
+      "baseline_weight": "0.5000000000",
+      "weighted_contribution": "0.5000000000",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E2"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D1",
+      "normalized_risk_value": "0.8886656512",
+      "baseline_weight": "0.2500000000",
+      "weighted_contribution": "0.2221664128",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E4"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D3",
+      "normalized_risk_value": "0.8817416604",
+      "baseline_weight": "0.2500000000",
+      "weighted_contribution": "0.2204354151",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E4"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D5",
+      "normalized_risk_value": "0.8852036558",
+      "baseline_weight": "0.2500000000",
+      "weighted_contribution": "0.2213009140",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E4"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "dimension_id": "D6",
+      "normalized_risk_value": "0.9904301172",
+      "baseline_weight": "0.2500000000",
+      "weighted_contribution": "0.2476075293",
+      "weight_status": "EQUAL_BASELINE",
+      "evidence_tier": "E3"
+    }
+  ],
+  "baseline_GRI": [
+    {
+      "case_id": "C3_F11",
+      "aggregation_policy": "BASELINE_EQUAL_APPLICABLE",
+      "scored_dimension_count": "2",
+      "scored_dimensions": "D2|D7",
+      "baseline_GRI": "1.0000000000",
+      "scale": "0_TO_1",
+      "evidence_profile": "CONTROLLED_EMPIRICAL_CASE",
+      "evidence_tiers": "E2",
+      "numeric_evidence_discount": "NO",
+      "modifier_adjustment": "NO",
+      "missing_as_zero": "NO",
+      "status": "BASELINE_GRI_COMPUTED"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "aggregation_policy": "BASELINE_EQUAL_APPLICABLE",
+      "scored_dimension_count": "4",
+      "scored_dimensions": "D1|D3|D5|D6",
+      "baseline_GRI": "0.9115102712",
+      "scale": "0_TO_1",
+      "evidence_profile": "MODEL_DEPENDENT_MIXED_SUPPORT",
+      "evidence_tiers": "E3|E4",
+      "numeric_evidence_discount": "NO",
+      "modifier_adjustment": "NO",
+      "missing_as_zero": "NO",
+      "status": "BASELINE_GRI_COMPUTED"
+    }
+  ],
+  "modifier_reporting": [
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "1.0000000000",
+      "numeric_status": "RESOLVED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": "Shares source evidence with D2; cannot be treated as independent."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "APPLICABLE_BUT_UNQUANTIFIED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": "No patient-outcome severity measurement."
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_F11",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "UNMEASURED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M1",
+      "modifier_name": "Integrity Impact",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M2",
+      "modifier_name": "Clinical Severity",
+      "normalized_value": "",
+      "numeric_status": "NOT_APPLICABLE",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": ""
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M3",
+      "modifier_name": "Detectability",
+      "normalized_value": "0.0101000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": "Related to B3 D4 mitigation evidence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M4",
+      "modifier_name": "Recoverability",
+      "normalized_value": "0.9199000000",
+      "numeric_status": "RESOLVED_MODEL_SUPPORTED",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "QUALIFYING_MODIFIER",
+      "correlation_note": "Related conceptually to D5 persistence."
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "modifier_id": "M5",
+      "modifier_name": "Containment Difficulty",
+      "normalized_value": "",
+      "numeric_status": "SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR",
+      "baseline_GRI_adjustment": "NONE",
+      "reporting_role": "SCENARIO_CONTEXT",
+      "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+    }
+  ],
+  "case_output_profile": [
+    {
+      "case_id": "C3_F11",
+      "baseline_GRI": "1.0000000000",
+      "evidence_profile": "CONTROLLED_EMPIRICAL_CASE",
+      "modifier_summary": "M1=1.0 correlated with D2;M2=APPLICABLE_BUT_UNQUANTIFIED;M3-M5=UNMEASURED",
+      "scenario_range": "",
+      "primary_reporting_status": "BASELINE_PLUS_EVIDENCE_AND_MODIFIER_PROFILE"
+    },
+    {
+      "case_id": "C3_PRIVACY",
+      "baseline_GRI": "0.9115102712",
+      "evidence_profile": "MODEL_DEPENDENT_MIXED_SUPPORT",
+      "modifier_summary": "M1-M2=NOT_APPLICABLE;M3=0.0101;M4=0.9199;M5=SCENARIO_ENVELOPE",
+      "scenario_range": "M5=0.008..0.980",
+      "primary_reporting_status": "BASELINE_PLUS_EVIDENCE_AND_MODIFIER_PROFILE"
+    }
+  ],
+  "m5_scenario_envelope": {
+    "minimum": 0.008,
+    "maximum": 0.98
+  },
+  "missing_as_zero": false,
+  "numeric_evidence_discount": false,
+  "modifier_multiplication": false,
+  "publication_ready": false,
+  "pending_validation": [
+    "V6_ABLATION",
+    "V7_SENSITIVITY",
+    "V8_CLAIMS_AUDIT"
+  ]
+}

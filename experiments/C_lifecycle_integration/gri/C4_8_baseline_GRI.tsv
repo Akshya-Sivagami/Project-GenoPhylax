@@ -1,0 +1,3 @@
+case_id	aggregation_policy	scored_dimension_count	scored_dimensions	baseline_GRI	scale	evidence_profile	evidence_tiers	numeric_evidence_discount	modifier_adjustment	missing_as_zero	status
+C3_F11	BASELINE_EQUAL_APPLICABLE	2	D2|D7	1.0000000000	0_TO_1	CONTROLLED_EMPIRICAL_CASE	E2	NO	NO	NO	BASELINE_GRI_COMPUTED
+C3_PRIVACY	BASELINE_EQUAL_APPLICABLE	4	D1|D3|D5|D6	0.9115102712	0_TO_1	MODEL_DEPENDENT_MIXED_SUPPORT	E3|E4	NO	NO	NO	BASELINE_GRI_COMPUTED

@@ -1,0 +1,2 @@
+policy_id	aggregation_family	eligible_dimension_rule	weight_rule	missing_as_zero	modifier_multiplication	evidence_discount	status
+BASELINE_EQUAL_APPLICABLE	ARITHMETIC_MEAN	profile_status=SCORED	EQUAL_WITHIN_CASE_SCORED_SET	NO	NO	NO	PRIMARY_BASELINE
