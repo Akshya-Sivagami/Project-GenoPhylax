@@ -1,0 +1,6 @@
+stage_id	ordinal	semantic_role	normalized_terminal_reach
+S1	1	Raw Signal	0.0000000000
+S2	2	Basecalling / Reads	0.2500000000
+S3	3	Alignment / Evidence	0.5000000000
+S4	4	Variant Calling / Genotype Evidence	0.7500000000
+S5	5	Clinical Interpretation	1.0000000000

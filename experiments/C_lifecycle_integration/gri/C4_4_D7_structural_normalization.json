@@ -1,0 +1,52 @@
+{
+  "schema": "C4_4_D7_structural_normalization_v1",
+  "case_id": "C3_F11",
+  "dimension_id": "D7",
+  "semantic_path": [
+    {
+      "stage_id": "S1",
+      "ordinal": 1,
+      "semantic_role": "Raw Signal",
+      "normalized_terminal_reach": "0.0000000000"
+    },
+    {
+      "stage_id": "S2",
+      "ordinal": 2,
+      "semantic_role": "Basecalling / Reads",
+      "normalized_terminal_reach": "0.2500000000"
+    },
+    {
+      "stage_id": "S3",
+      "ordinal": 3,
+      "semantic_role": "Alignment / Evidence",
+      "normalized_terminal_reach": "0.5000000000"
+    },
+    {
+      "stage_id": "S4",
+      "ordinal": 4,
+      "semantic_role": "Variant Calling / Genotype Evidence",
+      "normalized_terminal_reach": "0.7500000000"
+    },
+    {
+      "stage_id": "S5",
+      "ordinal": 5,
+      "semantic_role": "Clinical Interpretation",
+      "normalized_terminal_reach": "1.0000000000"
+    }
+  ],
+  "primary_anchor": "HF11_04",
+  "furthest_directly_observed_stage": "S5",
+  "normalized_value": 1.0,
+  "observed_continuity_complete": true,
+  "modelled_extension": {
+    "handoff_id": "HF11_05",
+    "to_stage": "S6",
+    "observation_class": "MODELLED_PROPAGATION",
+    "numeric_credit": 0
+  },
+  "d2_multiplied_into_d7": false,
+  "dimension_weights_defined": false,
+  "modifier_values_defined": false,
+  "evidence_weights_defined": false,
+  "gri_computed": false
+}

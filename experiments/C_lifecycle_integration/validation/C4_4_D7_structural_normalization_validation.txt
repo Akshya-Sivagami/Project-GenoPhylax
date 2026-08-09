@@ -1,0 +1,41 @@
+C4.4 F11 D7 Structural Normalization Validation
+================================================
+
+Locked D7 integrity path:
+  S1 -> S2 -> S3 -> S4 -> S5
+
+Semantic terminal values:
+  S1 = 0.00
+  S2 = 0.25
+  S3 = 0.50
+  S4 = 0.75
+  S5 = 1.00
+
+F11 furthest directly observed stage: S5
+F11 observed path continuity: PASS
+F11 D7 structural severity: 1.0000000000
+
+HF11_05 S5->S6 class: MODELLED_PROPAGATION
+HF11_05 numeric D7 credit: 0
+
+Raw handoff summation used: NO
+D2 multiplied into D7: NO
+Storage propagation treated as observed: NO
+
+Resolved primary dimension inputs:
+  F11 D2: YES
+  F11 D7: YES
+  Privacy D1: YES
+  Privacy D3: YES
+  Privacy D5: YES
+  Privacy D6: YES
+
+Privacy D4 baseline severity: NOT DEFINED
+
+Dimension weights: NOT DEFINED
+Modifier values: NOT DEFINED
+Evidence weights: NOT DEFINED
+GRI computed: NO
+
+Validation errors: 0
+STATUS: PASS

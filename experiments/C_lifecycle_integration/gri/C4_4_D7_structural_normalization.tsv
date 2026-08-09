@@ -1,0 +1,2 @@
+case_id	dimension_id	dimension_name	primary_anchor	semantic_path	furthest_directly_observed_stage	furthest_stage_ordinal	path_min_ordinal	path_max_ordinal	normalization_formula	normalized_value	observed_direct_handoffs	observed_continuity_complete	modelled_extension	modelled_extension_numeric_credit	status
+C3_F11	D7	Pipeline Exposure Risk	HF11_04	S1>S2>S3>S4>S5	S5	5	1	5	(terminal_ordinal-1)/(5-1)	1.0000000000	HF11_01|HF11_02|HF11_03|HF11_04	YES	HF11_05	0	RESOLVED_STRUCTURAL_SEVERITY
