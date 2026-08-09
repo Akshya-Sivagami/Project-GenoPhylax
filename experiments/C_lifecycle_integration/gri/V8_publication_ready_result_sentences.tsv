@@ -1,0 +1,10 @@
+sentence_id	section	publication_ready_sentence
+R01	RESULTS_F11	Within the controlled F11 worked case, both scored GenoPhylax dimensions reached their upper normalized boundaries, yielding a Base GRI of 1.0000 under equal weighting.
+R02	RESULTS_F11	The F11 result carries E2 controlled direct empirical support within the tested locus, individual, dataset and basecalling configuration and should not be interpreted as a probability of clinical harm or as external clinical validation.
+R03	RESULTS_PRIVACY	Under equal weighting of the four scored Privacy dimensions, the model-derived GenoPhylax Base GRI was 0.9115.
+R04	RESULTS_PRIVACY	The Privacy evidence profile is model-dependent: D6 is supported by E3 calibrated-model evidence, whereas D1, D3 and D5 are supported by E4 project-internal model evidence.
+R05	SENSITIVITY	Across deterministic B2-versus-D6 family-weight stress tests, the Privacy GRI ranged from 0.8852 to 0.9904; a correlation-aware 50/50 family weighting produced a GRI of 0.9378.
+R06	SENSITIVITY	Replacing trapezoidal-AUC temporal scalarization with the annual sample mean shifted the Privacy GRI from 0.9115 to 0.9082, while perturbing the D6 reference anchor by plus or minus 20 percent produced values from 0.9045 to 0.9139.
+R07	CONTAINMENT	The internal containment model was strongly topology dependent: residual containment difficulty ranged from 0.008 for low-degree/peripheral-origin attacks to 0.980 for high-degree/hub-origin attacks.
+R08	INTERPRETATION	These GRI values are normalized framework indices rather than probabilities of compromise, privacy breach or patient harm.
+R09	INTERPRETATION	The deterministic sensitivity ranges characterize dependence on tested modeling and weighting choices and are not statistical confidence intervals.

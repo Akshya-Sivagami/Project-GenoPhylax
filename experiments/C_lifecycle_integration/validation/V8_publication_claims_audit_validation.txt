@@ -1,0 +1,38 @@
+V8 GenoPhylax Publication Claims Audit
+=======================================
+
+Primary result wording audited: YES
+
+F11:
+  Base GRI = 1.0000000000
+  evidence = E2 controlled empirical
+  100 percent risk interpretation permitted: NO
+  clinical validation claim permitted: NO
+  observed S5->S6 propagation claim permitted: NO
+
+Privacy:
+  Base GRI = 0.9115102712
+  evidence = E3/E4 model-dependent
+  probability-of-breach interpretation permitted: NO
+  population validation claim permitted: NO
+
+Privacy deterministic sensitivity:
+  family-weight range = 0.8852036558 .. 0.9904301172
+  confidence-interval interpretation permitted: NO
+
+M5:
+  residual scenario range = 0.008 .. 0.980
+  universal real-world probability interpretation permitted: NO
+
+Cross-case direct harm ranking from GRI alone: PROHIBITED
+D1/D3/D5 independent-confirmation language: PROHIBITED
+Evidence tiers converted to confidence probabilities: NO
+Modifier-adjusted primary GRI claim: NO
+
+Internal publication-readiness criteria met: YES
+
+External clinical validation established: NO
+External population validation established: NO
+
+Validation errors: 0
+STATUS: PASS

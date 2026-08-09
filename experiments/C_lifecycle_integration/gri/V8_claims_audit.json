@@ -1,0 +1,291 @@
+{
+  "schema": "V8_publication_claims_audit_v1",
+  "baseline": {
+    "F11": 1.0,
+    "PRIVACY": 0.9115102712
+  },
+  "privacy_deterministic_sensitivity": {
+    "minimum": 0.8852036558,
+    "maximum": 0.9904301172,
+    "family_balanced_50_50": 0.9378168865,
+    "annual_mean_temporal": 0.9082052704,
+    "D6_reference_min": 0.9044521653,
+    "D6_reference_max": 0.9139027419
+  },
+  "claim_registry": [
+    {
+      "claim_id": "V8_C01",
+      "topic": "F11_BASE_GRI",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "Within the controlled F11 worked case, the two scored GenoPhylax dimensions both reached their upper normalized boundaries, yielding a Base GRI of 1.0000.",
+      "evidence_scope": "E2_CONTROLLED_EMPIRICAL_CASE",
+      "required_qualifier": "Controlled worked case; normalized index, not probability."
+    },
+    {
+      "claim_id": "V8_C02",
+      "topic": "PRIVACY_BASE_GRI",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "Under equal weighting of the four scored Privacy dimensions, the model-derived Base GRI was 0.9115.",
+      "evidence_scope": "E3_E4_MODEL_DEPENDENT",
+      "required_qualifier": "Model-derived index; D6 calibrated, D1/D3/D5 internal model."
+    },
+    {
+      "claim_id": "V8_C03",
+      "topic": "PRIVACY_SENSITIVITY",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "Across the tested deterministic family-weight stress scenarios, the Privacy GRI ranged from approximately 0.8852 to 0.9904.",
+      "evidence_scope": "DETERMINISTIC_SENSITIVITY",
+      "required_qualifier": "Stress-test range, not statistical confidence interval."
+    },
+    {
+      "claim_id": "V8_C04",
+      "topic": "FAMILY_BALANCED_PRIVACY",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "A correlation-aware 50/50 weighting between the B2 lifetime family and D6 produced a Privacy GRI of 0.9378.",
+      "evidence_scope": "DETERMINISTIC_WEIGHT_SENSITIVITY",
+      "required_qualifier": "Alternative sensitivity configuration, not primary baseline."
+    },
+    {
+      "claim_id": "V8_C05",
+      "topic": "TEMPORAL_SENSITIVITY",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "Replacing trapezoidal-AUC temporal scalarization with the annual sample mean changed the Privacy GRI from 0.9115 to 0.9082.",
+      "evidence_scope": "DETERMINISTIC_NORMALIZATION_SENSITIVITY",
+      "required_qualifier": "Alternative deterministic scalarization."
+    },
+    {
+      "claim_id": "V8_C06",
+      "topic": "D6_REFERENCE_SENSITIVITY",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "Perturbing the D6 reference anchor by plus or minus 20 percent produced Privacy GRI values between approximately 0.9045 and 0.9139.",
+      "evidence_scope": "DETERMINISTIC_REFERENCE_SENSITIVITY",
+      "required_qualifier": "Reference-anchor stress test, not statistical uncertainty."
+    },
+    {
+      "claim_id": "V8_C07",
+      "topic": "M5_TOPOLOGY",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "The B3 containment model showed strong attack-origin dependence, with residual containment difficulty ranging from 0.008 for a low-degree/peripheral origin to 0.980 for a high-degree/hub origin.",
+      "evidence_scope": "E4_INTERNAL_MODEL",
+      "required_qualifier": "Project containment model; not universal real-world probability."
+    },
+    {
+      "claim_id": "V8_C08",
+      "topic": "PRIVACY_HIGH_ACROSS_TESTS",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "The Privacy index remained numerically high across the tested deterministic weighting and normalization configurations.",
+      "evidence_scope": "V6_V7_INTERNAL_VALIDATION",
+      "required_qualifier": "Internal deterministic robustness only; no external validation."
+    },
+    {
+      "claim_id": "V8_C09",
+      "topic": "F11_WEIGHT_INVARIANCE",
+      "claim_status": "PERMITTED_WITH_SCOPE",
+      "publication_claim": "The F11 Base GRI remained 1.0 across all tested convex D2/D7 weightings because both normalized dimensions equal 1.0.",
+      "evidence_scope": "V7_WEIGHT_SENSITIVITY",
+      "required_qualifier": "Numerical invariance does not imply independent replication."
+    }
+  ],
+  "wording_policy": [
+    {
+      "policy_id": "W01",
+      "category": "INDEX_INTERPRETATION",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "100% risk",
+      "replacement": "Base GRI of 1.0 on the normalized GenoPhylax index",
+      "reason": "GRI is not a probability."
+    },
+    {
+      "policy_id": "W02",
+      "category": "INDEX_INTERPRETATION",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "91.15% privacy risk",
+      "replacement": "Privacy Base GRI of 0.9115",
+      "reason": "Normalized index is not breach probability."
+    },
+    {
+      "policy_id": "W03",
+      "category": "CLINICAL",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "clinically validated",
+      "replacement": "controlled empirical worked case",
+      "reason": "No clinical validation study was performed."
+    },
+    {
+      "policy_id": "W04",
+      "category": "POPULATION",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "population validated",
+      "replacement": "model-derived population/privacy analysis",
+      "reason": "No external population validation was performed."
+    },
+    {
+      "policy_id": "W05",
+      "category": "SENSITIVITY",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "95% confidence interval",
+      "replacement": "deterministic sensitivity range",
+      "reason": "V7 is not statistical uncertainty estimation."
+    },
+    {
+      "policy_id": "W06",
+      "category": "EVIDENCE",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "E3 means 60% confidence",
+      "replacement": "E3 calibrated-model evidence",
+      "reason": "Evidence tiers are ordinal, not probabilistic."
+    },
+    {
+      "policy_id": "W07",
+      "category": "F11",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "universal F11 attack",
+      "replacement": "controlled F11 worked-case result",
+      "reason": "One locus/individual/basecaller setting."
+    },
+    {
+      "policy_id": "W08",
+      "category": "PROPAGATION",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "storage propagation was observed",
+      "replacement": "S5->S6 storage propagation was modelled",
+      "reason": "HF11_05 is E5 modelled propagation."
+    },
+    {
+      "policy_id": "W09",
+      "category": "CORRELATION",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "D1, D3 and D5 independently confirm",
+      "replacement": "D1, D3 and D5 are separate dimensions derived from a shared B2 evidence family",
+      "reason": "D5 is mathematically related to D1 and D3."
+    },
+    {
+      "policy_id": "W10",
+      "category": "COMPARISON",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "F11 is more dangerous than Privacy because 1.0 > 0.9115",
+      "replacement": "the two worked cases occupy different positions on the common normalized framework and have different evidence profiles",
+      "reason": "Cross-case score comparison is not direct empirical harm ranking."
+    },
+    {
+      "policy_id": "W11",
+      "category": "MODIFIERS",
+      "phrase_type": "PROHIBITED",
+      "phrase_or_pattern": "modifier-adjusted GRI",
+      "replacement": "Base GRI with separately reported modifier profile",
+      "reason": "M1-M5 were not mathematically applied to the primary index."
+    },
+    {
+      "policy_id": "W12",
+      "category": "ROBUSTNESS",
+      "phrase_type": "QUALIFIED_ALLOWED",
+      "phrase_or_pattern": "robust",
+      "replacement": "stable across the tested deterministic sensitivity configurations",
+      "reason": "Avoid implying external robustness."
+    }
+  ],
+  "publication_ready_sentences": [
+    {
+      "sentence_id": "R01",
+      "section": "RESULTS_F11",
+      "publication_ready_sentence": "Within the controlled F11 worked case, both scored GenoPhylax dimensions reached their upper normalized boundaries, yielding a Base GRI of 1.0000 under equal weighting."
+    },
+    {
+      "sentence_id": "R02",
+      "section": "RESULTS_F11",
+      "publication_ready_sentence": "The F11 result carries E2 controlled direct empirical support within the tested locus, individual, dataset and basecalling configuration and should not be interpreted as a probability of clinical harm or as external clinical validation."
+    },
+    {
+      "sentence_id": "R03",
+      "section": "RESULTS_PRIVACY",
+      "publication_ready_sentence": "Under equal weighting of the four scored Privacy dimensions, the model-derived GenoPhylax Base GRI was 0.9115."
+    },
+    {
+      "sentence_id": "R04",
+      "section": "RESULTS_PRIVACY",
+      "publication_ready_sentence": "The Privacy evidence profile is model-dependent: D6 is supported by E3 calibrated-model evidence, whereas D1, D3 and D5 are supported by E4 project-internal model evidence."
+    },
+    {
+      "sentence_id": "R05",
+      "section": "SENSITIVITY",
+      "publication_ready_sentence": "Across deterministic B2-versus-D6 family-weight stress tests, the Privacy GRI ranged from 0.8852 to 0.9904; a correlation-aware 50/50 family weighting produced a GRI of 0.9378."
+    },
+    {
+      "sentence_id": "R06",
+      "section": "SENSITIVITY",
+      "publication_ready_sentence": "Replacing trapezoidal-AUC temporal scalarization with the annual sample mean shifted the Privacy GRI from 0.9115 to 0.9082, while perturbing the D6 reference anchor by plus or minus 20 percent produced values from 0.9045 to 0.9139."
+    },
+    {
+      "sentence_id": "R07",
+      "section": "CONTAINMENT",
+      "publication_ready_sentence": "The internal containment model was strongly topology dependent: residual containment difficulty ranged from 0.008 for low-degree/peripheral-origin attacks to 0.980 for high-degree/hub-origin attacks."
+    },
+    {
+      "sentence_id": "R08",
+      "section": "INTERPRETATION",
+      "publication_ready_sentence": "These GRI values are normalized framework indices rather than probabilities of compromise, privacy breach or patient harm."
+    },
+    {
+      "sentence_id": "R09",
+      "section": "INTERPRETATION",
+      "publication_ready_sentence": "The deterministic sensitivity ranges characterize dependence on tested modeling and weighting choices and are not statistical confidence intervals."
+    }
+  ],
+  "required_limitations": [
+    {
+      "limitation_id": "L01",
+      "scope": "F11",
+      "required_limitation": "The F11 result is based on one HG002 individual, one pathogenic F11 locus, one Dorado/basecalling configuration and one controlled worked-case attack setting."
+    },
+    {
+      "limitation_id": "L02",
+      "scope": "F11",
+      "required_limitation": "No patient outcome, treatment decision, morbidity, mortality or real clinical ingestion was measured."
+    },
+    {
+      "limitation_id": "L03",
+      "scope": "F11",
+      "required_limitation": "The S5-to-S6 storage extension is modelled E5 propagation rather than directly observed lifecycle propagation."
+    },
+    {
+      "limitation_id": "L04",
+      "scope": "PRIVACY",
+      "required_limitation": "The Privacy GRI is predominantly model-derived and should not be interpreted as an observed population probability."
+    },
+    {
+      "limitation_id": "L05",
+      "scope": "PRIVACY",
+      "required_limitation": "D1, D3 and D5 share the B2 lifetime-model evidence family and are not independent empirical confirmations."
+    },
+    {
+      "limitation_id": "L06",
+      "scope": "PRIVACY",
+      "required_limitation": "Containment difficulty is strongly dependent on attack origin and network topology in the project model."
+    },
+    {
+      "limitation_id": "L07",
+      "scope": "GRI",
+      "required_limitation": "Equal weighting is a transparent baseline rather than an empirically validated optimal weighting scheme."
+    },
+    {
+      "limitation_id": "L08",
+      "scope": "GRI",
+      "required_limitation": "M1-M5 modifiers are reported separately and are not mathematically incorporated into the primary Base GRI."
+    },
+    {
+      "limitation_id": "L09",
+      "scope": "GRI",
+      "required_limitation": "Evidence tiers are categorical ordinal support classes and are not calibrated confidence probabilities."
+    },
+    {
+      "limitation_id": "L10",
+      "scope": "VALIDATION",
+      "required_limitation": "V6/V7 establish internal structural and deterministic sensitivity properties, not external validation across populations, tools or clinical environments."
+    }
+  ],
+  "index_is_probability": false,
+  "sensitivity_is_confidence_interval": false,
+  "external_validation_claim_permitted": false,
+  "modifier_adjusted_primary_gri": false,
+  "internal_publication_readiness": true
+}

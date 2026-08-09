@@ -1,0 +1,11 @@
+limitation_id	scope	required_limitation
+L01	F11	The F11 result is based on one HG002 individual, one pathogenic F11 locus, one Dorado/basecalling configuration and one controlled worked-case attack setting.
+L02	F11	No patient outcome, treatment decision, morbidity, mortality or real clinical ingestion was measured.
+L03	F11	The S5-to-S6 storage extension is modelled E5 propagation rather than directly observed lifecycle propagation.
+L04	PRIVACY	The Privacy GRI is predominantly model-derived and should not be interpreted as an observed population probability.
+L05	PRIVACY	D1, D3 and D5 share the B2 lifetime-model evidence family and are not independent empirical confirmations.
+L06	PRIVACY	Containment difficulty is strongly dependent on attack origin and network topology in the project model.
+L07	GRI	Equal weighting is a transparent baseline rather than an empirically validated optimal weighting scheme.
+L08	GRI	M1-M5 modifiers are reported separately and are not mathematically incorporated into the primary Base GRI.
+L09	GRI	Evidence tiers are categorical ordinal support classes and are not calibrated confidence probabilities.
+L10	VALIDATION	V6/V7 establish internal structural and deterministic sensitivity properties, not external validation across populations, tools or clinical environments.

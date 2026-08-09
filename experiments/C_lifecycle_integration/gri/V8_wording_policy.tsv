@@ -1,0 +1,13 @@
+policy_id	category	phrase_type	phrase_or_pattern	replacement	reason
+W01	INDEX_INTERPRETATION	PROHIBITED	100% risk	Base GRI of 1.0 on the normalized GenoPhylax index	GRI is not a probability.
+W02	INDEX_INTERPRETATION	PROHIBITED	91.15% privacy risk	Privacy Base GRI of 0.9115	Normalized index is not breach probability.
+W03	CLINICAL	PROHIBITED	clinically validated	controlled empirical worked case	No clinical validation study was performed.
+W04	POPULATION	PROHIBITED	population validated	model-derived population/privacy analysis	No external population validation was performed.
+W05	SENSITIVITY	PROHIBITED	95% confidence interval	deterministic sensitivity range	V7 is not statistical uncertainty estimation.
+W06	EVIDENCE	PROHIBITED	E3 means 60% confidence	E3 calibrated-model evidence	Evidence tiers are ordinal, not probabilistic.
+W07	F11	PROHIBITED	universal F11 attack	controlled F11 worked-case result	One locus/individual/basecaller setting.
+W08	PROPAGATION	PROHIBITED	storage propagation was observed	S5->S6 storage propagation was modelled	HF11_05 is E5 modelled propagation.
+W09	CORRELATION	PROHIBITED	D1, D3 and D5 independently confirm	D1, D3 and D5 are separate dimensions derived from a shared B2 evidence family	D5 is mathematically related to D1 and D3.
+W10	COMPARISON	PROHIBITED	F11 is more dangerous than Privacy because 1.0 > 0.9115	the two worked cases occupy different positions on the common normalized framework and have different evidence profiles	Cross-case score comparison is not direct empirical harm ranking.
+W11	MODIFIERS	PROHIBITED	modifier-adjusted GRI	Base GRI with separately reported modifier profile	M1-M5 were not mathematically applied to the primary index.
+W12	ROBUSTNESS	QUALIFIED_ALLOWED	robust	stable across the tested deterministic sensitivity configurations	Avoid implying external robustness.
