@@ -1,0 +1,9 @@
+Dimension	Name	Status	Normalized severity	Evidence tier	Evidence class
+D1	Identity Risk	SCORED	0.8886656512	E4	INTERNAL_MODEL
+D2	Disease Inference / Clinical Interpretation Risk	CONTEXT_ONLY			
+D3	Familial Cascade Risk	SCORED	0.8817416604	E4	INTERNAL_MODEL
+D4	Accessibility Risk	NO_BASELINE_SEVERITY			
+D5	Persistence Risk	SCORED	0.8852036558	E4	INTERNAL_MODEL
+D6	Amplification Risk	SCORED	0.9904301172	E3	CALIBRATED_MODEL
+D7	Pipeline Exposure Risk	NOT_APPLICABLE			
+Base GRI	Privacy worked-case composite	REPORTED	0.9115102712	Mixed	MODEL_DEPENDENT_MIXED_SUPPORT

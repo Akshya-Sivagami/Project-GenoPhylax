@@ -1,0 +1,7 @@
+table_id	role	source	status
+Table_01	MAIN	C1 lifecycle schema / locked stage mapping	CANONICAL
+Table_02	MAIN_OR_SUPPLEMENT	C2 evidence registry	CANONICAL
+Table_03	MAIN	A3 final F11 results	CANONICAL
+Table_04	MAIN	C4 GRI outputs	CANONICAL
+Table_05	MAIN_OR_SUPPLEMENT	Authoritative B1/B2/B3 reproduced outputs	CANONICAL
+Table_06	MAIN	Locked claims + evidence semantics	CANONICAL

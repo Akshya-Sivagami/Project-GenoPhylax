@@ -1,0 +1,25 @@
+C7 PUBLICATION TABLE VALIDATION
+===============================
+
+Canonical publication tables: 6
+
+Scientific values recomputed: NO
+Authoritative locked sources used: YES
+
+Required locks:
+- F11 Base GRI = 1.0000000000
+- Privacy Base GRI = 0.9115102712
+- Privacy D1 = 0.8886656512
+- Privacy D3 = 0.8817416604
+- Privacy D5 = 0.8852036558
+- Privacy D6 = 0.9904301172
+- Privacy M3 = UNMEASURED
+- B1 calibrated amplification = 464.4x
+- B2 pathogenic unrecoverability = 0.2299
+- B2 all-tier unrecoverability = 0.0801
+- B2 re-identification saturation = year 13
+- B3 k=10 reduction = 99.2%
+- B3 authentication F1 = 0.9899
+
+Validation errors: 0
+STATUS: PASS

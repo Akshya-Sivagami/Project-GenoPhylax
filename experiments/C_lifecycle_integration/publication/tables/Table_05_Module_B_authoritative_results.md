@@ -1,0 +1,13 @@
+# Table 5 — Authoritative Module B results
+
+| Module | Metric | Authoritative result | Evidence interpretation |
+| --- | --- | --- | --- |
+| B1 | Synthetic kinship graph | 4,144 nodes; 1,657 registered | Internal synthetic model |
+| B1 | Calibrated amplification | 464.4× | Calibrated model; ~5.8% error vs ~492.86× reference target |
+| B2 | Pathogenic Variants unrecoverability | 0.2299 | Internal vault model |
+| B2 | All-tier unrecoverability | 0.0801 | Internal vault model |
+| B2 | Re-identification saturation | 100% at year 13 | Configured lifetime-risk simulation |
+| B2 | Familial-risk saturation | 100% at year 15 | Configured lifetime-risk simulation |
+| B3 | Containment | 786 baseline → 560 at k=5 → 6 at k=10 | Internal graph-containment simulation |
+| B3 | k=10 exposure reduction | 99.2% | Internal graph-containment simulation |
+| B3 | Authentication benchmark | threshold 4.5; precision 1.0000; recall 0.9800; F1 0.9899; accuracy 0.9960 | Internally generated benchmark; not external validation |

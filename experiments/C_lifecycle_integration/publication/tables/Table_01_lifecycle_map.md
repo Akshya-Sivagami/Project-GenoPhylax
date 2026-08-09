@@ -1,0 +1,14 @@
+# Table 1 — GenoPhylax lifecycle stage and module map
+
+| Stage | Lifecycle phase | Primary modules | Security focus |
+| --- | --- | --- | --- |
+| S1 | Generation | A1 | Software/input integrity |
+| S2 | Basecalling | A2 | Raw-signal perturbation and basecalling robustness |
+| S3 | Alignment | A2 | Propagation into mapped sequence evidence |
+| S4 | Variant Calling / Genotype Evidence | A2, A3 | Variant-state and genotype evidence integrity |
+| S5 | Clinical Interpretation | A3 | Clinical consequence of altered variant evidence |
+| S6 | Storage | B2 | Semantic-layer disclosure and persistence |
+| S7 | Sharing / Release | B1, B2 | Exposure and disclosure amplification |
+| S8 | Reuse / Downstream | B1, B2 | Kinship and downstream inference |
+| S9 | Incident / Forensic | B2, B3 | Persistent exposure and incident response |
+| S10 | Containment / Revocation | B3 | Containment and authentication |
