@@ -152,7 +152,9 @@ F1 = 0.9899
 
 A performance-complement descriptor may therefore be represented as:
 
-M3_privacy = 1 - F1
+M3_privacy = UNMEASURED
+
+The B3 authentication complement `1 - F1 = 0.0101` is retained only as a contextual mitigation-performance descriptor. It does not measure privacy-event detectability and is not assigned to Privacy M3.
 
               = 0.0101
 
@@ -313,7 +315,7 @@ M1 Privacy: not applicable.
 
 M2 Privacy: not applicable.
 
-M3 Privacy: model-supported numerical descriptor.
+M3 Privacy: UNMEASURED. No direct empirical or calibrated privacy-event detectability measurement is available. Authentication F1 and 1-F1 are CONTEXT_ONLY mitigation performance descriptors.
 
 M4 Privacy: model-supported numerical descriptor.
 

@@ -229,7 +229,7 @@ Examples:
 
 F11 M1 shares direct controlled evidence with D2.
 
-Privacy M3 is based on an internally generated B3 benchmark.
+Privacy M3 is UNMEASURED. The internally generated B3 authentication benchmark is retained as contextual mitigation performance evidence only and does not constitute a measurement of privacy-event detectability.
 
 Privacy M4 is based on the B2 internal vault model.
 

@@ -1,0 +1,12 @@
+C4.9 PRIVACY M3 SEMANTIC CORRECTION VALIDATION
+===============================================
+
+Generated UTC: 2026-08-09T12:30:13.032183+00:00
+Validation errors: 0
+Privacy M3: UNMEASURED
+Authentication F1: 0.9899 RETAINED
+Authentication residual 1-F1: 0.0101 RETAINED_CONTEXT_ONLY
+Privacy Base GRI: 0.9115102712
+Base GRI changed: NO
+
+STATUS: PASS

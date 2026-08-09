@@ -6,6 +6,6 @@ C3_F11	M4	Recoverability		UNMEASURED		NO_RECOVERY_EXPERIMENT
 C3_F11	M5	Containment Difficulty		UNMEASURED		NO_F11_CONTAINMENT_EXPERIMENT	
 C3_PRIVACY	M1	Integrity Impact		NOT_APPLICABLE		PRIVACY_MECHANISM	
 C3_PRIVACY	M2	Clinical Severity		NOT_APPLICABLE		NO_DIRECT_CLINICAL_SEVERITY_MEASUREMENT	
-C3_PRIVACY	M3	Detectability	0.0101000000	RESOLVED_MODEL_SUPPORTED	B3 authentication F1=0.9899	GENERATED_AUTHENTICATION_TEST_DISTRIBUTION	Related to B3 D4 mitigation evidence.
+C3_PRIVACY	M3	Detectability	UNMEASURED	UNMEASURED	NO_DIRECT_PRIVACY_DETECTION_MEASUREMENT	NO_DIRECT_PRIVACY_DETECTION_MEASUREMENT	B3 authentication performance is retained as CONTEXT_ONLY mitigation evidence; it does not measure Privacy M3 detectability.
 C3_PRIVACY	M4	Recoverability	0.9199000000	RESOLVED_MODEL_SUPPORTED	B2 all-six unrecoverability=0.0801	PROJECT_VAULT_MODEL	Related conceptually to D5 persistence.
 C3_PRIVACY	M5	Containment Difficulty		SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR	B3 attack-origin containment scenarios	PROJECT_CONTAINMENT_MODEL_ORIGIN_SENSITIVITY	Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent.

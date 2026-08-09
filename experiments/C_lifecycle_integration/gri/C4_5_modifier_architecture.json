@@ -85,7 +85,7 @@
       "case_id": "C3_PRIVACY",
       "modifier_id": "M3",
       "applicability_status": "NUMERICALLY_RESOLVED",
-      "rationale": "B3 authentication F1 supports a model-bounded residual detectability descriptor."
+      "rationale": "No direct privacy-event detectability measurement was produced. Authentication F1=0.9899 and 1-F1=0.0101 remain contextual mitigation-performance descriptors only."
     },
     {
       "case_id": "C3_PRIVACY",
@@ -175,9 +175,9 @@
       "case_id": "C3_PRIVACY",
       "modifier_id": "M3",
       "modifier_name": "Detectability",
-      "normalized_value": "0.0101000000",
+      "normalized_value": "UNMEASURED",
       "numeric_status": "RESOLVED_MODEL_SUPPORTED",
-      "source": "B3 authentication F1=0.9899",
+      "source": "NO_DIRECT_PRIVACY_DETECTION_MEASUREMENT",
       "evidence_scope": "GENERATED_AUTHENTICATION_TEST_DISTRIBUTION",
       "correlation_note": "Related to B3 D4 mitigation evidence."
     },

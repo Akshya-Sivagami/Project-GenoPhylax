@@ -173,7 +173,7 @@
       "case_id": "C3_PRIVACY",
       "modifier_id": "M3",
       "modifier_name": "Detectability",
-      "normalized_value": "0.0101000000",
+      "normalized_value": "UNMEASURED",
       "numeric_status": "RESOLVED_MODEL_SUPPORTED",
       "baseline_GRI_adjustment": "NONE",
       "reporting_role": "QUALIFYING_MODIFIER",
@@ -213,7 +213,7 @@
       "case_id": "C3_PRIVACY",
       "baseline_GRI": "0.9115102712",
       "evidence_profile": "MODEL_DEPENDENT_MIXED_SUPPORT",
-      "modifier_summary": "M1-M2=NOT_APPLICABLE;M3=0.0101;M4=0.9199;M5=SCENARIO_ENVELOPE",
+      "modifier_summary": "M1-M2=NOT_APPLICABLE;M3=UNMEASURED;M4=0.9199;M5=SCENARIO_ENVELOPE",
       "scenario_range": "M5=0.008..0.980",
       "primary_reporting_status": "BASELINE_PLUS_EVIDENCE_AND_MODIFIER_PROFILE"
     }
