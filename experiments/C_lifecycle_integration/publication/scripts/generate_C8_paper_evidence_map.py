@@ -308,7 +308,11 @@ claims = [
             "windows eliminated ALT-supporting parent evidence and removed "
             "the pathogenic target VCF call, whereas an identically sized "
             "off-target PM2 sham retained 14/14 ALT-supporting parents, "
-            "the 0/1 genotype, and QUAL 222.202."
+            "the 0/1 genotype, and QUAL 222.202. The ceiling F11 Base GRI "
+            "arose because the attack produced complete ALT-support loss "
+            "under the continuous D2 loss-fraction metric and reached S5 "
+            "under the ordinal D7 terminal-reach metric; the score is not "
+            "the result of binary success/failure scoring."
         ),
         "must_not_claim": (
             "Do not interpret the result as a probability of patient harm. "
@@ -329,10 +333,12 @@ claims = [
         "evidence_ids": "B1_E01|B1_E02",
         "evidence_profile": "E3_CALIBRATED_PLUS_E4_INTERNAL_MODEL",
         "permitted_wording": (
-            "The configured synthetic kinship model contained 4,144 nodes "
-            "and 1,657 registered individuals, and calibration yielded "
-            "464.4-fold amplification relative to a 492.86-fold reference "
-            "target, corresponding to approximately 5.8 percent error."
+            "The primary B1 graph reproduction generated 4,144 nodes with "
+            "1,657 registered individuals. Separately, a five-run-per-"
+            "parameter calibration sweep over cousin-edge probability "
+            "selected cousin_prob=0.20, yielding mean amplification of "
+            "464.4-fold against the 492.86-fold reference target, "
+            "corresponding to approximately 5.8 percent deviation."
         ),
         "must_not_claim": (
             "Do not present 464.4-fold as an observed real-world breach "
@@ -341,7 +347,12 @@ claims = [
         "paper_figure": "Figure_06",
         "paper_table": "Table_05",
         "scope_limit": (
-            "Synthetic graph model with one calibrated amplification anchor."
+            "The 4,144-node/1,657-registered result describes the primary "
+            "B1 graph reproduction, whereas 464.4-fold is the mean result "
+            "of a separate stochastic calibration sweep. Node counts from "
+            "the individual calibration runs were not recorded in the "
+            "tuning output and must not be attributed to the primary "
+            "reproduction graph."
         ),
     },
     {
@@ -407,7 +418,14 @@ claims = [
             "1.0000000000 for the controlled F11 worked case and "
             "0.9115102712 for the model-dependent Privacy worked case. "
             "Privacy M3 remains UNMEASURED. Evidence tiers and contextual "
-            "modifiers remain separate from the Base GRI computation."
+            "modifiers remain separate from the Base GRI computation. "
+            "Because three of the four scored Privacy dimensions "
+            "(D1, D3, D5) share B2 provenance, equal per-dimension "
+            "weighting implicitly assigns 75 percent of the Base GRI "
+            "weight to that model family and 25 percent to B1-derived D6; "
+            "a correlation-aware 50/50 provenance-family sensitivity "
+            "was therefore also evaluated, yielding GRI=0.9378168865 "
+            "(approximately 0.9378)."
         ),
         "must_not_claim": (
             "Do not interpret GRI as probability of breach, probability of "
@@ -418,8 +436,11 @@ claims = [
         "paper_figure": "Figure_03|Figure_04|Figure_05",
         "paper_table": "Table_04",
         "scope_limit": (
-            "Two worked-case profiles with deterministic sensitivity "
-            "analysis; not externally calibrated."
+            "Two worked-case profiles with deterministic sensitivity analysis. "
+            "Equal per-dimension weighting is a transparent baseline, not "
+            "an empirically optimized weighting scheme; D1, D3 and D5 "
+            "share B2 model provenance and are not independent empirical "
+            "confirmations. The Privacy GRI is not externally calibrated."
         ),
     },
     {
@@ -739,6 +760,31 @@ limitations = [
             "disclosure decisions."
         ),
     },
+    {
+        "limitation_id": "L09",
+        "category": "GRI weighting",
+        "locked_limitation": (
+            "Privacy Base GRI uses equal per-dimension weighting. Because "
+            "D1, D3 and D5 share B2 provenance, this baseline implicitly "
+            "assigns 75 percent of the scored weight to the B2 model family "
+            "and 25 percent to B1-derived D6. This is a transparent baseline "
+            "rather than an empirically optimized weighting scheme. A "
+            "correlation-aware 50/50 provenance-family sensitivity yielded "
+            "GRI=0.9378168865."
+        ),
+    },
+    {
+        "limitation_id": "L10",
+        "category": "B1 calibration provenance",
+        "locked_limitation": (
+            "The 4,144-node and 1,657-registered values correspond to the "
+            "primary B1 graph reproduction. The 464.4-fold value is the mean "
+            "of a separate five-run-per-parameter calibration sweep at "
+            "cousin_prob=0.20. The tuning output did not record node counts "
+            "for each calibration run, so those population counts must not "
+            "be attributed to the 464.4-fold calibration mean."
+        ),
+    },
 ]
 
 limitation_fields = [
@@ -806,6 +852,13 @@ required_tokens = [
     "M3",
     "confidence intervals",
     "STANDALONE_NON_GRI",
+    "75 percent",
+    "25 percent",
+    "0.9378168865",
+    "continuous D2 loss-fraction",
+    "ordinal D7 terminal-reach",
+    "five-run-per-parameter calibration sweep",
+    "cousin_prob=0.20",
 ]
 
 for token in required_tokens:

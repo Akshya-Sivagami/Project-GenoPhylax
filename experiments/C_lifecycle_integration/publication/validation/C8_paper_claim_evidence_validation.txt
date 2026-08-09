@@ -3,7 +3,7 @@ C8 PAPER CLAIM / EVIDENCE VALIDATION
 
 C2 evidence rows checked: 20
 Primary publication claims: 8
-Paper limitations locked: 8
+Paper limitations locked: 10
 Manuscript section mappings: 10
 
 Evidence tier locks:
