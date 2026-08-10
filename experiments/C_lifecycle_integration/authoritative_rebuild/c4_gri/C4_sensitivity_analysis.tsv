@@ -1,0 +1,7 @@
+case	analysis	score	interpretation
+PRIVACY	equal_dimension_baseline	0.9373875000	Primary Base GRI; equal weight across D1,D3,D5,D6.
+PRIVACY	leave_one_out_D1	0.9165166667	Sensitivity only; D1 omitted.
+PRIVACY	leave_one_out_D3	0.9165166667	Sensitivity only; D3 omitted.
+PRIVACY	leave_one_out_D5	0.9660000000	Sensitivity only; D5 omitted.
+PRIVACY	leave_one_out_D6	0.9505166667	Sensitivity only; D6 omitted.
+PRIVACY	50_50_B2_B1_provenance_balance	0.9242583333	Sensitivity only: B2-derived dimensions combined into one composite and weighted 50/50 against B1 D6.

@@ -1,0 +1,31 @@
+MODULE C AUTHORITATIVE REBUILD — C4 VALIDATION
+================================================
+
+F11 Base GRI: 1.0000000000
+Privacy Base GRI: 0.9373875000
+Privacy 50/50 B2-B1 provenance sensitivity: 0.9242583333
+
+Privacy normalized dimensions:
+  D1: 1.0000000000
+  D3: 1.0000000000
+  D5: 0.8515500000
+  D6: 0.8980000000
+
+B3 mitigation context:
+  auth threshold: 3.6
+  auth F1: 0.8387
+  M5 peripheral: 0.008
+  M5 mid-degree: 0.795
+  M5 hub: 0.970
+
+Scientific safeguards:
+  Missing/N/A converted to zero: NO
+  Evidence tiers used as numeric weights: NO
+  B3 authentication used as M3 detectability: NO
+  M5 multiplied into Base GRI: NO
+  Sensitivity called confidence interval: NO
+  Old Module C numeric output consumed: NO
+
+Validation errors: 0
+
+STATUS: PASS

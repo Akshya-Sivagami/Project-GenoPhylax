@@ -1,0 +1,8 @@
+dimension	name	meaning	F11_applicability	PRIVACY_applicability	scoring_policy
+D1	Identity Risk	Risk that genomic disclosure enables persistent re-identification of the individual.	N/A	APPLICABLE	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D2	Disease Inference / Clinical Interpretation Risk	Risk that genomic manipulation or disclosure changes or reveals clinically relevant interpretation.	APPLICABLE	N/A	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D3	Familial Cascade Risk	Risk propagated from one genomic subject to biologically related individuals.	N/A	APPLICABLE	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D4	Accessibility Risk	Risk associated with unauthorized or inappropriate access to genomic information.	N/A	N/A	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D5	Persistence Risk	Risk that disclosure or exposure remains difficult to reverse across time.	N/A	APPLICABLE	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D6	Amplification Risk	Risk that an initial genomic disclosure expands through sharing, kinship or downstream reuse.	N/A	APPLICABLE	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.
+D7	Pipeline Exposure Risk	Risk that an upstream integrity failure propagates across multiple downstream genomic-processing stages.	APPLICABLE	N/A	Equal weighting across applicable dimensions only; N/A and UNMEASURED are never converted to zero.

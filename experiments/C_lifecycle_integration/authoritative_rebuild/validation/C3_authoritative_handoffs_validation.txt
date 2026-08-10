@@ -1,0 +1,20 @@
+MODULE C AUTHORITATIVE REBUILD — C3 VALIDATION
+================================================
+
+Handoff/control rows: 9
+Base-GRI-eligible handoffs: 5
+F11 Base-GRI handoffs: 2
+Privacy Base-GRI handoffs: 3
+Validation controls: 2
+Mitigation-context rows: 2
+
+Scientific safeguards:
+  A1 direct handoff contribution: NO
+  A2 direct handoff contribution: NO
+  Controls scored as risk: NO
+  B3 containment in Base GRI: NO
+  B3 authentication as detectability: NO
+  Unsupported F11 S5->S6 propagation invented: NO
+
+Validation errors: 0
+STATUS: PASS

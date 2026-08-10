@@ -1,0 +1,21 @@
+MODULE C AUTHORITATIVE REBUILD — C6/C7/C8 VALIDATION
+======================================================
+
+Figures generated: 4
+Tables generated: 4
+Claims mapped: 9
+
+F11 Base GRI: 1.0000000000
+Privacy Base GRI: 0.9373875000
+
+Publication safeguards:
+  Every C5 finding has claim-map entry: YES
+  B3 authentication treated as detectability: NO
+  M5 applied to Base GRI: NO
+  Sensitivity called confidence interval: NO
+  Old Module C numeric outputs consumed: NO
+
+Stale-value hits: 0
+Validation errors: 0
+
+STATUS: PASS

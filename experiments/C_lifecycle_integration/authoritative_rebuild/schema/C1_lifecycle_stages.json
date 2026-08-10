@@ -1,0 +1,443 @@
+{
+  "schema_name": "GenoPhylax Canonical Lifecycle Stage Schema",
+  "schema_version": "1.0.0",
+  "status": "LOCKED_FOR_C2_EVIDENCE_REGISTRY",
+  "generated_utc": "2026-08-06T09:33:52.789209+00:00",
+  "stage_count": 10,
+  "stage_sequence": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S5",
+    "S6",
+    "S7",
+    "S8",
+    "S9",
+    "S10"
+  ],
+  "principal_handoff": {
+    "handoff_id": "H5_6",
+    "source_stage": "S5",
+    "destination_stage": "S6",
+    "description": "Transition from interpreted genomic information into persistent storage and access-control infrastructure.",
+    "integrity_case": "A pathogenic F11 variant call suppressed upstream may enter storage or sharing as an apparently valid negative or incomplete record.",
+    "qualification": "This is a modelled lifecycle handoff. The project does not claim that the attacked experimental record entered a real clinical database or affected a patient."
+  },
+  "stages": [
+    {
+      "stage_id": "S1",
+      "stage_order": 1,
+      "stage_name": "Sequencing and Raw-Signal Generation",
+      "short_name": "Raw Signal",
+      "domain": "Generation",
+      "primary_assets": [
+        "biological sample",
+        "sequencer output",
+        "raw nanopore signal",
+        "POD5 or equivalent raw-signal files"
+      ],
+      "primary_operations": [
+        "sample acquisition",
+        "sequencing",
+        "signal measurement",
+        "raw-data generation"
+      ],
+      "representative_failures": [
+        "sample manipulation",
+        "malicious biological input",
+        "localized signal perturbation",
+        "raw-data corruption"
+      ],
+      "incoming_from": [],
+      "outgoing_to": [
+        "S2"
+      ],
+      "project_evidence": [
+        "A2",
+        "A3"
+      ],
+      "security_properties": [
+        "integrity",
+        "authenticity",
+        "provenance"
+      ],
+      "scope_note": "Begins when a biological sample or sequencer produces a digital raw-signal representation."
+    },
+    {
+      "stage_id": "S2",
+      "stage_order": 2,
+      "stage_name": "Basecalling and Read Generation",
+      "short_name": "Basecalling",
+      "domain": "Generation",
+      "primary_assets": [
+        "basecalled reads",
+        "FASTQ",
+        "basecall quality values",
+        "move-table metadata"
+      ],
+      "primary_operations": [
+        "signal-to-base translation",
+        "quality estimation",
+        "read segmentation"
+      ],
+      "representative_failures": [
+        "base substitution",
+        "insertion",
+        "deletion",
+        "read splitting",
+        "adversarial basecall degradation"
+      ],
+      "incoming_from": [
+        "S1"
+      ],
+      "outgoing_to": [
+        "S3"
+      ],
+      "project_evidence": [
+        "A2",
+        "A3"
+      ],
+      "security_properties": [
+        "integrity",
+        "traceability",
+        "reproducibility"
+      ],
+      "scope_note": "Covers transformation of raw sequencing signal into nucleotide reads."
+    },
+    {
+      "stage_id": "S3",
+      "stage_order": 3,
+      "stage_name": "Alignment and Genomic Evidence Construction",
+      "short_name": "Alignment",
+      "domain": "Computation",
+      "primary_assets": [
+        "SAM or BAM records",
+        "mapping coordinates",
+        "mapping quality",
+        "pileup evidence"
+      ],
+      "primary_operations": [
+        "reference alignment",
+        "read placement",
+        "evidence aggregation"
+      ],
+      "representative_failures": [
+        "memory-safety failure",
+        "incorrect alignment",
+        "evidence displacement",
+        "malformed-input processing"
+      ],
+      "incoming_from": [
+        "S2"
+      ],
+      "outgoing_to": [
+        "S4"
+      ],
+      "project_evidence": [
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "security_properties": [
+        "integrity",
+        "availability",
+        "memory safety"
+      ],
+      "scope_note": "Creates reference-relative evidence used by downstream variant callers."
+    },
+    {
+      "stage_id": "S4",
+      "stage_order": 4,
+      "stage_name": "Variant Calling and Genotype Inference",
+      "short_name": "Variant Calling",
+      "domain": "Computation",
+      "primary_assets": [
+        "VCF or BCF records",
+        "genotypes",
+        "allele support",
+        "variant quality"
+      ],
+      "primary_operations": [
+        "variant detection",
+        "genotype inference",
+        "call filtering"
+      ],
+      "representative_failures": [
+        "false-negative call",
+        "false-positive call",
+        "genotype alteration",
+        "call suppression"
+      ],
+      "incoming_from": [
+        "S3"
+      ],
+      "outgoing_to": [
+        "S5"
+      ],
+      "project_evidence": [
+        "A2",
+        "A3"
+      ],
+      "security_properties": [
+        "integrity",
+        "correctness",
+        "provenance"
+      ],
+      "scope_note": "Produces discrete variant and genotype records from aligned evidence."
+    },
+    {
+      "stage_id": "S5",
+      "stage_order": 5,
+      "stage_name": "Clinical Annotation and Interpretation",
+      "short_name": "Clinical Interpretation",
+      "domain": "Interpretation",
+      "primary_assets": [
+        "annotated variants",
+        "clinical significance",
+        "condition associations",
+        "interpretive reports"
+      ],
+      "primary_operations": [
+        "database annotation",
+        "pathogenicity interpretation",
+        "clinical reporting"
+      ],
+      "representative_failures": [
+        "missed pathogenic variant",
+        "incorrect clinical interpretation",
+        "false reassurance",
+        "unsupported disease inference"
+      ],
+      "incoming_from": [
+        "S4"
+      ],
+      "outgoing_to": [
+        "S6"
+      ],
+      "project_evidence": [
+        "A3"
+      ],
+      "security_properties": [
+        "clinical integrity",
+        "semantic correctness",
+        "auditability"
+      ],
+      "scope_note": "Maps computational calls to clinical or biological meaning. Project evidence represents potential interpretation risk and not a demonstrated patient diagnosis."
+    },
+    {
+      "stage_id": "S6",
+      "stage_order": 6,
+      "stage_name": "Storage and Access Control",
+      "short_name": "Storage",
+      "domain": "Persistence",
+      "primary_assets": [
+        "raw sequences",
+        "variant records",
+        "clinical annotations",
+        "derived genomic layers"
+      ],
+      "primary_operations": [
+        "database entry",
+        "vault storage",
+        "access control",
+        "selective disclosure"
+      ],
+      "representative_failures": [
+        "storage of corrupted records",
+        "unauthorized access",
+        "over-disclosure",
+        "insufficient unrecoverability"
+      ],
+      "incoming_from": [
+        "S5"
+      ],
+      "outgoing_to": [
+        "S7",
+        "S10"
+      ],
+      "project_evidence": [
+        "B2",
+        "B3"
+      ],
+      "security_properties": [
+        "confidentiality",
+        "integrity",
+        "unrecoverability",
+        "access control"
+      ],
+      "scope_note": "This is the principal handoff from generation-time integrity risk to persistent storage and privacy risk."
+    },
+    {
+      "stage_id": "S7",
+      "stage_order": 7,
+      "stage_name": "Sharing and Secondary Use",
+      "short_name": "Sharing",
+      "domain": "Distribution",
+      "primary_assets": [
+        "shared genomic records",
+        "derived reports",
+        "research datasets",
+        "relative-matching outputs"
+      ],
+      "primary_operations": [
+        "data sharing",
+        "secondary analysis",
+        "platform disclosure",
+        "dataset replication"
+      ],
+      "representative_failures": [
+        "uncontrolled replication",
+        "purpose expansion",
+        "metadata leakage",
+        "propagation of corrupted information"
+      ],
+      "incoming_from": [
+        "S6"
+      ],
+      "outgoing_to": [
+        "S8",
+        "S9"
+      ],
+      "project_evidence": [
+        "B1",
+        "B2"
+      ],
+      "security_properties": [
+        "confidentiality",
+        "consent",
+        "purpose limitation",
+        "provenance"
+      ],
+      "scope_note": "Covers movement of genomic information beyond its original storage or processing context."
+    },
+    {
+      "stage_id": "S8",
+      "stage_order": 8,
+      "stage_name": "Familial and Population Amplification",
+      "short_name": "Graph Amplification",
+      "domain": "Amplification",
+      "primary_assets": [
+        "kinship links",
+        "relative records",
+        "population graphs",
+        "relationship inferences"
+      ],
+      "primary_operations": [
+        "relative matching",
+        "kinship inference",
+        "graph traversal",
+        "population exposure propagation"
+      ],
+      "representative_failures": [
+        "non-consensual familial exposure",
+        "graph-amplified breach",
+        "relationship inference",
+        "population-scale propagation"
+      ],
+      "incoming_from": [
+        "S7"
+      ],
+      "outgoing_to": [
+        "S9",
+        "S10"
+      ],
+      "project_evidence": [
+        "B1",
+        "B3"
+      ],
+      "security_properties": [
+        "collective privacy",
+        "containment",
+        "consent"
+      ],
+      "scope_note": "Represents risk expansion through biological relationships and platform graph structure."
+    },
+    {
+      "stage_id": "S9",
+      "stage_order": 9,
+      "stage_name": "Long-Term Persistence and Re-identification",
+      "short_name": "Lifetime Risk",
+      "domain": "Persistence",
+      "primary_assets": [
+        "replicated genomic data",
+        "identity linkages",
+        "historical disclosures",
+        "persistent biological identifiers"
+      ],
+      "primary_operations": [
+        "long-term retention",
+        "future database linkage",
+        "re-identification",
+        "cumulative secondary use"
+      ],
+      "representative_failures": [
+        "irreversible exposure",
+        "future re-identification",
+        "cumulative privacy loss",
+        "long-lived familial harm"
+      ],
+      "incoming_from": [
+        "S7",
+        "S8"
+      ],
+      "outgoing_to": [
+        "S10"
+      ],
+      "project_evidence": [
+        "B2"
+      ],
+      "security_properties": [
+        "persistence control",
+        "future privacy",
+        "revocability"
+      ],
+      "scope_note": "Models the time-dependent increase or persistence of genomic risk."
+    },
+    {
+      "stage_id": "S10",
+      "stage_order": 10,
+      "stage_name": "Containment, Recovery and Audit",
+      "short_name": "Containment",
+      "domain": "Response",
+      "primary_assets": [
+        "audit logs",
+        "trusted source data",
+        "containment boundaries",
+        "authentication evidence"
+      ],
+      "primary_operations": [
+        "detection",
+        "boundary isolation",
+        "access revocation",
+        "record recovery",
+        "provenance verification"
+      ],
+      "representative_failures": [
+        "late detection",
+        "insufficient containment",
+        "loss of trusted provenance",
+        "irrecoverable corrupted record"
+      ],
+      "incoming_from": [
+        "S6",
+        "S8",
+        "S9"
+      ],
+      "outgoing_to": [],
+      "project_evidence": [
+        "B3",
+        "A1",
+        "A2",
+        "A3"
+      ],
+      "security_properties": [
+        "detectability",
+        "recoverability",
+        "accountability",
+        "resilience"
+      ],
+      "scope_note": "Represents preventive and corrective controls across the lifecycle."
+    }
+  ]
+}

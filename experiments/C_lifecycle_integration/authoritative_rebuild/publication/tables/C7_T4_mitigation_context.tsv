@@ -1,0 +1,6 @@
+case	modifier	meaning	status	value	scenario	application	rationale
+F11	M3	Detectability	UNMEASURED			NOT_APPLIED	No validated measure of attack/event detectability is available for the F11 experiment.
+PRIVACY	M3	Detectability	UNMEASURED			NOT_APPLIED	Authentication F1 is access-control performance, not privacy-event detectability.
+PRIVACY	M5	Containment difficulty residual	SCENARIO_CANDIDATE	0.008	peripheral_origin_at_k10	NOT_APPLIED_TO_BASE_GRI	Residual candidate = 1 - k10 containment reduction.
+PRIVACY	M5	Containment difficulty residual	SCENARIO_CANDIDATE	0.795	mid_degree_origin_at_k10	NOT_APPLIED_TO_BASE_GRI	Residual candidate = 1 - k10 containment reduction.
+PRIVACY	M5	Containment difficulty residual	SCENARIO_CANDIDATE	0.970	hub_origin_at_k10	NOT_APPLIED_TO_BASE_GRI	Residual candidate = 1 - k10 containment reduction.

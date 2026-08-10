@@ -1,0 +1,206 @@
+{
+  "dimension_architecture": [
+    {
+      "dimension": "D1",
+      "name": "Identity Risk",
+      "meaning": "Risk that genomic disclosure enables persistent re-identification of the individual."
+    },
+    {
+      "dimension": "D2",
+      "name": "Disease Inference / Clinical Interpretation Risk",
+      "meaning": "Risk that genomic manipulation or disclosure changes or reveals clinically relevant interpretation."
+    },
+    {
+      "dimension": "D3",
+      "name": "Familial Cascade Risk",
+      "meaning": "Risk propagated from one genomic subject to biologically related individuals."
+    },
+    {
+      "dimension": "D4",
+      "name": "Accessibility Risk",
+      "meaning": "Risk associated with unauthorized or inappropriate access to genomic information."
+    },
+    {
+      "dimension": "D5",
+      "name": "Persistence Risk",
+      "meaning": "Risk that disclosure or exposure remains difficult to reverse across time."
+    },
+    {
+      "dimension": "D6",
+      "name": "Amplification Risk",
+      "meaning": "Risk that an initial genomic disclosure expands through sharing, kinship or downstream reuse."
+    },
+    {
+      "dimension": "D7",
+      "name": "Pipeline Exposure Risk",
+      "meaning": "Risk that an upstream integrity failure propagates across multiple downstream genomic-processing stages."
+    }
+  ],
+  "normalized_dimensions": [
+    {
+      "case": "F11",
+      "dimension": "D2",
+      "status": "MEASURED",
+      "score": "1.0000000000",
+      "formula": "1.0 because targeted PM2 produced complete evaluable ALT-support loss and downstream F11 call loss",
+      "provenance": "A3_E02|A3_E03"
+    },
+    {
+      "case": "F11",
+      "dimension": "D7",
+      "status": "MEASURED",
+      "score": "1.0000000000",
+      "formula": "1.0 because the demonstrated effect traversed the full observed clinical chain S2->S4->S5",
+      "provenance": "HF11_01|HF11_02"
+    },
+    {
+      "case": "PRIVACY",
+      "dimension": "D1",
+      "status": "MODELLED",
+      "score": "1.0000000000",
+      "formula": "1.0 because B2 reaches 100% modelled re-identification saturation; saturation year=13",
+      "provenance": "B2_E02"
+    },
+    {
+      "case": "PRIVACY",
+      "dimension": "D3",
+      "status": "MODELLED",
+      "score": "1.0000000000",
+      "formula": "1.0 because B2 reaches 100% modelled familial saturation; saturation year=15",
+      "provenance": "B2_E03"
+    },
+    {
+      "case": "PRIVACY",
+      "dimension": "D5",
+      "status": "MODELLED",
+      "score": "0.8515500000",
+      "formula": "mean(1 - clinician pathogenic-variant unrecoverability, D5_year_50 / 10)",
+      "provenance": "B2_E01|B2_authoritative_final.tsv"
+    },
+    {
+      "case": "PRIVACY",
+      "dimension": "D6",
+      "status": "CALIBRATED_MODEL",
+      "score": "0.8980000000",
+      "formula": "ground_truth_D6_score / 10",
+      "provenance": "B1_E02|B1_authoritative_final.tsv"
+    }
+  ],
+  "base_gri": [
+    {
+      "case": "F11",
+      "applicable_dimensions": "D2|D7",
+      "dimension_count": "2",
+      "base_gri": "1.0000000000",
+      "weighting": "equal weight across applicable measured dimensions",
+      "evidence_tier_multiplier": "NONE",
+      "mitigation_modifier_applied": "NO"
+    },
+    {
+      "case": "PRIVACY",
+      "applicable_dimensions": "D1|D3|D5|D6",
+      "dimension_count": "4",
+      "base_gri": "0.9373875000",
+      "weighting": "equal weight across applicable measured dimensions",
+      "evidence_tier_multiplier": "NONE",
+      "mitigation_modifier_applied": "NO"
+    }
+  ],
+  "modifiers": [
+    {
+      "case": "F11",
+      "modifier": "M3",
+      "meaning": "Detectability",
+      "status": "UNMEASURED",
+      "value": "",
+      "scenario": "",
+      "application": "NOT_APPLIED",
+      "rationale": "No validated measure of attack/event detectability is available for the F11 experiment."
+    },
+    {
+      "case": "PRIVACY",
+      "modifier": "M3",
+      "meaning": "Detectability",
+      "status": "UNMEASURED",
+      "value": "",
+      "scenario": "",
+      "application": "NOT_APPLIED",
+      "rationale": "Authentication F1 is access-control performance, not privacy-event detectability."
+    },
+    {
+      "case": "PRIVACY",
+      "modifier": "M5",
+      "meaning": "Containment difficulty residual",
+      "status": "SCENARIO_CANDIDATE",
+      "value": "0.008",
+      "scenario": "peripheral_origin_at_k10",
+      "application": "NOT_APPLIED_TO_BASE_GRI",
+      "rationale": "Residual candidate = 1 - k10 containment reduction."
+    },
+    {
+      "case": "PRIVACY",
+      "modifier": "M5",
+      "meaning": "Containment difficulty residual",
+      "status": "SCENARIO_CANDIDATE",
+      "value": "0.795",
+      "scenario": "mid_degree_origin_at_k10",
+      "application": "NOT_APPLIED_TO_BASE_GRI",
+      "rationale": "Residual candidate = 1 - k10 containment reduction."
+    },
+    {
+      "case": "PRIVACY",
+      "modifier": "M5",
+      "meaning": "Containment difficulty residual",
+      "status": "SCENARIO_CANDIDATE",
+      "value": "0.970",
+      "scenario": "hub_origin_at_k10",
+      "application": "NOT_APPLIED_TO_BASE_GRI",
+      "rationale": "Residual candidate = 1 - k10 containment reduction."
+    }
+  ],
+  "sensitivity": [
+    {
+      "case": "PRIVACY",
+      "analysis": "equal_dimension_baseline",
+      "score": "0.9373875000",
+      "interpretation": "Primary Base GRI; equal weight across D1,D3,D5,D6."
+    },
+    {
+      "case": "PRIVACY",
+      "analysis": "leave_one_out_D1",
+      "score": "0.9165166667",
+      "interpretation": "Sensitivity only; D1 omitted."
+    },
+    {
+      "case": "PRIVACY",
+      "analysis": "leave_one_out_D3",
+      "score": "0.9165166667",
+      "interpretation": "Sensitivity only; D3 omitted."
+    },
+    {
+      "case": "PRIVACY",
+      "analysis": "leave_one_out_D5",
+      "score": "0.9660000000",
+      "interpretation": "Sensitivity only; D5 omitted."
+    },
+    {
+      "case": "PRIVACY",
+      "analysis": "leave_one_out_D6",
+      "score": "0.9505166667",
+      "interpretation": "Sensitivity only; D6 omitted."
+    },
+    {
+      "case": "PRIVACY",
+      "analysis": "50_50_B2_B1_provenance_balance",
+      "score": "0.9242583333",
+      "interpretation": "Sensitivity only: B2-derived dimensions combined into one composite and weighted 50/50 against B1 D6."
+    }
+  ],
+  "policy": {
+    "missing_equals_zero": false,
+    "evidence_tiers_are_numeric_weights": false,
+    "modifiers_multiply_base_gri": false,
+    "authentication_f1_is_detectability": false,
+    "sensitivity_is_confidence_interval": false
+  }
+}

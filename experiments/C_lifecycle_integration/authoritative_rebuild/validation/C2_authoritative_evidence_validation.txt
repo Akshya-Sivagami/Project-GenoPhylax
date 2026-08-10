@@ -1,0 +1,20 @@
+MODULE C AUTHORITATIVE REBUILD — C2 VALIDATION
+================================================
+
+Evidence rows: 16
+Unique evidence IDs: 16
+GRI-eligible rows: 9
+A1 standalone rows: 2
+A2 supporting rows: 2
+F11 chain rows: 4
+Privacy chain rows: 8
+
+Policies:
+  A1 direct GRI use: NO
+  A2 direct Base GRI use: NO
+  B3 authentication as privacy detectability: NO
+  B3 role: MITIGATION_CONTEXT
+  Evidence tiers as numerical GRI weights: NO
+
+Validation errors: 0
+STATUS: PASS

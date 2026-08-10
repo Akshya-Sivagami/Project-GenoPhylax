@@ -1,0 +1,10 @@
+metric_id	case	source	raw_value	unit	purpose
+RAW_F11_ALT_AFTER_PM2	F11	A3_E02	0/14	ALT-supporting evaluable parents	D2 clinical-interpretation integrity anchor
+RAW_F11_CALL_LOSS	F11	A3_E03	OBSERVED	controlled downstream call loss	D2 and D7 propagation anchor
+RAW_B2_UNRECOVERABILITY	PRIVACY	B2_authoritative_final.tsv	0.2299	proportion	D5 irreversibility component
+RAW_B2_REID_100_YEAR	PRIVACY	B2_authoritative_final.tsv	13	years	D1 identity saturation evidence
+RAW_B2_FAMILIAL_100_YEAR	PRIVACY	B2_authoritative_final.tsv	15	years	D3 familial saturation evidence
+RAW_B2_D5_YEAR50	PRIVACY	B2_authoritative_final.tsv	9.33	0_to_10	D5 long-horizon persistence component
+RAW_B1_D6	PRIVACY	B1_authoritative_final.tsv	8.98	0_to_10	D6 calibrated amplification score
+RAW_B3_AUTH_F1	PRIVACY	B3_authoritative_final.tsv	0.8387	proportion	Context only; NOT M3 detectability
+RAW_B3_AUTH_THRESHOLD	PRIVACY	B3_authoritative_final.tsv	3.6	score_threshold	Authentication benchmark context only

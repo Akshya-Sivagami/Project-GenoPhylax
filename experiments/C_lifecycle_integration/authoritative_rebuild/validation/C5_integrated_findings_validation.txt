@@ -1,0 +1,19 @@
+MODULE C AUTHORITATIVE REBUILD — C5 VALIDATION
+================================================
+
+Integrated findings: 9
+F11 Base GRI: 1.0000000000
+Privacy Base GRI: 0.9373875000
+Privacy provenance-balanced sensitivity: 0.9242583333
+
+Scope safeguards:
+  A1 forced into Base GRI: NO
+  A2 forced into Base GRI: NO
+  B3 authentication called privacy detectability: NO
+  M5 applied to Base GRI: NO
+  Sensitivity called confidence interval: NO
+  Patient outcome claimed from F11: NO
+
+Validation errors: 0
+
+STATUS: PASS

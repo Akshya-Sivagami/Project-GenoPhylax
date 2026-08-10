@@ -1,0 +1,7 @@
+case	dimension	status	score	formula	provenance
+F11	D2	MEASURED	1.0000000000	1.0 because targeted PM2 produced complete evaluable ALT-support loss and downstream F11 call loss	A3_E02|A3_E03
+F11	D7	MEASURED	1.0000000000	1.0 because the demonstrated effect traversed the full observed clinical chain S2->S4->S5	HF11_01|HF11_02
+PRIVACY	D1	MODELLED	1.0000000000	1.0 because B2 reaches 100% modelled re-identification saturation; saturation year=13	B2_E02
+PRIVACY	D3	MODELLED	1.0000000000	1.0 because B2 reaches 100% modelled familial saturation; saturation year=15	B2_E03
+PRIVACY	D5	MODELLED	0.8515500000	mean(1 - clinician pathogenic-variant unrecoverability, D5_year_50 / 10)	B2_E01|B2_authoritative_final.tsv
+PRIVACY	D6	CALIBRATED_MODEL	0.8980000000	ground_truth_D6_score / 10	B1_E02|B1_authoritative_final.tsv

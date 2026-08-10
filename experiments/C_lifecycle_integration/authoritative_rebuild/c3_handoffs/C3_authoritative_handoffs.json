@@ -1,0 +1,167 @@
+[
+  {
+    "handoff_id": "HF11_01",
+    "chain": "F11",
+    "from_stage": "S2",
+    "to_stage": "S4",
+    "handoff_role": "RISK_PROPAGATION",
+    "observation_class": "CONTROLLED_OBSERVED",
+    "base_gri_eligible": "YES",
+    "evidence_ids": [
+      "A3_E02"
+    ],
+    "mechanism": "Targeted raw-signal perturbation suppresses allele-level evidence at the pathogenic F11 locus.",
+    "observed_result": "On-target ALT support fell to 0/14 evaluable parent reads under targeted PM2.",
+    "candidate_dimensions": [
+      "D2",
+      "D7"
+    ],
+    "limitations": "Single HG002 individual, one F11 pathogenic locus and one controlled basecalling configuration."
+  },
+  {
+    "handoff_id": "HF11_02",
+    "chain": "F11",
+    "from_stage": "S4",
+    "to_stage": "S5",
+    "handoff_role": "RISK_PROPAGATION",
+    "observation_class": "CONTROLLED_OBSERVED",
+    "base_gri_eligible": "YES",
+    "evidence_ids": [
+      "A3_E03"
+    ],
+    "mechanism": "Loss of variant-calling evidence propagates into loss of the clinically relevant F11 variant representation.",
+    "observed_result": "The controlled targeted condition produced downstream loss of the F11 variant call.",
+    "candidate_dimensions": [
+      "D2",
+      "D7"
+    ],
+    "limitations": "Computational consequence only; no patient outcome or clinical decision was observed."
+  },
+  {
+    "handoff_id": "CF11_01",
+    "chain": "F11",
+    "from_stage": "S2",
+    "to_stage": "S4",
+    "handoff_role": "VALIDATION_CONTROL",
+    "observation_class": "CLEAN_CONTROL",
+    "base_gri_eligible": "NO",
+    "evidence_ids": [
+      "A3_E01"
+    ],
+    "mechanism": "Clean replay establishes that the pathogenic allele is normally retained through basecalling into variant evidence.",
+    "observed_result": "Clean ALT support was retained in 14/14 evaluable parents.",
+    "candidate_dimensions": [],
+    "limitations": "Baseline control; not an independent risk contribution."
+  },
+  {
+    "handoff_id": "CF11_02",
+    "chain": "F11",
+    "from_stage": "S2",
+    "to_stage": "S4",
+    "handoff_role": "VALIDATION_CONTROL",
+    "observation_class": "OFF_TARGET_CONTROL",
+    "base_gri_eligible": "NO",
+    "evidence_ids": [
+      "A3_E04"
+    ],
+    "mechanism": "Matched off-target perturbation tests whether the F11 effect is localized rather than a nonspecific pipeline failure.",
+    "observed_result": "Off-target PM2 sham preserved ALT evidence in 14/14 evaluable parents and preserved the heterozygous call.",
+    "candidate_dimensions": [],
+    "limitations": "Single matched sham control at the tested locus."
+  },
+  {
+    "handoff_id": "HPRIV_01",
+    "chain": "PRIVACY",
+    "from_stage": "S6",
+    "to_stage": "S7",
+    "handoff_role": "RISK_PROPAGATION",
+    "observation_class": "MODEL_OUTPUT",
+    "base_gri_eligible": "YES",
+    "evidence_ids": [
+      "B2_E01"
+    ],
+    "mechanism": "Disclosure of pathogenic genomic information reduces the modelled ability to restore privacy after release.",
+    "observed_result": "Clinician pathogenic-variant disclosure produced unrecoverability 0.2299.",
+    "candidate_dimensions": [
+      "D1",
+      "D5"
+    ],
+    "limitations": "Model-derived vault result; interpretation depends on the configured disclosure and reconstruction assumptions."
+  },
+  {
+    "handoff_id": "HPRIV_02",
+    "chain": "PRIVACY",
+    "from_stage": "S7",
+    "to_stage": "S8",
+    "handoff_role": "RISK_PROPAGATION",
+    "observation_class": "MODEL_OUTPUT",
+    "base_gri_eligible": "YES",
+    "evidence_ids": [
+      "B2_E02",
+      "B2_E03"
+    ],
+    "mechanism": "Persistent genomic disclosure accumulates downstream re-identification and familial exposure over time.",
+    "observed_result": "Modelled re-identification reached 100 percent by year 13 and familial exposure reached 100 percent by year 15.",
+    "candidate_dimensions": [
+      "D1",
+      "D3",
+      "D5"
+    ],
+    "limitations": "Temporal saturation is modelled rather than measured in a longitudinal population cohort."
+  },
+  {
+    "handoff_id": "HPRIV_03",
+    "chain": "PRIVACY",
+    "from_stage": "S7",
+    "to_stage": "S8",
+    "handoff_role": "RISK_PROPAGATION",
+    "observation_class": "CALIBRATED_MODEL_OUTPUT",
+    "base_gri_eligible": "YES",
+    "evidence_ids": [
+      "B1_E01",
+      "B1_E02"
+    ],
+    "mechanism": "Release of one person's genomic information propagates through kinship relationships and amplifies exposure.",
+    "observed_result": "The authoritative graph contained 4144 nodes with 1657 registered nodes; calibrated mean familial amplification was 464.4x.",
+    "candidate_dimensions": [
+      "D3",
+      "D6"
+    ],
+    "limitations": "Graph-derived and calibration-dependent; not a direct population-wide empirical exposure count."
+  },
+  {
+    "handoff_id": "HPRIV_04",
+    "chain": "PRIVACY",
+    "from_stage": "S8",
+    "to_stage": "S10",
+    "handoff_role": "MITIGATION_CONTEXT",
+    "observation_class": "SIMULATION",
+    "base_gri_eligible": "NO",
+    "evidence_ids": [
+      "B3_E01",
+      "B3_E02"
+    ],
+    "mechanism": "Graph-aware containment limits already-propagated exposure, with effectiveness dependent on attack origin.",
+    "observed_result": "Primary containment achieved 99.24 percent best reduction; minimum tested k for >=99 percent reduction was 5 for peripheral origins and 20 for mid-degree and hub origins.",
+    "candidate_dimensions": [
+      "M5"
+    ],
+    "limitations": "Mitigation evidence only. It must not reduce Base GRI unless an explicitly defined modifier analysis is applied."
+  },
+  {
+    "handoff_id": "HPRIV_05",
+    "chain": "PRIVACY",
+    "from_stage": "S6",
+    "to_stage": "S10",
+    "handoff_role": "MITIGATION_CONTEXT",
+    "observation_class": "INTERNAL_BENCHMARK",
+    "base_gri_eligible": "NO",
+    "evidence_ids": [
+      "B3_E03"
+    ],
+    "mechanism": "Authentication provides an access-control mitigation layer for genomic-platform misuse.",
+    "observed_result": "Final benchmark threshold 3.6 produced precision 0.9070, recall 0.7800, F1 0.8387 and accuracy 0.9400.",
+    "candidate_dimensions": [],
+    "limitations": "Authentication performance is not a direct measure of privacy-event detectability and is not a Base GRI input."
+  }
+]

@@ -1,0 +1,10 @@
+handoff_id	chain	transition	role	base_gri_eligible	evidence_ids	observed_result
+HF11_01	F11	S2->S4	RISK_PROPAGATION	YES	A3_E02	On-target ALT support fell to 0/14 evaluable parent reads under targeted PM2.
+HF11_02	F11	S4->S5	RISK_PROPAGATION	YES	A3_E03	The controlled targeted condition produced downstream loss of the F11 variant call.
+CF11_01	F11	S2->S4	VALIDATION_CONTROL	NO	A3_E01	Clean ALT support was retained in 14/14 evaluable parents.
+CF11_02	F11	S2->S4	VALIDATION_CONTROL	NO	A3_E04	Off-target PM2 sham preserved ALT evidence in 14/14 evaluable parents and preserved the heterozygous call.
+HPRIV_01	PRIVACY	S6->S7	RISK_PROPAGATION	YES	B2_E01	Clinician pathogenic-variant disclosure produced unrecoverability 0.2299.
+HPRIV_02	PRIVACY	S7->S8	RISK_PROPAGATION	YES	B2_E02|B2_E03	Modelled re-identification reached 100 percent by year 13 and familial exposure reached 100 percent by year 15.
+HPRIV_03	PRIVACY	S7->S8	RISK_PROPAGATION	YES	B1_E01|B1_E02	The authoritative graph contained 4144 nodes with 1657 registered nodes; calibrated mean familial amplification was 464.4x.
+HPRIV_04	PRIVACY	S8->S10	MITIGATION_CONTEXT	NO	B3_E01|B3_E02	Primary containment achieved 99.24 percent best reduction; minimum tested k for >=99 percent reduction was 5 for peripheral origins and 20 for mid-degree and hub origins.
+HPRIV_05	PRIVACY	S6->S10	MITIGATION_CONTEXT	NO	B3_E03	Final benchmark threshold 3.6 produced precision 0.9070, recall 0.7800, F1 0.8387 and accuracy 0.9400.

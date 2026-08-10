@@ -1,0 +1,92 @@
+[
+  {
+    "finding_id": "C5_F01",
+    "category": "clinical_integrity",
+    "title": "Targeted signal perturbation propagated to clinical variant-call loss",
+    "finding": "In the controlled HG002 F11 case, targeted PM2 perturbation reduced evaluable ALT-supporting parents from 14/14 in the clean condition to 0/14 on target, with downstream loss of the clinically relevant F11 variant call.",
+    "quantitative_anchor": "14/14 -> 0/14; downstream F11 call lost",
+    "evidence": "A3_E01|A3_E02|A3_E03|A3_E04|HF11_01|HF11_02",
+    "claim_level": "CONTROLLED_CASE",
+    "limitation": "Single HG002 individual, one pathogenic F11 locus and one basecaller/perturbation configuration; no patient outcome was observed."
+  },
+  {
+    "finding_id": "C5_F02",
+    "category": "clinical_gri",
+    "title": "The demonstrated F11 chain reached maximal score on its applicable dimensions",
+    "finding": "The F11 experimental case scored D2=1.0 and D7=1.0 because the tested perturbation completely suppressed evaluable allele evidence and propagated through the observed S2->S4->S5 clinical-processing chain.",
+    "quantitative_anchor": "F11 Base GRI=1.0000000000",
+    "evidence": "C4_normalized_dimensions|C4_base_gri",
+    "claim_level": "FRAMEWORK_CASE_SCORE",
+    "limitation": "This is a case-level computational severity score, not a probability of clinical harm."
+  },
+  {
+    "finding_id": "C5_F03",
+    "category": "privacy_persistence",
+    "title": "Genomic disclosure remained highly persistent in the B2 model",
+    "finding": "The authoritative B2 model produced pathogenic-variant unrecoverability of 0.2299, 100% modelled re-identification by year 13 and 100% modelled familial exposure by year 15.",
+    "quantitative_anchor": "unrecoverability=0.2299; re-ID=13y; familial=15y",
+    "evidence": "B2_E01|B2_E02|B2_E03",
+    "claim_level": "MODEL_OUTPUT",
+    "limitation": "These are model-derived trajectories rather than observed longitudinal population outcomes."
+  },
+  {
+    "finding_id": "C5_F04",
+    "category": "privacy_amplification",
+    "title": "Kinship structure substantially amplified exposure",
+    "finding": "The authoritative B1 analysis used a 4,144-node graph with 1,657 registered nodes and produced calibrated mean familial amplification of 464.4x, corresponding to D6=0.898.",
+    "quantitative_anchor": "4144 nodes; 1657 registered; 464.4x; D6=0.898",
+    "evidence": "B1_E01|B1_E02",
+    "claim_level": "CALIBRATED_MODEL_OUTPUT",
+    "limitation": "Amplification remains dependent on graph construction and calibration assumptions."
+  },
+  {
+    "finding_id": "C5_F05",
+    "category": "privacy_gri",
+    "title": "The integrated privacy chain produced a high Base GRI",
+    "finding": "Across applicable privacy dimensions D1, D3, D5 and D6, the authoritative Base GRI was 0.9373875000.",
+    "quantitative_anchor": "D1=1.0000; D3=1.0000; D5=0.8516; D6=0.8980; Base=0.9373875000",
+    "evidence": "C4_normalized_dimensions|C4_base_gri",
+    "claim_level": "FRAMEWORK_CASE_SCORE",
+    "limitation": "The score combines model-derived dimensions and should not be interpreted as an empirical population probability."
+  },
+  {
+    "finding_id": "C5_F06",
+    "category": "robustness",
+    "title": "Privacy risk remained high under provenance-balanced weighting",
+    "finding": "When B2-derived dimensions were collapsed into one composite and weighted 50/50 against B1 amplification, the privacy sensitivity score remained high.",
+    "quantitative_anchor": "50/50 provenance sensitivity=0.9242583333",
+    "evidence": "C4_sensitivity_analysis",
+    "claim_level": "SENSITIVITY_ANALYSIS",
+    "limitation": "Sensitivity analysis is a robustness check and is not a confidence interval."
+  },
+  {
+    "finding_id": "C5_F07",
+    "category": "containment",
+    "title": "Containment effectiveness depended strongly on attack origin",
+    "finding": "B3 containment achieved 99.24% best reduction in the primary scenario, but fixed-k residual containment difficulty varied substantially by attack origin.",
+    "quantitative_anchor": "M5 residual candidates at k=10: peripheral=0.008; mid-degree=0.795; hub=0.970",
+    "evidence": "B3_E01|B3_E02|HPRIV_04|C4_modifier_context",
+    "claim_level": "MITIGATION_SCENARIO",
+    "limitation": "M5 values are scenario-specific residual candidates and are not multiplied into Base GRI."
+  },
+  {
+    "finding_id": "C5_F08",
+    "category": "authentication",
+    "title": "Authentication is mitigation context rather than privacy detectability",
+    "finding": "The final B3 credential-stuffing benchmark used threshold 3.6 and achieved F1=0.8387, but this performance is treated as access-control mitigation evidence rather than a direct measure of privacy-event detectability.",
+    "quantitative_anchor": "threshold=3.6; F1=0.8387",
+    "evidence": "B3_E03|HPRIV_05|C4_modifier_context",
+    "claim_level": "MITIGATION_CONTEXT",
+    "limitation": "Internal generated benchmark; M3 detectability remains UNMEASURED."
+  },
+  {
+    "finding_id": "C5_F09",
+    "category": "scope",
+    "title": "A1 and A2 strengthen lifecycle coverage without inflating GRI",
+    "finding": "A1 contributes standalone software-security evidence and A2 contributes supporting perturbation evidence, but neither is forced into the Base GRI where the required semantic mapping is not established.",
+    "quantitative_anchor": "A1=STANDALONE_NON_GRI; A2=SUPPORTING_NON_GRI",
+    "evidence": "C2_authoritative_evidence_registry",
+    "claim_level": "FRAMEWORK_SCOPE",
+    "limitation": "Their exclusion from Base GRI is deliberate and should not be interpreted as lack of scientific relevance."
+  }
+]

@@ -1,0 +1,3 @@
+case	applicable_dimensions	dimension_count	base_gri	weighting
+F11	D2|D7	2	1.0000000000	equal weight across applicable measured dimensions
+PRIVACY	D1|D3|D5|D6	4	0.9373875000	equal weight across applicable measured dimensions
