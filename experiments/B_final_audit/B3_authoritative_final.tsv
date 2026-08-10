@@ -1,0 +1,33 @@
+﻿module	metric	value	unit	context	provenance
+B3	graph_nodes	3303	nodes	Containment simulation graph	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	registered_nodes	1321	nodes	Containment simulation graph	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	baseline_exposed	786	people	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k5_exposed	560	people	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k5_reduction	0.288	proportion	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k5_cost	0.0038	proportion	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k10_exposed	6	people	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k10_reduction	0.992	proportion	Displayed rounded reduction; exact summary reports 99.24 percent	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	k10_cost	0.0076	proportion	Primary containment scenario	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	best_containment_reduction	0.9924	proportion	Exact summary value	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_threshold	3.6	score_threshold	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_precision	0.9070	proportion	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_recall	0.7800	proportion	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_f1	0.8387	proportion	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_accuracy	0.9400	proportion	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_tp	39	count	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_fp	4	count	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_tn	196	count	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	auth_fn	11	count	Final credential-stuffing classifier	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	script_internal_D4_score	0.84	0_to_10	Legacy B3-local score; NOT automatically equivalent to Module C GRI D4	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	peripheral_baseline	780	people	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	peripheral_k10_reduction	0.992	proportion	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	peripheral_min_k_99pct	5	accounts	Minimum tested containment budget reaching 99 percent reduction	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	mid_baseline	943	people	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	mid_k10_reduction	0.205	proportion	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	mid_min_k_99pct	20	accounts	Minimum tested containment budget reaching 99 percent reduction	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	hub_baseline	1077	people	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	hub_k10_reduction	0.030	proportion	Attack-origin analysis	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	hub_min_k_99pct	20	accounts	Minimum tested containment budget reaching 99 percent reduction	final_execution_utf8/B3_containment_algorithm_stdout.txt
+B3	M5_peripheral_residual_candidate	0.008	proportion	Derived as 1 minus k10 reduction; candidate pending Module C semantic rebuild	derived_from_final_execution
+B3	M5_mid_residual_candidate	0.795	proportion	Derived as 1 minus k10 reduction; candidate pending Module C semantic rebuild	derived_from_final_execution
+B3	M5_hub_residual_candidate	0.970	proportion	Derived as 1 minus k10 reduction; candidate pending Module C semantic rebuild	derived_from_final_execution

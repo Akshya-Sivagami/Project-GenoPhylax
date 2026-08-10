@@ -1,0 +1,1328 @@
+MODULE B — AUTHORITATIVE FINAL SOURCE AUDIT
+Generated: 2026-08-10 21:00:21
+Repository HEAD: 1bee4e83aee5453f28e5777751cd9bb517d3a42b
+
+============================================================
+REPOSITORY STATE
+============================================================
+## main...origin/main
+ D research/notes/Findings.txt
+ D research/notes/percolation_and_saturation.txt
+?? experiments/B_final_audit/
+?? research/notes/ModuleA1_Findings.txt
+?? research/notes/ModuleA2_Findings.txt
+?? research/notes/ModuleB_Findings.txt
+0	0
+
+B1 FILES
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\.gitkeep
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\amplification_analysis.py
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\calibration_tuning.py
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\graph_model.py
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\gri_d6_scores.py
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\results_log.txt
+D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\__pycache__\graph_model.cpython-312.pyc
+
+B2 FILES
+D:\Akshya\GenoPhylax\experiments\B2_vault_design\.gitkeep
+D:\Akshya\GenoPhylax\experiments\B2_vault_design\B2_upgrades.py
+D:\Akshya\GenoPhylax\experiments\B2_vault_design\genomic_vault.py
+D:\Akshya\GenoPhylax\experiments\B2_vault_design\lifetime_risk.py
+D:\Akshya\GenoPhylax\experiments\B2_vault_design\vault_design.py
+
+B3 FILES
+D:\Akshya\GenoPhylax\experiments\B3_authentication\.gitkeep
+D:\Akshya\GenoPhylax\experiments\B3_authentication\B3_attack_origin_comparison.png
+D:\Akshya\GenoPhylax\experiments\B3_authentication\B3_containment_auth.png
+D:\Akshya\GenoPhylax\experiments\B3_authentication\containment_algorithm.py
+============================================================
+B1 — SOURCE AND RESULT TOKENS
+============================================================
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\amplification_analysis.py ---
+7: # 1. AMPLIFICATION vs BREACH SIZE
+8: # How does amplification factor change as more accounts are
+9: # compromised? Smaller breaches = higher amplification ratio.
+12: def analyze_breach_size_impact(G, registered, breach_fractions):
+15: n_comp = max(1, int(len(registered) * frac))
+16: r = simulate_breach(G, registered, n_comp)
+21: "amplification": r["amplification"],
+27: # 2. AMPLIFICATION vs REGISTRATION RATE
+36: for n in G.nodes():
+37: G.nodes[n]["registered"] = False
+38: registered = simulate_registration(G, registration_rate=rate)
+39: n_comp = max(1, int(len(registered) * n_compromised_frac))
+40: r = simulate_breach(G, registered, n_comp)
+43: "n_registered"     : len(registered),
+44: "amplification"    : r["amplification"],
+56: def analyze_hop_depth(G, registered, n_compromised, max_hops_range):
+59: r = simulate_breach(G, registered, n_compromised, max_hops=hops)
+63: "amplification": r["amplification"],
+74: fig.suptitle("Module B1 — Graph Amplification Model",
+80: # -- Plot 1: Amplification vs Breach Size --
+84: amps   = [r["amplification"] for r in breach_results]
+86: ax.set_xlabel("% of Registered Users Compromised", fontsize=10)
+87: ax.set_ylabel("Amplification Factor (x)", fontsize=10)
+88: ax.set_title("Amplification vs Breach Size", fontweight="bold", fontsize=11)
+89: ax.axhline(y=492.86, color=colors["red"], linestyle="--", linewidth=1.5,
+94: # -- Plot 2: Amplification vs Registration Rate --
+98: amps2 = [r["amplification"] for r in reg_results]
+101: ax.set_ylabel("Amplification Factor (x)", fontsize=10)
+102: ax.set_title("Amplification vs Registration Rate", fontweight="bold", fontsize=11)
+121: # -- Plot 4: Calibration vs 23andMe --
+124: categories = ["Model\nAmplification", "23andMe Real\nAmplification"]
+125: values     = [cal_result["amplification"], cal_result["real_amplification"]]
+132: ax.set_ylabel("Amplification Factor (x)", fontsize=10)
+133: ax.set_title("Model Calibration vs 23andMe Breach", fontweight="bold", fontsize=11)
+140: plt.savefig("B1_amplification_results.png", dpi=150, bbox_inches="tight",
+143: print("Plot saved as B1_amplification_results.png")
+152: print("  Module B1 — Graph Amplification Analysis")
+157: G, family_data = generate_kinship_graph(n_families=1000, avg_children=2, cousin_prob=0.3)
+158: print(f"      Nodes: {G.number_of_nodes():,}  |  Edges: {G.number_of_edges():,}")
+161: registered = simulate_registration(G, registration_rate=0.4)
+162: print(f"      Registered: {len(registered):,}")
+167: breach_results = analyze_breach_size_impact(G, registered, breach_fractions)
+174: n_comp = max(1, int(len(registered) * 0.001))
+175: hop_results = analyze_hop_depth(G, registered, n_comp, max_hops_range=[1, 2, 3, 4, 5])
+178: cal_result = calibrate_against_23andme(G, registered)
+179: print("      ? 23andMe calibration")
+182: print(f"      Calibration amplification : {cal_result['amplification']}x")
+183: print(f"      23andMe real amplification: {cal_result['real_amplification']}x")
+188: print(f"        {r['fraction']*100:.2f}% compromised ? {r['amplification']}x amplification")
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\calibration_tuning.py ---
+6: # CALIBRATION TUNING
+7: # Sweeps cousin_prob values to find which one produces an
+8: # amplification factor closest to the real 23andMe value (492.86x)
+11: TARGET_AMPLIFICATION = 492.86
+14: def tune_cousin_probability():
+15: cousin_probs = [0.01, 0.02, 0.05, 0.08, 0.10, 0.15, 0.20, 0.25, 0.30]
+18: print(f"{'Cousin Prob':>12} | {'Avg Amplification':>18} | {'Ratio to Real':>14} | {'Delta':>10}")
+21: for cp in cousin_probs:
+25: n_families=1000, avg_children=2, cousin_prob=cp
+27: registered = simulate_registration(G, registration_rate=0.4)
+28: cal = calibrate_against_23andme(G, registered)
+29: run_amps.append(cal["amplification"])
+32: ratio   = round(avg_amp / TARGET_AMPLIFICATION, 4)
+33: delta   = round(abs(avg_amp - TARGET_AMPLIFICATION), 2)
+36: "cousin_prob"  : cp,
+48: print(f"  Best cousin_prob : {best['cousin_prob']}")
+49: print(f"  Avg amplification: {best['avg_amp']}x")
+50: print(f"  Target           : {TARGET_AMPLIFICATION}x")
+59: fig.suptitle("Module B1 — Calibration Tuning",
+63: probs = [r["cousin_prob"] for r in results]
+67: # Plot 1: Amplification vs cousin_prob
+71: ax.axhline(y=TARGET_AMPLIFICATION, color="#C0392B", linestyle="--",
+72: linewidth=1.8, label=f"23andMe target ({TARGET_AMPLIFICATION}x)")
+73: ax.axvline(x=best["cousin_prob"], color="#D97706", linestyle=":",
+74: linewidth=1.8, label=f"Best fit (cp={best['cousin_prob']})")
+76: ax.set_ylabel("Amplification Factor (x)", fontsize=10)
+77: ax.set_title("Amplification vs Cousin Probability", fontweight="bold")
+85: bar_colors = ["#C0392B" if r["cousin_prob"] == best["cousin_prob"]
+93: ax.set_title("Calibration Error by Cousin Probability", fontweight="bold")
+97: plt.savefig("B1_calibration_tuning.png", dpi=150, bbox_inches="tight",
+100: print("Plot saved as B1_calibration_tuning.png")
+105: print("  Module B1 — Calibration Tuning Against 23andMe")
+106: print(f"  Target amplification: {TARGET_AMPLIFICATION}x")
+110: results, best = tune_cousin_probability()
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\graph_model.py ---
+16: def generate_kinship_graph(n_families=500, avg_children=2, cousin_prob=0.3):
+23: cousin_prob  : probability of cross-family cousin edges
+42: # Add nodes with metadata
+44: G.add_node(n, family=f, registered=False, exposed=False)
+68: if random.random() < cousin_prob:
+81: # like 23andMe. Only registered users appear in the kinship graph features.
+86: Mark a fraction of nodes as registered on the DTC platform.
+90: registration_rate : fraction of population registered
+93: registered_nodes : list of registered node IDs
+95: all_nodes = list(G.nodes())
+96: n_register = int(len(all_nodes) * registration_rate)
+97: registered = random.sample(all_nodes, n_register)
+99: for n in registered:
+100: G.nodes[n]["registered"] = True
+102: return registered
+109: # to all registered relatives — modelling DNA Relatives-style features.
+112: def simulate_breach(G, registered_nodes, n_compromised, max_hops=3):
+118: registered_nodes : list of registered node IDs
+126: for n in G.nodes():
+127: G.nodes[n]["exposed"] = False
+128: G.nodes[n]["compromised"] = False
+130: # Select initial compromised accounts from registered users
+131: n_compromised = min(n_compromised, len(registered_nodes))
+132: compromised = random.sample(registered_nodes, n_compromised)
+135: G.nodes[n]["compromised"] = True
+136: G.nodes[n]["exposed"] = True
+146: if neighbor not in exposed_set and G.nodes[neighbor]["registered"]:
+149: G.nodes[neighbor]["exposed"] = True
+155: amplification_factor = total_exposed / n_compromised if n_compromised > 0 else 0
+158: "n_registered"       : len(registered_nodes),
+161: "amplification"      : round(amplification_factor, 2),
+162: "exposure_rate"      : round(total_exposed / len(registered_nodes), 4),
+163: "compromised_nodes"  : compromised,
+164: "exposed_nodes"      : list(exposed_set),
+169: # 4. 23andME CALIBRATION
+171: # 14,000 compromised ? 6.9 million exposed (amplification ~493x)
+174: def calibrate_against_23andme(G, registered_nodes):
+176: Scale our model to 23andMe proportions and check amplification factor.
+177: 23andMe had ~14M registered users; 14K compromised ? 6.9M exposed.
+178: Target amplification: ~493x
+180: total_registered = len(registered_nodes)
+184: n_compromised = max(1, int(total_registered * breach_ratio))
+186: result = simulate_breach(G, registered_nodes, n_compromised, max_hops=3)
+191: real_amplification = real_exposed / real_compromised  # 492.86x
+195: result["real_amplification"] = round(real_amplification, 2)
+196: result["model_vs_real"]      = round(result["amplification"] / real_amplification, 4)
+204: print(f"  Nodes: {G.number_of_nodes():,}")
+208: registered = simulate_registration(G, registration_rate=0.4)
+209: print(f"  Registered users: {len(registered):,}")
+212: n_comp = max(1, int(len(registered) * 0.001))
+213: result = simulate_breach(G, registered, n_compromised=n_comp)
+216: print(f"  Amplification factor: {result['amplification']}x")
+219: cal = calibrate_against_23andme(G, registered)
+220: print(f"  Model amplification : {cal['amplification']}x")
+221: print(f"  Real amplification  : {cal['real_amplification']}x")
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\gri_d6_scores.py ---
+7: # GRI D6 — Amplification Risk Scoring
+13: #   Raw score = log10(amplification_factor) / log10(max_possible)
+24: MAX_AMP    = 1000.0   # theoretical max amplification for normalization
+25: REAL_23AME = 492.86   # ground truth reference
+27: def compute_d6_score(amplification_factor, max_amp=MAX_AMP):
+29: Convert raw amplification factor to a 0-10 GRI D6 score.
+30: Uses log10 scaling since amplification spans orders of magnitude.
+32: if amplification_factor <= 1.0:
+34: raw   = np.log10(amplification_factor) / np.log10(max_amp)
+57: "cousin_prob" : 0.0,
+65: "cousin_prob" : 0.02,
+73: "cousin_prob" : 0.05,
+81: "cousin_prob" : 0.10,
+89: "cousin_prob" : 0.20,
+97: "cousin_prob" : 0.20,
+115: cousin_prob=sc["cousin_prob"]
+117: registered = simulate_registration(G, registration_rate=sc["reg_rate"])
+120: for n in G.nodes():
+121: G.nodes[n]["registered"] = False
+122: n_reg = int(G.number_of_nodes() * sc["reg_rate"])
+124: reg_nodes = random.sample(list(G.nodes()), n_reg)
+125: for n in reg_nodes:
+126: G.nodes[n]["registered"] = True
+129: r = simulate_breach(G, reg_nodes, n_comp, max_hops=sc["max_hops"])
+131: d6    = compute_d6_score(r["amplification"])
+137: "amplification": r["amplification"],
+145: print(f"{sc['name']:<28} {r['amplification']:>12.2f} {d6:>10.2f} {label:>10}")
+158: fig.suptitle("GRI Dimension D6 — Amplification Risk Scores",
+190: # Plot 2: Amplification factor per scenario
+193: amps = [r["amplification"] for r in results]
+200: ax.set_xlabel("Amplification Factor (x)", fontsize=10)
+201: ax.set_title("Raw Amplification by Platform Scenario", fontweight="bold")
+226: print("  GRI Dimension D6 — Amplification Risk Scoring")
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B1_graph_amplification\results_log.txt ---
+1: # Module B1 - Graph Amplification Results Log
+4: - **Population:** 2,061 nodes across 500 families
+8: ## Calibration Runs
+9: | Run ID | Cousin Prob (`cp`) | Amplification Factor   | Delta from Target (492.86x) | Error %        |
+12: | Run 03 | 0.20 (Optimal)     | 464.4x                 | -28.46x                     | -5.8%          |
+20: - `plots/amplification_results.png`
+22: - `plots/calibration_tuning.png`
+============================================================
+B2 — SOURCE AND RESULT TOKENS
+============================================================
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B2_vault_design\B2_upgrades.py ---
+19: BASELINE_DISEASE_RISK  = 0.10
+20: BASELINE_FAMILIAL_RISK = 0.15
+41: disease_risk  = np.minimum(
+42: BASELINE_DISEASE_RISK * inf_factor, 1.0)
+43: familial_risk = np.minimum(
+44: BASELINE_FAMILIAL_RISK * db_factor * 0.4, 1.0)
+45: composite     = (reid_risk + disease_risk + familial_risk) / 3.0
+46: d5_score      = np.minimum(composite * 10.0, 10.0)
+49: "reid": reid_risk, "disease": disease_risk,
+50: "familial": familial_risk, "composite": composite,
+65: C = {"reid": "#C0392B", "disease": "#D97706",
+66: "familial": "#6D28D9", "d5": "#0D9488"}
+72: lw=2.5, label="Re-identification Risk")
+73: ax.plot(years, risks["disease"],  color=C["disease"],
+74: lw=2.5, label="Disease Inference Risk")
+75: ax.plot(years, risks["familial"], color=C["familial"],
+76: lw=2.5, label="Familial Cascade Risk")
+82: (35, 80,  "#FEF2F2", "Phase 3\nSaturation +\nFamilial Cascade", 55),
+103: (20, risks["disease"][20], "Inference\nmidpoint",   "#D97706"),
+104: (13, risks["familial"][13],"Familial\n50% risk",    "#6D28D9"),
+120: disease_contrib  = risks["disease"]  / 3.0 * 10.0
+121: familial_contrib = risks["familial"] / 3.0 * 10.0
+125: np.minimum(disease_contrib,  10/3),
+126: np.minimum(familial_contrib, 10/3),
+128: "Disease Inference contribution",
+129: "Familial Cascade contribution"],
+170: For a target individual, compute their D5+D6 composite risk
+193: # D3 familial cascade risk scales with enrolled relatives
+206: # D1 re-identification risk — more relatives = easier kinship match
+209: # Composite D5 score (persistence × collective exposure)
+210: composite = (d1_risk + d3_risk + d6_component) / 3.0
+211: d5_score  = round(min(composite * 10.0, 10.0), 2)
+218: "composite"    : round(composite, 4),
+300: label="D1 Re-identification Risk", marker="s",
+303: label="D3 Familial Cascade Risk", marker="^",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B2_vault_design\genomic_vault.py ---
+12: #   3. Unrecoverability scoring (D5 linkage)
+17: # disease risk scores can infer their own predispositions,
+18: # creating a familial cascade even from "safe" disclosures.
+34: "Pathogenic Variants": {
+37: "description"   : "Known disease-causing SNVs (BRCA1/2, CFTR etc.)",
+40: "Polygenic Risk Scores": {
+43: "description"   : "Composite disease risk scores (PRS)",
+46: "Pharmacogenomic Markers": {
+52: "Ancestry Composition": {
+55: "description"   : "Population ancestry percentages",
+58: "Trait Predictions": {
+61: "description"   : "Non-medical traits (eye color, earwax type etc.)",
+64: "Aggregate Statistics": {
+98: "d6_weight"       : 0.85,  # high D6 risk — familial cascade
+105: "Pathogenic Variants": [
+112: "Polygenic Risk Scores": [
+117: "Pharmacogenomic Markers": [
+124: # 1. UNRECOVERABILITY SCORE
+130: def compute_unrecoverability(disclosed_tiers):
+132: Information-theoretic unrecoverability score.
+142: - Low leakage tiers only leak aggregate statistics
+144: Unrecoverability = 1 - P(reconstruct | disclosed tiers)
+156: "Pathogenic Variants"    : 0.420,  # specific loci — high leakage
+157: "Polygenic Risk Scores"  : 0.180,  # aggregated — moderate
+158: "Pharmacogenomic Markers": 0.120,  # targeted loci — moderate
+159: "Ancestry Composition"   : 0.065,  # population-level — low
+160: "Trait Predictions"      : 0.035,  # coarse phenotype — very low
+161: "Aggregate Statistics"   : 0.008,  # summary only — minimal
+187: unrecoverability    = round(
+190: return unrecoverability
+196: # familial cascade risk even from "safe" disclosures.
+274: "unrecoverability": 1.0,
+282: # Clinicians retain access to pathogenic variants when
+287: and tier_name in ["Pathogenic Variants",
+288: "Polygenic Risk Scores",
+289: "Pharmacogenomic Markers"]
+298: "unrecoverability": compute_unrecoverability([tier_name]),
+309: # but cannot trigger familial cascade disclosures
+313: unrec = compute_unrecoverability(approved + [tier_name])
+318: # Pathogenic variants trigger break-glass;
+319: # PRS and pharmacogenomics trigger audit controls.
+328: "unrecoverability": unrec,
+340: "unrecoverability": unrec,
+352: "unrecoverability": unrec,
+390: f"{r['total_risk']:>10.3f} {r['unrecoverability']:>12.4f}"
+479: # -- Plot 4: Unrecoverability score as tiers are cumulatively disclosed --
+490: unrec_scores.append(compute_unrecoverability(cumulative_disclosed))
+498: ax.set_ylabel("Unrecoverability Score (1=safe, 0=recoverable)", fontsize=9)
+499: ax.set_title("Raw Sequence Unrecoverability\nas More Tiers Are Disclosed",
+533: print("\n[2] Unrecoverability analysis:")
+536: print(f"  {'Tiers Disclosed':<35} {'Unrecoverability Score':>22}")
+540: score = compute_unrecoverability(cumulative)
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B2_vault_design\lifetime_risk.py ---
+28: BASELINE_REID_RISK       = 0.05   # 5% re-identification risk at time 0
+29: BASELINE_DISEASE_RISK    = 0.10   # 10% disease inference risk at time 0
+30: BASELINE_FAMILIAL_RISK   = 0.15   # 15% familial exposure risk at time 0
+36: # More reference genomes = higher re-identification probability.
+71: # Phenotype prediction, disease inference, ancestry all improve.
+87: # 4. COMPOSITE LIFETIME RISK
+97: # Re-identification risk: driven by database growth + inference
+103: # Disease inference risk: driven by inference expansion
+104: disease_risk = np.minimum(
+105: BASELINE_DISEASE_RISK * inf_factor,
+109: # Familial cascade risk: driven by database growth (more relatives enrolled)
+110: familial_risk = np.minimum(
+111: BASELINE_FAMILIAL_RISK * db_factor * 0.4,
+115: # Composite GRI D5 score (0-10)
+116: composite = (reid_risk + disease_risk + familial_risk) / 3.0
+117: d5_score  = np.minimum(composite * 10.0, 10.0)
+121: "disease"  : disease_risk,
+122: "familial" : familial_risk,
+123: "composite": composite,
+138: for dim in ["reid", "disease", "familial"]:
+159: C = {"reid": "#C0392B", "disease": "#D97706",
+160: "familial": "#6D28D9", "composite": "#0D1B2A",
+166: ax.plot(years, risks["reid"],     color=C["reid"],     lw=2.5, label="Re-identification Risk")
+167: ax.plot(years, risks["disease"],  color=C["disease"],  lw=2.5, label="Disease Inference Risk")
+168: ax.plot(years, risks["familial"], color=C["familial"], lw=2.5, label="Familial Cascade Risk")
+169: ax.plot(years, risks["composite"],color=C["composite"],lw=2,
+170: linestyle="--", label="Composite Risk")
+221: dims       = ["Re-identification", "Disease Inference", "Familial Cascade"]
+222: dim_keys   = ["reid", "disease", "familial"]
+269: print(f"  {'Year':<6} {'Re-ID':>8} {'Disease':>10} {'Familial':>10} {'D5 Score':>10}")
+274: f"{risks['disease'][idx]:>10.3f} "
+275: f"{risks['familial'][idx]:>10.3f} "
+283: dim_names = {"reid": "Re-identification",
+284: "disease": "Disease Inference",
+285: "familial": "Familial Cascade"}
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B2_vault_design\vault_design.py ---
+6: Deliverable: Vault design with tiered disclosure, unrecoverability
+26: "unrecoverability": 1.0,   # perfect — never exposed
+33: "unrecoverability": 0.30,  # partial — VCF can leak raw context
+37: "label": "Polygenic Risk Scores",
+38: "examples": ["disease PRS", "trait PRS", "ancestry PRS"],
+40: "unrecoverability": 0.70,
+41: "description": "Aggregate scores. Lower re-ID risk; disclosable to research tier."
+43: "ANCESTRY": {
+44: "label": "Ancestry Proportions",
+45: "examples": ["continental ancestry %", "haplogroup"],
+47: "unrecoverability": 0.60,
+52: "examples": ["carrier status", "pharmacogenomic flags", "binary trait calls"],
+54: "unrecoverability": 0.80,
+73: #                  RAW     VARIANT   PRS    ANCESTRY  PHENOTYPE
+81: LAYER_KEYS = ["RAW", "VARIANT", "PRS", "ANCESTRY", "PHENOTYPE"]
+84: # 3. UNRECOVERABILITY SCORE
+87: def compute_unrecoverability(tier: str, graph_proximity: int, n_relatives_exposed: int) -> dict:
+89: Formal unrecoverability score U(tier, graph_context).
+91: U = base_unrecoverability * graph_penalty
+106: # Not disclosed — unrecoverability is full by design
+110: base_U = layer["unrecoverability"]
+115: # Sharing across kinship edges degrades unrecoverability
+126: "base_unrecoverability": layer["unrecoverability"],
+128: "effective_unrecoverability": round(U, 4),
+141: Even inside a vault, time degrades unrecoverability as:
+146: u_scores = compute_unrecoverability(tier, graph_proximity, n_relatives)
+152: # Temporal degradation: unrecoverability decays as databases grow
+156: avg_U = np.mean([u_scores[k]["effective_unrecoverability"] for k in disclosed_layers])
+176: u_scores = compute_unrecoverability(tier, graph_proximity, n_relatives)
+235: u = compute_unrecoverability(sc["tier"], sc["graph_proximity"], sc["n_relatives"])
+251: "unrecoverability": u,
+288: # -- Plot 2: Unrecoverability per Layer per Scenario ------------
+294: u_vals = [res["unrecoverability"][k]["effective_unrecoverability"] for k in LAYER_KEYS]
+302: ax2.set_ylabel("Effective Unrecoverability (0–1)")
+303: ax2.set_title("Unrecoverability by Layer & Scenario", fontsize=9, fontweight='bold')
+325: # -- Plot 4: Graph Proximity vs Unrecoverability (ANCESTRY layer) -
+333: u = compute_unrecoverability("RESEARCHER", h, n_rel)
+334: u_vals.append(u["ANCESTRY"]["effective_unrecoverability"])
+338: ax4.set_ylabel("Unrecoverability — Ancestry Layer")
+339: ax4.set_title("Graph Proximity Degrades\nUnrecoverability (Researcher Tier)",
+347: u5 = sc5["unrecoverability"]
+349: base_u = [u5[k]["base_unrecoverability"] for k in LAYER_KEYS]
+351: effective = [u5[k]["effective_unrecoverability"] for k in LAYER_KEYS]
+353: ax5.bar(x5, base_u, color="#3498db", alpha=0.6, label="Base Unrecoverability")
+360: ax5.set_ylabel("Unrecoverability (0–1)")
+376: ("PRS SCORES", "#f1c40f", "RESEARCHER+\nAggregate — safer", 5.1),
+377: ("ANCESTRY", "#27ae60", "RESEARCHER+\nKinship risk remains", 3.4),
+404: print("  GenomicVault — Formal Unrecoverability Properties")
+411: PROPERTY 2 — Graph-Degraded Unrecoverability
+447: print(f"  {k:<12} | {status:<12} | Base U = {v['unrecoverability']:.2f} | {v['description'][:50]}")
+============================================================
+B3 — SOURCE AND RESULT TOKENS
+============================================================
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\B3_authentication\containment_algorithm.py ---
+23: compromised_nodes, top_k=20):
+27: For peripheral/mid-degree attacks: boundary isolation —
+30: For hub attacks: rate-limit hubs themselves rather than
+31: their neighbors, since hub boundaries span the entire graph.
+44: is_hub_attack = avg_comp_degree > overall_avg * 1.8
+46: if is_hub_attack:
+47: # Hub strategy: lock highest-degree compromised nodes
+49: # (rate-limit the hubs themselves)
+55: # Add highest-degree registered neighbors of top hubs
+69: # Boundary isolation strategy for peripheral/mid attacks
+174: Low-degree  : peripheral accounts (easiest to contain)
+175: Mid-degree  : average users (realistic credential stuffing)
+176: High-degree : hub accounts (hardest to contain)
+187: "Low-Degree\n(Peripheral)": reg_list[:n//4],
+188: "Mid-Degree\n(Average User)": reg_list[n//4:n//2],
+189: "High-Degree\n(Hub Account)": reg_list[3*n//4:],
+248: threshold_k = None
+251: threshold_k = r["k"]
+253: all_results[label]["threshold_k"] = threshold_k
+265: fig.patch.set_facecolor("#F1F5F9")
+268: "Low-Degree\n(Peripheral)" : "#15803D",
+269: "Mid-Degree\n(Average User)": "#D97706",
+270: "High-Degree\n(Hub Account)": "#C0392B",
+273: "Low-Degree\n(Peripheral)" : "o",
+274: "Mid-Degree\n(Average User)": "s",
+275: "High-Degree\n(Hub Account)": "^",
+290: label="50% reduction threshold")
+293: label="99% reduction threshold")
+348: else rng.normal(3.0, 2.0),
+439: def evaluate_detection(sessions, threshold=4.5):
+445: detected = score >= threshold
+456: precision = tp / (tp + fp) if (tp + fp) > 0 else 0
+457: recall    = tp / (tp + fn) if (tp + fn) > 0 else 0
+458: f1        = (2 * precision * recall / (precision + recall)
+459: if (precision + recall) > 0 else 0)
+460: accuracy  = (tp + tn) / len(sessions)
+464: "precision": round(precision, 4),
+465: "recall"   : round(recall, 4),
+466: "f1"       : round(f1, 4),
+467: "accuracy" : round(accuracy, 4),
+472: # 3. GRI D4 SCORING
+475: def compute_d4_score(containment_reduction_pct, auth_f1_score):
+477: combined        = (containment_eff + auth_f1_score) / 2.0
+478: d4              = round((1.0 - combined) * 10.0, 2)
+479: return max(d4, 0.0)
+493: fig.patch.set_facecolor("#F1F5F9")
+504: label="50% reduction threshold")
+548: lw=2, label="Detection threshold (4.5)")
+560: metric_names = ["Precision", "Recall", "F1 Score", "Accuracy"]
+561: metric_vals  = [metrics["precision"], metrics["recall"],
+562: metrics["f1"],        metrics["accuracy"]]
+578: label="Target threshold (0.9)")
+625: # Sweep thresholds to find best F1
+626: best_f1        = 0
+627: best_threshold = 4.0
+632: r, m = evaluate_detection(sessions, threshold=t)
+633: if m["f1"] > best_f1 and m["precision"] >= 0.85 and m["recall"] >= 0.75:
+634: best_f1        = m["f1"]
+635: best_threshold = t
+639: # Fallback if no threshold meets constraints
+641: print("      Warning: no threshold met all constraints, using best F1")
+642: best_f1        = 0
+644: r, m = evaluate_detection(sessions, threshold=t)
+645: if m["f1"] > best_f1:
+646: best_f1        = m["f1"]
+647: best_threshold = t
+653: print(f"      Best threshold : {best_threshold:.1f}")
+654: print(f"      Precision : {metrics['precision']:.4f}")
+655: print(f"      Recall    : {metrics['recall']:.4f}")
+656: print(f"      F1 Score  : {metrics['f1']:.4f}")
+657: print(f"      Accuracy  : {metrics['accuracy']:.4f}")
+661: print("\n[4/4] Computing GRI D4 score...")
+664: d4 = compute_d4_score(best_reduction, metrics["f1"])
+666: print(f"      Auth F1 score              : {metrics['f1']}")
+667: print(f"      GRI D4 Score               : {d4} / 10")
+678: threshold = data["threshold_k"]
+679: thresh_str = f"k={threshold}" if threshold else "Not achieved"
+687: threshold = data["threshold_k"]
+689: budget    = f"{threshold} accounts" if threshold else "Not achieved within k=50"
+692: print("  Key finding: hub account compromise requires 4x the")
+693: print("  containment budget of a peripheral account breach,")
+694: print("  with 38% higher baseline blast radius (1077 vs 780).")
+============================================================
+MODULE C — CURRENT EMBEDDED MODULE B VALUES
+============================================================
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_12b_historical_correction_ledger.md ---
+10: - **retired_claim:** B1 population graph reported as 3,303 nodes, 1,321 registered individuals and 786 baseline exposed.
+11: - **retired_value:** 3303 nodes | 1321 registered | 786 exposed
+12: - **current_claim:** Current committed B1 reproduction generates 4,144 nodes and 1,657 registered individuals. The 3,303 / 1,321 / 786 values belong to the B3 containment graph.
+13: - **current_value:** B1: 4144 nodes | 1657 registered; B3: 3303 nodes | 1321 registered | 786 baseline exposed
+26: - **current_claim:** Current committed B2 model reproduces Pathogenic Variants single-tier unrecoverability as 0.2299.
+27: - **current_value:** 0.2299
+52: - **retired_claim:** Authentication threshold reported as 3.6 or 3.8 with older precision/recall/F1/accuracy metrics.
+53: - **retired_value:** threshold 3.6/3.8 | F1 approximately 0.8409
+54: - **current_claim:** Current committed B3 implementation uses threshold 4.5 with precision 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960.
+55: - **current_value:** threshold 4.5 | P=1.0000 | R=0.9800 | F1=0.9899 | Acc=0.9960
+58: - **due_diligence_performed:** Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.
+59: - **supersession_basis:** Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.
+69: - **current_value:** High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_12b_historical_correction_ledger.tsv ---
+2: P01_B1_GRAPH_MISATTRIBUTION	B1/B3	B1 population graph reported as 3,303 nodes, 1,321 registered individuals and 786 baseline exposed.	3303 nodes | 1321 registered | 786 exposed	Current committed B1 reproduction generates 4,144 nodes and 1,657 registered individuals. The 3,303 / 1,321 / 786 values belong to the B3 containment graph.	B1: 4144 nodes | 1657 registered; B3: 3303 nodes | 1321 registered | 786 baseline exposed	Cross-module evidence misattribution.	TRACED_TO_DIFFERENT_MODULE	Current repository and bounded Git-history audit performed; B1 and B3 authoritative reproductions compared directly.	The old values reproduce under B3, while the committed B1 analysis independently reproduces a different graph.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+3: P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability reported as 0.044.	0.044	Current committed B2 model reproduces Pathogenic Variants single-tier unrecoverability as 0.2299.	0.2299	Retired value cannot be reproduced from the committed model.	NOT_FOUND_IN_GIT_HISTORY	Current tracked B2 files searched; bounded Git pickaxe history searched for 0.044/.044; no source located.	Current committed implementation is reproducible and its parameters and outputs are archived under Module C.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	2026-08-07
+5: P04_B3_AUTH_THRESHOLD	B3	Authentication threshold reported as 3.6 or 3.8 with older precision/recall/F1/accuracy metrics.	threshold 3.6/3.8 | F1 approximately 0.8409	Current committed B3 implementation uses threshold 4.5 with precision 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960.	threshold 4.5 | P=1.0000 | R=0.9800 | F1=0.9899 | Acc=0.9960	Retired threshold/metrics are not present in or reproduced by the current committed B3 implementation.	NOT_FOUND_IN_GIT_HISTORY	Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.	Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	2026-08-07
+6: P05_B3_HUB_K20	B3	Hub-origin breaches were described as requiring k=20 for containment.	hub-origin requires k=20	Current attack-origin reproduction shows strong dependence on origin class and does not establish a universal k=20 requirement for hub-origin breaches.	High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established	A historical top_k=20 implementation/default parameter was overinterpreted as an empirical requirement.	TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER	Git commit 75b5316 inspected; historical top_k=20 implementation context compared against current reproduced attack-origin results.	The implementation parameter is not itself evidence of a required containment threshold; current attack-origin analysis reports observed reductions by origin instead.	experiments/B3_authentication/containment_algorithm.py | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_cross_module_evidence_registry.json ---
+344: "measured_result": "The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.",
+345: "numeric_value": "4144",
+369: "measured_result": "Model amplification reached 464.4-fold with 5.8% calibration error",
+370: "numeric_value": "464.4",
+383: "tier_rationale": "Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.",
+394: "measured_result": "Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.",
+395: "numeric_value": "0.2299",
+469: "measured_result": "For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).",
+494: "measured_result": "At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.",
+495: "numeric_value": "0.9899",
+519: "measured_result": "The committed operational authentication configuration uses classifier threshold 4.5.",
+520: "numeric_value": "4.5",
+525: "limitations": "Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.",
+533: "tier_rationale": "Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_cross_module_evidence_registry.md ---
+294: - **measured_result:** The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.
+295: - **numeric_value:** 4144
+317: - **measured_result:** Model amplification reached 464.4-fold with 5.8% calibration error
+318: - **numeric_value:** 464.4
+331: - **tier_rationale:** Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.
+340: - **measured_result:** Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.
+341: - **numeric_value:** 0.2299
+409: - **measured_result:** For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+432: - **measured_result:** At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+433: - **numeric_value:** 0.9899
+455: - **measured_result:** The committed operational authentication configuration uses classifier threshold 4.5.
+456: - **numeric_value:** 4.5
+461: - **limitations:** Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.
+469: - **tier_rationale:** Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_cross_module_evidence_registry.tsv ---
+14: B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+15: B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+16: B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+19: B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+20: B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+21: B3_E03	B3	S6|S10	Genomic-platform authentication layer	Missed malicious access	Operational classifier-threshold selection	design decision	The committed operational authentication configuration uses classifier threshold 4.5.	4.5	classifier threshold	selected	medium	project design configuration	Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.	ASSIGNED
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\C2_evidence_tier_assignments.tsv ---
+15: B1_E02	B1	calibrated simulation	VERIFIED_EXISTING_SOURCE	E3	Calibrated simulation/model	ASSIGNED	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.
+21: B3_E03	B3	design decision	VERIFIED_REPRODUCED_SOURCE	E4	Uncalibrated simulation/internal model/design benchmark	ASSIGNED	Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\provenance_audit\C2_12a_1_targeted_provenance_adjudication.txt ---
+7: containment	k=5	786	560	28.8
+8: containment	k=10	786	6	99.2
+9: authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+12: 10:      Nodes: 3,303 | Registered: 1,321
+13: 13:      Baseline exposed (no containment): 786
+19: population_nodes	4144	nodes
+20: registered_individuals	1657	individuals
+450: 42:  Mid-Degree (Average User)        943            20.5%
+451: 43:  High-Degree (Hub Account)       1077             2.0%
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\provenance_audit\C2_12a_historical_claim_provenance_audit.txt ---
+16: Retired claim: 3,303 nodes / 1,321 registered / 786 exposed
+17: Current claim: B1 reproduction: 4,144 nodes / 1,657 registered
+30: Current claim: Pathogenic Variants unrecoverability = 0.2299
+55: Retired claim: Authentication threshold 3.6/3.8 with older metrics
+56: Current claim: Committed threshold 4.5; F1 = 0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\provenance_audit\C2_12a_historical_claim_provenance_summary.tsv ---
+2: P01_B1_GRAPH_MISATTRIBUTION	B1	3,303 nodes / 1,321 registered / 786 exposed	B1 reproduction: 4,144 nodes / 1,657 registered	0	0		HISTORICAL_ORIGIN_UNRESOLVED	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	No sufficiently specific cause established by this bounded audit.
+3: P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability = 0.044	Pathogenic Variants unrecoverability = 0.2299	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+5: P04_B3_AUTH_THRESHOLD	B3	Authentication threshold 3.6/3.8 with older metrics	Committed threshold 4.5; F1 = 0.9899	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B1_authoritative_reproduction.txt ---
+9: Nodes: 4,144  |  Edges: 157,147
+11: Registered: 1,657
+20: 23andMe real amplification: 492.86x
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B1_authoritative_results.tsv ---
+2: population_nodes	4144	nodes
+3: registered_individuals	1657	individuals
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B2_authoritative_vault_results.tsv ---
+2: 1	Pathogenic Variants	Pathogenic Variants	0.2299
+7: 6	Aggregate Statistics	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions|Aggregate Statistics	0.0801
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B2_B3_source_parameter_snapshot.txt ---
+232: 326:def evaluate_detection(sessions, threshold=4.5):
+253: 435:               lw=2, label="Detection threshold (4.5)")
+267: 513:        sessions, threshold=4.5
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B2_reproduction_stdout.txt ---
+83: year=10: 3.6962569262
+84: year=11: 4.5090848399
+134: year=20: 4.5000000000
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B3_authoritative_results.tsv ---
+2: containment	k=5	786	560	28.8
+3: containment	k=10	786	6	99.2
+4: authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B3_reproduced_results.json ---
+4: "f1": 0.9899,
+11: "Baseline exposed (no containment): 786",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\B3_reproduction_stdout.txt ---
+10: Nodes: 3,303 | Registered: 1,321
+13: Baseline exposed (no containment): 786
+17: 5        560        28.8%    0.38%        75.66
+27: Recall    : 0.9800
+28: F1 Score  : 0.9899
+29: Accuracy  : 0.9960
+34: Auth F1 score              : 0.9899
+42: Mid-Degree (Average User)        943            20.5%
+43: High-Degree (Hub Account)       1077             2.0%
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\C2_3_B2_B3_authoritative_summary.txt ---
+14: 1	Pathogenic Variants	Pathogenic Variants	0.2299
+19: 6	Aggregate Statistics	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions|Aggregate Statistics	0.0801
+58: containment	k=5	786	560	28.8
+59: containment	k=10	786	6	99.2
+60: authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\reproduced_results\C2_B2_B3_reproduction_report.txt ---
+95: year=10: 3.6962569262
+96: year=11: 4.5090848399
+146: year=20: 4.5000000000
+171: Nodes: 3,303 | Registered: 1,321
+174: Baseline exposed (no containment): 786
+178: 5        560        28.8%    0.38%        75.66
+188: Recall    : 0.9800
+189: F1 Score  : 0.9899
+190: Accuracy  : 0.9960
+195: Auth F1 score              : 0.9899
+203: Mid-Degree (Average User)        943            20.5%
+204: High-Degree (Hub Account)       1077             2.0%
+444: 326:def evaluate_detection(sessions, threshold=4.5):
+465: 435:               lw=2, label="Detection threshold (4.5)")
+479: 513:        sessions, threshold=4.5
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_10_evidence_tier_assignment_audit.tsv ---
+48: B1_E02	tier_rationale		Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.
+72: B3_E03	tier_rationale		Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_1_authoritative_source_discovery.txt ---
+93: L971: f9857bf0-af55-48c2-8e91-4371ac52ea3f	336	328	-8	38.232143	25.289634	-12.942509	0	21	0.0625000000	93.750000	93.786982	317	9	2	10
+557: L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+558: L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+582: L4: SHAM100	Distant sham +100	100 bases downstream	5	11	2	20	20	2633	5922376	0.044458507869139005	0	20	20	0	0.0	0	0	Clean distant off-target negative control.
+653: L3: L3_chr4_40028853_A_G	chr4	40028853	A	G	10	7	3265922040	3.041626922786236
+660: L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+661: L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+863: B3_E01 — Containment k=5 gives 560, k=10 gives 6, hub requires k=20
+877: L59: ? **Mid-Degree Average-User Breaches (Moderately Hard):** From a baseline of 943 exposed users, k=10 provides a weak **20.5% reduction**. The containment curve requires scaling to k=20 boundary nodes before achieving a stable 99% mitigation rate, reflecting the denser connectivity of typical network
+882: Reasons: content:560 | content:k=10
+886: L543: # Regression check for gh-5604
+892: Reasons: content:560 | content:k = 10
+894: L278: # ARROW-5606: pandas 0.25 deprecated private _start/stop/step
+899: Reasons: content:560 | content:k=10
+903: L543: # Regression check for gh-5604
+909: Reasons: content:560 | content:k = 10
+912: L1524: df2 = DataFrame([1477785600, 1477789200], columns=["ts"])
+916: Reasons: content:560 | structured_file
+918: L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+919: L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+923: Reasons: content:560
+925: L11: Clean ALT fraction: 0.560000
+929: Reasons: content:560 | structured_file
+931: L266: np.float32,0xbd26b560,0x3fce45e4,3
+932: L370: np.float32,0xbf356051,0x4016ec3a,3
+933: L482: np.float32,0x3dd19560,0x3fbbf0a3,3
+934: L845: np.float64,0xbfc52b8c212a5718,0x3ffbca8d6560a2da,1
+935: L869: np.float64,0x3fe3ab0557e7560a,0x3fed1593959ef8e8,1
+936: L956: np.float64,0x3fbefab0723df560,0x3ff731188ac716ec,1
+937: L1182: np.float64,0x3fed0ba42cfa1748,0x3fdbb7d55609175f,1
+938: L1311: np.float64,0xbfdb181bdeb63038,0x4000103ecf405602,1
+942: Reasons: content:560 | structured_file
+944: L67: np.float32,0x3fba8804,0x3f6c5600,2
+945: L735: np.float64,0x3ff2441d3664883a,0x3fe0d61145608f0c,1
+946: L900: np.float64,0x3ff560737d8ac0e7,0x3fe98cc9c9ba2f61,1
+950: Reasons: content:560 | structured_file
+952: L686: np.float32,0xbf56045b,0xbf7d6e03,4
+953: L929: np.float64,0xbfe0a03560e1406b,0xbfe17b8d5a1ca662,1
+954: L976: np.float64,0x3fd56a560daad4ac,0x3fd5d62b8dfcc058,1
+955: L1242: np.float64,0xbfe9204314f24086,0xbfece5605780e346,1
+956: L1286: np.float64,0x3fed5605147aac0a,0x3ff28ed1f612814a,1
+957: L1337: np.float64,0xbfdf97e246bf2fc4,0xbfe0855601ea9db3,1
+961: Reasons: content:560 | structured_file
+963: L748: np.float64,0xbfc7faaff32ff560,0xbfc7d7560b8c4a52,1
+964: L860: np.float64,0x3fc317515d262ea0,0x3fc3056072b719f0,1
+1007: L118: 21011321-94a2-44f4-a67f-e6c18245f7c3	30932	30475	-457	32.483868	20.944906	-11.538962	0	1964	0.0634941161	93.650588	93.739042	29405	633	437	894
+1024: L701: b092270a-7aa1-490a-8263-01517a94ee61	4351	4287	-64	28.365663	17.858176	-10.507487	0	394	0.0905538957	90.944610	91.132118	4049	146	92	156
+1032: L212: 2002-12-01,44.5990104675293,0.2187930941581726,16.248149871826172,14.15894889831543,0.9445000290870667,,,12.360349655151367,879.8200073242188,1335.510009765625
+1034: L404: 2014-12-01,111.05672454833984,24.915250778198242,40.74142074584961,28.068769454956055,15.517499923706055,,530.6599731445312,72.69999694824219,2058.89990234375,4736.0498046875
+1077: L458: 76935edc-f3c2-411b-94cf-9d65f68f01e7	3943	3948	5	30.930763	30.748734	-0.182030	0	37	0.0093718338	99.062817	99.064948	3920	14	14	9
+1089: L987: fd55eaca-e3c3-4e2f-b2b5-0ae28929f2c9	955	950	-5	36.946597	37.692632	0.746035	0	5	0.0052356021	99.476440	99.476440	950	0	0	5
+1099: B3_E03 — Operational threshold 3.6 selected for recall
+1115: Reasons: content:3.6 | structured_file
+1117: L2: L2_chr1_20061156_A_T	0	10	10	107	2934299	3.646526819523164e-05	0.003646526819523164	0	6	18	PASS
+1121: Reasons: content:3.6 | structured_file
+1123: L10: cb0e7285-3c4a-461b-8540-7f0a3fda312c	local_linear_interpolation	262468	263188	720	717	0.9958333333333333	0.001367115253345333	733.6180555555555	667.5	106.85150628895755	57.941924947887834	768	567	1	524462
+1127: Reasons: content:3.6 | structured_file
+1129: L12: mean_edit_distance	43.670000
+1133: Reasons: content:3.6 | structured_file
+1135: L20: mean_alignment_identity_percent	93.652081
+1139: Reasons: content:3.6 | structured_file
+1141: L18: mean_sequence_identity_percent	93.671805
+1145: Reasons: content:3.6 | structured_file
+1147: L20: mean_alignment_identity_percent	93.664747
+1151: Reasons: content:3.6 | structured_file
+1153: L3: d0c2bbf8-cea0-4398-88ac-14438023fa10	read_id	d0c2bbf8-cea0-4398-88ac-14438023fa10	d0c2bbf8-cea0-4398-88ac-14438023fa10	PAO89685_pass__2264ba8c_afee3a87_216.pod5	1079	33723.650800	29991	TRUE
+1157: Reasons: content:3.6 | structured_file
+1159: L5: PM2	2	588b9eb8-3e0b-498f-b1ba-3245083734ec	259570	259636	66	66	0	66	316750	316752	2	316752	1.0	0.00020836490377329898	673.6515151515151	820.0	130.86732726769185	21.631206413630537	1	PASS
+1160: L15: PM2	2	fce9df2a-4acd-440c-8447-917556361309	279574	279616	42	42	0	42	427981	427981	0	427981	1.0	9.813519759054724e-05	853.7142857142857	877.0	94.13675101232495	23.614967005411348	1	PASS
+1164: Reasons: content:3.6
+1166: L19: - Storage: 3.6 TiB NVMe
+1170: Reasons: content:3.6
+1172: L149: GN01      3             970.000000             0.000000                 0.000000               0.000000                 0.000000                0.00000                  30.000000                  0.00000                 3.666667                0.57735             4.333333           1.527525
+1176: Reasons: content:3.6
+1178: L6: mean_chromosome_changed: 3.666667 ± 0.577350
+1179: L17: mean_soft_clip_increased_reads: 253.666667 ± 5.507571
+1180: L63: mean_chromosome_changed: GN01=3.666667, GN05=4.333333, GN10=5.333333, monotonic=True
+1181: L71: mean_soft_clip_increased_reads: GN01=253.666667, GN05=380.000000, GN10=600.666667, monotonic=True
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_1_source_candidates.tsv ---
+88: B3_E01	B3	3	50	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py	29317	content:560 | content:k=10
+89: B3_E01	B3	4	50	2	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pyarrow/tests/test_pandas.py	193111	content:560 | content:k = 10
+90: B3_E01	B3	5	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/numpy/_core/tests/test_mem_overlap.py	29317	content:560 | content:k=10
+91: B3_E01	B3	6	50	2	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/environment/plotting_env/lib/python3.12/site-packages/pandas/tests/resample/test_datetime_index.py	73695	content:560 | content:k = 10
+92: B3_E01	B3	7	44	1	experiments/A3_clinical_consequence_mapping/findings/A3_F11_final_numerical_summary.tsv	1014	content:560 | structured_file
+93: B3_E01	B3	8	39	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_hybrid_variant_calling/F11_controlled_hybrid_final_validation.txt	442	content:560
+94: B3_E01	B3	9	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccos.csv	61365	content:560 | structured_file
+95: B3_E01	B3	10	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arccosh.csv	61365	content:560 | structured_file
+96: B3_E01	B3	11	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsin.csv	61339	content:560 | structured_file
+97: B3_E01	B3	12	37	1	experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/numpy/_core/tests/data/umath-validation-set-arcsinh.csv	60289	content:560 | structured_file
+111: B3_E03	B3	2	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/discovery/validation/W0_attack_generation/W0_attack_summary.tsv	415	content:3.6 | structured_file
+112: B3_E03	B3	3	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/attacks/E2_window_strength_series/E2_PM20/E2_PM20_attack_metrics.tsv	2343	content:3.6 | structured_file
+113: B3_E03	B3	4	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN05_seed2_summary.tsv	1113	content:3.6 | structured_file
+114: B3_E03	B3	5	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed1_summary.tsv	1118	content:3.6 | structured_file
+115: B3_E03	B3	6	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed3_summary.tsv	1118	content:3.6 | structured_file
+116: B3_E03	B3	7	37	1	experiments/A2_adversarial_dna/basecalling/perturbations/metrics/hg002_100reads_clean_vs_GN10_seed4_summary.tsv	1118	content:3.6 | structured_file
+117: B3_E03	B3	8	37	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/ONT_target_retrieval/POD5_mapping/resumable_remote_lookup/F11_summary_raw_matches.tsv	3608	content:3.6 | structured_file
+118: B3_E03	B3	9	37	1	experiments/A3_clinical_consequence_mapping/results/F11_candidate/controlled_signal_attacks/PM2/F11_PM2_attack_audit.tsv	3113	content:3.6 | structured_file
+119: B3_E03	B3	10	32	1	experiments/A2_adversarial_dna/basecalling/dorado/findings.md	3772	content:3.6
+120: B3_E03	B3	11	32	1	experiments/A2_adversarial_dna/basecalling/findings/master_A2_GPU/figure_preflight/A2_pandas_table_validation.txt	27548	content:3.6
+121: B3_E03	B3	12	32	1	experiments/A2_adversarial_dna/basecalling/perturbations/experiment_D_alignment/D3_multiseed_alignment/metrics/experiment_D3B_paired_multiseed_findings.txt	3947	content:3.6
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_2_clean_source_audit.txt ---
+395: B3_E03 — Operational threshold 3.6
+421: L326: def evaluate_detection(sessions, threshold=4.5):
+429: L435: lw=2, label="Detection threshold (4.5)")
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_4_pre_patch_registry_inspection.txt ---
+203: measured_result: Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20
+249: measured_result: Threshold 3.6 was selected operationally to favour recall
+250: numeric_value: 3.6
+954: candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libidn2-1b2a13b7.so.0.3.6
+1098: candidate_file: experiments/A2_adversarial_dna/basecalling/environment/pod5_env/lib/python3.12/site-packages/pysam.libs/libidn2-1b2a13b7.so.0.3.6
+1161: match_reasons: content:560 | content:k=10 | all_content_terms
+1173: match_reasons: content:560 | content:k=10 | all_content_terms
+1197: match_reasons: content:560 | high_value_filename | structured_file
+1209: match_reasons: content:560 | high_value_filename | structured_file
+1221: match_reasons: content:560 | high_value_filename | structured_file
+1233: match_reasons: content:560 | high_value_filename | structured_file
+1245: match_reasons: content:560 | high_value_filename | structured_file
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_5_registry_correction_audit.tsv ---
+26: B2_E01	measured_result	Adding the pathogenic-variant layer reduced unrecoverability to 0.044	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.
+27: B2_E01	numeric_value	0.044	0.2299
+47: B3_E01	measured_result	Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+53: B3_E02	measured_result	At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+54: B3_E02	numeric_value	0.8409	0.9899
+60: B3_E03	measured_result	Threshold 3.6 was selected operationally to favour recall	The committed operational authentication configuration uses classifier threshold 4.5.
+61: B3_E03	numeric_value	3.6	4.5
+63: B3_E03	limitations	Operational preference is a design choice rather than a universally optimal threshold	Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_5_registry_correction_summary.txt ---
+10: Pathogenic Variants alone = 0.2299 unrecoverability
+11: All six derived tiers cumulatively disclosed = 0.0801
+21: Baseline = 786 exposed
+22: k=5 = 560 exposed, 28.8% reduction
+26: Threshold = 4.5
+28: Recall = 0.9800
+29: F1 = 0.9899
+30: Accuracy = 0.9960
+33: Reproducible committed configuration threshold = 4.5
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_6_remaining_source_verification.txt ---
+101: L2: CLEAN	clean_target_signal	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+102: L3: PM2_OFF_TARGET_SHAM	off_target_same_size_interpolation	10	14	10	14	0	0	25	11	14	0	0	0.560000	1	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+147: L2: CLEAN	25	24	10	14	0	0	0	25	11	14	0	0	0.560000	1	0/1	222.201	25	11	14	PASS
+174: L13: ALT fraction: 0.560000
+181: Claim: Population graph contained 3,303 nodes, with 1,321 registered individuals and 786 baseline exposed
+198: Claim: Model amplification reached 464.4-fold with 5.8% calibration error
+209: L12: | Run 03 | 0.20 (Optimal)     | 464.4x                 | -28.46x                     | -5.8%          |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_7_targeted_source_recovery.txt ---
+314: Population graph contained 3,303 nodes, 1,321 registered individuals and 786 baseline exposed
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_9_A2_A3_B1_source_correction_audit.tsv ---
+24: B1_E01	measured_result	Population graph contained 3,303 nodes, with 1,321 registered individuals and 786 baseline exposed	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.
+25: B1_E01	numeric_value	3303	4144
+29: B1_E01	limitations	Synthetic or modelled graph rather than direct platform data	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. The earlier 3,303-node, 1,321-registered and 786-exposed values belonged to the B3 containment graph and are not B1 evidence.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\evidence_registry\source_review\C2_9_A2_A3_B1_source_correction_summary.txt ---
+10: Previous 3303 / 1321 / 786 claim removed.
+12: Reproduced B1 graph: 4144 nodes.
+13: Registered at 40%: 1657.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\findings\C_master_findings.md ---
+161: - 4,144 nodes
+162: - 1,657 registered individuals at 40% DTC registration
+166: - 464.4x amplification
+170: - 492.86x
+181: - Pathogenic Variants unrecoverability: 0.2299
+182: - cumulative all-six-tier unrecoverability: 0.0801
+196: - baseline exposed nodes: 786
+197: - k=5 exposed nodes: 560
+203: - classifier threshold: 4.5
+205: - recall: 0.9800
+206: - F1: 0.9899
+207: - accuracy: 0.9960
+333: - F1 = 0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\findings\V8_GRI_publication_claims.md ---
+16: - M5 residual containment scenario range: **0.008–0.980**.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_2_normalization_boundary_tests.tsv ---
+8: T07	LOG_REFERENCE_RATIO	x=0 R=492.86	0.0000000000	0.0000000000	no amplification -> lower amplification risk	PASS
+9: T08	LOG_REFERENCE_RATIO	x=492.86 R=492.86	1.0000000000	1.0000000000	reference-level amplification -> normalized ceiling	PASS
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_2_normalization_registry.tsv ---
+8: NORM_PRIV_D6_AMPLIFICATION	C3_PRIVACY	D6	HPRIV_02	kinship_amplification_fold	HIGHER_IS_HIGHER_RISK	LOG_REFERENCE_RATIO	clip(log(1+x)/log(1+reference_anchor),0,1)	external calibration target approximately 492.86x	calibrated model=464.4x; calibration error=5.8%	[0,1]	DIRECT_SEVERITY_ELIGIBLE	Reference anchor is explicit and must undergo later sensitivity analysis.	PRIMARY_SEVERITY_METRIC	READY_AFTER_SOURCE_EXTRACTION
+9: NORM_PRIV_D4_DISCLOSURE_CONTEXT	C3_PRIVACY	D4		vault_disclosure_unrecoverability	LOWER_UNRECOVERABILITY_IS_HIGHER_CONTEXTUAL_RISK	COMPLEMENT_PROPORTION	1 - unrecoverability	B2 vault model	Pathogenic-only=0.2299; all-six=0.0801	[0,1]	CONTEXT_ONLY_NOT_SEVERITY	Privacy D4 has no direct risk-increasing severity anchor; normalized context must not become observed D4 severity.	CONTEXT_METRIC	NOT_SEVERITY_SCALAR
+11: NORM_PRIV_D4_AUTH	C3_PRIVACY	D4		authentication_F1	HIGHER_PERFORMANCE_IS_LOWER_RESIDUAL_RISK	QUALITY_COMPLEMENT	1 - F1	B3 generated authentication sessions	F1=0.9899	[0,1]	DIRECT_MITIGATION_ONLY	Residual classifier-performance measure only; not real-world compromise probability.	MITIGATION_METRIC	MITIGATION_ONLY_NOT_BASELINE_SEVERITY
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_2_normalization_specification.json ---
+122: "reference_or_baseline": "external calibration target approximately 492.86x",
+123: "authoritative_raw_values": "calibrated model=464.4x; calibration error=5.8%",
+140: "authoritative_raw_values": "Pathogenic-only=0.2299; all-six=0.0801",
+174: "authoritative_raw_values": "F1=0.9899",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3a_1_targeted_source_schema_adjudication.txt ---
+8: 464.4: NO
+9: 492.86: NO
+11: 4144: YES
+12: 1657: YES
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_B2_lifetime_trajectories.tsv ---
+67: DISEASE	16	0.317017863211	experiments/B2_vault_design/lifetime_risk.py	compute_lifetime_risk	REPRODUCED_FROM_COMMITTED_MODEL
+291: DISEASE	72	0.799978697910	experiments/B2_vault_design/lifetime_risk.py	compute_lifetime_risk	REPRODUCED_FROM_COMMITTED_MODEL
+305: COMPOSITE	75	0.933329436335	experiments/B2_vault_design/lifetime_risk.py	compute_lifetime_risk	REPRODUCED_FROM_COMMITTED_MODEL
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_extracted_raw_metrics.tsv ---
+6: RAW_B1_AMPLIFICATION	B1	C3_PRIVACY	D6	experiments/B1_graph_amplification/results_log.txt	464.4000	fold	C2_LOCKED_VALUE_PRIMARY_SOURCE_VERIFIED	B1_E02 numeric_value + primary source literal	Calibrated B1 result.
+7: RAW_B1_REFERENCE_ANCHOR	B1	C3_PRIVACY	D6	experiments/B1_graph_amplification/results_log.txt	492.860000	fold	EXACT_COMMITTED_REFERENCE_LITERAL	literal 492.86 at line approximately 9	Reference anchor for log normalization.
+9: RAW_B2_PATHOGENIC_UNRECOVERABILITY	B2	C3_PRIVACY	D4	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	0.2299	proportion	AUTHORITATIVE_LITERAL_VERIFIED	Pathogenic-only result	Context only.
+10: RAW_B2_ALL6_UNRECOVERABILITY	B2	C3_PRIVACY	D4	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	0.0801	proportion	AUTHORITATIVE_LITERAL_VERIFIED	all-six result	Context only.
+13: RAW_B3_AUTH_F1	B3	C3_PRIVACY	D4	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	0.9899	proportion	AUTHORITATIVE_LITERAL_VERIFIED	authentication F1 result	Mitigation only.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_normalized_anchor_inputs.tsv ---
+4: NORM_PRIV_D6_AMPLIFICATION	C3_PRIVACY	D6	x=464.4000;R=492.860000	0.9904301172	NORMALIZED_PRIMARY_SEVERITY	RAW_B1_AMPLIFICATION|RAW_B1_REFERENCE_ANCHOR	C4.2 log-reference normalization.
+8: NORM_PRIV_D4_PATHOGENIC_CONTEXT	C3_PRIVACY	D4	0.2299	0.7701000000	CONTEXT_ONLY_NOT_SEVERITY	RAW_B2_PATHOGENIC_UNRECOVERABILITY	Must not become D4 baseline severity.
+9: NORM_PRIV_D4_ALL6_CONTEXT	C3_PRIVACY	D4	0.0801	0.9199000000	CONTEXT_ONLY_NOT_SEVERITY	RAW_B2_ALL6_UNRECOVERABILITY	Must not become D4 baseline severity.
+12: NORM_PRIV_D4_AUTH_RESIDUAL	C3_PRIVACY	D4	0.989900	0.0101000000	DIRECT_MITIGATION_ONLY	RAW_B3_AUTH_F1	Performance complement, not compromise probability.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_numeric_source_trace.tsv ---
+3: PRIV_D6	experiments/B1_graph_amplification/results_log.txt	experiments/B1_graph_amplification/results_log.txt	SOURCE_VERIFIED	amplification=464.4000; reference=492.860000; error=5.8000%
+5: PRIV_D4_CONTEXT	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv		AUTHORITATIVE_RESULT_VERIFIED	Pathogenic U=0.2299; all-six U=0.0801
+6: PRIV_D4_MITIGATION	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv		AUTHORITATIVE_RESULT_VERIFIED	k5=28.8%; k10=99.2%; F1=0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_source_extraction.json ---
+58: "raw_value": "464.4000",
+70: "raw_value": "492.860000",
+73: "source_locator": "literal 492.86 at line approximately 9",
+94: "raw_value": "0.2299",
+106: "raw_value": "0.0801",
+142: "raw_value": "0.9899",
+673: "probability": "0.317017863211",
+2465: "probability": "0.799978697910",
+2577: "probability": "0.933329436335",
+3100: "raw_value": "x=464.4000;R=492.860000",
+3140: "raw_value": "0.2299",
+3150: "raw_value": "0.0801",
+3180: "raw_value": "0.989900",
+3200: "value_summary": "amplification=464.4000; reference=492.860000; error=5.8000%"
+3214: "value_summary": "Pathogenic U=0.2299; all-six U=0.0801"
+3221: "value_summary": "k5=28.8%; k10=99.2%; F1=0.9899"
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_3_source_extraction_diagnostic.txt ---
+22: B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+23: B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+24: B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+27: B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+28: B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+39: population_nodes	4144	nodes
+40: registered_individuals	1657	individuals
+52: 1	Pathogenic Variants	Pathogenic Variants	0.2299
+57: 6	Aggregate Statistics	Pathogenic Variants|Polygenic Risk Scores|Pharmacogenomic Markers|Ancestry Composition|Trait Predictions|Aggregate Statistics	0.0801
+97: containment	k=5	786	560	28.8
+98: containment	k=10	786	6	99.2
+99: authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+110: RAW_B2_PATHOGENIC_UNRECOVERABILITY 0.2299 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+111: RAW_B2_ALL6_UNRECOVERABILITY 0.0801 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+114: RAW_B3_AUTH_F1 0.9899 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5a_M5_containment_scenario_envelope.tsv ---
+4: M5_HIGH_DEGREE	High-degree/hub origin	0.0200000000	0.9800000000	COMMITTED_B3_SOURCE_VERIFIED
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5a_M5_source_audit.txt ---
+1: C4.5a M5 Source Audit
+7: containment	k=5	786	560	28.8
+8: containment	k=10	786	6	99.2
+9: authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+172: 326-def evaluate_detection(sessions, threshold=4.5):
+214: 58-- **due_diligence_performed:** Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.
+215: 59-- **supersession_basis:** Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.
+225: 69:- **current_value:** High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established
+236: 2-P01_B1_GRAPH_MISATTRIBUTION	B1/B3	B1 population graph reported as 3,303 nodes, 1,321 registered individuals and 786 baseline exposed.	3303 nodes | 1321 registered | 786 exposed	Current committed B1 reproduction generates 4,144 nodes and 1,657 registered individuals. The 3,303 / 1,321 / 786 values belong to the B3 containment graph.	B1: 4144 nodes | 1657 registered; B3: 3303 nodes | 1321 registered | 786 baseline exposed	Cross-module evidence misattribution.	TRACED_TO_DIFFERENT_MODULE	Current repository and bounded Git-history audit performed; B1 and B3 authoritative reproductions compared directly.	The old values reproduce under B3, while the committed B1 analysis independently reproduces a different graph.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+237: 3-P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability reported as 0.044.	0.044	Current committed B2 model reproduces Pathogenic Variants single-tier unrecoverability as 0.2299.	0.2299	Retired value cannot be reproduced from the committed model.	NOT_FOUND_IN_GIT_HISTORY	Current tracked B2 files searched; bounded Git pickaxe history searched for 0.044/.044; no source located.	Current committed implementation is reproducible and its parameters and outputs are archived under Module C.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	2026-08-07
+239: 5-P04_B3_AUTH_THRESHOLD	B3	Authentication threshold reported as 3.6 or 3.8 with older precision/recall/F1/accuracy metrics.	threshold 3.6/3.8 | F1 approximately 0.8409	Current committed B3 implementation uses threshold 4.5 with precision 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960.	threshold 4.5 | P=1.0000 | R=0.9800 | F1=0.9899 | Acc=0.9960	Retired threshold/metrics are not present in or reproduced by the current committed B3 implementation.	NOT_FOUND_IN_GIT_HISTORY	Current B3 files and bounded Git-history searches for thresholds 3.6/3.8 and retired metrics were performed.	Current committed implementation and archived reproduction both produce threshold 4.5 and the current metric set.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	2026-08-07
+240: 6:P05_B3_HUB_K20	B3	Hub-origin breaches were described as requiring k=20 for containment.	hub-origin requires k=20	Current attack-origin reproduction shows strong dependence on origin class and does not establish a universal k=20 requirement for hub-origin breaches.	High-degree hub baseline=1077; k=10 reduction=2.0%; no universal k=20 requirement established	A historical top_k=20 implementation/default parameter was overinterpreted as an empirical requirement.	TRACED_TO_OVERINTERPRETED_IMPLEMENTATION_PARAMETER	Git commit 75b5316 inspected; historical top_k=20 implementation context compared against current reproduced attack-origin results.	The implementation parameter is not itself evidence of a required containment threshold; current attack-origin analysis reports observed reductions by origin instead.	experiments/B3_authentication/containment_algorithm.py | experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	2026-08-07
+251: 439:      "measured_result": "For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).",
+276: 409:- **measured_result:** For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+296: 14-B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+297: 15-B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+298: 16-B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+301: 19:B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+302: 20-B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+303: 21-B3_E03	B3	S6|S10	Genomic-platform authentication layer	Missed malicious access	Operational classifier-threshold selection	design decision	The committed operational authentication configuration uses classifier threshold 4.5.	4.5	classifier threshold	selected	medium	project design configuration	Threshold 4.5 is the reproducible configuration of the committed benchmark and is not claimed to be universally optimal.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Threshold 4.5 is the committed project's internal operational configuration and is not externally optimized or validated.	ASSIGNED
+317: 7-containment	k=5	786	560	28.8
+318: 8:containment	k=10	786	6	99.2
+319: 9-authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+322: 12-10:      Nodes: 3,303 | Registered: 1,321
+323: 13-13:      Baseline exposed (no containment): 786
+594: 2-P01_B1_GRAPH_MISATTRIBUTION	B1	3,303 nodes / 1,321 registered / 786 exposed	B1 reproduction: 4,144 nodes / 1,657 registered	0	0		HISTORICAL_ORIGIN_UNRESOLVED	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	No sufficiently specific cause established by this bounded audit.
+595: 3-P02_B2_UNRECOVERABILITY_0044	B2	Pathogenic Variants unrecoverability = 0.044	Pathogenic Variants unrecoverability = 0.2299	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+597: 5-P04_B3_AUTH_THRESHOLD	B3	Authentication threshold 3.6/3.8 with older metrics	Committed threshold 4.5; F1 = 0.9899	0	0		NOT_FOUND_IN_GIT_HISTORY	current tracked first-party files searched; bounded git log -S searches run for retired values/phrases; up to eight candidate commits inspected with changed-file and matching-diff excerpts	Bounded current-tree and exact Git pickaxe searches did not locate the retired claim.
+653: 232-326:def evaluate_detection(sessions, threshold=4.5):
+671: 253-435:               lw=2, label="Detection threshold (4.5)")
+674: 10-      Nodes: 3,303 | Registered: 1,321
+677: 13-      Baseline exposed (no containment): 786
+681: 17-          5        560        28.8%    0.38%        75.66
+691: 27-      Recall    : 0.9800
+692: 28-      F1 Score  : 0.9899
+693: 29-      Accuracy  : 0.9960
+698: 34-      Auth F1 score              : 0.9899
+706: 42:  Mid-Degree (Average User)        943            20.5%
+707: 43:  High-Degree (Hub Account)       1077             2.0%
+732: 171-      Nodes: 3,303 | Registered: 1,321
+735: 174-      Baseline exposed (no containment): 786
+739: 178-          5        560        28.8%    0.38%        75.66
+749: 188-      Recall    : 0.9800
+750: 189-      F1 Score  : 0.9899
+751: 190-      Accuracy  : 0.9960
+756: 195-      Auth F1 score              : 0.9899
+764: 203:  Mid-Degree (Average User)        943            20.5%
+765: 204:  High-Degree (Hub Account)       1077             2.0%
+827: 444-326:def evaluate_detection(sessions, threshold=4.5):
+845: 465-435:               lw=2, label="Detection threshold (4.5)")
+857: 877:  L59: ? **Mid-Degree Average-User Breaches (Moderately Hard):** From a baseline of 943 exposed users, k=10 provides a weak **20.5% reduction**. The containment curve requires scaling to k=20 boundary nodes before achieving a stable 99% mitigation rate, reflecting the denser connectivity of typical network
+862: 882-Reasons: content:560 | content:k=10
+866: 886-  L543: # Regression check for gh-5604
+877: 1089-  L987: fd55eaca-e3c3-4e2f-b2b5-0ae28929f2c9	955	950	-5	36.946597	37.692632	0.746035	0	5	0.0052356021	99.476440	99.476440	950	0	0	5
+917: 395-B3_E03 — Operational threshold 3.6
+933: 203:measured_result: Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20
+946: 1321-B3_E02
+988: 47:B3_E01	measured_result	Exposure declined from 560 at k=5 to 6 at k=10; hub-origin containment required k=20	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).
+994: 53-B3_E02	measured_result	At threshold 3.8, precision was 0.9737, recall 0.7400, F1 0.8409 and accuracy 0.9440	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.
+995: 54-B3_E02	numeric_value	0.8409	0.9899
+1003: 22-B1_E01	B1	S7|S8	Genomic-sharing population graph	Familial graph-amplified exposure	Population graph simulation and breach propagation	simulation	The committed B1 amplification analysis generated a 4,144-node kinship graph and registered 1,657 individuals at the configured 40 percent DTC registration rate.	4144	population nodes	observed model size	medium	B1 synthetic graph-amplification analysis	Population size is generated by the synthetic family model and depends on graph-construction parameters and random seed. Earlier graph-size and exposure values from the B3 containment scenario were mistakenly attributed to B1 and have been removed.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_results.tsv	experiments/B1_graph_amplification/amplification_analysis.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B1_authoritative_reproduction.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Synthetic kinship-graph construction output. The graph-size result is deterministic for the configured model and seed but is not itself externally calibrated evidence.	ASSIGNED
+1004: 23-B1_E02	B1	S7|S8	Genomic-sharing population graph	Graph-amplified breach exposure	Calibration to a 493-fold target amplification scenario	calibrated simulation	Model amplification reached 464.4-fold with 5.8% calibration error	464.4	fold amplification	amplified	medium	calibrated graph model	Calibration target does not independently validate every graph assumption	experiments/B1_graph_amplification/results_log.txt	paper/figures/B1_amplification_results.png|experiments/B1_graph_amplification/calibration_tuning.py|paper/figures/B1_calibration_tuning.png|research/notes/Findings.txt	VERIFIED_EXISTING_SOURCE	high		E3	Calibrated simulation/model	Synthetic graph-amplification model was tuned against the reported 23andMe amplification target and achieved 464.4-fold with 5.8 percent calibration error.	ASSIGNED
+1005: 24-B2_E01	B2	S6|S7	Layered genomic vault	Reconstruction from disclosed semantic layers	Layered vault and unrecoverability model	model-derived	Pathogenic Variants alone produced an unrecoverability score of 0.2299 in the committed vault model; cumulative disclosure across all six derived tiers reduced unrecoverability to 0.0801.	0.2299	unrecoverability score	decrease with cumulative disclosure	medium	vault-model scenario	Unrecoverability is a project model output rather than a formal cryptographic proof; values depend on the configured entropy-leakage and overlap assumptions.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv	experiments/B2_vault_design/genomic_vault.py	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Unrecoverability values are produced by the project's internal entropy-leakage model and have not been externally calibrated.	ASSIGNED
+1008: 27:B3_E01	B3	S8|S10	Kinship graph exposure boundary	Graph-originating breach propagation	Graph-aware boundary-isolation simulation	simulation	For the principal containment run, baseline exposure was 786; k=5 left 560 exposed nodes (28.8 percent reduction) and k=10 left 6 exposed nodes (99.2 percent reduction).	6	exposed nodes at k=10	decrease	medium	containment simulation	Containment performance depends on graph construction and breach origin; separate origin-class analysis shows substantially different effectiveness for peripheral, average and hub accounts.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Containment effectiveness is measured on the project's synthetic kinship graph without external containment calibration.	ASSIGNED
+1009: 28-B3_E02	B3	S6|S10	Genomic-platform authentication layer	Unauthorized platform access	Behavioural authentication classifier	simulation or benchmark	At classifier threshold 4.5, precision was 1.0000, recall 0.9800, F1 0.9899 and accuracy 0.9960 in the committed credential-stuffing benchmark.	0.9899	F1 score	performance	medium	authentication benchmark	Metrics are produced by the project's generated benchmark and must not be interpreted as external clinical or population validation.	experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv	experiments/B3_authentication/containment_algorithm.py|experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_reproduction_stdout.txt	VERIFIED_REPRODUCED_SOURCE	high		E4	Uncalibrated simulation/internal model/design benchmark	Authentication metrics come from an internally generated credential-stuffing benchmark rather than an external dataset.	ASSIGNED
+1025: 97-containment	k=5	786	560	28.8
+1026: 98:containment	k=10	786	6	99.2
+1027: 99-authentication	credential_stuffing_detection				4.5	1.0	0.98	0.9899	0.996
+1038: 110-RAW_B2_PATHOGENIC_UNRECOVERABILITY 0.2299 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+1039: 111-RAW_B2_ALL6_UNRECOVERABILITY 0.0801 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B2_authoritative_vault_results.tsv
+1042: 114-RAW_B3_AUTH_F1 0.9899 EXTRACTED experiments/C_lifecycle_integration/evidence_registry/reproduced_results/B3_authoritative_results.tsv
+1098: 253-C4.5 retains an M5 scenario envelope.
+1124: 828-                "Exposure declined from 560 at k=5 to 6 at k=10; "
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5a_modifier_architecture.json ---
+26: "residual_containment_difficulty": "0.9800000000",
+119: "source": "B2 all-six unrecoverability=0.0801",
+131: "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5a_modifier_values.tsv ---
+10: C3_PRIVACY	M4	Recoverability	0.9199000000	RESOLVED_MODEL_SUPPORTED	B2 all-six unrecoverability=0.0801	PROJECT_VAULT_MODEL	Related conceptually to D5 persistence.
+11: C3_PRIVACY	M5	Containment Difficulty		SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR	B3 attack-origin containment scenarios	PROJECT_CONTAINMENT_MODEL_ORIGIN_SENSITIVITY	Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5_case_modifier_applicability.tsv ---
+9: C3_PRIVACY	M3	UNMEASURED	No direct empirical or calibrated measurement of privacy-event detectability was produced. B3 authentication F1=0.9899 and its complement 0.0101 are retained only as contextual authentication/mitigation-performance descriptors and are not interpreted as Privacy M3.
+11: C3_PRIVACY	M5	SCENARIO_ENVELOPE	B3 containment varies strongly by scenario/origin; a single scalar is not selected at C4.5.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5_M5_containment_scenario_envelope.tsv ---
+4: M5_HIGH_DEGREE	High-degree/hub origin	0.0200000000	0.9800000000	COMMITTED_B3_SOURCE_VERIFIED
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5_modifier_architecture.json ---
+88: "rationale": "No direct privacy-event detectability measurement was produced. Authentication F1=0.9899 and 1-F1=0.0101 remain contextual mitigation-performance descriptors only."
+100: "rationale": "B3 containment varies strongly by scenario/origin; a single scalar is not selected at C4.5."
+190: "source": "B2 all-six unrecoverability=0.0801",
+202: "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+224: "residual_containment_difficulty": "0.9800000000",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_5_modifier_values.tsv ---
+9: C3_PRIVACY	M3	Detectability	0.0101000000	RESOLVED_MODEL_SUPPORTED	B3 authentication F1=0.9899	GENERATED_AUTHENTICATION_TEST_DISTRIBUTION	Related to B3 D4 mitigation evidence.
+10: C3_PRIVACY	M4	Recoverability	0.9199000000	RESOLVED_MODEL_SUPPORTED	B2 all-six unrecoverability=0.0801	PROJECT_VAULT_MODEL	Related conceptually to D5 persistence.
+11: C3_PRIVACY	M5	Containment Difficulty		SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR	B3 attack-origin containment scenarios	PROJECT_CONTAINMENT_MODEL_ORIGIN_SENSITIVITY	Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_8_baseline_GRI.json ---
+200: "correlation_note": "Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent."
+217: "scenario_range": "M5=0.008..0.980",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_8_case_output_profile.tsv ---
+3: C3_PRIVACY	0.9115102712	MODEL_DEPENDENT_MIXED_SUPPORT	M1-M2=NOT_APPLICABLE;M3=UNMEASURED;M4=0.9199;M5=SCENARIO_ENVELOPE	M5=0.008..0.980	BASELINE_PLUS_EVIDENCE_AND_MODIFIER_PROFILE
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_8_modifier_reporting_profile.tsv ---
+11: C3_PRIVACY	M5	Containment Difficulty		SCENARIO_ENVELOPE_NO_PRIMARY_SCALAR	NONE	SCENARIO_CONTEXT	Scenario-dependent; residual difficulty spans 0.0080 to 0.9800. Related to D4 mitigation and must not be treated as independent.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\C4_9_privacy_M3_semantic_correction.md ---
+15: - threshold: 4.5
+17: - recall: 0.9800
+18: - F1: 0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V7_D6_reference_anchor_sensitivity.tsv ---
+2: 0.80	394.288000	464.400000	1.0273065487	1.0000000000	YES	0.9139027419	0.0023924707	REFERENCE_SENSITIVITY
+3: 0.90	443.574000	464.400000	1.0075085871	1.0000000000	YES	0.9139027419	0.0023924707	REFERENCE_SENSITIVITY
+4: 1.00	492.860000	464.400000	0.9904301172	0.9904301172	NO	0.9115102712	-0.0000000000	PRIMARY_REFERENCE
+5: 1.10	542.146000	464.400000	0.9754690118	0.9754690118	NO	0.9077699948	-0.0037402764	REFERENCE_SENSITIVITY
+6: 1.20	591.432000	464.400000	0.9621976938	0.9621976938	NO	0.9044521653	-0.0070581059	REFERENCE_SENSITIVITY
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V7_M5_scenario_sensitivity.tsv ---
+4: M5_HIGH_DEGREE	High-degree/hub origin	0.9800000000	0.9115102712	NO	0.9115102712	0.0000000000	M5 scenario changes modifier context but not primary Base GRI.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V7_sensitivity_analysis.json ---
+176: "calibrated_amplification": "464.400000",
+187: "calibrated_amplification": "464.400000",
+197: "reference_anchor": "492.860000",
+198: "calibrated_amplification": "464.400000",
+209: "calibrated_amplification": "464.400000",
+220: "calibrated_amplification": "464.400000",
+253: "M5_residual_containment_difficulty": "0.9800000000",
+284: "M5_modifier_max": "0.9800000000",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V7_sensitivity_summary.tsv ---
+3: C3_PRIVACY	0.9115102712	0.8852036558	0.9904301172	0.9082052704..0.9115102712	0.9044521653..0.9139027419	0.0080000000	0.9800000000	0.8852036558	0.9904301172	DETERMINISTIC_SENSITIVITY_NOT_CONFIDENCE_INTERVAL	Weight assumptions dominate tested GRI variation; temporal and reference-anchor perturbations are comparatively smaller. M5 varies widely but remains a separate modifier.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V8_claims_audit.json ---
+68: "publication_claim": "The B3 containment model showed strong attack-origin dependence, with residual containment difficulty ranging from 0.008 for a low-degree/peripheral origin to 0.980 for a high-degree/hub origin.",
+221: "publication_ready_sentence": "The internal containment model was strongly topology dependent: residual containment difficulty ranged from 0.008 for low-degree/peripheral-origin attacks to 0.980 for high-degree/hub-origin attacks."
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V8_claim_registry.tsv ---
+8: V8_C07	M5_TOPOLOGY	PERMITTED_WITH_SCOPE	The B3 containment model showed strong attack-origin dependence, with residual containment difficulty ranging from 0.008 for a low-degree/peripheral origin to 0.980 for a high-degree/hub origin.	E4_INTERNAL_MODEL	Project containment model; not universal real-world probability.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\gri\V8_publication_ready_result_sentences.tsv ---
+8: R07	CONTAINMENT	The internal containment model was strongly topology dependent: residual containment difficulty ranged from 0.008 for low-degree/peripheral-origin attacks to 0.980 for high-degree/hub-origin attacks.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\handoff\module_C_file_manifest.tsv ---
+9: 69080	e67b0d6c38ccec150411c523615498b39d665eade8f500e089898c8e7869d2b5	experiments/C_lifecycle_integration/evidence_registry/source_review/C2_1_authoritative_source_discovery.txt
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\inventory\C0_repository_evidence_inventory.txt ---
+412: 1560	./experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_cross_locus_replication/final_cohorts/L2_chr1_20061156_A_T_pod5_download_manifest.tsv
+901: 1956066	./experiments/A2_adversarial_dna/basecalling/perturbations/experiment_E_targeted_locus/genotype_consequence/E1_controlled_fix_audit/experiments_A2_adversarial_dna_basecalling_perturbations_experiment_E_targeted_locus_attacks_local_interpolation_pm5_dorado_results_attacked.aligned.sorted.bam.target.sam
+1383: 121132154	./experiments/A3_clinical_consequence_mapping/results/HG002_ClinVar_intersection/HG002_truth_SNVs_normalized.vcf.gz
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\C4_2_normalization_methodology.md ---
+183: The currently retained calibrated model result is approximately 464.4x.
+222: authentication F1 of 0.9899 corresponds to a performance-complement value of
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\C4_5a_M5_containment_provenance_methodology.md ---
+1: # C4.5a M5 Containment Provenance Repair
+5: The initial C4.5 modifier architecture correctly classified Privacy M5 as a
+31: C4.5 does not select:
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\C4_5_modifier_methodology.md ---
+1: # C4.5 GenoPhylax Modifier Architecture
+5: C4.5 defines the M1-M5 risk modifiers used by GenoPhylax.
+151: F1 = 0.9899
+203: unrecoverability = 0.0801
+211: 1 - 0.2299 = 0.7701
+255: C4.5 retains an M5 scenario envelope.
+302: # Numerical status after C4.5
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\C4_8_baseline_GRI_methodology.md ---
+199: high-degree/hub residual difficulty = 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\V7_GRI_sensitivity_methodology.md ---
+144: x = 464.4-fold calibrated amplification.
+146: R = 492.86-fold reference anchor.
+179: residual difficulty = 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\methodology\V8_publication_claims_audit_methodology.md ---
+154: 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claims\C8_claim_wording_lock.md ---
+8: | P04 | YES | The primary B1 graph reproduction generated 4,144 nodes with 1,657 registered individuals. Separately, a five-run-per-parameter calibration sweep over cousin-edge probability selected cousin_prob=0.20, yielding mean amplification of 464.4-fold against the 492.86-fold reference target, corresponding to approximately 5.8 percent deviation. | Do not present 464.4-fold as an observed real-world breach rate or independently validated population estimate. | The 4,144-node/1,657-registered result describes the primary B1 graph reproduction, whereas 464.4-fold is the mean result of a separate stochastic calibration sweep. Node counts from the individual calibration runs were not recorded in the tuning output and must not be attributed to the primary reproduction graph. |
+9: | P05 | YES | Within the configured B2 models, Pathogenic Variants alone produced unrecoverability 0.2299, cumulative disclosure across all six modeled tiers reduced unrecoverability to 0.0801, re-identification reached 100 percent at year 13, and familial risk reached 100 percent at year 15. | Do not describe unrecoverability as a formal cryptographic guarantee or lifetime-model trajectories as observed population incidence. | Configured internal vault and lifetime-risk models. |
+10: | P06 | YES | In the principal B3 containment simulation, exposure decreased from 786 baseline nodes to 560 at k=5 and 6 at k=10, a 99.2 percent reduction at k=10. The internal authentication benchmark used threshold 4.5 and achieved F1 0.9899. | This is not external real-world validation. Do not revive the unsupported hub-origin k=20 claim, and do not interpret 1-F1 as a privacy-event detectability probability. | Internal graph-containment and authentication benchmark. |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claims\C8_paper_claim_evidence_map.md ---
+8: | P04 | Kinship amplification | B1 | B1_E01\|B1_E02 | E3_CALIBRATED_PLUS_E4_INTERNAL_MODEL | The primary B1 graph reproduction generated 4,144 nodes with 1,657 registered individuals. Separately, a five-run-per-parameter calibration sweep over cousin-edge probability selected cousin_prob=0.20, yielding mean amplification of 464.4-fold against the 492.86-fold reference target, corresponding to approximately 5.8 percent deviation. | Do not present 464.4-fold as an observed real-world breach rate or independently validated population estimate. | Figure_06 | Table_05 | The 4,144-node/1,657-registered result describes the primary B1 graph reproduction, whereas 464.4-fold is the mean result of a separate stochastic calibration sweep. Node counts from the individual calibration runs were not recorded in the tuning output and must not be attributed to the primary reproduction graph. |
+9: | P05 | Persistent genomic disclosure | B2 | B2_E01\|B2_E02\|B2_E03 | E4_INTERNAL_MODEL | Within the configured B2 models, Pathogenic Variants alone produced unrecoverability 0.2299, cumulative disclosure across all six modeled tiers reduced unrecoverability to 0.0801, re-identification reached 100 percent at year 13, and familial risk reached 100 percent at year 15. | Do not describe unrecoverability as a formal cryptographic guarantee or lifetime-model trajectories as observed population incidence. | Figure_06 | Table_05 | Configured internal vault and lifetime-risk models. |
+10: | P06 | Containment and authentication | B3 | B3_E01\|B3_E02\|B3_E03 | E4_INTERNAL_MODEL | In the principal B3 containment simulation, exposure decreased from 786 baseline nodes to 560 at k=5 and 6 at k=10, a 99.2 percent reduction at k=10. The internal authentication benchmark used threshold 4.5 and achieved F1 0.9899. | This is not external real-world validation. Do not revive the unsupported hub-origin k=20 claim, and do not interpret 1-F1 as a privacy-event detectability probability. | Figure_06 | Table_05 | Internal graph-containment and authentication benchmark. |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claims\C8_paper_limitations_lock.md ---
+14: | L10 | B1 calibration provenance | The 4,144-node and 1,657-registered values correspond to the primary B1 graph reproduction. The 464.4-fold value is the mean of a separate five-run-per-parameter calibration sweep at cousin_prob=0.20. The tuning output did not record node counts for each calibration run, so those population counts must not be attributed to the 464.4-fold calibration mean. |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claim_data\C8_claim_wording_lock.tsv ---
+5: P04	YES	The primary B1 graph reproduction generated 4,144 nodes with 1,657 registered individuals. Separately, a five-run-per-parameter calibration sweep over cousin-edge probability selected cousin_prob=0.20, yielding mean amplification of 464.4-fold against the 492.86-fold reference target, corresponding to approximately 5.8 percent deviation.	Do not present 464.4-fold as an observed real-world breach rate or independently validated population estimate.	The 4,144-node/1,657-registered result describes the primary B1 graph reproduction, whereas 464.4-fold is the mean result of a separate stochastic calibration sweep. Node counts from the individual calibration runs were not recorded in the tuning output and must not be attributed to the primary reproduction graph.
+6: P05	YES	Within the configured B2 models, Pathogenic Variants alone produced unrecoverability 0.2299, cumulative disclosure across all six modeled tiers reduced unrecoverability to 0.0801, re-identification reached 100 percent at year 13, and familial risk reached 100 percent at year 15.	Do not describe unrecoverability as a formal cryptographic guarantee or lifetime-model trajectories as observed population incidence.	Configured internal vault and lifetime-risk models.
+7: P06	YES	In the principal B3 containment simulation, exposure decreased from 786 baseline nodes to 560 at k=5 and 6 at k=10, a 99.2 percent reduction at k=10. The internal authentication benchmark used threshold 4.5 and achieved F1 0.9899.	This is not external real-world validation. Do not revive the unsupported hub-origin k=20 claim, and do not interpret 1-F1 as a privacy-event detectability probability.	Internal graph-containment and authentication benchmark.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claim_data\C8_paper_claim_evidence_map.tsv ---
+5: P04	Kinship amplification	B1	B1_E01|B1_E02	E3_CALIBRATED_PLUS_E4_INTERNAL_MODEL	The primary B1 graph reproduction generated 4,144 nodes with 1,657 registered individuals. Separately, a five-run-per-parameter calibration sweep over cousin-edge probability selected cousin_prob=0.20, yielding mean amplification of 464.4-fold against the 492.86-fold reference target, corresponding to approximately 5.8 percent deviation.	Do not present 464.4-fold as an observed real-world breach rate or independently validated population estimate.	Figure_06	Table_05	The 4,144-node/1,657-registered result describes the primary B1 graph reproduction, whereas 464.4-fold is the mean result of a separate stochastic calibration sweep. Node counts from the individual calibration runs were not recorded in the tuning output and must not be attributed to the primary reproduction graph.
+6: P05	Persistent genomic disclosure	B2	B2_E01|B2_E02|B2_E03	E4_INTERNAL_MODEL	Within the configured B2 models, Pathogenic Variants alone produced unrecoverability 0.2299, cumulative disclosure across all six modeled tiers reduced unrecoverability to 0.0801, re-identification reached 100 percent at year 13, and familial risk reached 100 percent at year 15.	Do not describe unrecoverability as a formal cryptographic guarantee or lifetime-model trajectories as observed population incidence.	Figure_06	Table_05	Configured internal vault and lifetime-risk models.
+7: P06	Containment and authentication	B3	B3_E01|B3_E02|B3_E03	E4_INTERNAL_MODEL	In the principal B3 containment simulation, exposure decreased from 786 baseline nodes to 560 at k=5 and 6 at k=10, a 99.2 percent reduction at k=10. The internal authentication benchmark used threshold 4.5 and achieved F1 0.9899.	This is not external real-world validation. Do not revive the unsupported hub-origin k=20 claim, and do not interpret 1-F1 as a privacy-event detectability probability.	Figure_06	Table_05	Internal graph-containment and authentication benchmark.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\claim_data\C8_paper_limitations_lock.tsv ---
+11: L10	B1 calibration provenance	The 4,144-node and 1,657-registered values correspond to the primary B1 graph reproduction. The 464.4-fold value is the mean of a separate five-run-per-parameter calibration sweep at cousin_prob=0.20. The tuning output did not record node counts for each calibration run, so those population counts must not be attributed to the 464.4-fold calibration mean.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\figure_audit\C6_existing_figure_canonicality.tsv ---
+2: B1_amplification_results.png	B1	HOLD_FOR_REVIEW	May encode pre-calibration amplification. Do not publish unless verified against 464.4x authoritative result.
+3: B1_calibration_tuning.png	B1	CANONICAL_CANDIDATE	Calibration figure is the preferred B1 candidate if it shows the final 464.4x result against ~492.86x target.
+6: B2_genomic_vault.png	B2	HOLD_FOR_REVIEW	Must not contain obsolete unrecoverability=0.044; current pathogenic value is 0.2299.
+10: B3_containment_auth.png	B3	PREFER_REPRODUCED_COPY	Prefer reproduced_results/B3_run copy and verify threshold=4.5/F1=0.9899.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\scripts\generate_C6_publication_figures.py ---
+52: B1_MODEL_AMPLIFICATION = 464.4
+53: B1_REFERENCE_AMPLIFICATION = 492.86
+55: B2_PATHOGENIC_U = 0.2299
+56: B2_ALL_TIERS_U = 0.0801
+58: B3_BASELINE_EXPOSED = 786
+59: B3_K5_EXPOSED = 560
+62: B3_AUTH_F1 = 0.9899
+268: "4144",
+274: "1657",
+280: "0.2299",
+286: "0.0801",
+298: "k=10\t786\t6\t99.2",
+304: "4.5\t1.0\t0.98\t0.9899\t0.996",
+415: 4.5,
+772: f"4,144-node synthetic kinship graph\n"
+773: f"1,657 registered individuals\n"
+1064: "threshold 3.6",
+1093: "B1 calibrated amplification = 464.4x",
+1094: "B2 pathogenic unrecoverability = 0.2299",
+1095: "B2 all-tier unrecoverability = 0.0801",
+1099: "B3 authentication F1 = 0.9899",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\scripts\generate_C7_publication_tables.py ---
+370: "ALT fraction": "0.560000",
+480: "Authoritative result": "4,144 nodes; 1,657 registered",
+486: "Authoritative result": "464.4×",
+488: "Calibrated model; ~5.8% error vs ~492.86× reference target"
+494: "Authoritative result": "0.2299",
+500: "Authoritative result": "0.0801",
+519: "786 baseline ? 560 at k=5 ? 6 at k=10"
+533: "threshold 4.5; precision 1.0000; recall 0.9800; "
+534: "F1 0.9899; accuracy 0.9960"
+590: "Supported wording": "464.4× amplification in calibrated B1 model",
+610: "k=10 reduced exposure from 786 to 6 in the principal B3 scenario."
+714: "464.4",
+715: "0.2299",
+716: "0.0801",
+719: "0.9899",
+750: "threshold 3.6",
+781: "- B1 calibrated amplification = 464.4x",
+782: "- B2 pathogenic unrecoverability = 0.2299",
+783: "- B2 all-tier unrecoverability = 0.0801",
+786: "- B3 authentication F1 = 0.9899",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\scripts\generate_C8_paper_evidence_map.py ---
+336: "The primary B1 graph reproduction generated 4,144 nodes with "
+337: "1,657 registered individuals. Separately, a five-run-per-"
+340: "464.4-fold against the 492.86-fold reference target, "
+344: "Do not present 464.4-fold as an observed real-world breach "
+350: "The 4,144-node/1,657-registered result describes the primary "
+351: "B1 graph reproduction, whereas 464.4-fold is the mean result "
+366: "produced unrecoverability 0.2299, cumulative disclosure across "
+367: "all six modeled tiers reduced unrecoverability to 0.0801, "
+390: "from 786 baseline nodes to 560 at k=5 and 6 at k=10, a 99.2 "
+392: "used threshold 4.5 and achieved F1 0.9899."
+780: "The 4,144-node and 1,657-registered values correspond to the "
+781: "primary B1 graph reproduction. The 464.4-fold value is the mean "
+785: "be attributed to the 464.4-fold calibration mean."
+844: "464.4",
+845: "0.2299",
+846: "0.0801",
+849: "0.9899",
+876: "threshold 3.6",
+934: "- B3 F1=0.9899 is contextual mitigation evidence only",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\tables\Table_03_F11_worked_case.md ---
+5: | CLEAN | 14/14 | 0.560000 | YES | 0/1 | 222.201 | PATHOGENIC_ALT_CALL_RETAINED |
+6: | PM2_OFF_TARGET_SHAM | 14/14 | 0.560000 | YES | 0/1 | 222.202 | PATHOGENIC_ALT_CALL_RETAINED |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\tables\Table_05_Module_B_authoritative_results.md ---
+5: | B1 | Synthetic kinship graph | 4,144 nodes; 1,657 registered | Internal synthetic model |
+6: | B1 | Calibrated amplification | 464.4× | Calibrated model; ~5.8% error vs ~492.86× reference target |
+7: | B2 | Pathogenic Variants unrecoverability | 0.2299 | Internal vault model |
+8: | B2 | All-tier unrecoverability | 0.0801 | Internal vault model |
+11: | B3 | Containment | 786 baseline ? 560 at k=5 ? 6 at k=10 | Internal graph-containment simulation |
+13: | B3 | Authentication benchmark | threshold 4.5; precision 1.0000; recall 0.9800; F1 0.9899; accuracy 0.9960 | Internally generated benchmark; not external validation |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\tables\Table_06_claims_and_limitations.md ---
+7: | Kinship can amplify genomic disclosure. | E3 calibrated model | 464.4× amplification in calibrated B1 model | Synthetic graph and configured calibration assumptions. |
+9: | Containment can sharply reduce simulated exposure. | E4 internal model | k=10 reduced exposure from 786 to 6 in the principal B3 scenario. | Internal graph simulation; not real-world containment validation. |
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\table_data\Table_03_F11_worked_case.tsv ---
+2: CLEAN	14/14	0.560000	YES	0/1	222.201	PATHOGENIC_ALT_CALL_RETAINED
+3: PM2_OFF_TARGET_SHAM	14/14	0.560000	YES	0/1	222.202	PATHOGENIC_ALT_CALL_RETAINED
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\table_data\Table_05_Module_B_authoritative_results.tsv ---
+2: B1	Synthetic kinship graph	4,144 nodes; 1,657 registered	Internal synthetic model
+3: B1	Calibrated amplification	464.4×	Calibrated model; ~5.8% error vs ~492.86× reference target
+4: B2	Pathogenic Variants unrecoverability	0.2299	Internal vault model
+5: B2	All-tier unrecoverability	0.0801	Internal vault model
+8: B3	Containment	786 baseline ? 560 at k=5 ? 6 at k=10	Internal graph-containment simulation
+10: B3	Authentication benchmark	threshold 4.5; precision 1.0000; recall 0.9800; F1 0.9899; accuracy 0.9960	Internally generated benchmark; not external validation
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\table_data\Table_06_claims_and_limitations.tsv ---
+4: Kinship can amplify genomic disclosure.	E3 calibrated model	464.4× amplification in calibrated B1 model	Synthetic graph and configured calibration assumptions.
+6: Containment can sharply reduce simulated exposure.	E4 internal model	k=10 reduced exposure from 786 to 6 in the principal B3 scenario.	Internal graph simulation; not real-world containment validation.
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\validation\C6_publication_figure_validation.txt ---
+18: B1 calibrated amplification = 464.4x
+19: B2 pathogenic unrecoverability = 0.2299
+20: B2 all-tier unrecoverability = 0.0801
+24: B3 authentication F1 = 0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\validation\C7_publication_table_validation.txt ---
+17: - B1 calibrated amplification = 464.4x
+18: - B2 pathogenic unrecoverability = 0.2299
+19: - B2 all-tier unrecoverability = 0.0801
+22: - B3 authentication F1 = 0.9899
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\publication\validation\C8_paper_claim_evidence_validation.txt ---
+23: - B3 F1=0.9899 is contextual mitigation evidence only
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\scripts\build_C2_cross_module_evidence_registry.py ---
+661: "Population graph contained 3,303 nodes, with 1,321 "
+662: "registered individuals and 786 baseline exposed"
+664: "numeric_value": 3303,
+681: "3303",
+682: "1321",
+683: "786",
+695: "Model amplification reached 464.4-fold with 5.8% "
+698: "numeric_value": 464.4,
+718: "464.4",
+828: "Exposure declined from 560 at k=5 to 6 at k=10; "
+848: "560",
+898: "Threshold 3.6 was selected operationally to favour recall"
+900: "numeric_value": 3.6,
+920: "3.6",
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\scripts\build_C4_9_privacy_M3_semantic_correction.py ---
+119: "F1=0.9899 and its complement 0.0101 are retained only as "
+164: "was produced. Authentication F1=0.9899 and "
+369: - threshold: 4.5
+371: - recall: 0.9800
+372: - F1: 0.9899
+400: "Authentication F1: 0.9899 RETAINED",
+428: "Authentication F1: 0.9899 RETAINED",
+440: print("Authentication F1: 0.9899 RETAINED")
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C3_V3_privacy_amplification_contrast.tsv ---
+2: synthetic_population_present	4144	population_nodes > 0	PASS
+3: registered_population_present	1657	registered_individuals > 0	PASS
+4: amplification_above_isolated_disclosure	464.4x	calibrated amplification > 1x	PASS
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C3_V5_directionality_monotonicity.tsv ---
+3: B2 cumulative disclosure unrecoverability	unrecoverability decreases with disclosure	0.2299 > 0.1346 > 0.0994 > 0.0864 > 0.0811 > 0.0801	PASS
+6: B3 containment direction	larger containment set reduces exposure	k5=560/28.8% k10=6/99.2%	PASS
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_3a_1_targeted_source_schema_adjudication.txt ---
+7: B1 464.4 visible in authoritative TSV: NO
+8: B1 492.86 visible in authoritative TSV: NO
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_3_authoritative_source_extraction_validation.txt ---
+16: B1 calibrated amplification = 464.4x: YES
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_5a_M5_containment_provenance_validation.txt ---
+1: C4.5a M5 Containment Provenance Validation
+6: M5 residual envelope: [0.0080000000, 0.9800000000]
+11: High-degree/hub: residual 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_5_final_modifier_architecture_validation.txt ---
+1: C4.5 Final Modifier Architecture Validation
+22: M5 residual maximum: 0.9800000000
+26: M5 high-degree residual = 0.980: YES
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_5_modifier_architecture_validation.txt ---
+1: C4.5 Modifier Architecture Validation
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_8_baseline_GRI_validation.txt ---
+20: high-degree = 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C4_9_privacy_M3_semantic_correction_validation.txt ---
+7: Authentication F1: 0.9899 RETAINED
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\C5_master_findings_validation.txt ---
+15: - Authentication F1 = 0.9899 retained as contextual mitigation evidence
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\V7_GRI_sensitivity_validation.txt ---
+31: high-degree residual = 0.980
+
+--- FILE: D:\Akshya\GenoPhylax\experiments\C_lifecycle_integration\validation\V8_publication_claims_audit_validation.txt ---
+24: residual scenario range = 0.008 .. 0.980

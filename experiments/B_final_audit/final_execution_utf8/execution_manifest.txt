@@ -1,0 +1,38 @@
+﻿GenoPhylax Module B Final UTF-8 Execution Audit
+===============================================
+
+Repository HEAD:
+1bee4e83aee5453f28e5777751cd9bb517d3a42b
+
+Execution date:
+2026-08-10 21:11:32 +05:30
+
+Python:
+Python 3.12.10
+
+PYTHONUTF8:
+1
+
+PYTHONIOENCODING:
+utf-8
+
+Purpose:
+Fresh completion run of final committed Module B sources after
+previous Windows cp1252 Unicode-output failures.
+
+Runs:
+1. B1 amplification_analysis.py
+2. B1 calibration_tuning.py
+3. B1 gri_d6_scores.py
+4. B3 containment_algorithm.py
+
+Execution exit codes
+====================
+
+B1 amplification : =======================================================   Module B1 — Graph Amplification Analysis   Project GenoPhylax =======================================================  [1/4] Building kinship graph (1000 families)...       Nodes: 4,144  |  Edges: 157,147 [2/4] Simulating 40% DTC registration...       Registered: 1,657 [3/4] Running analyses...       ✓ Breach size impact       ✓ Registration rate impact       ✓ Hop depth analysis       ✓ 23andMe calibration  [4/4] Results summary:       Calibration amplification : 2110.0x       23andMe real amplification: 492.86x       Model/Real ratio           : 4.2812        Breach size breakdown:         0.01% compromised → 1330.0x amplification         0.05% compromised → 934.0x amplification         0.10% compromised → 877.0x amplification         0.50% compromised → 167.12x amplification         1.00% compromised → 83.5x amplification         5.00% compromised → 16.54x amplification         10.00% compromised → 8.32x amplification         20.00% compromised → 4.33x amplification        Hop depth breakdown:         1 hops → 128 exposed         2 hops → 1878 exposed         3 hops → 3134 exposed         4 hops → 3134 exposed         5 hops → 3134 exposed  Generating plots... Plot saved as B1_amplification_results.png 0
+B1 calibration   : ==============================================================   Module B1 — Calibration Tuning Against 23andMe   Target amplification: 492.86x   Runs per parameter : 5 ==============================================================   Cousin Prob |  Avg Amplification |  Ratio to Real |      Delta --------------------------------------------------------------         0.01 |              13.80 |         0.0280 |     479.06 ◄ best so far         0.02 |              82.00 |         0.1664 |     410.86 ◄ best so far         0.05 |             368.80 |         0.7483 |     124.06 ◄ best so far         0.08 |             871.80 |         1.7689 |     378.94         0.10 |             458.00 |         0.9293 |      34.86 ◄ best so far         0.15 |             855.00 |         1.7348 |     362.14         0.20 |             464.40 |         0.9423 |      28.46 ◄ best so far         0.25 |             571.60 |         1.1598 |      78.74         0.30 |             981.80 |         1.9920 |     488.94  ==============================================================   Best cousin_prob : 0.2   Avg amplification: 464.4x   Target           : 492.86x   Delta            : 28.46 ==============================================================  Generating plots... Plot saved as B1_calibration_tuning.png 0
+B1 D6            : =================================================================   GRI Dimension D6 — Amplification Risk Scoring   Calibrated against 23andMe breach ground truth =================================================================  Scenario                       Amp Factor   D6 Score   Severity ----------------------------------------------------------------- Isolated Research DB                 1.33       0.41    Minimal Hospital EHR System                  2.33       1.22    Minimal Research Biobank                    80.00       6.34       High Regional DTC Platform                2.00       1.00    Minimal National DTC Platform              867.00       9.79   Critical 23andMe-Scale Platform            1736.00      10.00   Critical  23andMe (real breach)              492.86       8.98   Critical  ← ground truth  23andMe reference D6 score: 8.98  Generating D6 score plots... Plot saved as B1_gri_d6_scores.png  =================================================================   D6 Scoring Summary =================================================================   Isolated Research DB         D6= 0.41  [Minimal]   Hospital EHR System          D6= 1.22  [Minimal]   Research Biobank             D6= 6.34  [High]   Regional DTC Platform        D6=  1.0  [Minimal]   National DTC Platform        D6= 9.79  [Critical]   23andMe-Scale Platform       D6= 10.0  [Critical]    23andMe ground truth         D6= 8.98  [reference] 0
+B3               : ============================================================   Module B3 — Graph-Aware Containment & Authentication ============================================================  [1/4] Building kinship graph...       Nodes: 3,303 | Registered: 1,321  [2/4] Computing containment effectiveness...       Baseline exposed (no containment): 786            k    Exposed   Reduction%    Cost%   Efficiency       ----------------------------------------------------           5        560        28.8%    0.38%        75.66          10          6        99.2%    0.76%       130.58          15          6        99.2%    1.14%        87.05          20          6        99.2%    1.51%        65.72          30          6        99.2%    2.27%        43.72          40          6        99.2%    3.03%        32.75          50          6        99.2%    3.79%        26.18  [3/4] Running credential stuffing detection...       Best threshold : 3.6       Precision : 0.9070       Recall    : 0.7800       F1 Score  : 0.8387       Accuracy  : 0.9400       TP=39 FP=4 TN=196 FN=11  [4/4] Computing GRI D4 score...       Best containment reduction : 99.24%       Auth F1 score              : 0.8387       GRI D4 Score               : 0.84 / 10  [5/4] Analyzing attack origin classes...    Origin                      Baseline   k=10 Reduction   Min k for 99%   ----------------------------------------------------------------------   Low-Degree (Peripheral)          780            99.2%             k=5   Mid-Degree (Average User)        943            20.5%            k=20   High-Degree (Hub Account)       1077             3.0%            k=20    ── Containment Budget Required for 99% Reduction ──   Low-Degree (Peripheral)        : 5 accounts   Mid-Degree (Average User)      : 20 accounts   High-Degree (Hub Account)      : 20 accounts    Key finding: hub account compromise requires 4x the   containment budget of a peripheral account breach,   with 38% higher baseline blast radius (1077 vs 780). Saved: B3_attack_origin_comparison.png  Generating plots... Plot saved as B3_containment_auth.png 0
+
+Expected final result:
+all four exit codes = 0

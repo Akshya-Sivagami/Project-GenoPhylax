@@ -1,0 +1,25 @@
+﻿module	metric	value	unit	context	provenance
+B2	clinician_pathogenic_variants_unrecoverability	0.2299	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	clinician_plus_prs_unrecoverability	0.1346	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	clinician_plus_pharmacogenomics_unrecoverability	0.0994	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	clinician_plus_ancestry_unrecoverability	0.0864	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	clinician_plus_traits_unrecoverability	0.0811	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	clinician_plus_aggregate_unrecoverability	0.0801	proportion	Clinician cumulative disclosure path	final_execution/genomic_vault execution
+B2	reidentification_25pct_year	8	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	reidentification_50pct_year	11	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	reidentification_75pct_year	12	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	reidentification_100pct_year	13	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	familial_25pct_year	8	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	familial_50pct_year	11	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	familial_75pct_year	13	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	familial_100pct_year	15	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	disease_25pct_year	14	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	disease_50pct_year	22	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	disease_75pct_year	33	year	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	disease_100pct_year	NEVER	modeled_horizon	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_0	0.75	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_10	3.70	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_20	8.17	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_30	9.06	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_50	9.33	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution
+B2	D5_year_80	9.33	0_to_10	Lifetime-risk model	final_execution/lifetime_risk execution

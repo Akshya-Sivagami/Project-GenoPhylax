@@ -1,0 +1,21 @@
+﻿GenoPhylax Module B UTF-8 Execution Audit
+=========================================
+
+Repository HEAD
+---------------
+1bee4e83aee5453f28e5777751cd9bb517d3a42b
+
+B1 amplification : 0  PASS
+B1 calibration   : 0  PASS
+B1 D6            : 0  PASS
+B3               : 0  PASS
+
+FINAL STATUS
+------------
+MODULE B UTF-8 EXECUTION AUDIT: PASS
+
+Note:
+The original PowerShell wrapper accidentally captured Tee-Object stdout
+together with the integer exit code. The experiment executions themselves
+all completed successfully with process exit code 0. This corrected status
+file records the actual execution outcome.

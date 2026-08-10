@@ -1,0 +1,34 @@
+﻿GENOPHYLAX MODULE B AUTHORITATIVE RESULT VALIDATION
+==================================================
+
+Repository HEAD:
+1bee4e83aee5453f28e5777751cd9bb517d3a42b
+
+Status:
+PASS
+
+Authoritative registries:
+- B1_authoritative_final.tsv
+- B2_authoritative_final.tsv
+- B3_authoritative_final.tsv
+
+UTF-8 execution audit:
+PASS
+
+Critical corrections locked:
+- B3 authentication threshold = 3.6
+- B3 precision = 0.9070
+- B3 recall = 0.7800
+- B3 F1 = 0.8387
+- B3 accuracy = 0.9400
+- B3 mid-degree minimum k for >=99% reduction = 20
+- B3 hub minimum k for >=99% reduction = 20
+- Candidate hub residual containment difficulty = 0.970
+
+Important semantic caution:
+B3 script-local GRI D4 = 0.84/10 predates the final Module C
+GRI architecture and is preserved only as a B3-local historical metric.
+It must NOT be imported into Module C without semantic review.
+
+FINAL STATUS:
+PASS

@@ -1,0 +1,5 @@
+﻿component	command	exit_code	status
+B1_amplification	python amplification_analysis.py	0	PASS
+B1_calibration	python calibration_tuning.py	0	PASS
+B1_D6	python gri_d6_scores.py	0	PASS
+B3_containment_auth	python containment_algorithm.py	0	PASS

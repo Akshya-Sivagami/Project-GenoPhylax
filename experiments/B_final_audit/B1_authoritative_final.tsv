@@ -1,0 +1,11 @@
+﻿module	metric	value	unit	context	provenance
+B1	graph_nodes	4144	nodes	Primary kinship graph	final_execution_utf8/B1_amplification_analysis_stdout.txt
+B1	graph_edges	157147	edges	Primary kinship graph	final_execution_utf8/B1_amplification_analysis_stdout.txt
+B1	registered_nodes	1657	nodes	40 percent DTC registration	final_execution_utf8/B1_amplification_analysis_stdout.txt
+B1	primary_uncalibrated_amplification	2110.0	x	Primary analysis calibration scenario before tuning	final_execution_utf8/B1_amplification_analysis_stdout.txt
+B1	real_23andme_amplification_target	492.86	x	External calibration target encoded by experiment	final_execution_utf8/B1_amplification_analysis_stdout.txt
+B1	best_cousin_probability	0.20	probability	Calibration sweep; five runs per parameter	final_execution_utf8/B1_calibration_tuning_stdout.txt
+B1	calibrated_mean_amplification	464.4	x	Best tuned calibration result	final_execution_utf8/B1_calibration_tuning_stdout.txt
+B1	calibration_absolute_delta	28.46	x	Absolute difference from 492.86x target	final_execution_utf8/B1_calibration_tuning_stdout.txt
+B1	calibration_relative_error	0.0577446	proportion	28.46 divided by 492.86; approximately 5.77 percent	derived_from_final_execution
+B1	ground_truth_D6_score	8.98	0_to_10	23andMe real-breach reference	final_execution_utf8/B1_gri_d6_scores_stdout.txt
