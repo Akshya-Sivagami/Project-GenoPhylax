@@ -1,0 +1,10 @@
+module	evidence	baseline	strengthened_result	classification
+B1	Historical calibrated amplification	464.4x	Historical calibration fit; not independent validation	MODELLED / CALIBRATED
+B1	Breach-entry Monte Carlo	N/A	3000 realizations; mean 879.03x; median 1122x; 5th-95th percentile 1x-1337x	MODELLED / SENSITIVITY
+B1	Topology	N/A	Mean giant component 80.85%; mean <=10-node component membership 19.15%	MODELLED / STRUCTURAL AUDIT
+B1	Parameter sensitivity	464.4x historical	Tested scenario means 4.35x-1621.63x	MODELLED / SENSITIVITY
+B2	Re-identification saturation	Year 13	Tested range year 8-26; median year 14	MODELLED / SENSITIVITY
+B2	Familial saturation	Year 15	Reached in 1944/2187 scenarios; when reached, year 9-26; median year 15	MODELLED / SENSITIVITY
+B2	D5 at year 50	9.33/10	Tested range 6.4967-10.0000; median 8.6630	MODELLED / SENSITIVITY
+B2	Pathogenic-variant unrecoverability	0.2299	Global tested range 0.0388-0.6703; local +/-20% range 0.1204-0.3903	MODELLED / SENSITIVITY
+B2	Technology-decay factor	Computed in original model	Not used in reported lifetime-risk equations	MODEL STRUCTURE LIMITATION
