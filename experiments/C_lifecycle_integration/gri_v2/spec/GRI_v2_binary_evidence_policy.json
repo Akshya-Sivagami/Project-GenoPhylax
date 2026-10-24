@@ -1,0 +1,19 @@
+{
+  "version": "GRI-v2-binary-evidence-policy",
+
+  "principle": "Demonstration of a capability establishes existence of risk but does not establish maximum magnitude.",
+
+  "binary_demonstration": {
+    "numeric_point_estimate_allowed": false,
+    "automatic_score_of_one_allowed": false,
+    "interpretation": "POSITIVE_LOWER_BOUND",
+    "composite_behavior": "WITHHOLD_POINT_COMPOSITE_IF_ONLY_BINARY_MAGNITUDE_EVIDENCE_EXISTS"
+  },
+
+  "rationale": [
+    "Capability demonstration and risk magnitude are distinct constructs.",
+    "A successful proof-of-concept does not imply maximum population-scale risk.",
+    "Assigning 1.0 to every successful demonstration creates ceiling effects.",
+    "Quantitative magnitude should come from measured rates, fractions, calibrated rubrics, or justified bounded metrics."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-BEACON-MITIGATED-2017",
+  "title": "Mitigated genomic beacon re-identification risk",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "membership_inference_attack_power",
+      "raw_value": 0.2,
+      "unit": "fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Raisaro et al., JAMIA 2017, Addressing Beacon re-identification attacks: quantification and mitigation of privacy risks",
+      "limitations": "Experimental mitigation result under the study's beacon, attack, and false-positive-rate assumptions; not a universal re-identification probability."
+    }
+  ]
+}

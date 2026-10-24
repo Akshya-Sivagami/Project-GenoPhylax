@@ -1,0 +1,3 @@
+case_id,dimension,raw_metric,current_mapping,review_status,reason
+EXT-BEACON-RECON-2025,D4,genome_reconstruction_f1,RISK_FRACTION,CONSTRUCT_REVIEW,"Reconstruction efficacy measures information recovery and may not directly measure unauthorized accessibility."
+EXT-EDGECOOP-2020,D4,genomic_information_recovery_fraction,RISK_FRACTION,CONSTRUCT_REVIEW,"Genomic information recovery measures reconstruction efficacy and may not directly measure unauthorized accessibility. Same construct question as EXT-BEACON-RECON-2025 D4."

@@ -1,0 +1,2 @@
+comparison_id,lower_case,higher_case,dimension,lower_score,higher_score,expected_relation,status,validation_class
+KG01,EXT-BEACON-MITIGATED-2017,EXT-BEACON-S2-2017,D1,0.2000000000,0.3500000000,LOWER_LT_HIGHER,PASS,POST_HOC_DIRECTIONAL_SANITY_CHECK

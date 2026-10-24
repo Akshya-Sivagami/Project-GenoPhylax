@@ -1,0 +1,44 @@
+GRI v2 PRE-VALIDATION CANDIDATE
+
+STATUS
+Development methodology only.
+Not a probability of harm.
+Not externally validated.
+Not final.
+
+CURRENT DIMENSIONS
+D1 Identity Risk
+D2 Clinical Interpretation Risk
+D3 Familial Cascade
+D4 Accessibility Risk
+D5 Persistence Risk
+D6 Amplification Risk
+D7 Pipeline Exposure Risk
+
+CURRENT AGGREGATION
+Arithmetic mean across applicable, successfully normalized dimensions.
+Missing or unresolved applicable dimensions prevent issuance of a composite.
+
+EVIDENCE POLICY
+Evidence class is reported separately from risk magnitude.
+Evidence strength is not multiplied into the risk score.
+
+CURRENT D6 POLICY
+Log10 amplification normalization.
+Development primary upper anchor: 1000x.
+Sensitivity anchors: 100x, 1000x, 10000x.
+The 1000x anchor is NOT claimed to be a universal biological or genomic threshold.
+
+CURRENT DEVELOPMENT RESULTS
+GP-F11-001: 1.0000000000
+EXT-NEY-2017: 1.0000000000
+GP-PRIVACY-001: 0.9351285176
+EXT-23ANDME-2023: WITHHELD pending D6 denominator.
+
+FROZEN V1 COMPARATOR
+F11 v1: 1.0000000000
+Privacy v1: 0.9373875000
+
+IMPORTANT
+Similarity between v1 and v2 Privacy scores is not evidence of validity.
+The next phase must test GRI v2 against independent external cases and alternative aggregation/normalization assumptions.

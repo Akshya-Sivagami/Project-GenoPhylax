@@ -1,0 +1,28 @@
+{
+  "case_id": "EXT-HOMER-2008",
+  "title": "Individual identification from complex genomic DNA mixtures",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "mixture_membership_identification_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Homer et al., PLOS Genetics 2008, DOI 10.1371/journal.pgen.1000167",
+      "limitations": "Experimental identification from complex DNA mixtures using high-density SNP data; demonstrated capability does not represent population prevalence."
+    },
+    {
+      "dimension": "D3",
+      "status": "APPLICABLE",
+      "raw_metric": "relative_based_identification_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Homer et al., PLOS Genetics 2008, DOI 10.1371/journal.pgen.1000167",
+      "limitations": "Relative-based resolution was demonstrated experimentally; this does not imply universal familial identification."
+    }
+  ]
+}

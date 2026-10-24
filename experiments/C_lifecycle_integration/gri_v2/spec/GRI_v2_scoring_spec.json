@@ -1,0 +1,47 @@
+{
+  "version": "GRI-v2-development",
+  "dimensions": {
+    "D1": {
+      "metric": "reidentification_fraction",
+      "formula": "x",
+      "range": [0,1],
+      "status": "CANDIDATE"
+    },
+    "D2": {
+      "metric": "clinically_relevant_integrity_loss_fraction",
+      "formula": "1-retained_fraction",
+      "range": [0,1],
+      "status": "CANDIDATE"
+    },
+    "D3": {
+      "metric": "familial_exposure_fraction",
+      "formula": "x",
+      "range": [0,1],
+      "status": "CANDIDATE"
+    },
+    "D4": {
+      "metric": "unauthorized_access_fraction",
+      "formula": null,
+      "status": "REVIEW_REQUIRED",
+      "reason": "Fraction of accounts initially compromised does not by itself represent total accessibility consequence."
+    },
+    "D5": {
+      "metric": "persistence_composite",
+      "formula": null,
+      "status": "COMPOSITE_REQUIRED",
+      "reason": "Persistence requires both irreversibility and temporal persistence; unrecoverability alone is insufficient."
+    },
+    "D6": {
+      "metric": "amplification_ratio",
+      "formula": null,
+      "status": "DENOMINATOR_REQUIRED",
+      "reason": "Absolute exposed-profile counts and fold-amplification values cannot be directly compared without a defined baseline."
+    },
+    "D7": {
+      "metric": "pipeline_propagation_rubric",
+      "formula": "rubric",
+      "range": [0,1],
+      "status": "CANDIDATE"
+    }
+  }
+}

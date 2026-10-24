@@ -1,0 +1,28 @@
+{
+  "case_id": "EXT-BEACON-RECON-2025",
+  "title": "Beacon genome reconstruction and downstream membership inference",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "downstream_membership_reidentification_fraction",
+      "raw_value": 0.82,
+      "unit": "fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Beacon Reconstruction Attack, Bioinformatics 2025",
+      "limitations": "41 of 50 experimental membership-inference attacks succeeded at 5 percent false-positive rate under the reported experimental configuration."
+    },
+    {
+      "dimension": "D4",
+      "status": "APPLICABLE",
+      "raw_metric": "genome_reconstruction_f1",
+      "raw_value": 0.70,
+      "unit": "F1_fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Beacon Reconstruction Attack, Bioinformatics 2025",
+      "limitations": "Reported reconstruction result for a 50-individual beacon using 1000 randomly selected SNPs; not equivalent to reconstruction of an entire clinical genome."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+case_id,dimension,raw_metric,metric_family,v2_status
+GP-F11-001,D2,evaluable_ALT_support_retained_after_targeted_perturbation,FRACTION_INVERSE,CANDIDATE
+GP-F11-001,D7,demonstrated_pipeline_propagation,ORDINAL_PATH,RUBRIC_REQUIRED
+GP-PRIVACY-001,D1,modelled_reidentification_saturation,FRACTION_DIRECT,CANDIDATE
+GP-PRIVACY-001,D3,modelled_familial_exposure_saturation,FRACTION_DIRECT,CANDIDATE
+GP-PRIVACY-001,D5,pathogenic_variant_unrecoverability,FRACTION_DIRECT,REVIEW_REQUIRED
+GP-PRIVACY-001,D6,calibrated_amplification_factor,COUNT_OR_FOLD,ANCHORS_REQUIRED
+EXT-23ANDME-2023,D4,unauthorized_account_access,FRACTION_DIRECT,REVIEW_REQUIRED
+EXT-23ANDME-2023,D6,related_profiles_exposed,COUNT_OR_FOLD,ANCHORS_REQUIRED
+EXT-NEY-2017,D7,demonstrated_cross_stage_propagation,ORDINAL_PATH,RUBRIC_REQUIRED

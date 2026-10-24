@@ -1,0 +1,32 @@
+{
+  "dimension": "D6",
+  "name": "Amplification Risk",
+  "version": "GRI-v2-development",
+
+  "construct": "Expansion of exposure or reach beyond the initially exposed population or record set.",
+
+  "canonical_metric": "amplification_ratio",
+
+  "formula": "total_reachable_or_exposed / initial_direct_exposure",
+
+  "normalization_candidates": [
+    {
+      "id": "LOG10_ANCHORED",
+      "formula": "log10(ratio) / log10(upper_anchor)",
+      "status": "ANCHOR_REQUIRED"
+    },
+    {
+      "id": "LOG1P_ANCHORED",
+      "formula": "log1p(ratio - 1) / log1p(upper_anchor - 1)",
+      "status": "ANCHOR_REQUIRED"
+    }
+  ],
+
+  "rules": {
+    "ratio_below_one_allowed": false,
+    "absolute_exposed_count_directly_scorable": false,
+    "corpus_max_as_upper_anchor": false,
+    "464_4_as_universal_upper_anchor": false,
+    "external_anchor_justification_required": true
+  }
+}

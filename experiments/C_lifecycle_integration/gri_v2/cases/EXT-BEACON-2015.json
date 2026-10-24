@@ -1,0 +1,28 @@
+{
+  "case_id": "EXT-BEACON-2015",
+  "title": "Genomic beacon membership re-identification",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "membership_reidentification_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Shringarpure and Bustamante 2015, American Journal of Human Genetics",
+      "limitations": "Controlled beacon experiments; success depends on beacon size, query count, available target genome and attack assumptions."
+    },
+    {
+      "dimension": "D3",
+      "status": "APPLICABLE",
+      "raw_metric": "relative_identification_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Shringarpure and Bustamante 2015, American Journal of Human Genetics",
+      "limitations": "Study demonstrated relative-identification capability under experimental beacon conditions; not population prevalence."
+    }
+  ]
+}

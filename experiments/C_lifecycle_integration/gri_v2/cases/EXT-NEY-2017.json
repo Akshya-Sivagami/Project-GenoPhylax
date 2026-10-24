@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-NEY-2017",
+  "title": "Ney et al. synthesized-DNA computer-security experiment",
+  "case_type": "SOFTWARE_SECURITY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D7",
+      "status": "APPLICABLE",
+      "raw_metric": "demonstrated_cross_stage_propagation",
+      "raw_value": "synthesized_DNA->sequencing->postprocessing->modified_vulnerable_program",
+      "unit": "pipeline_path",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Ney et al., USENIX Security 2017",
+      "limitations": "Proof-of-concept used a deliberately modified downstream utility containing a known vulnerability; it did not demonstrate compromise of an unmodified production biology program."
+    }
+  ]
+}

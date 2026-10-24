@@ -1,0 +1,29 @@
+{
+  "dimension": "D5",
+  "name": "Persistence Risk",
+  "version": "GRI-v2-development",
+
+  "construct": "Resistance of genomic exposure or its consequences to reversal combined with persistence across a predefined time horizon.",
+
+  "components": [
+    {
+      "id": "irreversibility",
+      "range": [0.0, 1.0],
+      "formula": "1 - recoverability_fraction"
+    },
+    {
+      "id": "temporal_persistence",
+      "range": [0.0, 1.0],
+      "formula": "persistence_score_at_predefined_horizon"
+    }
+  ],
+
+  "candidate_formula": "arithmetic_mean(irreversibility, temporal_persistence)",
+
+  "rules": {
+    "both_components_required": true,
+    "missing_component_equals_zero": false,
+    "time_horizon_must_be_reported": true,
+    "model_output_must_be_labelled_modelled": true
+  }
+}

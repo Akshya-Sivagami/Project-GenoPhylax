@@ -1,0 +1,28 @@
+{
+  "case_id": "EXT-23ANDME-2023",
+  "title": "23andMe 2023 credential-stuffing and DNA Relatives exposure",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_INCIDENT",
+  "dimensions": [
+    {
+      "dimension": "D4",
+      "status": "APPLICABLE",
+      "raw_metric": "unauthorized_account_access",
+      "raw_value": 0.001,
+      "unit": "fraction_of_accounts",
+      "evidence_class": "OBSERVATIONAL",
+      "source": "23andMe SEC filings",
+      "limitations": "Credential stuffing; company stated it was not the source of the compromised credentials."
+    },
+    {
+      "dimension": "D6",
+      "status": "APPLICABLE",
+      "raw_metric": "related_profiles_exposed",
+      "raw_value": 5500000,
+      "unit": "DNA_Relatives_profiles",
+      "evidence_class": "OBSERVATIONAL",
+      "source": "23andMe SEC filings",
+      "limitations": "Approximately 5.5 million DNA Relatives profiles; should not be interpreted as a universal amplification factor."
+    }
+  ]
+}

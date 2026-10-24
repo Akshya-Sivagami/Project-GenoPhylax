@@ -1,0 +1,28 @@
+{
+  "case_id": "GP-F11-001",
+  "title": "F11 targeted variant suppression",
+  "case_type": "INTEGRITY",
+  "source_type": "GENOPHYLAX_EXPERIMENT",
+  "dimensions": [
+    {
+      "dimension": "D2",
+      "status": "APPLICABLE",
+      "raw_metric": "evaluable_ALT_support_retained_after_targeted_perturbation",
+      "raw_value": 0.0,
+      "unit": "fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "A3_E02|A3_E03",
+      "limitations": "Single established F11 locus; controlled HG002 research experiment."
+    },
+    {
+      "dimension": "D7",
+      "status": "APPLICABLE",
+      "raw_metric": "demonstrated_pipeline_propagation",
+      "raw_value": "S2->S4->S5",
+      "unit": "lifecycle_stage_path",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "HF11_01|HF11_02",
+      "limitations": "Observed experimental pipeline only."
+    }
+  ]
+}

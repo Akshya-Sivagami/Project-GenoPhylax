@@ -1,0 +1,22 @@
+{
+  "test_name": "GRI_v2_posthoc_known_groups_sanity_check",
+  "status": "POST_HOC",
+  "purpose": "Check whether GRI v2 preserves an externally reported directional contrast within a closely related genomic privacy setting.",
+  "claims_not_supported": [
+    "This is not an a priori validation hypothesis.",
+    "This is not independent external validation of GRI v2.",
+    "Passing this test does not establish construct validity.",
+    "This test must not be used to tune the scoring function."
+  ],
+  "comparisons": [
+    {
+      "comparison_id": "KG01",
+      "lower_case": "EXT-BEACON-MITIGATED-2017",
+      "higher_case": "EXT-BEACON-S2-2017",
+      "dimension": "D1",
+      "expected_relation": "LOWER_LT_HIGHER",
+      "rationale": "The two cases represent related membership-inference conditions from the same study family with reported attack-power magnitudes of 0.20 and 0.35. Because both are registered as direct D1 risk fractions, the scoring system should preserve the reported ordering.",
+      "interpretation": "Directional sanity check only."
+    }
+  ]
+}

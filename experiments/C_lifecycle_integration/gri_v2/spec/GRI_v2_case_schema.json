@@ -1,0 +1,54 @@
+{
+  "schema_version": "GRI-v2-case-1.0",
+  "required": [
+    "case_id",
+    "title",
+    "case_type",
+    "source_type",
+    "dimensions"
+  ],
+  "case_type_allowed": [
+    "INTEGRITY",
+    "PRIVACY",
+    "SOFTWARE_SECURITY",
+    "ACCESS_CONTROL",
+    "MIXED"
+  ],
+  "source_type_allowed": [
+    "GENOPHYLAX_EXPERIMENT",
+    "GENOPHYLAX_MODEL",
+    "EXTERNAL_EMPIRICAL",
+    "EXTERNAL_INCIDENT",
+    "EXTERNAL_RESEARCH"
+  ],
+  "dimension_status_allowed": [
+    "APPLICABLE",
+    "NOT_APPLICABLE",
+    "UNMEASURED"
+  ],
+  "evidence_class_allowed": [
+    "EXPERIMENTAL",
+    "OBSERVATIONAL",
+    "CALIBRATED_MODEL",
+    "MODELLED",
+    "INFERRED"
+  ],
+  "dimension_record": {
+    "fields": [
+      "dimension",
+      "status",
+      "raw_metric",
+      "raw_value",
+      "unit",
+      "evidence_class",
+      "source",
+      "limitations"
+    ]
+  },
+  "rules": {
+    "missing_is_zero": false,
+    "score_without_provenance_allowed": false,
+    "manual_normalized_score_allowed": false,
+    "case_specific_normalization_allowed": false
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "dimension": "D7",
+  "name": "Pipeline Exposure Risk",
+  "version": "GRI-v2-development",
+
+  "rubric": [
+    {
+      "level": 0,
+      "label": "ISOLATED",
+      "definition": "Effect demonstrated only at its originating processing stage.",
+      "score": 0.0
+    },
+    {
+      "level": 1,
+      "label": "ADJACENT_PROPAGATION",
+      "definition": "Effect demonstrably propagates from its origin into one downstream processing stage.",
+      "score": 0.3333333333
+    },
+    {
+      "level": 2,
+      "label": "MULTISTAGE_PROPAGATION",
+      "definition": "Effect demonstrably persists across multiple downstream processing stages, but no consequential terminal interpretation, security, or decision endpoint is demonstrated.",
+      "score": 0.6666666667
+    },
+    {
+      "level": 3,
+      "label": "CONSEQUENTIAL_ENDPOINT",
+      "definition": "Effect demonstrably propagates across processing stages and reaches a consequential downstream interpretation, security, or decision endpoint.",
+      "score": 1.0
+    }
+  ],
+
+  "rules": {
+    "demonstrated_propagation_required": true,
+    "hypothetical_stages_count": false,
+    "number_of_pipeline_tools_alone_determines_score": false,
+    "endpoint_must_be_evidence_supported": true,
+    "case_specific_thresholds_allowed": false
+  }
+}

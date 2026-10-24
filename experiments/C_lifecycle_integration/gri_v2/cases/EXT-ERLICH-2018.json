@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-ERLICH-2018",
+  "title": "Long-range familial genomic search",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D3",
+      "status": "APPLICABLE",
+      "raw_metric": "third_cousin_or_closer_match_fraction",
+      "raw_value": 0.60,
+      "unit": "fraction_of_searches",
+      "evidence_class": "OBSERVATIONAL",
+      "source": "Erlich et al., Science 2018, Identity inference of genomic data using long-range familial searches",
+      "limitations": "Approximately 60 percent of searches in a dataset of 1.28 million consumer-genomics individuals returned a relative sharing at least 100 cM, typically corresponding to a third cousin or closer. This score represents demonstrated familial reach under the study population and database conditions; it is not a 60 percent probability of complete individual re-identification and should not be generalized across ancestries or database compositions."
+    }
+  ]
+}

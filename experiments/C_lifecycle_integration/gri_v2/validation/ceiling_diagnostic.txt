@@ -1,0 +1,22 @@
+GRI v2 CEILING DIAGNOSTIC
+=============================================
+Scored dimension observations: 15
+Exact 1.0 observations: 6
+Exact ceiling fraction: 0.4000
+>=0.9 observations: 6
+>=0.9 fraction: 0.4000
+Binary-demonstration ceiling observations: 0
+
+Scores by dimension:
+ - D1: 6
+ - D2: 1
+ - D3: 2
+ - D4: 1
+ - D5: 1
+ - D6: 2
+ - D7: 2
+
+Interpretation:
+A high ceiling fraction indicates limited discrimination among severe cases.
+Binary demonstration establishes capability but does not quantify magnitude.
+Binary demonstration should therefore not automatically be treated as a calibrated maximum-risk observation.

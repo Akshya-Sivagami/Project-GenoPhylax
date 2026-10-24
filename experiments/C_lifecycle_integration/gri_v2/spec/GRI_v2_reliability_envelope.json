@@ -1,0 +1,54 @@
+{
+  "version": "GRI-v2-reliability-envelope-development",
+
+  "principle": "Risk magnitude and reliability are separate outputs. Reliability must never multiply or silently modify the GRI risk score.",
+
+  "components": {
+
+    "resolution_coverage": {
+      "definition": "Fraction of applicable dimensions for which a quantitative point estimate is available.",
+      "formula": "point_scored_dimensions / applicable_dimensions"
+    },
+
+    "breadth": {
+      "definition": "Number of independently applicable GRI dimensions represented by quantitative point estimates.",
+      "report_as": "count_and_fraction_of_seven",
+      "warning": "Breadth is descriptive and does not imply that all seven dimensions should apply to every case."
+    },
+
+    "evidence_profile": {
+      "definition": "Counts of evidence classes contributing to quantitative point estimates.",
+      "allowed_classes": [
+        "EXPERIMENTAL",
+        "OBSERVATIONAL",
+        "CALIBRATED_MODEL",
+        "MODELLED",
+        "INFERRED"
+      ]
+    },
+
+    "leave_one_dimension_out": {
+      "definition": "Maximum absolute change in arithmetic composite after removal of one quantitatively scored dimension.",
+      "minimum_dimensions_required": 2,
+      "interpretation": "Sensitivity diagnostic, not uncertainty interval."
+    },
+
+    "aggregation_rank_stability": {
+      "definition": "Whether case ordering is preserved across prespecified arithmetic, geometric and RMS aggregation alternatives.",
+      "interpretation": "Corpus-level robustness diagnostic, not confidence interval."
+    },
+
+    "provenance_completeness": {
+      "definition": "Fraction of quantitatively scored dimensions containing non-empty source provenance.",
+      "target": 1.0
+    }
+  },
+
+  "forbidden_interpretations": [
+    "Reliability is probability that GRI is correct.",
+    "Breadth is risk magnitude.",
+    "Evidence class is a numerical risk weight.",
+    "Leave-one-out range is a confidence interval.",
+    "Full resolution coverage means comprehensive lifecycle coverage."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-EDGECOOP-2020",
+  "title": "Genetic genealogy genotype-recovery attack",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D4",
+      "status": "APPLICABLE",
+      "raw_metric": "genomic_information_recovery_fraction",
+      "raw_value": 0.82,
+      "unit": "fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Edge and Coop, eLife 2020, Attacks on genetic privacy via uploads to genealogical databases",
+      "limitations": "Approximately 900 uploaded genomes could recover at least one allele at SNP sites across up to 82 percent of the genome of a median European-ancestry individual. This measures genomic information recovery, not directly authorization-boundary accessibility. D4 mapping is therefore under construct review and no quantitative D4 point score should be issued until that mapping is resolved."
+    }
+  ]
+}

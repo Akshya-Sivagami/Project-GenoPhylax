@@ -1,0 +1,7 @@
+case_id,dimension,raw_metric,raw_value,normalization_method,ceiling_reason
+EXT-23ANDME-2023,D4,unauthorized_account_access,0.001,D4_ACCESSIBILITY_RUBRIC,RUBRIC_MAXIMUM_LEVEL
+EXT-NEY-2017,D7,demonstrated_cross_stage_propagation,synthesized_DNA->sequencing->postprocessing->modified_vulnerable_program,D7_PIPELINE_RUBRIC,RUBRIC_MAXIMUM_LEVEL
+GP-F11-001,D2,evaluable_ALT_support_retained_after_targeted_perturbation,0.0,PROTECTION_RETAINED_FRACTION,INVERSE_RAW_FRACTION_AT_BOUNDARY
+GP-F11-001,D7,demonstrated_pipeline_propagation,S2->S4->S5,D7_PIPELINE_RUBRIC,RUBRIC_MAXIMUM_LEVEL
+GP-PRIVACY-001,D1,modelled_reidentification_saturation,1.0,RISK_FRACTION,RAW_FRACTION_AT_BOUNDARY
+GP-PRIVACY-001,D3,modelled_familial_exposure_saturation,1.0,RISK_FRACTION,RAW_FRACTION_AT_BOUNDARY

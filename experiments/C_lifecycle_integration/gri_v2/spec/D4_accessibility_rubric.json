@@ -1,0 +1,54 @@
+{
+  "dimension": "D4",
+  "name": "Accessibility Risk",
+  "version": "GRI-v2-development",
+
+  "construct": "Degree to which genomic information becomes accessible outside its intended authorization boundary.",
+
+  "components": [
+    {
+      "id": "authorization_boundary_breach",
+      "type": "binary",
+      "values": {
+        "0": "No demonstrated unauthorized access",
+        "1": "Demonstrated unauthorized access"
+      }
+    },
+    {
+      "id": "access_scope",
+      "type": "ordinal",
+      "levels": [
+        {
+          "level": 0,
+          "score": 0.0,
+          "definition": "No protected genomic information accessed."
+        },
+        {
+          "level": 1,
+          "score": 0.3333333333,
+          "definition": "Unauthorized access confined to the directly compromised account or record."
+        },
+        {
+          "level": 2,
+          "score": 0.6666666667,
+          "definition": "Unauthorized access extends beyond the directly compromised record through a linked feature, relationship, sharing mechanism, or dataset."
+        },
+        {
+          "level": 3,
+          "score": 1.0,
+          "definition": "Unauthorized access extends beyond directly compromised records at large scale through a linked or shared genomic-data mechanism."
+        }
+      ]
+    }
+  ],
+
+  "candidate_formula": "authorization_boundary_breach * access_scope_score",
+
+  "rules": {
+    "initial_compromise_fraction_is_score": false,
+    "absolute_profile_count_is_score": false,
+    "demonstrated_unauthorized_access_required": true,
+    "amplification_scored_separately_in_D6": true,
+    "case_specific_thresholds_allowed": false
+  }
+}

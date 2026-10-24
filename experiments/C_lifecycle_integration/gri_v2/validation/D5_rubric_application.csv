@@ -1,0 +1,2 @@
+case_id,dimension,recoverability_fraction,irreversibility,temporal_horizon_years,temporal_persistence,candidate_score,evidence_class,status
+GP-PRIVACY-001,D5,0.2299,0.7701,50,0.9330,0.8515500000,MODELLED,CANDIDATE

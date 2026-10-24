@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-GURSOY-2020",
+  "title": "Membership inference using inferred genomic attributes",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "genomic_membership_inference_attack_power",
+      "raw_value": 0.80,
+      "unit": "attack_power",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Gursoy et al., Bioinformatics 2020, Inference attacks against differentially private query results from genomic datasets including dependent tuples",
+      "limitations": "The reported attack power of 0.80 was achieved in the study's experimental membership-inference setting using inferred SNP values after approximately 170 queries, with the specified privacy parameters. It is scenario-specific and is not a universal probability that genomic-dataset membership can be inferred."
+    }
+  ]
+}

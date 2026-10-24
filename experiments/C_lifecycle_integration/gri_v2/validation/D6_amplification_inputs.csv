@@ -1,0 +1,3 @@
+case_id,dimension,amplification_ratio,evidence_class,provenance,status
+GP-PRIVACY-001,D6,464.4,CALIBRATED_MODEL,"B1_E02|B1_authoritative_final.tsv",CANDIDATE
+EXT-23ANDME-2023,D6,301.69,OBSERVATIONAL,"OPC Canada and UK ICO Joint Investigation PIPEDA Findings 2025-001: 5,497,376 DNAR profiles / 18,222 directly accessed accounts",CANDIDATE

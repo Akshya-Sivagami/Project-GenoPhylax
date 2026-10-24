@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-BEACON-S2-2017",
+  "title": "Beacon S2 rare-allele mitigation",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "membership_inference_attack_power_s2",
+      "raw_value": 0.35,
+      "unit": "fraction",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Raisaro et al., JAMIA 2017, Addressing Beacon re-identification attacks: quantification and mitigation of privacy risks",
+      "limitations": "Upper observed attack-power level reported for the studied S2 configuration when epsilon was at least 0.15. Experimental result depends on beacon composition, adversarial knowledge, false-positive-rate assumptions and mitigation configuration; not a universal re-identification probability."
+    }
+  ]
+}

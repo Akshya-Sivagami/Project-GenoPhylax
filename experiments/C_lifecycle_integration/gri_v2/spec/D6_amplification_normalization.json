@@ -1,0 +1,34 @@
+{
+  "dimension": "D6",
+  "name": "Amplification Risk",
+  "version": "GRI-v2-development",
+
+  "canonical_metric": "amplification_ratio",
+
+  "definition": "Ratio of total reachable or exposed genomic records to directly exposed or initiating records.",
+
+  "candidate_transformation": "log10",
+
+  "candidate_formula": "log10(ratio) / log10(upper_anchor)",
+
+  "lower_anchor": 1.0,
+
+  "upper_anchor_candidates": [
+    100,
+    1000,
+    10000
+  ],
+
+  "primary_development_anchor": 1000,
+
+  "anchor_status": "SENSITIVITY_TESTED_NOT_EXTERNALLY_VALIDATED",
+
+  "rules": {
+    "ratio_equal_one_score": 0.0,
+    "values_above_upper_anchor_clipped": true,
+    "corpus_max_used_as_anchor": false,
+    "464_4_used_as_anchor": false,
+    "absolute_count_directly_scorable": false,
+    "headline_claim_requires_anchor_sensitivity": true
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "version": "GRI-v2-metric-semantics-development",
+
+  "semantic_types": {
+
+    "RISK_FRACTION": {
+      "description": "A bounded fraction where larger values directly represent greater demonstrated risk.",
+      "range": [0.0, 1.0],
+      "formula": "x"
+    },
+
+    "PROTECTION_RETAINED_FRACTION": {
+      "description": "A bounded fraction where larger values represent retained protection or integrity.",
+      "range": [0.0, 1.0],
+      "formula": "1-x"
+    },
+
+    "BINARY_DEMONSTRATION": {
+      "description": "Binary evidence that a defined risk capability was experimentally demonstrated.",
+      "range": [0.0, 1.0],
+      "formula": "x",
+      "warning": "Measures demonstrated capability, not prevalence or probability."
+    },
+
+    "RUBRIC": {
+      "description": "Score derived from a predefined dimension-specific ordinal rubric.",
+      "range": [0.0, 1.0]
+    },
+
+    "COMPOSITE": {
+      "description": "Score derived from predefined dimension-specific components."
+    },
+
+    "AMPLIFICATION_RATIO": {
+      "description": "Expansion relative to an explicitly defined initiating population.",
+      "minimum": 1.0
+    }
+  }
+}

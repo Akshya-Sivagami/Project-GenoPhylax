@@ -1,0 +1,48 @@
+{
+  "case_id": "GP-PRIVACY-001",
+  "title": "GenoPhylax genomic privacy amplification and persistence model",
+  "case_type": "PRIVACY",
+  "source_type": "GENOPHYLAX_MODEL",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "modelled_reidentification_saturation",
+      "raw_value": 1.0,
+      "unit": "fraction",
+      "evidence_class": "MODELLED",
+      "source": "B2_E02",
+      "limitations": "Model output; not observed population prevalence."
+    },
+    {
+      "dimension": "D3",
+      "status": "APPLICABLE",
+      "raw_metric": "modelled_familial_exposure_saturation",
+      "raw_value": 1.0,
+      "unit": "fraction",
+      "evidence_class": "MODELLED",
+      "source": "B2_E03",
+      "limitations": "Model output; not longitudinal population observation."
+    },
+    {
+      "dimension": "D5",
+      "status": "APPLICABLE",
+      "raw_metric": "pathogenic_variant_unrecoverability",
+      "raw_value": 0.2299,
+      "unit": "fraction",
+      "evidence_class": "MODELLED",
+      "source": "B2_E01",
+      "limitations": "Model-derived quantity."
+    },
+    {
+      "dimension": "D6",
+      "status": "APPLICABLE",
+      "raw_metric": "calibrated_amplification_factor",
+      "raw_value": 464.4,
+      "unit": "fold",
+      "evidence_class": "CALIBRATED_MODEL",
+      "source": "B1_E02",
+      "limitations": "Calibrated scenario result; not a universal genomic amplification factor."
+    }
+  ]
+}

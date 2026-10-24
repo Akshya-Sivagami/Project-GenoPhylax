@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-GEDMATCH-2020",
+  "title": "GEDmatch 2020 authorization-permission breach",
+  "case_type": "ACCESS_CONTROL",
+  "source_type": "EXTERNAL_INCIDENT",
+  "dimensions": [
+    {
+      "dimension": "D4",
+      "status": "APPLICABLE",
+      "raw_metric": "authorization_boundary_breach_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "OBSERVATIONAL",
+      "source": "Verogen GEDmatch Incident Response, July 2020",
+      "limitations": "All user permissions were reset and all profiles were visible to all users for approximately three hours, including profiles not opted into law-enforcement matching. GEDmatch stated that no user data was downloaded or compromised. The incident demonstrates an authorization-boundary failure but does not provide a quantitative measure of actual unauthorized genomic-information access; therefore no D4 point magnitude is inferred."
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "GRI-v2-development",
+  "dimensions": [
+    {
+      "id": "D1",
+      "name": "Identity Risk",
+      "construct": "Potential for genomic information to enable persistent individual re-identification.",
+      "include": ["re-identification", "identity inference", "identity linkage"],
+      "exclude": ["familial exposure without individual identification", "generic data access"],
+      "direction": "higher = greater identity risk",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D2",
+      "name": "Clinical Interpretation Risk",
+      "construct": "Potential for genomic information manipulation or disclosure to alter or reveal clinically relevant interpretation.",
+      "include": ["variant suppression", "variant fabrication", "clinically relevant inference", "interpretation corruption"],
+      "exclude": ["pipeline disruption with no demonstrated interpretation consequence"],
+      "direction": "higher = greater interpretation risk",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D3",
+      "name": "Familial Cascade Risk",
+      "construct": "Extension of genomic exposure or inference from one individual to biological relatives.",
+      "include": ["relative inference", "familial exposure", "kinship cascade"],
+      "exclude": ["non-familial network propagation"],
+      "direction": "higher = greater familial cascade",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D4",
+      "name": "Accessibility Risk",
+      "construct": "Exposure associated with unauthorized, inappropriate, or insufficiently controlled genomic-data access.",
+      "include": ["unauthorized access", "excessive access", "public exposure", "access-control failure"],
+      "exclude": ["identity inference alone", "persistence alone"],
+      "direction": "higher = greater accessibility risk",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D5",
+      "name": "Persistence Risk",
+      "construct": "Difficulty of reversing genomic exposure or its consequences over time.",
+      "include": ["irreversibility", "long-term persistence", "continued exposure"],
+      "exclude": ["initial exposure magnitude"],
+      "direction": "higher = greater persistence",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D6",
+      "name": "Amplification Risk",
+      "construct": "Expansion of an initial genomic exposure through sharing, kinship, reuse, inference, or downstream propagation.",
+      "include": ["exposure amplification", "network propagation", "downstream reuse"],
+      "exclude": ["persistence without expansion"],
+      "direction": "higher = greater amplification",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    },
+    {
+      "id": "D7",
+      "name": "Pipeline Exposure Risk",
+      "construct": "Propagation of a security-relevant integrity effect through genomic-processing stages.",
+      "include": ["cross-stage propagation", "upstream-to-downstream integrity failure"],
+      "exclude": ["isolated software failure without demonstrated downstream propagation"],
+      "direction": "higher = greater pipeline exposure",
+      "normalization": "REQUIRES_VALIDATED_ANCHORS"
+    }
+  ]
+}

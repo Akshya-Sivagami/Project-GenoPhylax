@@ -1,0 +1,66 @@
+{
+  "version": "GRI-v2-normalization-development",
+  "principles": {
+    "case_specific_normalization": false,
+    "manual_score_assignment": false,
+    "clip_normalized_values": true,
+    "output_range": [0.0, 1.0],
+    "unvalidated_metric_is_scorable": false
+  },
+
+  "metric_families": [
+
+    {
+      "metric_family": "FRACTION_DIRECT",
+      "description": "Observed or modelled fraction where increasing fraction directly represents increasing risk.",
+      "input_range": [0.0, 1.0],
+      "formula": "x",
+      "lower_anchor": 0.0,
+      "upper_anchor": 1.0,
+      "status": "CANDIDATE"
+    },
+
+    {
+      "metric_family": "FRACTION_INVERSE",
+      "description": "Fraction representing retained protection, recoverability, or retained integrity where lower values imply greater risk.",
+      "input_range": [0.0, 1.0],
+      "formula": "1-x",
+      "lower_anchor": 0.0,
+      "upper_anchor": 1.0,
+      "status": "CANDIDATE"
+    },
+
+    {
+      "metric_family": "BOUNDED_SCALE",
+      "description": "Metric already defined on a fixed bounded scale.",
+      "formula": "(x-min)/(max-min)",
+      "status": "CANDIDATE",
+      "requirement": "Published or predefined scale bounds must exist independently of the assessed case."
+    },
+
+    {
+      "metric_family": "COUNT_OR_FOLD",
+      "description": "Unbounded count, fold-amplification, population or network quantity.",
+      "formula": null,
+      "status": "ANCHORS_REQUIRED",
+      "requirement": "Must not be min-max normalized using the current corpus. Requires external or domain-justified anchors and transformation."
+    },
+
+    {
+      "metric_family": "ORDINAL_PATH",
+      "description": "Ordered pipeline/lifecycle propagation.",
+      "formula": null,
+      "status": "RUBRIC_REQUIRED",
+      "requirement": "Requires a predefined stage-propagation rubric independent of individual cases."
+    }
+  ],
+
+  "rules": [
+    "Normalization must be selected by metric semantics, not desired score.",
+    "Observed corpus minimum and maximum must not automatically become risk anchors.",
+    "A maximum observed value is not automatically maximum possible risk.",
+    "Saturation at 1.0 requires an explicit upper-anchor justification.",
+    "Transformations must be fixed before external validation scoring.",
+    "Unvalidated mappings remain UNSCORED."
+  ]
+}

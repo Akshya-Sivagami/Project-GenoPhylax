@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-GYMREK-2013",
+  "title": "Personal-genome identification by surname inference",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "surname_inference_success_fraction",
+      "raw_value": 0.119,
+      "unit": "fraction_of_evaluated_cases",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Gymrek et al., Science 2013, Identifying personal genomes by surname inference",
+      "limitations": "Surname inference was reported as successful in 109 of 911 evaluated cases, approximately 11.9 percent. The technique is primarily applicable to male records through Y-chromosome STR information and depends on genealogical-database coverage and associated metadata. Surname inference is an identity-linkage mechanism and does not imply universal or automatic full re-identification."
+    }
+  ]
+}

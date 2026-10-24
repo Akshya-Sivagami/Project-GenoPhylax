@@ -1,0 +1,18 @@
+{
+  "case_id": "EXT-VONTHENEN-2019",
+  "title": "Allele-inference attack against genomic data-sharing beacons",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "membership_reidentification_with_genotype_inference_demonstrated",
+      "raw_value": 1,
+      "unit": "binary_demonstration",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "Von Thenen et al., Bioinformatics 2019, Re-identification of individuals in genomic data-sharing beacons via allele inference",
+      "limitations": "Experimental beacon attack. In the reported simulated 65-person CEU beacon scenario with low-MAF victim SNPs hidden, the genotype-inference attack required five queries on average at the reported 95 percent confidence level. Query count measures attack efficiency and is not itself treated as D1 risk magnitude."
+    }
+  ]
+}
