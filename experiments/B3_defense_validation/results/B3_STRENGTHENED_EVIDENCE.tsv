@@ -1,0 +1,8 @@
+module	evidence	baseline	strengthened_result	classification
+B3	Peripheral containment	Historical single-run result	20/20 seeds reached >=99%; median minimum k=4; range=1-6	MODELLED / VALIDATION CONTROL
+B3	Mid-degree containment	Historical single-run result	20/20 seeds reached >=99%; median minimum k=10; range=4-35	MODELLED / VALIDATION CONTROL
+B3	Hub containment	Historical single-run result	20/20 seeds reached >=99%; median minimum k=18; range=12-22	MODELLED / VALIDATION CONTROL
+B3	Containment at k=10	No universal threshold	Peripheral mean 99.23%; mid-degree mean 72.70%; hub mean 1.91%	MODELLED / SENSITIVITY
+B3	Authentication threshold	Historical threshold 4.5	100-run development-selected threshold: median 3.5; P05-P95 3.1-3.9	MODELLED / VALIDATION CONTROL
+B3	Held-out authentication	Historical single-run metrics	100-run mean precision=0.8840; recall=0.8365; F1=0.8555; accuracy=0.9436	MODELLED / HELD-OUT VALIDATION
+B3	Fixed threshold 4.5	Historical operating point	Held-out mean precision=0.9997; recall=0.6825; F1=0.8086; high precision but reduced recall	MODELLED / HELD-OUT VALIDATION
