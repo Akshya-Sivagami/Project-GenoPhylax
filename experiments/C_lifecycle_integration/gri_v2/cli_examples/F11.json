@@ -1,0 +1,28 @@
+{
+  "case_id": "GP-F11-001-CLI",
+  "case_type": "INTEGRITY",
+  "source_type": "GENOPHYLAX_EXPERIMENT",
+  "dimensions": [
+    {
+      "dimension": "D2",
+      "status": "APPLICABLE",
+      "raw_metric": "evaluable_ALT_support_retained_after_targeted_perturbation",
+      "raw_value": 0.0,
+      "evidence_class": "EXPERIMENTAL",
+      "source": "A3_E02|A3_E03",
+      "limitations": "Single demonstrated F11 locus in the current GenoPhylax experimental case."
+    },
+    {
+      "dimension": "D7",
+      "status": "APPLICABLE",
+      "raw_metric": "demonstrated_pipeline_propagation",
+      "raw_value": "S2->S4->S5",
+      "evidence_class": "EXPERIMENTAL",
+      "source": "HF11_01|HF11_02",
+      "limitations": "Pipeline propagation demonstrated for the defined F11 experimental case.",
+      "scoring_inputs": {
+        "rubric_level": 3
+      }
+    }
+  ]
+}

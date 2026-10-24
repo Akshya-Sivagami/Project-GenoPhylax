@@ -1,0 +1,50 @@
+{
+  "case_id": "GP-PRIVACY-001-CLI",
+  "case_type": "PRIVACY",
+  "source_type": "GENOPHYLAX_MODEL",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "modelled_reidentification_saturation",
+      "raw_value": 1.0,
+      "evidence_class": "MODELLED",
+      "source": "B2_E02",
+      "limitations": "Model output; not an observed universal re-identification probability."
+    },
+    {
+      "dimension": "D3",
+      "status": "APPLICABLE",
+      "raw_metric": "modelled_familial_exposure_saturation",
+      "raw_value": 1.0,
+      "evidence_class": "MODELLED",
+      "source": "B2_E03",
+      "limitations": "Model output; not an observed universal familial-exposure probability."
+    },
+    {
+      "dimension": "D5",
+      "status": "APPLICABLE",
+      "raw_metric": "pathogenic_variant_unrecoverability",
+      "raw_value": 0.2299,
+      "evidence_class": "MODELLED",
+      "source": "B2_E01|B2_authoritative_final.tsv",
+      "limitations": "Persistence components are model-derived.",
+      "scoring_inputs": {
+        "recoverability_fraction": 0.2299,
+        "temporal_persistence": 0.9330
+      }
+    },
+    {
+      "dimension": "D6",
+      "status": "APPLICABLE",
+      "raw_metric": "calibrated_amplification_factor",
+      "raw_value": 464.4,
+      "evidence_class": "CALIBRATED_MODEL",
+      "source": "B1_E02|B1_authoritative_final.tsv",
+      "limitations": "464.4x is a calibrated model result, not a universal genomic amplification factor.",
+      "scoring_inputs": {
+        "amplification_ratio": 464.4
+      }
+    }
+  ]
+}

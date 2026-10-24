@@ -1,0 +1,16 @@
+{
+  "case_id": "CLI-BINARY-WITHHOLD-TEST",
+  "case_type": "PRIVACY",
+  "source_type": "EXTERNAL_RESEARCH",
+  "dimensions": [
+    {
+      "dimension": "D1",
+      "status": "APPLICABLE",
+      "raw_metric": "membership_reidentification_demonstrated",
+      "raw_value": 1,
+      "evidence_class": "EXPERIMENTAL",
+      "source": "CLI regression fixture",
+      "limitations": "Binary demonstration establishes existence of capability, not calibrated risk magnitude."
+    }
+  ]
+}
