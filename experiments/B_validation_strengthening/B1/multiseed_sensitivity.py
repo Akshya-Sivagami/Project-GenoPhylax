@@ -1,4 +1,22 @@
-﻿import csv
+﻿# ============================================================================
+# HISTORICAL / PRE-AUTHORITATIVE — superseded by commit d1a7de5
+# ============================================================================
+# This script predates the "Lock authoritative Module B results" commit
+# (d180bd6) and the "Rebuild Module C from authoritative lifecycle evidence"
+# commit (d1a7de5). Numbers produced here are NOT the canonical/reported
+# GenoPhylax values.
+#
+# Canonical single-point values: experiments/B_final_audit/B1_authoritative_final.tsv
+# Canonical multi-seed/multi-draw validation (B1+B3 unified graph):
+#   demo/unified_b1_b3_multiseed_v2.py
+# Canonical B3-internal multi-seed validation (original n_families=800 config):
+#   experiments/B3_defense_validation/
+#
+# This script is kept for historical/provenance purposes only. Do not cite
+# its output as a current GenoPhylax result.
+# ============================================================================
+
+import csv
 import random
 import sys
 from pathlib import Path
